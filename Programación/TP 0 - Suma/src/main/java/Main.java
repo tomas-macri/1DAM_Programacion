@@ -26,7 +26,7 @@ public class Main {
         sc.nextLine();
         System.out.print("Nombre: ");
         nombre = sc.nextLine();
-        System.out.print("Segundo numero: ");
+        System.out.print("Segundo número: ");
         numero2 = sc.nextInt();
 
         System.out.println("Hola " + nombre + ". La suma es: " + (numero1+numero2));
