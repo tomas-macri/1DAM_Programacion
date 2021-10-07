@@ -17,7 +17,7 @@ public class Ejercicio15 {
             System.out.println("Este mes ("+(i+1)+") debe pagar un total de " + formulaPago);
             acumPagado += formulaPago;
         }
-        System.out.println("Al cabo de los 20 meses usted pagó " + acumPagado + "€");
+        System.out.println("Al cabo de los 20 meses usted ha pagado " + acumPagado + "€");
 
 
     }
