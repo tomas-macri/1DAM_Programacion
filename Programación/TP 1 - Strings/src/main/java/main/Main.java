@@ -63,7 +63,7 @@ public class Main {
                     break;
                 default:
                     if (opcion != 0){
-                    System.out.println("Ejercicio inexistente");
+                        System.out.println("Ejercicio inexistente");
                     }
             }
 
