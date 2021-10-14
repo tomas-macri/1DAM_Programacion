@@ -6,7 +6,8 @@ public class Ejercicio5 {
     public static void main(String[] args) {
 
     }
-    public String ejercicio(Scanner sc){
+
+    public String ejercicio(Scanner sc) {
 //        Ejercicio 5
 //        Si tenemos una cadena con un nombre y apellidos, realizar un programa que muestre las
 //        iniciales en mayúsculas.

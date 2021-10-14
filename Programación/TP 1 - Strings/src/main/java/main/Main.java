@@ -3,15 +3,15 @@ package main;
 import java.util.Scanner;
 
 public class Main {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion;
         String resultadoFinal;
-        do{
+        do {
             System.out.println("Seleccione una opción del 1 al 10 o 0 para terminar: ");
             opcion = sc.nextInt();
             sc.nextLine();
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     Ejercicio1 ej1 = new Ejercicio1();
                     ej1.ejercicio(sc);
@@ -62,11 +62,11 @@ public class Main {
                     System.out.println(resultadoFinal);
                     break;
                 default:
-                    if (opcion != 0){
+                    if (opcion != 0) {
                         System.out.println("Ejercicio inexistente");
                     }
             }
 
-        }while(opcion != 0);
+        } while (opcion != 0);
     }
 }
