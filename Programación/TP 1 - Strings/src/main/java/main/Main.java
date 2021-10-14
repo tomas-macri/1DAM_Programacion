@@ -8,7 +8,7 @@ public class Main {
         int opcion;
         String resultadoFinal;
         do{
-            System.out.println("Seleccione una opcion: ");
+            System.out.println("Seleccione una opcion del 1 al 10 o 0 para terminar: ");
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -60,11 +60,6 @@ public class Main {
                 case 10:
                     Ejercicio10 ej10 = new Ejercicio10();
                     resultadoFinal = ej10.ejercicio(sc);
-                    System.out.println(resultadoFinal);
-                    break;
-                case 11:
-                    Ejercicio11 ej11 = new Ejercicio11();
-                    resultadoFinal = ej11.ejercicio(sc);
                     System.out.println(resultadoFinal);
                     break;
                 default:
