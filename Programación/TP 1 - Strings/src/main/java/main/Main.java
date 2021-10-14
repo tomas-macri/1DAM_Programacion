@@ -64,7 +64,7 @@ public class Main {
                 default:
                     if (opcion != 0){
                     System.out.println("Ejercicio inexistente");
-                }
+                    }
             }
 
         }while(opcion != 0);
