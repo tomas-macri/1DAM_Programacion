@@ -8,7 +8,7 @@ public class Main {
         int opcion;
         String resultadoFinal;
         do{
-            System.out.println("Seleccione una opcion del 1 al 10 o 0 para terminar: ");
+            System.out.println("Seleccione una opción del 1 al 10 o 0 para terminar: ");
             opcion = sc.nextInt();
             sc.nextLine();
 
