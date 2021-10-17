@@ -18,7 +18,7 @@ public class Vigenere {
         StringBuilder codigoCifrado = new StringBuilder();
         char letraActual;
         char letraCifradoActual;
-        // Errores con el codigo del cifrado
+        // Errores con el codigo del  cifrado
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
             letraCifradoActual = cifrado.charAt(i);
