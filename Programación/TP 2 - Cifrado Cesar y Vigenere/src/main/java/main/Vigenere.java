@@ -43,18 +43,17 @@ public class Vigenere {
         StringBuilder codigoCifrado = new StringBuilder();
         char letraActual;
         char letraCifradoActual;
-        // Errores con el codigo del  cifrado
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
             if (letraActual >= 97 && letraActual <= 122){
                 letraCifradoActual = cifrado.toLowerCase().charAt(i%cifrado.length());
                 letraActual -= 97;
-                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 97)) % 26) + 97)); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
+                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 97)) % 26) + 97));
             }
             else if (letraActual >= 65 && letraActual <= 90) {
                 letraCifradoActual = cifrado.toUpperCase().charAt(i%cifrado.length());
                 letraActual -= 65;
-                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 65)) % 26) + 65)); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
+                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 65)) % 26) + 65));
             }
             else {
                 codigoCifrado.append(letraActual);
