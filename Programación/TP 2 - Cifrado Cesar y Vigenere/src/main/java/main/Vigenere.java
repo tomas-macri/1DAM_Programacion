@@ -18,15 +18,15 @@ public class Vigenere {
         // Errores con el codigo del  cifrado
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
-            letraCifradoActual = cifrado.charAt(i);
             if (letraActual >= 97 && letraActual <= 122){
+                letraCifradoActual = cifrado.toLowerCase().charAt(i%cifrado.length());
                 letraActual -= 97;
-                letraCifradoActual = cifrado.charAt(i);
-                codigoDescifrado.append((char) ((((letraActual - (letraCifradoActual - 97) - 1) + 26) % 26) + 97)); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
+                codigoDescifrado.append((char) (((letraActual - (letraCifradoActual - 97) + 26) % 26) + 97)); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
             }
             else if (letraActual >= 65 && letraActual<= 90) {
+                letraCifradoActual = cifrado.toUpperCase().charAt(i%cifrado.length());
                 letraActual -= 65;
-                codigoDescifrado.append((char) ((((letraActual - (letraCifradoActual - 65) - 1) % 26) + 65))); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
+                codigoDescifrado.append((char) (((letraActual - (letraCifradoActual - 65) + 26) % 26) + 65)); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
             }
             else{
                 codigoDescifrado.append(letraActual);
@@ -46,15 +46,15 @@ public class Vigenere {
         // Errores con el codigo del  cifrado
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
-            letraCifradoActual = cifrado.charAt(i);
             if (letraActual >= 97 && letraActual <= 122){
+                letraCifradoActual = cifrado.toLowerCase().charAt(i%cifrado.length());
                 letraActual -= 97;
-                letraCifradoActual = cifrado.charAt(i);
-                codigoCifrado.append((char) ((((letraActual + (letraCifradoActual  - 97) + 1) % 26) + 97))); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
+                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 97)) % 26) + 97)); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
             }
             else if (letraActual >= 65 && letraActual <= 90) {
+                letraCifradoActual = cifrado.toUpperCase().charAt(i%cifrado.length());
                 letraActual -= 65;
-                codigoCifrado.append((char) ((((letraActual + (letraCifradoActual - 65) + 1) % 26) + 65))); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
+                codigoCifrado.append((char) (((letraActual + (letraCifradoActual - 65)) % 26) + 65)); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
             }
             else {
                 codigoCifrado.append(letraActual);
