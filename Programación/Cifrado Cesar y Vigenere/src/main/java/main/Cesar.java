@@ -16,13 +16,16 @@ public class Cesar {
         char letraActual;
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
-            if (letraActual > 90){
+            if (letraActual >= 97 && letraActual <= 122){
                 letraActual -= 97;
                 codigoCifrado.append((char) (((letraActual + cantCaracteres) % 26) + 97));
             }
-            else {
+            else if (letraActual >= 65 && letraActual <= 90){
                 letraActual -= 65;
                 codigoCifrado.append((char) (((letraActual + cantCaracteres) % 26) + 65));
+            }
+            else {
+                codigoCifrado.append(letraActual);
             }
         }
         return codigoCifrado.toString();
@@ -38,13 +41,16 @@ public class Cesar {
         char letraActual;
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
-            if (letraActual > 90){
+            if (letraActual >= 97 && letraActual <= 122){
                 letraActual -= 97;
                 codigoDescifrado.append((char) (((letraActual - cantCaracteres + 26) % 26) + 97));
             }
-            else {
+            else if (letraActual >= 65 && letraActual <= 90){
                 letraActual -= 65;
                 codigoDescifrado.append((char) (((letraActual - cantCaracteres + 26) % 26) + 65));
+            }
+            else {
+                codigoDescifrado.append(letraActual);
             }
         }
 

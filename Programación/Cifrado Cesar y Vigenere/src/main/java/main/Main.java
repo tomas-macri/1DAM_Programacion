@@ -38,7 +38,5 @@ public class Main {
             System.out.println("Qué método desea utilizar? Ingrese 'c' para Cesar o 'v' para Vigenere");
             metodoCifrado.append(sc.nextLine().toUpperCase().charAt(0));
         }
-
-
     }
 }

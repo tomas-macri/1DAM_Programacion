@@ -19,14 +19,17 @@ public class Vigenere {
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
             letraCifradoActual = cifrado.charAt(i);
-            if (letraActual > 90){
+            if (letraActual >= 97 && letraActual <= 122){
                 letraActual -= 97;
                 letraCifradoActual = cifrado.charAt(i);
                 codigoDescifrado.append((char) ((((letraActual - (letraCifradoActual - 97) - 1) + 26) % 26) + 97)); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
             }
-            else {
+            else if (letraActual >= 65 && letraActual<= 90) {
                 letraActual -= 65;
                 codigoDescifrado.append((char) ((((letraActual - (letraCifradoActual - 65) - 1) % 26) + 65))); // -1 porque es de 0 a 25. If (letraActual=='x' && letraCifradoActual == 'z') ? codigoCifrado.append('x');
+            }
+            else{
+                codigoDescifrado.append(letraActual);
             }
         }
         return codigoDescifrado.toString();
@@ -44,14 +47,17 @@ public class Vigenere {
         for (int i = 0; i < codigo.length(); i++) {
             letraActual = codigo.charAt(i);
             letraCifradoActual = cifrado.charAt(i);
-            if (letraActual > 90){
+            if (letraActual >= 97 && letraActual <= 122){
                 letraActual -= 97;
                 letraCifradoActual = cifrado.charAt(i);
                 codigoCifrado.append((char) ((((letraActual + (letraCifradoActual  - 97) + 1) % 26) + 97))); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
             }
-            else {
+            else if (letraActual >= 65 && letraActual <= 90) {
                 letraActual -= 65;
                 codigoCifrado.append((char) ((((letraActual + (letraCifradoActual - 65) + 1) % 26) + 65))); // +1 porque es de 0 a 25. If (letraActual=='z' && letraCifradoActual == 'c') ? codigoCifrado.append('b');
+            }
+            else {
+                codigoCifrado.append(letraActual);
             }
         }
         return codigoCifrado.toString();
