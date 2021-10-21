@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-
+//        Scanner sc = new Scanner(System.in);
+//        Ejercicio5 ej = new Ejercicio5();
+//        ej.ejConIndex(sc);
     }
 
     public String ejercicio(Scanner sc) {
@@ -20,4 +22,23 @@ public class Ejercicio5 {
         }
         return "Sus iniciales son: " + iniciales;
     }
+   /* public String ejConIndex(Scanner sc){
+        char caracter = ' ';
+        String resultado = "";
+        System.out.println("Ingrese su nombre y apellidos");
+        String cadena = sc.nextLine();
+        System.out.println(cadena.trim().charAt(0));
+        for (int i = 0; i < cadena.length(); i++) {
+            i = cadena.indexOf(i, caracter);
+            if (i != -1) {
+                resultado += cadena.charAt(i + 1);
+            }
+        }
+        return resultado;
+    }
+
+
+    Posible solucion con indexOf
+
+     */
 }
