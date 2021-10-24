@@ -9,9 +9,9 @@ public class Pintar {
             case 0:
                 System.out.println(" |--------|");
                 System.out.println(" |      (x_x)");
-                System.out.println(" |           \\|/ ");
-                System.out.println(" |            |");
-                System.out.println(" |           / \\ ");
+                System.out.println(" |      \\|/ ");
+                System.out.println(" |        |");
+                System.out.println(" |       / \\ ");
                 System.out.println(" |");
                 System.out.println("_|_");
                 break;
