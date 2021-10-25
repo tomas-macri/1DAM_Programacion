@@ -4,27 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e378b52c-4abc-4575-aea0-41c2a78e2c07" name="Changes" comment="cifrados final proyecto" />
+    <list default="true" id="5afa47c1-d7d7-45c9-a147-eb8151b42450" name="Changes" comment="17/10 cambios desde casa" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <excluded-from-favorite>
       <branch-storage>
         <map>
-          <entry type="LOCAL">
+          <entry type="REMOTE">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$/../.." source="master" />
+                <branch-info repo="$PROJECT_DIR$/../.." source="origin/master" />
               </list>
             </value>
           </entry>
@@ -44,9 +37,14 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1zXENqwY2wW7yvXOnl0DBCgerko" />
+  <component name="ProjectId" id="1zdEnCd5flHlJWoqa1CQgLkoVVN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -56,67 +54,35 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP 2 - Cifrado Cesar y Vigenere" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="TP 2 - Cifrado Cesar y Vigenere" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP 3 - Ahorcado" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e378b52c-4abc-4575-aea0-41c2a78e2c07" name="Changes" comment="" />
-      <created>1634285996819</created>
+      <changelist id="5afa47c1-d7d7-45c9-a147-eb8151b42450" name="Changes" comment="" />
+      <created>1634469731975</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1634285996819</updated>
-      <workItem from="1634285998194" duration="5069000" />
-      <workItem from="1634538778762" duration="5305000" />
-      <workItem from="1634639919499" duration="786000" />
-      <workItem from="1634642608747" duration="625000" />
-      <workItem from="1634797931035" duration="36000" />
+      <updated>1634469731975</updated>
+      <workItem from="1634469734048" duration="185000" />
+      <workItem from="1634469981999" duration="176000" />
+      <workItem from="1635067039432" duration="86000" />
     </task>
-    <task id="LOCAL-00001" summary="cesar inicio">
-      <created>1634293748923</created>
+    <task id="LOCAL-00001" summary="17/10 cambios desde casa">
+      <created>1634469849820</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1634293748923</updated>
+      <updated>1634469849820</updated>
     </task>
-    <task id="LOCAL-00002" summary="cifrados final proyecto">
-      <created>1634546509459</created>
+    <task id="LOCAL-00002" summary="17/10 cambios desde casa">
+      <created>1634470087206</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1634546509459</updated>
+      <updated>1634470087206</updated>
     </task>
-    <task id="LOCAL-00003" summary="cifrados final proyecto">
-      <created>1634640377198</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1634640377198</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +93,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -135,31 +113,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cesar inicio" />
-    <MESSAGE value="cifrados final proyecto" />
-    <option name="LAST_COMMIT_MESSAGE" value="cifrados final proyecto" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/main/Cesar.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="(letraActual + (letraCifradoActual  - 97) % 26)" />
-        <watch expression="((letraActual + letraCifradoActual ) % 26" language="JAVA" />
-        <watch expression="(letraActual - cantCaracteres + 26) % 26" language="JAVA" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TP_2___Cifrado_Cesar_y_Vigenere$Main.ic" NAME="Main Coverage Results" MODIFIED="1634293725912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>main.*</FILTER>
-    </SUITE>
+    <MESSAGE value="17/10 cambios desde casa" />
+    <option name="LAST_COMMIT_MESSAGE" value="17/10 cambios desde casa" />
   </component>
 </project>
