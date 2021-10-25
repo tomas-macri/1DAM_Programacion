@@ -21,22 +21,11 @@ public class Main {
 
         // Palabra generada (nombre de un pais (faker.country().name()) o de un nombre para probar que diferencie tilde)
         String palabraGenerada = faker.name().firstName(); //"diferencia tildes: á é í ó ú"
-        //            CODIGO PARA BORRAR COSAS QUE NO SEAN NI CARACTERES NI ESPACIOS (MAL)
-//            for (int j = 0; j < palabraGenerada.length() - 1; j++) {
-//                if (!Character.isLetter(palabraGenerada.charAt(j)) && palabraGenerada.charAt(j) != ' ') {
-//                    if (Character.isLetter(palabraGenerada.charAt(j + 1))) {
-//                        palabraGenerada.replace("" + palabraGenerada.charAt(j), " ");
-//                    } else {
-//                        palabraGenerada.replace("" + palabraGenerada.charAt(j), "");
-//                    }
-//                }
-//            }
 
         char caracterCodificar = '_';
         // codifico la palabra generada (Los caracteres que no son letras los dejo igual)
         StringBuilder palabraCodificada = claseMain.codificarPalabraGenerada(palabraGenerada, caracterCodificar);
 
-        System.out.println(palabraGenerada);
         boolean arriesgarFrase = false;
         char letraIngresada;
         String ingresoUsuario;
@@ -87,11 +76,12 @@ public class Main {
             }
 
         } while (intentosRestantes > 0 && !palabraCodificada.toString().equals(palabraGenerada));
-        //Comparo si la palabra generada y la codificada son diferentes, if (true) ? murió
+        //Comparo si la palabra generada y la codificada son diferentes, si es true, murió
         if (!palabraCodificada.toString().equalsIgnoreCase(palabraGenerada)) {
             clasePintar.pintarAhorcado(intentosRestantes);
             System.out.println("Moriste. La respuesta era: " + palabraGenerada);
         } else {
+            System.out.println("La palabra era " + palabraGenerada);
             System.out.println("GANASTE!");
         }
     }
