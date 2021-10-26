@@ -36,7 +36,7 @@ public class Main {
         StringBuilder letrasArriesgadasIncorrectas = new StringBuilder(); // guarda solo las letras que haya arriesgado el usuario y que no se encuentran en la palabra
         // do while tenga vidas y las palabras no sean iguales
         do {
-            // pido y valido letra o palabra (que sea caracter y que no lo haya escrito antes o que sea una palabra con = length que la palabra generada)
+            // pido y valido letra o palabra (que sea caracter y que no lo haya escrito antes o que sea una palabra con igual length que la palabra generada)
             clasePintar.pintarAhorcado(intentosRestantes);
             do {
                 System.out.println(palabraCodificada);
@@ -60,7 +60,7 @@ public class Main {
                intentosRestantes = 0;
            }
             else {
-                // No se arriesgó, asigno la letra ingresad
+                // No se arriesgó, asigno la letra ingresada
                 letraIngresada = ingresoUsuario.charAt(0);
                 //busco si la letra ingresada esta en la palabra
                 if (claseMain.letraIngresadaCorrecta(letraIngresada, palabraGeneradaSinAcentos)) {
@@ -134,10 +134,9 @@ public class Main {
         if (!Character.isLetter(letraIng)) {
             valido = false;
         } else {
-            for (int i = 0; i < letrasArriesgadas.length(); i++) {
+            for (int i = 0; i < letrasArriesgadas.length() && valido; i++) {
                 if (letraIng == letrasArriesgadas.charAt(i)) {
                     valido = false;
-                    i = letrasArriesgadas.length(); // Si ya encontro un caracter arriesgado dentro del StringBuilder, sale del for
                 }
             }
         }
@@ -153,10 +152,9 @@ public class Main {
 
     private boolean letraIngresadaCorrecta(char letraIngresada, String palabraGeneradaSinAcentos) {
         boolean esCorrecta = false;
-        for (int i = 0; i < palabraGeneradaSinAcentos.length(); i++) {
+        for (int i = 0; i < palabraGeneradaSinAcentos.length() && !esCorrecta; i++) {
             if (Character.toLowerCase(letraIngresada) == palabraGeneradaSinAcentos.toLowerCase().charAt(i)) {
                 esCorrecta = true;
-                i = palabraGeneradaSinAcentos.length();
             }
         }
         return esCorrecta;
