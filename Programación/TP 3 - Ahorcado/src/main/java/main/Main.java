@@ -69,17 +69,26 @@ public class Main {
                     claseMain.reemplazarCaracteresCorrectos(letraIngresada, palabraGenerada, palabraCodificada, palabraGeneradaSinAcentos); // Sugerencia de intellij: no hace falta igualar esta funcion a palabraCodificada
                 } else {
                     // si no esta, pierde un intento y agrego
-                    intentosRestantes--;
-
-                    if (letrasArriesgadasIncorrectas.length() > 0) { // if para acomodar el string builder de letras arriesgadas
-                        letrasArriesgadasIncorrectas.append('-');
-                    }
-                    letrasArriesgadasIncorrectas.append(letraIngresada);
+                    intentosRestantes = equivocarse(intentosRestantes, letraIngresada, letrasArriesgadasIncorrectas);
                 }
             }
 
         } while (intentosRestantes > 0 && !palabraCodificada.toString().equals(palabraGenerada));
         //Comparo si la palabra generada y la codificada son diferentes, si es true, murió
+        mostrarResultados(clasePintar, intentosRestantes, palabraGenerada, palabraCodificada);
+    }
+
+    private static int equivocarse(int intentosRestantes, char letraIngresada, StringBuilder letrasArriesgadasIncorrectas) {
+        intentosRestantes--;
+
+        if (letrasArriesgadasIncorrectas.length() > 0) { // if para acomodar el string builder de letras arriesgadas
+            letrasArriesgadasIncorrectas.append('-');
+        }
+        letrasArriesgadasIncorrectas.append(letraIngresada);
+        return intentosRestantes;
+    }
+
+    private static void mostrarResultados(Pintar clasePintar, int intentosRestantes, String palabraGenerada, StringBuilder palabraCodificada) {
         if (!palabraCodificada.toString().equalsIgnoreCase(palabraGenerada)) {
             clasePintar.pintarAhorcado(intentosRestantes);
             System.out.println("Moriste. La respuesta era: " + palabraGenerada);
@@ -151,13 +160,7 @@ public class Main {
     }
 
     private boolean letraIngresadaCorrecta(char letraIngresada, String palabraGeneradaSinAcentos) {
-        boolean esCorrecta = false;
-        for (int i = 0; i < palabraGeneradaSinAcentos.length() && !esCorrecta; i++) {
-            if (Character.toLowerCase(letraIngresada) == palabraGeneradaSinAcentos.toLowerCase().charAt(i)) {
-                esCorrecta = true;
-            }
-        }
-        return esCorrecta;
+        return palabraGeneradaSinAcentos.toLowerCase().contains((letraIngresada + "").toLowerCase());
     }
 
     private void reemplazarCaracteresCorrectos(char letraIngresada, String palabraGenerada, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
