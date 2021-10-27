@@ -75,7 +75,7 @@ public class Main {
 
         } while (intentosRestantes > 0 && !palabraCodificada.toString().equals(palabraGenerada));
         //Comparo si la palabra generada y la codificada son diferentes, si es true, murió
-        mostrarResultados(clasePintar, intentosRestantes, palabraGenerada, palabraCodificada);
+        mostrarResultados(clasePintar, intentosRestantes, palabraGenerada, palabraCodificada, palabraGeneradaSinAcentos);
     }
 
     private static int equivocarse(int intentosRestantes, char letraIngresada, StringBuilder letrasArriesgadasIncorrectas) {
@@ -88,8 +88,8 @@ public class Main {
         return intentosRestantes;
     }
 
-    private static void mostrarResultados(Pintar clasePintar, int intentosRestantes, String palabraGenerada, StringBuilder palabraCodificada) {
-        if (!palabraCodificada.toString().equalsIgnoreCase(palabraGenerada)) {
+    private static void mostrarResultados(Pintar clasePintar, int intentosRestantes, String palabraGenerada, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
+        if (!palabraCodificada.toString().equalsIgnoreCase(palabraGeneradaSinAcentos)) {
             clasePintar.pintarAhorcado(intentosRestantes);
             System.out.println("Moriste. La respuesta era: " + palabraGenerada);
         } else {
@@ -153,7 +153,7 @@ public class Main {
     }
 
     private void arriesgarSolucion(String ingresoUsuario, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
-        if (ingresoUsuario.equalsIgnoreCase(palabraGeneradaSinAcentos)){
+        if (ingresoUsuario.equalsIgnoreCase(palabraGeneradaSinAcentos.toLowerCase())){
             palabraCodificada.delete(0, palabraCodificada.length());
             palabraCodificada.append(ingresoUsuario);
         }
