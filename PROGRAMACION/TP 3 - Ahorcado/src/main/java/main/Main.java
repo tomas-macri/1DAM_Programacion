@@ -49,7 +49,7 @@ public class Main {
                 }
                 // no inicializo letraIngresada dentro de un else porque esta variable debe estar inicializada en todos los casos para poder ejecutar la linea siguiente
                 letraIngresada = ingresoUsuario.charAt(0);
-            } while (!claseMain.validacionLetraIngresada(letraIngresada, letrasArriesgadas) && !arriesgarFrase);
+            } while (!claseMain.validacionLetraIngresada(letraIngresada) && !arriesgarFrase);
 
             // Una vez que ingresó algo válido, me fijo si se arriesgó o si es un caracter (si ingresó + de 1 caracter pero no los de la misma longitud de la palabra, no contará como arriesgarse
            if (arriesgarFrase){
@@ -63,22 +63,36 @@ public class Main {
                 // No se arriesgó, asigno la letra ingresada
                 letraIngresada = ingresoUsuario.charAt(0);
                 //busco si la letra ingresada esta en la palabra
-                if (claseMain.letraIngresadaCorrecta(letraIngresada, palabraGeneradaSinAcentos)) {
+                if (claseMain.letraIngresadaCorrecta(letraIngresada, palabraGeneradaSinAcentos, letrasArriesgadas)) {
                     // si está, reemplazo los _____ por el caracter
+
                     System.out.println("Letra correcta");
+                    letrasArriesgadas.append(letraIngresada);
                     claseMain.reemplazarCaracteresCorrectos(letraIngresada, palabraGenerada, palabraCodificada, palabraGeneradaSinAcentos); // Sugerencia de intellij: no hace falta igualar esta funcion a palabraCodificada
                 } else {
-                    // si no esta, pierde un intento y agrego
-                    intentosRestantes = equivocarse(intentosRestantes, letraIngresada, letrasArriesgadasIncorrectas);
+                    // si no esta, valido si es porque la repitio o porque se equivoco
+                    intentosRestantes = caracterNoValido(claseMain, intentosRestantes, letraIngresada, letrasArriesgadas, letrasArriesgadasIncorrectas);
                 }
             }
 
         } while (intentosRestantes > 0 && !palabraCodificada.toString().equals(palabraGenerada));
         //Comparo si la palabra generada y la codificada son diferentes, si es true, murió
-        mostrarResultados(clasePintar, intentosRestantes, palabraGenerada, palabraCodificada, palabraGeneradaSinAcentos);
+        claseMain.mostrarResultados(clasePintar, intentosRestantes, palabraGenerada, palabraCodificada, palabraGeneradaSinAcentos);
     }
 
-    private static int equivocarse(int intentosRestantes, char letraIngresada, StringBuilder letrasArriesgadasIncorrectas) {
+    private static int caracterNoValido(Main claseMain, int intentosRestantes, char letraIngresada, StringBuilder letrasArriesgadas, StringBuilder letrasArriesgadasIncorrectas) {
+        if (letrasArriesgadas.indexOf(letraIngresada +"") != -1){
+            System.out.println("Ya has arriesgado esa letra");
+        }
+        else{
+        // si no esta, pierde un intento y agrego
+        intentosRestantes = claseMain.equivocarse(intentosRestantes, letraIngresada, letrasArriesgadasIncorrectas);
+        letrasArriesgadas.append(letraIngresada);
+        }
+        return intentosRestantes;
+    }
+
+    private int equivocarse(int intentosRestantes, char letraIngresada, StringBuilder letrasArriesgadasIncorrectas) {
         intentosRestantes--;
 
         if (letrasArriesgadasIncorrectas.length() > 0) { // if para acomodar el string builder de letras arriesgadas
@@ -88,7 +102,7 @@ public class Main {
         return intentosRestantes;
     }
 
-    private static void mostrarResultados(Pintar clasePintar, int intentosRestantes, String palabraGenerada, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
+    private void mostrarResultados(Pintar clasePintar, int intentosRestantes, String palabraGenerada, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
         if (!palabraCodificada.toString().equalsIgnoreCase(palabraGeneradaSinAcentos)) {
             clasePintar.pintarAhorcado(intentosRestantes);
             System.out.println("Moriste. La respuesta era: " + palabraGenerada);
@@ -138,18 +152,8 @@ public class Main {
         return palabraCodificada;
     }
 
-    private boolean validacionLetraIngresada(char letraIng, StringBuilder letrasArriesgadas) {
-        boolean valido = true;
-        if (!Character.isLetter(letraIng)) {
-            valido = false;
-        } else {
-            for (int i = 0; i < letrasArriesgadas.length() && valido; i++) {
-                if (letraIng == letrasArriesgadas.charAt(i)) {
-                    valido = false;
-                }
-            }
-        }
-        return valido;
+    private boolean validacionLetraIngresada(char letraIng) {
+        return Character.isLetter(letraIng);
     }
 
     private void arriesgarSolucion(String ingresoUsuario, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {
@@ -159,8 +163,9 @@ public class Main {
         }
     }
 
-    private boolean letraIngresadaCorrecta(char letraIngresada, String palabraGeneradaSinAcentos) {
-        return palabraGeneradaSinAcentos.toLowerCase().contains((letraIngresada + "").toLowerCase());
+    private boolean letraIngresadaCorrecta(char letraIngresada, String palabraGeneradaSinAcentos, StringBuilder letrasArriesgadas) {
+
+        return (palabraGeneradaSinAcentos.toLowerCase().contains((letraIngresada + "").toLowerCase()) && letrasArriesgadas.indexOf(letraIngresada+"") == -1);
     }
 
     private void reemplazarCaracteresCorrectos(char letraIngresada, String palabraGenerada, StringBuilder palabraCodificada, String palabraGeneradaSinAcentos) {

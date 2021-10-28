@@ -21,6 +21,9 @@ public class Main {
     public static final String ERROR_MENU = "Por favor, dime una de las opciones del menu." +
             "Vuelvo a mostrartelo.";
     public static final String MODIFICAR_STOCK = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
+    public static final String NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE = "No existen productos de este tipo, toooorpe";
+    public static final String DIME_LA_CANTIDAD_A_MODIFICAR_EN_CASO_DE_SER_UNA_RETIRADA_DE_STOCK_POR_FAVOR_INDICALO_EN_NEGATIVO = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
+    public static final String PARA_ELIMINAR_UN_SOCIO_DIGAME_EL_DNI_DE_ESE_SOCIO_POR_FAVOR = "Para eliminar un socio digame el DNI de ese socio, por favor";
 
     public static void main(String[] args) {
         Faker f = new Faker();
@@ -212,7 +215,7 @@ public class Main {
                     Producto producto = sv.getTodosVideoJuegos().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
-                    System.out.println("No existen productos de este tipo, toooorpe");
+                    System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
                 }
                 break;
             case 2:
@@ -224,19 +227,19 @@ public class Main {
                     Producto producto = sv.getTodosDocumentales().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
-                    System.out.println("No existen productos de este tipo, toooorpe");
+                    System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
                 }
                 break;
             case 3:
                 if (sv.getTodasPeliculas().size() > 0) {
                     indiceProducto = elegirPelicula(sv, sc);
-                    System.out.println("Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo");
+                    System.out.println(DIME_LA_CANTIDAD_A_MODIFICAR_EN_CASO_DE_SER_UNA_RETIRADA_DE_STOCK_POR_FAVOR_INDICALO_EN_NEGATIVO);
                     cantidadACambiar = sc.nextInt();
                     sc.nextLine();
                     Producto producto = sv.getTodasPeliculas().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
-                    System.out.println("No existen productos de este tipo, toooorpe");
+                    System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
                 }
                 break;
         }
@@ -263,7 +266,7 @@ public class Main {
 
     private static void borrarSocio(Scanner sc, ServiciosVideoclub sv) {
         String dni;
-        System.out.println("Para eliminar un socio digame el DNI de ese socio, por favor");
+        System.out.println(PARA_ELIMINAR_UN_SOCIO_DIGAME_EL_DNI_DE_ESE_SOCIO_POR_FAVOR);
         dni = sc.nextLine();
         if (sv.borrarSocio(dni)) {
             System.out.println("Se ha encontrado el socio y se ha eliminado de nuestro registro");

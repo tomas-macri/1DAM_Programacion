@@ -1,79 +1,75 @@
 
-N	java:S106""9Replace this use of System.out or System.err by a logger.(½ñ²Ç
-S	java:S106&"9Replace this use of System.out or System.err by a logger.(âÎÞ©ÿÿÿÿÿ
-7	java:S131)""Add a default case to this switch.(°€àâ
+N	java:S106%"9Replace this use of System.out or System.err by a logger.(½ñ²Ç
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(âÎÞ©ÿÿÿÿÿ
+7	java:S131,""Add a default case to this switch.(°€àâ
 A
-java:S1481-"+Remove this unused "member" local variable.(…èó¥
+java:S14810"+Remove this unused "member" local variable.(…èó¥
 C
-java:S1481."(Remove this unused "dni" local variable.(Àšï¶ûÿÿÿÿ
-S	java:S106R"9Replace this use of System.out or System.err by a logger.(ôÂ‹¾þÿÿÿÿ
-S	java:S106Z"9Replace this use of System.out or System.err by a logger.(©ü®‡ýÿÿÿÿ
-N	java:S106_"9Replace this use of System.out or System.err by a logger.(ÂÍ—
-N	java:S106b"9Replace this use of System.out or System.err by a logger.(Â»‚û
-N	java:S106e"9Replace this use of System.out or System.err by a logger.(Þ‘¿Ë
+java:S14811"(Remove this unused "dni" local variable.(Àšï¶ûÿÿÿÿ
+S	java:S106U"9Replace this use of System.out or System.err by a logger.(ôÂ‹¾þÿÿÿÿ
+S	java:S106]"9Replace this use of System.out or System.err by a logger.(©ü®‡ýÿÿÿÿ
+N	java:S106b"9Replace this use of System.out or System.err by a logger.(ÂÍ—
+N	java:S106e"9Replace this use of System.out or System.err by a logger.(Â»‚û
+N	java:S106h"9Replace this use of System.out or System.err by a logger.(Þ‘¿Ë
 h
-java:S3776i"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ý˜ðø
-N	java:S106k"9Replace this use of System.out or System.err by a logger.(ÙÙ¤‚
-S	java:S106n"9Replace this use of System.out or System.err by a logger.(Äãß ýÿÿÿÿ
-N	java:S106u"9Replace this use of System.out or System.err by a logger.(áÙëû
-N	java:S106†"9Replace this use of System.out or System.err by a logger.(ÆöãI
-T	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(˜—³ôüÿÿÿÿ
-T	java:S106‹"9Replace this use of System.out or System.err by a logger.(ß¤­úþÿÿÿÿ
-O	java:S106Ž"9Replace this use of System.out or System.err by a logger.(Ü¼¤ÿ
+java:S3776l"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Ý˜ðø
+N	java:S106n"9Replace this use of System.out or System.err by a logger.(ÙÙ¤‚
+S	java:S106q"9Replace this use of System.out or System.err by a logger.(Äãß ýÿÿÿÿ
+N	java:S106x"9Replace this use of System.out or System.err by a logger.(áÙëû
+N	java:S106‰"9Replace this use of System.out or System.err by a logger.(ÆöãI
+T	java:S106‹"9Replace this use of System.out or System.err by a logger.(˜—³ôüÿÿÿÿ
+T	java:S106Ž"9Replace this use of System.out or System.err by a logger.(ß¤­úþÿÿÿÿ
+O	java:S106‘"9Replace this use of System.out or System.err by a logger.(Ü¼¤ÿ
 n
-java:S3776’"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ç£õÖùÿÿÿÿ
-8	java:S131˜""Add a default case to this switch.(°€àâ
-N	java:S106ž"9Replace this use of System.out or System.err by a logger.(³Ï–G
-N	java:S106§"9Replace this use of System.out or System.err by a logger.(³Ï–G
-N	java:S106°"9Replace this use of System.out or System.err by a logger.(³Ï–G
-M	java:S106·"9Replace this use of System.out or System.err by a logger.(š·
-T	java:S106º"9Replace this use of System.out or System.err by a logger.(À‡ÃÀøÿÿÿÿ
-T	java:S106¾"9Replace this use of System.out or System.err by a logger.(šæ¶÷ýÿÿÿÿ
-T	java:S106Á"9Replace this use of System.out or System.err by a logger.(ùç¥Àûÿÿÿÿ
-8	java:S131Í""Add a default case to this switch.(°€àâ
-T	java:S106Ñ"9Replace this use of System.out or System.err by a logger.(®±­¨ùÿÿÿÿ
-N	java:S106×"9Replace this use of System.out or System.err by a logger.(€Õêv
-T	java:S106Ý"9Replace this use of System.out or System.err by a logger.(®±­¨ùÿÿÿÿ
-N	java:S106ã"9Replace this use of System.out or System.err by a logger.(€Õêv
-O	java:S106é"9Replace this use of System.out or System.err by a logger.(õ«æï
-N	java:S106ï"9Replace this use of System.out or System.err by a logger.(€Õêv
-8	java:S131ø""Add a default case to this switch.(°€àâ
-N	java:S106Š"9Replace this use of System.out or System.err by a logger.(ïíÞQ
-O	java:S106"9Replace this use of System.out or System.err by a logger.(øéÌã
-T	java:S106"9Replace this use of System.out or System.err by a logger.(ÞúÎÁúÿÿÿÿ
-T	java:S106•"9Replace this use of System.out or System.err by a logger.(Ûò ”ûÿÿÿÿ
-O	java:S106œ"9Replace this use of System.out or System.err by a logger.(ˆÝâŒ
-T	java:S106ž"9Replace this use of System.out or System.err by a logger.(Ö˜ÑÉüÿÿÿÿ
-T	java:S106¥"9Replace this use of System.out or System.err by a logger.(Ë¬ñßøÿÿÿÿ
-T	java:S106¬"9Replace this use of System.out or System.err by a logger.(ç¥×šþÿÿÿÿ
-T	java:S106®"9Replace this use of System.out or System.err by a logger.(§Ò¨þÿÿÿÿ
-T	java:S106³"9Replace this use of System.out or System.err by a logger.(¼Òêšÿÿÿÿÿ
-O	java:S106µ"9Replace this use of System.out or System.err by a logger.(éœ‘ð
-T	java:S106º"9Replace this use of System.out or System.err by a logger.(…Â¨®øÿÿÿÿ
-T	java:S106À"9Replace this use of System.out or System.err by a logger.(´ÇÆÿÿÿÿÿ
-T	java:S106É"9Replace this use of System.out or System.err by a logger.(Èâõ°üÿÿÿÿ
-N	java:S106Ð"9Replace this use of System.out or System.err by a logger.(á‹áG
-O	java:S106Ø"9Replace this use of System.out or System.err by a logger.(ÄÅ–
-O	java:S106ß"9Replace this use of System.out or System.err by a logger.(¥—”©
-T	java:S106æ"9Replace this use of System.out or System.err by a logger.(¦¨®²þÿÿÿÿ
+java:S3776•"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ç£õÖùÿÿÿÿ
+8	java:S131›""Add a default case to this switch.(°€àâ
+N	java:S106¡"9Replace this use of System.out or System.err by a logger.(³Ï–G
+N	java:S106ª"9Replace this use of System.out or System.err by a logger.(³Ï–G
+N	java:S106³"9Replace this use of System.out or System.err by a logger.(³Ï–G
+M	java:S106º"9Replace this use of System.out or System.err by a logger.(š·
+T	java:S106½"9Replace this use of System.out or System.err by a logger.(À‡ÃÀøÿÿÿÿ
+T	java:S106Á"9Replace this use of System.out or System.err by a logger.(šæ¶÷ýÿÿÿÿ
+T	java:S106Ä"9Replace this use of System.out or System.err by a logger.(ùç¥Àûÿÿÿÿ
+8	java:S131Ð""Add a default case to this switch.(°€àâ
+T	java:S106Ô"9Replace this use of System.out or System.err by a logger.(®±­¨ùÿÿÿÿ
+T	java:S106Ú"9Replace this use of System.out or System.err by a logger.(ùÂÿ¼ùÿÿÿÿ
+T	java:S106à"9Replace this use of System.out or System.err by a logger.(®±­¨ùÿÿÿÿ
+T	java:S106æ"9Replace this use of System.out or System.err by a logger.(ùÂÿ¼ùÿÿÿÿ
+O	java:S106ì"9Replace this use of System.out or System.err by a logger.(çÖæ±
+T	java:S106ò"9Replace this use of System.out or System.err by a logger.(ùÂÿ¼ùÿÿÿÿ
+8	java:S131û""Add a default case to this switch.(°€àâ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(†Ûè€ýÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(øéÌã
+T	java:S106’"9Replace this use of System.out or System.err by a logger.(ÞúÎÁúÿÿÿÿ
+T	java:S106˜"9Replace this use of System.out or System.err by a logger.(Ûò ”ûÿÿÿÿ
+O	java:S106Ÿ"9Replace this use of System.out or System.err by a logger.(ˆÝâŒ
+T	java:S106¡"9Replace this use of System.out or System.err by a logger.(Ö˜ÑÉüÿÿÿÿ
+T	java:S106¨"9Replace this use of System.out or System.err by a logger.(Ë¬ñßøÿÿÿÿ
+T	java:S106¯"9Replace this use of System.out or System.err by a logger.(ç¥×šþÿÿÿÿ
+T	java:S106±"9Replace this use of System.out or System.err by a logger.(§Ò¨þÿÿÿÿ
+T	java:S106¶"9Replace this use of System.out or System.err by a logger.(¼Òêšÿÿÿÿÿ
+O	java:S106¸"9Replace this use of System.out or System.err by a logger.(éœ‘ð
+T	java:S106½"9Replace this use of System.out or System.err by a logger.(…Â¨®øÿÿÿÿ
+T	java:S106Ã"9Replace this use of System.out or System.err by a logger.(´ÇÆÿÿÿÿÿ
+T	java:S106Ì"9Replace this use of System.out or System.err by a logger.(Èâõ°üÿÿÿÿ
+N	java:S106Ó"9Replace this use of System.out or System.err by a logger.(á‹áG
+O	java:S106Û"9Replace this use of System.out or System.err by a logger.(ÄÅ–
+O	java:S106â"9Replace this use of System.out or System.err by a logger.(¥—”©
+T	java:S106é"9Replace this use of System.out or System.err by a logger.(¦¨®²þÿÿÿÿ
 t
-java:S1192Ÿ"XDefine a constant instead of duplicating this literal "Disculpe las molestias." 3 times.(·è‡üÿÿÿÿ
-‚
-java:S1192×"lDefine a constant instead of duplicating this literal "No existen productos de este tipo, toooorpe" 3 times.(€Õêv
+java:S1192¢"XDefine a constant instead of duplicating this literal "Disculpe las molestias." 3 times.(·è‡üÿÿÿÿ
 
-java:S1192ž"kDefine a constant instead of duplicating this literal "No disponemos de articulos de este tipo. 
+java:S1192¡"kDefine a constant instead of duplicating this literal "No disponemos de articulos de este tipo. 
 " 3 times.(³Ï–G
-l
-java:S1192é"UUse already-defined constant 'MODIFICAR_STOCK' instead of duplicating its value here.(õ«æï
 Z
-java:S1155š">Use isEmpty() to check whether the collection is empty or not.(´»ºÂüÿÿÿÿ
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(´»ºÂüÿÿÿÿ
 Z
-java:S1155£">Use isEmpty() to check whether the collection is empty or not.(î€ÿ©þÿÿÿÿ
+java:S1155¦">Use isEmpty() to check whether the collection is empty or not.(î€ÿ©þÿÿÿÿ
 Z
-java:S1155¬">Use isEmpty() to check whether the collection is empty or not.(­í˜žþÿÿÿÿ
+java:S1155¯">Use isEmpty() to check whether the collection is empty or not.(­í˜žþÿÿÿÿ
 Z
-java:S1155Ï">Use isEmpty() to check whether the collection is empty or not.(´»ºÂüÿÿÿÿ
+java:S1155Ò">Use isEmpty() to check whether the collection is empty or not.(´»ºÂüÿÿÿÿ
 Z
-java:S1155Û">Use isEmpty() to check whether the collection is empty or not.(î€ÿ©þÿÿÿÿ
+java:S1155Þ">Use isEmpty() to check whether the collection is empty or not.(î€ÿ©þÿÿÿÿ
 Z
-java:S1155ç">Use isEmpty() to check whether the collection is empty or not.(­í˜žþÿÿÿÿ
+java:S1155ê">Use isEmpty() to check whether the collection is empty or not.(­í˜žþÿÿÿÿ
