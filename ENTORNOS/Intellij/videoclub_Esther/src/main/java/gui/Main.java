@@ -18,12 +18,40 @@ public class Main {
             "6. Devolver un producto alquilado \n" +
             "7. Pagar una multa\n" +
             "8. Salir";
-    public static final String ERROR_MENU = "Por favor, dime una de las opciones del menu." +
-            "Vuelvo a mostrartelo.";
+    public static final String ERROR_MENU = "Por favor, dime una de las opciones del menu. Vuelvo a mostrartelo.";
     public static final String MODIFICAR_STOCK = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
     public static final String NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE = "No existen productos de este tipo, toooorpe";
     public static final String DIME_LA_CANTIDAD_A_MODIFICAR_EN_CASO_DE_SER_UNA_RETIRADA_DE_STOCK_POR_FAVOR_INDICALO_EN_NEGATIVO = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
     public static final String PARA_ELIMINAR_UN_SOCIO_DIGAME_EL_DNI_DE_ESE_SOCIO_POR_FAVOR = "Para eliminar un socio digame el DNI de ese socio, por favor";
+    public static final String SE_HA_ENCONTRADO_EL_SOCIO_Y_SE_HA_ELIMINADO_DE_NUESTRO_REGISTRO = "Se ha encontrado el socio y se ha eliminado de nuestro registro";
+    public static final String ESTE_SOCIO_NO_SE_ENCUENTRA_EN_NUESTRO_SISTEMA = "Este socio no se encuentra en nuestro sistema";
+    public static final String SOCIO_REGISTRADO = "Socio registrado";
+    public static final String ESTE_SOCIO_YA_SE_ENCUENTRA_EN_NUESTRA_BASE_DE_DATOS = "Este socio ya se encuentra en nuestra base de datos";
+    public static final String NO_DISPONEMOS_DE_TANTAS_UNIDADES_DE_ESTE_PRODUCTO_REVISE_LOS_DATOS_Y_VUELVA_A_REALIZAR_LA_OPERACION = "No disponemos de tantas unidades de este producto, revise los datos y vuelva a realizar la operacion";
+    public static final String STOCK_ACTUALIZADO = "Stock actualizado";
+    public static final String LA_CANTIDAD_AHORA_ES = "La cantidad ahora es:";
+    public static final String PRODUCTO_AÑADIDO_CORRECTAMENTE = "Producto añadido correctamente";
+    public static final String EL_PRODUCTO_NO_SE_HA_PODIDO_AÑADIR = "El producto no se ha podido añadir";
+    public static final String ELIGE_EL_PRODUCTO_DESEADO_DE_LA_LISTA = "Elige el producto deseado de la lista";
+    public static final String POR_FAVOR_ELIJA_UNA_DE_LAS_OPCIONES_DISPONIBLES = "Por favor, elija una de las opciones disponibles";
+    public static final String SOLO_TENEMOS_3_TIPOS_DE_PRODUCTOS_DIME_1_2_O_3_POR_FAVOR = "Solo tenemos 3 tipos de productos, dime 1, 2 o 3, por favor.";
+    public static final String GRACIAS_POR_SU_VISITA = "\n GRACIAS POR SU VISITA";
+    public static final String DIGAME_SU_DNI = "Digame su DNI";
+    public static final String SU_MULTA_HA_SIDO_PAGADA = "Su multa ha sido pagada";
+    public static final String ESTE_USUARIO_NO_TIENE_NINGUNA_MULTA = "Este usuario no tiene ninguna multa";
+    public static final String ESTE_USUARIO_NO_ESTA_REGISTRADO = "Este usuario no esta registrado";
+    public static final String DIGAME_SU_DNI_PARA_PODER_PROCEDER_A_LA_DEVOLUCION = "Digame su DNI para poder proceder a la devolucion";
+    public static final String PARA_PROCEDER_A_LA_DEVOLUCION_NOS_GUSTARIA_SABER_LA_PUNTUACION_DE_0_A_5_QUE_DARIA_AL_PRODUCTO = "Para proceder a la devolucion nos gustaria saber.\n La puntuacion de 0 a 5 que daria al producto";
+    public static final String VOLVERIA_A_ALQUILARLO_1_SI_2_NO = "¿Volveria a alquilarlo?\n 1. Si\n 2. No";
+    public static final String NO_ESTA_REGISTRADO_NO_PUEDE_TENER_NINGUN_ALQUILER_CON_NOSOTROS = "No esta registrado, no puede tener ningun alquiler con nosotros";
+    public static final String HA_SIDO_SANCIONADO_YA_QUE_HA_DEVUELTO_EL_PRODUCTO_CON_RETRASO = "Ha sido sancionado ya que ha devuelto el producto con retraso";
+    public static final String NO_TIENE_NINGUN_ALQUILER_CON_NOSOTROS = "No tiene ningun alquiler con nosotros";
+    public static final String DEVOLUCION_REALIZADA = "Devolucion realizada";
+    public static final String NO_DISPONEMOS_DE_ARTICULOS_DE_ESTE_TIPO_DISCULPE_LAS_MOLESTIAS = "No disponemos de articulos de este tipo. \n Disculpe las molestias.";
+    public static final String PARA_PROCEDER_AL_ALQUILER_DEL_PRODUCTO_NECESITO_SU_DNI = "Para proceder al alquiler del producto necesito su DNI";
+    public static final String PRODUCTO_ALQUILADO_CORRECTAMENTE_MUCHAS_GRACIAS = "Producto alquilado correctamente\n MUCHAS GRACIAS";
+    public static final String RECUERDE_QUE_TIENE = "Recuerde que tiene ";
+    public static final String SEGUNDOS_PARA_DEVOLVERLO_SIN_SER_SANCIONADO = " segundos para devolverlo sin ser sancionado.";
 
     public static void main(String[] args) {
         Faker f = new Faker();
@@ -82,7 +110,7 @@ public class Main {
 
     private static boolean salir() {
         boolean seguir;
-        System.out.println("\n GRACIAS POR SU VISITA");
+        System.out.println(GRACIAS_POR_SU_VISITA);
         seguir = false;
         return seguir;
     }
@@ -90,36 +118,33 @@ public class Main {
     private static void pagarMulta(Scanner sc, ServiciosVideoclub sv) {
         String dni;
         Member member;
-        System.out.println("Digame su DNI");
+        System.out.println(DIGAME_SU_DNI);
         dni = sc.nextLine();
         if (sv.getSocio(dni) != null) {
             member = sv.getSocio(dni);
             if (member.isSancionado()) {
-                System.out.println("Su multa ha sido pagada");
+                System.out.println(SU_MULTA_HA_SIDO_PAGADA);
                 member.setSancionado(false);
             } else {
-                System.out.println("Este usuario no tiene ninguna multa");
+                System.out.println(ESTE_USUARIO_NO_TIENE_NINGUNA_MULTA);
             }
         } else {
-            System.out.println("Este usuario no esta registrado");
+            System.out.println(ESTE_USUARIO_NO_ESTA_REGISTRADO);
         }
     }
 
     private static void devolver(Scanner sc, ServiciosVideoclub sv) {
         String dni;
-        System.out.println("Digame su DNI para poder proceder a la devolucion");
+        System.out.println(DIGAME_SU_DNI_PARA_PODER_PROCEDER_A_LA_DEVOLUCION);
         dni = sc.nextLine();
         if (sv.getSocio(dni) != null) {
-            System.out.println("Para proceder a la devolucion nos gustaria saber.\n" +
-                    "La puntuacion de 0 a 5 que daria al producto");
+            System.out.println(PARA_PROCEDER_A_LA_DEVOLUCION_NOS_GUSTARIA_SABER_LA_PUNTUACION_DE_0_A_5_QUE_DARIA_AL_PRODUCTO);
             int puntuacion;
             do {
                 puntuacion = sc.nextInt();
                 sc.nextLine();
             } while (puntuacion < 0 || puntuacion > 5);
-            System.out.println("¿Volveria a alquilarlo?\n" +
-                    "1. Si\n" +
-                    "2. No");
+            System.out.println(VOLVERIA_A_ALQUILARLO_1_SI_2_NO);
             int respuesta;
             do {
                 respuesta = sc.nextInt();
@@ -134,15 +159,15 @@ public class Main {
             Poll poll = new Poll(puntuacion, realquilar);
             //Servicios -> mirarfecha para multa,sacarAlquilerSocio, acctualizar producto cantidadAlquilada, addEncuestaAProducto
             if (sv.devolverProducto(dni, poll)) {
-                System.out.println("Devolucion realizada");
+                System.out.println(DEVOLUCION_REALIZADA);
             } else {
-                System.out.println("No tiene ningun alquiler con nosotros");
+                System.out.println(NO_TIENE_NINGUN_ALQUILER_CON_NOSOTROS);
             }
             if (sv.getSocio(dni).isSancionado()) {
-                System.out.println("Ha sido sancionado ya que ha devuelto el producto con retraso");
+                System.out.println(HA_SIDO_SANCIONADO_YA_QUE_HA_DEVUELTO_EL_PRODUCTO_CON_RETRASO);
             }
         } else {
-            System.out.println("No esta registrado, no puede tener ningun alquiler con nosotros");
+            System.out.println(NO_ESTA_REGISTRADO_NO_PUEDE_TENER_NINGUN_ALQUILER_CON_NOSOTROS);
         }
     }
 
@@ -158,8 +183,7 @@ public class Main {
                     indiceProducto = elegirVideojuego(sv, sc);
                     productoAAlquilar = sv.getTodosVideoJuegos().get(indiceProducto);
                 }else{
-                    System.out.println("No disponemos de articulos de este tipo. \n" +
-                            "Disculpe las molestias.");
+                    System.out.println(NO_DISPONEMOS_DE_ARTICULOS_DE_ESTE_TIPO_DISCULPE_LAS_MOLESTIAS);
                 }
                 break;
             case 2:
@@ -167,8 +191,7 @@ public class Main {
                     indiceProducto = elegirDocumental(sv, sc);
                     productoAAlquilar = sv.getTodosDocumentales().get(indiceProducto);
                 }else{
-                    System.out.println("No disponemos de articulos de este tipo. \n" +
-                            "Disculpe las molestias.");
+                    System.out.println(NO_DISPONEMOS_DE_ARTICULOS_DE_ESTE_TIPO_DISCULPE_LAS_MOLESTIAS);
                 }
                 break;
             case 3:
@@ -176,25 +199,23 @@ public class Main {
                     indiceProducto = elegirPelicula(sv, sc);
                     productoAAlquilar = sv.getTodasPeliculas().get(indiceProducto);
                 }else{
-                    System.out.println("No disponemos de articulos de este tipo. \n" +
-                            "Disculpe las molestias.");
+                    System.out.println(NO_DISPONEMOS_DE_ARTICULOS_DE_ESTE_TIPO_DISCULPE_LAS_MOLESTIAS);
                 }
                 break;
         }
         //nif, comprobar: si member alquilo, si multa, si stock producto; sumar a cantidadAlquilada
         if (productoAAlquilar != null) {
-            System.out.println("Para proceder al alquiler del producto necesito su DNI");
+            System.out.println(PARA_PROCEDER_AL_ALQUILER_DEL_PRODUCTO_NECESITO_SU_DNI);
             dni = sc.nextLine();
             String alquilado = sv.alquilarProducto(productoAAlquilar, dni);
             System.out.println(alquilado);
-            if (alquilado.equals("Producto alquilado correctamente\n" +
-                    "MUCHAS GRACIAS")) {
+            if (alquilado.equals(PRODUCTO_ALQUILADO_CORRECTAMENTE_MUCHAS_GRACIAS)) {
                 if (opcion == 1) {
-                    System.out.println("Recuerde que tiene " + Configuration.getDiasAlquilerVideojuego()
-                            + " segundos para devolverlo sin ser sancionado.");
+                    System.out.println(RECUERDE_QUE_TIENE + Configuration.getDiasAlquilerVideojuego()
+                            + SEGUNDOS_PARA_DEVOLVERLO_SIN_SER_SANCIONADO);
                 } else {
-                    System.out.println("Recuerde que tiene " + Configuration.getDiasAlquilerPeliculas()
-                            + " segundos para devolverlo sin ser sancionado.");
+                    System.out.println(RECUERDE_QUE_TIENE + Configuration.getDiasAlquilerPeliculas()
+                            + SEGUNDOS_PARA_DEVOLVERLO_SIN_SER_SANCIONADO);
                 }
             }
         }
@@ -269,9 +290,9 @@ public class Main {
         System.out.println(PARA_ELIMINAR_UN_SOCIO_DIGAME_EL_DNI_DE_ESE_SOCIO_POR_FAVOR);
         dni = sc.nextLine();
         if (sv.borrarSocio(dni)) {
-            System.out.println("Se ha encontrado el socio y se ha eliminado de nuestro registro");
+            System.out.println(SE_HA_ENCONTRADO_EL_SOCIO_Y_SE_HA_ELIMINADO_DE_NUESTRO_REGISTRO);
         } else {
-            System.out.println("Este socio no se encuentra en nuestro sistema");
+            System.out.println(ESTE_SOCIO_NO_SE_ENCUENTRA_EN_NUESTRO_SISTEMA);
         }
     }
 
@@ -284,43 +305,42 @@ public class Main {
         int edad = f.number().numberBetween(1, 99);
         Member member = new Member(dni, nombre, direccion, tel, edad);
         if (sv.addSocio(member)) {
-            System.out.println("Socio registrado");
+            System.out.println(SOCIO_REGISTRADO);
         } else {
-            System.out.println("Este socio ya se encuentra en nuestra base de datos");
+            System.out.println(ESTE_SOCIO_YA_SE_ENCUENTRA_EN_NUESTRA_BASE_DE_DATOS);
         }
     }
 
     private static void actualizarStock(int cantidadACambiar, Producto producto, ServiciosVideoclub sv) {
         if (cantidadACambiar < 0) {
             if ((cantidadACambiar * (-1)) > producto.getCantidad()) {
-                System.out.println("No disponemos de tantas unidades de este producto, " +
-                        "revise los datos y vuelva a realizar la operacion");
+                System.out.println(NO_DISPONEMOS_DE_TANTAS_UNIDADES_DE_ESTE_PRODUCTO_REVISE_LOS_DATOS_Y_VUELVA_A_REALIZAR_LA_OPERACION);
             } else {
                 sv.actualizarStockProducto(producto, cantidadACambiar);
             }
         } else {
             sv.actualizarStockProducto(producto, cantidadACambiar);
-            System.out.println("Stock actualizado");
+            System.out.println(STOCK_ACTUALIZADO);
         }
-        System.out.println("La cantidad ahora es: " + producto.getCantidad());
+        System.out.println(LA_CANTIDAD_AHORA_ES  + producto.getCantidad());
     }
 
     private static void registrarProducto(Producto p, ServiciosVideoclub sv) {
         if (sv.addProducto(p)) {
-            System.out.println("Producto añadido correctamente");
+            System.out.println(PRODUCTO_AÑADIDO_CORRECTAMENTE);
         } else {
-            System.out.println("El producto no se ha podido añadir");
+            System.out.println(EL_PRODUCTO_NO_SE_HA_PODIDO_AÑADIR);
         }
     }
 
     private static int elegirProducto(Scanner sc, int size) {
-        System.out.println("Elige el producto deseado de la lista");
+        System.out.println(ELIGE_EL_PRODUCTO_DESEADO_DE_LA_LISTA);
         int opcion = 0;
         do {
             opcion = sc.nextInt();
             sc.nextLine();
             if (opcion < 1 || opcion > size) {
-                System.out.println("Por favor, elija una de las opciones disponibles");
+                System.out.println(POR_FAVOR_ELIJA_UNA_DE_LAS_OPCIONES_DISPONIBLES);
             }
         } while (opcion < 1 || opcion > size);
         return opcion - 1;
@@ -329,14 +349,11 @@ public class Main {
     private static int menuProducto(Scanner sc) {
         int opcion;
         do {
-            System.out.println("Seleccione el tipo de producto:\n" +
-                    "1. Videogame\n" +
-                    "2. Documentary\n" +
-                    "3. Movie");
+            System.out.println(STRING_MENU);
             opcion = sc.nextInt();
             sc.nextLine();
             if (opcion < 1 || opcion > 3) {
-                System.out.println("Solo tenemos 3 tipos de productos, dime 1, 2 o 3, por favor.");
+                System.out.println(SOLO_TENEMOS_3_TIPOS_DE_PRODUCTOS_DIME_1_2_O_3_POR_FAVOR);
             }
         } while (opcion < 1 || opcion > 3);
         return opcion;
