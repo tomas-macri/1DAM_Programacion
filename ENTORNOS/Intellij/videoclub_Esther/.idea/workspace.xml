@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89cd982e-3a45-4fd0-b811-839f87d85926" name="Default Changelist" comment="sdfsdf" />
-    <list id="8b51ef94-b3a6-4348-b27f-9f09c0080fed" name="Apply: " comment="jjj" />
+    <list default="true" id="8b51ef94-b3a6-4348-b27f-9f09c0080fed" name="Apply: " comment="jjj" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +46,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="gui.MainMethods" />
+    </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="gui.Main" />
     </key>
@@ -80,7 +82,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89cd982e-3a45-4fd0-b811-839f87d85926" name="Default Changelist" comment="" />
+      <changelist id="" name="Default Changelist" comment="" />
       <created>1580455973543</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -103,7 +105,7 @@
       <workItem from="1635402811788" duration="3419000" />
       <workItem from="1635406385594" duration="444000" />
       <workItem from="1635407144269" duration="241000" />
-      <workItem from="1635417877205" duration="1980000" />
+      <workItem from="1635417877205" duration="3291000" />
     </task>
     <task id="LOCAL-00001" summary="sdfsdf">
       <created>1580460590298</created>
