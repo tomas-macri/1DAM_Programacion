@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="641705ad-4c8a-4303-b89a-626c51222796" name="Changes" comment="correccion con indexOf mal hechoooo" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="e63c5f7158aef6851d012aed6aef2f07a2eb47ec" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1zDSoiQTaqEoakJacnyOguoZcNZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Ejercicio5">
+    <configuration name="Ejercicio5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Ejercicio5" />
+      <module name="TP 1 - Strings" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="TP 1 - Strings" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Ejercicio5" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Ejercicio5" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="641705ad-4c8a-4303-b89a-626c51222796" name="Changes" comment="" />
+      <created>1633681345938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633681345938</updated>
+      <workItem from="1633681350844" duration="7063000" />
+      <workItem from="1634193240806" duration="6832000" />
+      <workItem from="1634282828281" duration="2227000" />
+      <workItem from="1634538669436" duration="96000" />
+      <workItem from="1634800690953" duration="839000" />
+      <workItem from="1634801705546" duration="44000" />
+      <workItem from="1634801761820" duration="2373000" />
+    </task>
+    <task id="LOCAL-00001" summary="8/10 final">
+      <created>1633689694926</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633689694926</updated>
+    </task>
+    <task id="LOCAL-00002" summary="14/10 final strings">
+      <created>1634196593815</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634196593815</updated>
+    </task>
+    <task id="LOCAL-00003" summary="14/10 final strings">
+      <created>1634196831861</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634196831861</updated>
+    </task>
+    <task id="LOCAL-00004" summary="14/10 final strings">
+      <created>1634197034859</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634197034859</updated>
+    </task>
+    <task id="LOCAL-00005" summary="14/10 final strings">
+      <created>1634197121119</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634197121119</updated>
+    </task>
+    <task id="LOCAL-00006" summary="14/10 final strings">
+      <created>1634198583597</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1634198583597</updated>
+    </task>
+    <task id="LOCAL-00007" summary="15/10 final strings">
+      <created>1634283474348</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1634283474348</updated>
+    </task>
+    <task id="LOCAL-00008" summary="error  config trabajo strings">
+      <created>1634801828840</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634801828840</updated>
+    </task>
+    <task id="LOCAL-00009" summary="correccion con indexOf mal hecha">
+      <created>1634801953479</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1634801953479</updated>
+    </task>
+    <task id="LOCAL-00010" summary="correccion con indexOf mal hechoooo">
+      <created>1634804420949</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1634804420949</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="8/10 final" />
+    <MESSAGE value="14/10 final strings" />
+    <MESSAGE value="15/10 final strings" />
+    <MESSAGE value="error  config trabajo strings" />
+    <MESSAGE value="correccion con indexOf mal hecha" />
+    <MESSAGE value="correccion con indexOf mal hechoooo" />
+    <option name="LAST_COMMIT_MESSAGE" value="correccion con indexOf mal hechoooo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/main/Ejercicio7.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/main/Ejercicio5.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="cadena.replace(cadena.charAt(i), caracterUnico);" language="JAVA" />
+        <watch expression="caracterUnico" />
+        <watch expression="(char)(cadena.charAt(i) + 32)" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

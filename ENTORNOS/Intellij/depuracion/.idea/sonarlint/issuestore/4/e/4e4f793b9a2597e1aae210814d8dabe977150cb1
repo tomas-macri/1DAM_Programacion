@@ -1,0 +1,34 @@
+
+r
+java:S1450"URemove the "height" field and declare it as a local variable in the relevant methods.(ÅœÔ˜8†«õÞË/
+q
+java:S1450"URemove the "length" field and declare it as a local variable in the relevant methods.( Ÿ®x8†«õÞË/
+v
+java:S1450"TRemove the "width" field and declare it as a local variable in the relevant methods.(•õ¦òùÿÿÿÿ8†«õÞË/
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Ä¥è8†«õÞË/
+E
+java:S1656"/Remove or correct this useless self-assignment.(À—ò˜
+E
+java:S1656"/Remove or correct this useless self-assignment.(œŠÆÎ
+J
+java:S1656"/Remove or correct this useless self-assignment.(ß‰Æ¦üÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ë¯Ð]
+D
+java:S1068")Remove this unused "width" private field.(•õ¦òùÿÿÿÿ
+?
+java:S1068"*Remove this unused "length" private field.( Ÿ®x
+@
+java:S1068"*Remove this unused "height" private field.(ÅœÔ˜
+M
+java:S1144"0Remove this unused private "FixDebugBox" method.(‰Ä¥è8•«õÞË/
+q
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "vol".(Á¡±á
+^
+java:S2184"HCast one of the operands of this multiplication operation to a "double".(Á¡±á
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•Æ¶æÿÿÿÿÿ
+z
+java:S4165"dRemove this useless assignment; "length" already holds the assigned value along all execution paths.(œŠÆÎ
+
+java:S4165"dRemove this useless assignment; "height" already holds the assigned value along all execution paths.(ß‰Æ¦üÿÿÿÿ
+y
+java:S4165"cRemove this useless assignment; "width" already holds the assigned value along all execution paths.(À—ò˜

@@ -1,0 +1,13 @@
+
+E
+java:S1197"*Move the array designators [] to the type.(º ìıÿÿÿÿ
+V
+java:S1659	"@Declare "two" and all following declarations on a separate line.(íĞˆÙ
+?
+java:S1659
+"$Declare "output" on a separate line.(îÂÏ‘şÿÿÿÿ
+b
+java:S1192"LDefine a constant instead of duplicating this literal "Highest is " 4 times.(ÂûØß
+l
+java:S1192"QDefine a constant instead of duplicating this literal "Enter an integer" 4 times.(Ï™”“øÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°¸½™ùÿÿÿÿ
