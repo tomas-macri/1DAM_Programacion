@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89cd982e-3a45-4fd0-b811-839f87d85926" name="Default Changelist" comment="sdfsdf">
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 0 - Suma/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Condicionales/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio10.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio11.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio12.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio13.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio14.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio15.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio16.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio17.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio19.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Ejercicio20.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Repetitivas/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio10.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio11.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio7.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio8.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Ejercicio9.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 1 - Strings/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/src/main/java/main/Cesar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 2 - Cifrado Cesar y Vigenere/src/main/java/main/Vigenere.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/src/main/java/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP 3 - Ahorcado/src/main/java/main/Pintar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio15.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio16.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio17.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio19.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/TP1 - Secuenciales/src/main/java/Ejercicio20.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/zzzEjercicios/ejercicios bascicos 2  (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Programación/zzzEjercicios/examen programacion junio extraordinario.pdf" beforeDir="false" />
+    </list>
+    <list id="8b51ef94-b3a6-4348-b27f-9f09c0080fed" name="Apply: " comment="jjj" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="videoclub" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1X9QkYaYj8RVTskS1h7XaYyH8Ho" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.Main" />
+      <module name="videoclub" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89cd982e-3a45-4fd0-b811-839f87d85926" name="Default Changelist" comment="" />
+      <created>1580455973543</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580455973543</updated>
+      <workItem from="1580455977323" duration="37000" />
+      <workItem from="1580460503455" duration="6354000" />
+      <workItem from="1580725448251" duration="438000" />
+      <workItem from="1580801556338" duration="4227000" />
+      <workItem from="1580988667760" duration="3320000" />
+      <workItem from="1581060667978" duration="10672000" />
+      <workItem from="1581331563245" duration="1259000" />
+      <workItem from="1581347501507" duration="10180000" />
+      <workItem from="1581407056858" duration="2984000" />
+      <workItem from="1581420618315" duration="2409000" />
+      <workItem from="1581443816167" duration="7713000" />
+      <workItem from="1581492540583" duration="12095000" />
+      <workItem from="1581522874095" duration="10137000" />
+      <workItem from="1581579375067" duration="10697000" />
+      <workItem from="1581665983844" duration="7720000" />
+      <workItem from="1635402811788" duration="3419000" />
+      <workItem from="1635406385594" duration="444000" />
+    </task>
+    <task id="LOCAL-00001" summary="sdfsdf">
+      <created>1580460590298</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580460590298</updated>
+    </task>
+    <task id="LOCAL-00002" summary="sdfsdf">
+      <created>1580460650020</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580460650020</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sdfsdf">
+      <created>1580464639616</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580464639616</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sdfsdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="sdfsdf" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="daoAlquileres.alquilerSocio(nifSocio).getFechaAlquiler().plusSeconds(tiempoAlquiler).isAfter(LocalDateTime.now())" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
