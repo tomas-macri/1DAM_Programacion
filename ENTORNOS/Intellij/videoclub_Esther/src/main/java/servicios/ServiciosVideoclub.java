@@ -33,12 +33,12 @@ public class ServiciosVideoclub {
         return daoSocio.getSocioPorNif(nif);
     }
 
-    public boolean addProducto(Producto producto) {
+    public boolean addProducto(Product producto) {
         DaoProductos daoProductos = new DaoProductos();
         return daoProductos.addProducto(producto);
     }
 
-    public void actualizarStockProducto(Producto p, int cantidad) {
+    public void actualizarStockProducto(Product p, int cantidad) {
         p.setCantidad(p.getCantidad() + cantidad);
     }
 
@@ -47,7 +47,7 @@ public class ServiciosVideoclub {
         DaoAlquileres daoAlquileres = new DaoAlquileres();
         Renting alquiler = daoAlquileres.alquilerSocio(nifSocio);
         if (alquiler != null) {
-            Producto producto = alquiler.getProductoAlquilado();
+            Product producto = alquiler.getProductoAlquilado();
             producto.setCantidadAlquilada(producto.getCantidadAlquilada() - 1);
             //sancion --> comprobar si se pasa del tiempo
             int tiempoAlquiler;
@@ -66,7 +66,7 @@ public class ServiciosVideoclub {
         return devolucion;
     }
 
-    public String alquilarProducto(Producto p, String nifSocio) {
+    public String alquilarProducto(Product p, String nifSocio) {
         String alquilado = null;
         double precio = Configuration.getPrecioAlquiler();
         DaoAlquileres daoAlquileres = new DaoAlquileres();

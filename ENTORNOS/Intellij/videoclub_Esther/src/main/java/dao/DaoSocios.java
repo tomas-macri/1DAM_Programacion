@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class DaoSocios {
 
-    private static Map<String, Member> socios = new HashMap<>();
+    private static final Map<String, Member> socios = new HashMap<>();
 
     // devuelve si se metio o no
     public boolean addSocio(Member member) {
@@ -22,8 +22,7 @@ public class DaoSocios {
     }
 
     public List<Member> getTodosSocios() {
-        List<Member> o = null;
-        return o;
+        return null;
     }
 
     public Member getSocioPorNif(String nif) {

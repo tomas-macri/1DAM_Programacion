@@ -9,7 +9,7 @@ public class DaoAlquileres {
 
 
     // el nif como clave primaria
-    private static Map<String, Renting> alquileres = new HashMap<>();
+    private static final Map<String, Renting> alquileres = new HashMap<>();
 
     public boolean addAlquiler(Renting alquiler) {
         boolean alquilado = false;
@@ -21,11 +21,7 @@ public class DaoAlquileres {
     }
 
     public boolean borrarAlquiler(Renting alquiler) {
-        boolean devuelto = false;
-        if (alquileres.remove(alquiler.getSocio().getNif()) != null) {
-            devuelto = true;
-        }
-        return devuelto;
+        return alquileres.remove(alquiler.getSocio().getNif()) != null;
     }
 
     public Renting alquilerSocio(String nif) {

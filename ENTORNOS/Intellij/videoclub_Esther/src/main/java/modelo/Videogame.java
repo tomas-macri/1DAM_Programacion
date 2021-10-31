@@ -1,8 +1,8 @@
 package modelo;
 
-public class Videogame extends Producto{
+public class Videogame extends Product {
 
-    private String fabricante;
+    private final String fabricante;
 
     public Videogame(String titulo, int cantidad, String genero, String fabricante) {
         super(titulo, cantidad, genero);

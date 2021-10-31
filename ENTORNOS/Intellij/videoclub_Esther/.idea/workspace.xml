@@ -24,6 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="3" />
+  </component>
   <component name="ProjectId" id="1X9QkYaYj8RVTskS1h7XaYyH8Ho" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -38,6 +41,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -82,7 +89,6 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="" name="Default Changelist" comment="" />
       <created>1580455973543</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -106,6 +112,8 @@
       <workItem from="1635406385594" duration="444000" />
       <workItem from="1635407144269" duration="241000" />
       <workItem from="1635417877205" duration="3514000" />
+      <workItem from="1635697739200" duration="1623000" />
+      <workItem from="1635701569490" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="sdfsdf">
       <created>1580460590298</created>

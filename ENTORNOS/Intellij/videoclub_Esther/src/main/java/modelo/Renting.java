@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 public class Renting {
     private LocalDateTime fechaAlquiler;
     private Member member;
-    private Producto productoAlquilado;
+    private Product productoAlquilado;
 
-    public Renting(LocalDateTime fechaAlquiler, Member member, Producto productoAlquilado) {
+    public Renting(LocalDateTime fechaAlquiler, Member member, Product productoAlquilado) {
         this.fechaAlquiler = fechaAlquiler;
         this.member = member;
         this.productoAlquilado = productoAlquilado;
@@ -29,11 +29,11 @@ public class Renting {
         this.member = member;
     }
 
-    public Producto getProductoAlquilado() {
+    public Product getProductoAlquilado() {
         return productoAlquilado;
     }
 
-    public void setProductoAlquilado(Producto productoAlquilado) {
+    public void setProductoAlquilado(Product productoAlquilado) {
         this.productoAlquilado = productoAlquilado;
     }
 }

@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class MainMethods {
     public static void main(String[] args) {
+        System.out.println("Main del MainMethods, este sout esta escrito para que no salte un warning en el inspect code");
     }
 
     public static final String STRING_MENU = "¿Qué desea hacer? \n" +
@@ -20,7 +21,6 @@ public class MainMethods {
             "6. Devolver un producto alquilado \n" +
             "7. Pagar una multa\n" +
             "8. Salir";
-    public static final String ERROR_MENU = "Por favor, dime una de las opciones del menu. Vuelvo a mostrartelo.";
     public static final String MODIFICAR_STOCK = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
     public static final String NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE = "No existen productos de este tipo, toooorpe";
     public static final String DIME_LA_CANTIDAD_A_MODIFICAR_EN_CASO_DE_SER_UNA_RETIRADA_DE_STOCK_POR_FAVOR_INDICALO_EN_NEGATIVO = "Dime la cantidad a modificar. En caso de ser una retirada de Stock, por favor indicalo en negativo";
@@ -32,12 +32,11 @@ public class MainMethods {
     public static final String NO_DISPONEMOS_DE_TANTAS_UNIDADES_DE_ESTE_PRODUCTO_REVISE_LOS_DATOS_Y_VUELVA_A_REALIZAR_LA_OPERACION = "No disponemos de tantas unidades de este producto, revise los datos y vuelva a realizar la operacion";
     public static final String STOCK_ACTUALIZADO = "Stock actualizado";
     public static final String LA_CANTIDAD_AHORA_ES = "La cantidad ahora es:";
-    public static final String PRODUCTO_AÑADIDO_CORRECTAMENTE = "Producto añadido correctamente";
-    public static final String EL_PRODUCTO_NO_SE_HA_PODIDO_AÑADIR = "El producto no se ha podido añadir";
+    public static final String PRODUCTO_ANADIDO_CORRECTAMENTE = "Producto añadido correctamente";
+    public static final String EL_PRODUCTO_NO_SE_HA_PODIDO_ANADIR = "El producto no se ha podido añadir";
     public static final String ELIGE_EL_PRODUCTO_DESEADO_DE_LA_LISTA = "Elige el producto deseado de la lista";
     public static final String POR_FAVOR_ELIJA_UNA_DE_LAS_OPCIONES_DISPONIBLES = "Por favor, elija una de las opciones disponibles";
     public static final String SOLO_TENEMOS_3_TIPOS_DE_PRODUCTOS_DIME_1_2_O_3_POR_FAVOR = "Solo tenemos 3 tipos de productos, dime 1, 2 o 3, por favor.";
-    public static final String GRACIAS_POR_SU_VISITA = "\n GRACIAS POR SU VISITA";
     public static final String SU_MULTA_HA_SIDO_PAGADA = "Su multa ha sido pagada";
     public static final String ESTE_USUARIO_NO_TIENE_NINGUNA_MULTA = "Este usuario no tiene ninguna multa";
     public static final String ESTE_USUARIO_NO_ESTA_REGISTRADO = "Este usuario no esta registrado";
@@ -59,7 +58,7 @@ public class MainMethods {
         boolean seguir;
         System.out.println(Main.GRACIAS_POR_SU_VISITA);
         seguir = false;
-        return seguir;
+        return false;
     }
 
     public void pagarMulta(Scanner sc, ServiciosVideoclub sv) {
@@ -98,11 +97,7 @@ public class MainMethods {
                 sc.nextLine();
             } while (respuesta < 1 || respuesta > 2);
             boolean realquilar;
-            if (respuesta == 1) {
-                realquilar = true;
-            } else {
-                realquilar = false;
-            }
+            realquilar = respuesta == 1;
             Poll poll = new Poll(puntuacion, realquilar);
             //Servicios -> mirarfecha para multa,sacarAlquilerSocio, acctualizar producto cantidadAlquilada, addEncuestaAProducto
             if (sv.devolverProducto(dni, poll)) {
@@ -139,7 +134,7 @@ public class MainMethods {
         int indiceProducto;
         MainMethods mm = new MainMethods();
         opcion = mm.menuProducto(sc);
-        Producto productoAAlquilar = null;
+        Product productoAAlquilar = null;
         switch (opcion) {
             case 1:
                 if(sv.getTodosVideoJuegos().size() > 0) {
@@ -213,7 +208,7 @@ public class MainMethods {
                     System.out.println(MODIFICAR_STOCK);
                     cantidadACambiar = sc.nextInt();
                     sc.nextLine();
-                    Producto producto = sv.getTodosVideoJuegos().get(indiceProducto);
+                    Product producto = sv.getTodosVideoJuegos().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
                     System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
@@ -225,7 +220,7 @@ public class MainMethods {
                     System.out.println(MODIFICAR_STOCK);
                     cantidadACambiar = sc.nextInt();
                     sc.nextLine();
-                    Producto producto = sv.getTodosDocumentales().get(indiceProducto);
+                    Product producto = sv.getTodosDocumentales().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
                     System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
@@ -237,7 +232,7 @@ public class MainMethods {
                     System.out.println(DIME_LA_CANTIDAD_A_MODIFICAR_EN_CASO_DE_SER_UNA_RETIRADA_DE_STOCK_POR_FAVOR_INDICALO_EN_NEGATIVO);
                     cantidadACambiar = sc.nextInt();
                     sc.nextLine();
-                    Producto producto = sv.getTodasPeliculas().get(indiceProducto);
+                    Product producto = sv.getTodasPeliculas().get(indiceProducto);
                     actualizarStock(cantidadACambiar, producto, sv);
                 } else {
                     System.out.println(NO_EXISTEN_PRODUCTOS_DE_ESTE_TIPO_TOOOORPE);
@@ -252,15 +247,15 @@ public class MainMethods {
         opcion = menuProducto(sc);
         switch (opcion) {
             case 1:
-                Producto vj = new Videogame(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), f.animal().name());
+                Product vj = new Videogame(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), f.animal().name());
                 mm.registrarProducto(vj, sv);
                 break;
             case 2:
-                Producto docu = new Documentary(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), MovieFormat.DVD, f.gameOfThrones().character(), "120min");
+                Product docu = new Documentary(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), MovieFormat.DVD, f.gameOfThrones().character(), "120min");
                 mm.registrarProducto(docu, sv);
                 break;
             case 3:
-                Producto peli = new Movie(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), MovieFormat.DVD, f.gameOfThrones().character(), "120min");
+                Product peli = new Movie(f.harryPotter().book(), f.number().numberBetween(1, 10), f.color().name(), MovieFormat.DVD, f.gameOfThrones().character(), "120min");
                 mm.registrarProducto(peli, sv);
                 break;
         }
@@ -292,7 +287,7 @@ public class MainMethods {
         }
     }
 
-    public void actualizarStock(int cantidadACambiar, Producto producto, ServiciosVideoclub sv) {
+    public void actualizarStock(int cantidadACambiar, Product producto, ServiciosVideoclub sv) {
         if (cantidadACambiar < 0) {
             if ((cantidadACambiar * (-1)) > producto.getCantidad()) {
                 System.out.println(NO_DISPONEMOS_DE_TANTAS_UNIDADES_DE_ESTE_PRODUCTO_REVISE_LOS_DATOS_Y_VUELVA_A_REALIZAR_LA_OPERACION);
@@ -306,11 +301,11 @@ public class MainMethods {
         System.out.println(LA_CANTIDAD_AHORA_ES  + producto.getCantidad());
     }
 
-    public void registrarProducto(Producto p, ServiciosVideoclub sv) {
+    public void registrarProducto(Product p, ServiciosVideoclub sv) {
         if (sv.addProducto(p)) {
-            System.out.println(PRODUCTO_AÑADIDO_CORRECTAMENTE);
+            System.out.println(PRODUCTO_ANADIDO_CORRECTAMENTE);
         } else {
-            System.out.println(EL_PRODUCTO_NO_SE_HA_PODIDO_AÑADIR);
+            System.out.println(EL_PRODUCTO_NO_SE_HA_PODIDO_ANADIR);
         }
     }
 

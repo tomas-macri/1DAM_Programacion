@@ -2,7 +2,7 @@ package dao;
 
 import modelo.Documentary;
 import modelo.Movie;
-import modelo.Producto;
+import modelo.Product;
 import modelo.Videogame;
 
 import java.util.ArrayList;
@@ -12,18 +12,18 @@ import java.util.stream.Collectors;
 public class DaoProductos {
 
 
-    private static List<Producto> productos = new ArrayList<>();
+    private static final List<Product> productos = new ArrayList<>();
 
-    public boolean addProducto(Producto producto) {
-        boolean productoAñadido = false;
+    public boolean addProducto(Product producto) {
+        boolean productoAnadido = false;
         if (!productos.contains(producto)) {
             productos.add(producto);
-            productoAñadido = true;
+            productoAnadido = true;
         }
-        return productoAñadido;
+        return productoAnadido;
     }
 
-    public boolean borrarProducto(Producto producto) {
+    public boolean borrarProducto(Product producto) {
         boolean productoBorrado = false;
         return productoBorrado = productos.remove(producto);
     }

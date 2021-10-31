@@ -1,7 +1,6 @@
 package gui;
 
 import com.github.javafaker.Faker;
-import config.Configuration;
 import modelo.*;
 import servicios.ServiciosVideoclub;
 

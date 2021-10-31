@@ -3,23 +3,23 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Producto {
+public abstract class Product {
 
     private String titulo;
-    private List<Poll> polls;
+    private final List<Poll> polls;
     private int cantidad;
     private int cantidadAlquilada;
     private String genero;
     private double valoracionMedia;
 
-    public Producto(String titulo, int cantidad, String genero) {
+    public Product(String titulo, int cantidad, String genero) {
         this();
         this.titulo = titulo;
         this.cantidad = cantidad;
         this.genero = genero;
     }
 
-    public Producto() {
+    public Product() {
         polls = new ArrayList<>();
         this.cantidadAlquilada = 0;
         this.valoracionMedia = 0;

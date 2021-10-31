@@ -1,10 +1,10 @@
 package modelo;
 
-public class Documentary extends Producto{
+public class Documentary extends Product {
 
   private MovieFormat formato;
-  private String director;
-  private String duracion;
+  private final String director;
+  private final String duracion;
 
   public Documentary(String titulo, int cantidad, String genero, MovieFormat formato, String director, String duracion) {
     super(titulo, cantidad, genero);
