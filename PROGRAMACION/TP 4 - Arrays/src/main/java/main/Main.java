@@ -8,7 +8,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion;
         String resultadoFinal;
-        int[] resultadoFinalArray = new int[20];
+        Main claseMain = new Main();
+        int[] resultadoFinalArray;
         do {
             System.out.println("Seleccione una opción del 1 al 11 o 0 para terminar: ");
             opcion = sc.nextInt();
@@ -16,32 +17,30 @@ public class Main {
             switch (opcion) {
                 case 1:
                     Ejercicio1 ej1 = new Ejercicio1();
-                    ej1.ejercicio(sc);
+                    resultadoFinalArray = ej1.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 2:
                     Ejercicio2 ej2 = new Ejercicio2();
-                    resultadoFinal = ej2.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    resultadoFinalArray = ej2.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 3:
                     Ejercicio3 ej3 = new Ejercicio3();
-                    resultadoFinal = ej3.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    ej3.ejercicio(sc);
                     break;
                 case 4:
                     Ejercicio4 ej4 = new Ejercicio4();
-                    resultadoFinal = ej4.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    ej4.ejercicio(sc);
                     break;
                 case 5:
                     Ejercicio5 ej5 = new Ejercicio5();
                     resultadoFinalArray = ej5.ejercicio(sc);
-                    System.out.println(resultadoFinalArray);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 6:
                     Ejercicio6 ej6 = new Ejercicio6();
-                    resultadoFinal = ej6.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    ej6.ejercicio(sc);
                     break;
                 case 7:
                     Ejercicio7 ej7 = new Ejercicio7();
@@ -55,13 +54,13 @@ public class Main {
                     break;
                 case 9:
                     Ejercicio9 ej9 = new Ejercicio9();
-                    resultadoFinal = ej9.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    resultadoFinalArray = ej9.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 10:
                     Ejercicio10 ej10 = new Ejercicio10();
-                    resultadoFinal = ej10.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    resultadoFinalArray = ej10.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 11:
                     Ejercicio11 ej11 = new Ejercicio11();
@@ -75,5 +74,11 @@ public class Main {
             }
 
         } while (opcion != 0);
+    }
+
+    private void mostrarArrayResultado(int[] resultadoFinalArray) {
+        for (int i : resultadoFinalArray) {
+            System.out.println(i);
+        }
     }
 }

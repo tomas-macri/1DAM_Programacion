@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b51ef94-b3a6-4348-b27f-9f09c0080fed" name="Apply: " comment="jjj" />
+    <list default="true" id="f58ab620-0d9e-4d27-903f-10e3ccf1315f" name="Changes" comment="sdfsdf" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="videoclub" />
@@ -24,14 +30,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="3" />
-  </component>
   <component name="ProjectId" id="1X9QkYaYj8RVTskS1h7XaYyH8Ho" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -40,7 +44,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../PROGRAMACION/TP 4 - Arrays" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -89,6 +93,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="f58ab620-0d9e-4d27-903f-10e3ccf1315f" name="Changes" comment="sdfsdf" />
       <created>1580455973543</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -113,7 +118,8 @@
       <workItem from="1635407144269" duration="241000" />
       <workItem from="1635417877205" duration="3514000" />
       <workItem from="1635697739200" duration="1623000" />
-      <workItem from="1635701569490" duration="620000" />
+      <workItem from="1635701569490" duration="1509000" />
+      <workItem from="1635789220497" duration="45000" />
     </task>
     <task id="LOCAL-00001" summary="sdfsdf">
       <created>1580460590298</created>
@@ -147,7 +153,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

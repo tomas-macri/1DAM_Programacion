@@ -28,6 +28,7 @@ public class Ejercicio5 {
             }
             else {
                 tablaCombinada[i] = tabla2[contTabla2];
+                contTabla2++;
             }
         }
 
