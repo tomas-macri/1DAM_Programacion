@@ -30,6 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="1X9QkYaYj8RVTskS1h7XaYyH8Ho" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,7 +47,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../PROGRAMACION/TP 4 - Arrays" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ahorcado - Entornos" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -120,6 +123,9 @@
       <workItem from="1635697739200" duration="1623000" />
       <workItem from="1635701569490" duration="1509000" />
       <workItem from="1635789220497" duration="45000" />
+      <workItem from="1635852807516" duration="14000" />
+      <workItem from="1635852924894" duration="92000" />
+      <workItem from="1635853032058" duration="1231000" />
     </task>
     <task id="LOCAL-00001" summary="sdfsdf">
       <created>1580460590298</created>

@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TP 4 - Arrays" />
-        <module name="TP4-Arrays" />
+        <module name="TP 3 - Ahorcado" />
+        <module name="Ahorcado - Entornos" />
+        <module name="TP3-Ahorcado" />
       </profile>
     </annotationProcessing>
   </component>

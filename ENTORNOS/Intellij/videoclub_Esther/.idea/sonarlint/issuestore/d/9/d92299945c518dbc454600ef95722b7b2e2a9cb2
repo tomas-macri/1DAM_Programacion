@@ -1,0 +1,8 @@
+
+N	java:S106""9Replace this use of System.out or System.err by a logger.(½ñ²Ç
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(âÎÞ©ÿÿÿÿÿ
+7	java:S131)""Add a default case to this switch.(°€àâ
+A
+java:S1481-"+Remove this unused "member" local variable.(…èó¥
+C
+java:S1481."(Remove this unused "dni" local variable.(Àšï¶ûÿÿÿÿ
