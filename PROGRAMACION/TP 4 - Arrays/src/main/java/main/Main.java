@@ -49,8 +49,8 @@ public class Main {
                     break;
                 case 8:
                     Ejercicio8 ej8 = new Ejercicio8();
-                    resultadoFinal = ej8.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    resultadoFinalArray = ej8.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 9:
                     Ejercicio9 ej9 = new Ejercicio9();
@@ -64,8 +64,8 @@ public class Main {
                     break;
                 case 11:
                     Ejercicio11 ej11 = new Ejercicio11();
-                    resultadoFinal = ej11.ejercicio(sc);
-                    System.out.println(resultadoFinal);
+                    resultadoFinalArray = ej11.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 default:
                     if (opcion != 0) {
