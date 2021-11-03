@@ -13,21 +13,9 @@ public class Ejercicio11 {
         final int cantNumeroAPedir = 5;
         final int arrayLength = 10;
         int[] arrayNumeros = new int[arrayLength];
-        int numIngresadoArray = -10000000;
-        for (int i = 0; i < cantNumeroAPedir; i++) {
-            if (i == 0){
-                System.out.println("Ingrese un numero para la posicion " + (i+1));
-                arrayNumeros[i] = sc.nextInt();
-            }
-            else {
-                do {
-                    System.out.println("Ingrese un numero para la posicion " + (i+1) + ". No puede ser 0.");
-                    numIngresadoArray = sc.nextInt();
-                }while (arrayNumeros[i - 1] >= numIngresadoArray || numIngresadoArray == 0);
-                arrayNumeros[i] = numIngresadoArray;
-            }
-        }
+        int numIngresadoArray;
 
+        pedirNumerosValidos(sc, cantNumeroAPedir, arrayNumeros);
         // ya tengo numeros
         int numeroAInsertar;
         System.out.println("Ingrese el numero que quiere insertar");
@@ -43,9 +31,12 @@ public class Ejercicio11 {
                     arrayNumerosConInsertado[i] = numeroAInsertar;
                 }
                 else if (arrayNumeros[i-1] < numeroAInsertar){
-                    // INSERTA SIEMPRE ACA UNA VEZ QUE QUEDAN LOS 0
-                    arrayNumerosConInsertado[i] = numeroAInsertar;
+                    if (arrayNumeros[i-1] !=0){
+                        // INSERTA SIEMPRE ACA UNA VEZ QUE QUEDAN LOS 0
+                        arrayNumerosConInsertado[i] = numeroAInsertar;
+                    }
                 }
+
                 else {
                     // ya se inserto
                     arrayNumerosConInsertado[i] = arrayNumeros[i-1];
@@ -59,5 +50,22 @@ public class Ejercicio11 {
             }
         }
         return arrayNumerosConInsertado;
+    }
+
+    private void pedirNumerosValidos(Scanner sc, int cantNumeroAPedir, int[] arrayNumeros) {
+        int numIngresadoArray;
+        for (int i = 0; i < cantNumeroAPedir; i++) {
+            if (i == 0){
+                System.out.println("Ingrese un numero para la posicion " + (i+1));
+                arrayNumeros[i] = sc.nextInt();
+            }
+            else {
+                do {
+                    System.out.println("Ingrese un numero para la posicion " + (i+1) + ". No puede ser 0.");
+                    numIngresadoArray = sc.nextInt();
+                }while (arrayNumeros[i - 1] >= numIngresadoArray || numIngresadoArray == 0);
+                arrayNumeros[i] = numIngresadoArray;
+            }
+        }
     }
 }

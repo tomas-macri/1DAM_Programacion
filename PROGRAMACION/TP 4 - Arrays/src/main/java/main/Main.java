@@ -67,12 +67,40 @@ public class Main {
                     resultadoFinalArray = ej11.ejercicio(sc);
                     claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
+                case 12:
+                    Ejercicio12 ej12 = new Ejercicio12();
+                    resultadoFinalArray = ej12.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    break;
+                case 13:
+                    Ejercicio13 ej13= new Ejercicio13();
+                    ej13.ejercicio(sc);
+                    break;
+                case 14:
+                    Ejercicio14 ej14 = new Ejercicio14();
+                    resultadoFinalArray = ej14.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    break;
+                case 15:
+                    Ejercicio15 ej15 = new Ejercicio15();
+                    resultadoFinalArray = ej15.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    break;
+                case 16:
+                    Ejercicio16 ej16 = new Ejercicio16();
+                    resultadoFinalArray = ej16.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    break;
+                case 17:
+                    Ejercicio17 ej17 = new Ejercicio17();
+                    resultadoFinalArray = ej17.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    break;
                 default:
                     if (opcion != 0) {
                         System.out.println("Ejercicio inexistente");
                     }
             }
-
         } while (opcion != 0);
     }
 
