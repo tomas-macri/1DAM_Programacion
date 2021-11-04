@@ -13,7 +13,6 @@ public class Ejercicio11 {
         final int cantNumeroAPedir = 5;
         final int arrayLength = 10;
         int[] arrayNumeros = new int[arrayLength];
-        int numIngresadoArray;
 
         pedirNumerosValidos(sc, cantNumeroAPedir, arrayNumeros);
         // ya tengo numeros

@@ -83,17 +83,12 @@ public class Main {
                     break;
                 case 15:
                     Ejercicio15 ej15 = new Ejercicio15();
-                    resultadoFinalArray = ej15.ejercicio(sc);
-                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    resultadoFinal = ej15.ejercicio(sc);
+                    System.out.println(resultadoFinal);
                     break;
                 case 16:
                     Ejercicio16 ej16 = new Ejercicio16();
                     resultadoFinalArray = ej16.ejercicio(sc);
-                    claseMain.mostrarArrayResultado(resultadoFinalArray);
-                    break;
-                case 17:
-                    Ejercicio17 ej17 = new Ejercicio17();
-                    resultadoFinalArray = ej17.ejercicio(sc);
                     claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 default:
