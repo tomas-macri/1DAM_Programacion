@@ -40,7 +40,8 @@ public class Main {
                     break;
                 case 6:
                     Ejercicio6 ej6 = new Ejercicio6();
-                    ej6.ejercicio(sc);
+                    resultadoFinalArray = ej6.ejercicio(sc);
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 7:
                     Ejercicio7 ej7 = new Ejercicio7();
