@@ -20,7 +20,7 @@ Ejercicio8 {
         System.out.println("Ingrese el numero a insertar");
         int numeroInsertar = sc.nextInt();
 
-        int posicionInsertar = -1;
+        int posicionInsertar;
         do {
             System.out.println("Ingrese la posicion del numero a insertar");
             posicionInsertar = sc.nextInt();

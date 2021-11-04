@@ -67,12 +67,7 @@ public class Ejercicio16 {
             System.out.println("La media de que alumno desea saber (del 1 al " + cantAlumnosPorGrupo + ") : ");
             alumnoIngresado = sc.nextInt();
         }while (alumnoIngresado < 1 || alumnoIngresado > cantAlumnosPorGrupo);
-            if ((alumnoIngresado-1) >= 0 && (alumnoIngresado-1) < cantAlumnosPorGrupo) {
-                System.out.println("La nota de promedio de " + arrayNombreAlumnos[alumnoIngresado-1] + " es de: " + arrayMediaAlumnos[alumnoIngresado-1]);
-            }
-            else{
-                System.out.println("Alumno inexistente");
-            }
+        System.out.println("La nota de promedio de " + arrayNombreAlumnos[alumnoIngresado-1] + " es de: " + arrayMediaAlumnos[alumnoIngresado-1]);
 
 
 
