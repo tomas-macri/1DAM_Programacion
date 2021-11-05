@@ -1,0 +1,11 @@
+# GITIGNORE Carpeta Target
+
+/target/
+
+#GITIGNORE Carpeta Sonarlint
+
+**/sonarlint/
+
+#Agrego el passwords.txt  
+
+**/passwords.txt

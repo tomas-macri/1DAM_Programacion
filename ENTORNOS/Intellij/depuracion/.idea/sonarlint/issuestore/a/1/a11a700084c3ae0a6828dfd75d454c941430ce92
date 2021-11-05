@@ -1,0 +1,8 @@
+
+t
+java:S3008"XRename this field "DISCOUNT_RATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïëø`8ºÇ–ŞË/
+E
+java:S1197"*Move the array designators [] to the type.(º ìıÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Š°Ã¶üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(–îñÜ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•Æ¶æÿÿÿÿÿ
