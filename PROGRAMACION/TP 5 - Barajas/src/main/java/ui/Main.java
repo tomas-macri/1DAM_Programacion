@@ -36,6 +36,15 @@ public class Main {
 
         for (int i = 0; i < cantSubBaraja; i++) {
             //comparar y sacar puntos
+            System.out.println("Carta del jugador 1: " + subBaraja1[i]);
+            System.out.println("Carta del jugador 2: " + subBaraja2[i]);
+            if (subBaraja1[i] > subBaraja2[i])
+            {
+
+            }
+            else if (subBaraja2[i] > subBaraja1[i]){ // si son iguales no hay puntos
+
+            }
             //if ()
         }
 
