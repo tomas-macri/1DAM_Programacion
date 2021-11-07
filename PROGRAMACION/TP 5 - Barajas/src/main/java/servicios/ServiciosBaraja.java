@@ -3,9 +3,6 @@ package servicios;
 import java.util.Random;
 
 public class ServiciosBaraja {
-    public static void main(String[] args) {
-
-    }
 
     public int[] inicializarBaraja(int cantCartas, int cartasPorPalo){
         int[] baraja = new int[cantCartas];
@@ -18,7 +15,7 @@ public class ServiciosBaraja {
         return baraja;
     }
 
-    private int[] barajar(int[] baraja){
+    private void barajar(int[] baraja){
         Random posi = new Random();
         int posicionArray1;
         int posicionArray2;
@@ -30,6 +27,5 @@ public class ServiciosBaraja {
             baraja[posicionArray1] = baraja[posicionArray2];
             baraja[posicionArray2] = cartaPosi1;
         }
-        return baraja;
     }
 }
