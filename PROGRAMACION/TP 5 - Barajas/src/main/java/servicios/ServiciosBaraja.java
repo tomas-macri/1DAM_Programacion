@@ -28,4 +28,21 @@ public class ServiciosBaraja {
             baraja[posicionArray2] = cartaPosi1;
         }
     }
+
+    public double[] inicializarValoresCartasPorJuego(int cantCartasPorPalo) {
+        double[] valoresArray = new double[cantCartasPorPalo];
+        if (cantCartasPorPalo == 10){
+            //baraja española
+            for (int i = 0; i < cantCartasPorPalo; i++) {
+                if ((i+1) < 8){
+                    valoresArray[i] = i+1;
+                }
+                else {
+                    valoresArray[i] = 0.5;
+                }
+            }
+        }
+        return valoresArray;
+        // else con baraja francesa
+    }
 }

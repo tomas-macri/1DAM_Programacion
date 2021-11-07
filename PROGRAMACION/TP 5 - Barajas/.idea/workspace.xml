@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="2" />
+  </component>
   <component name="ProjectId" id="20Ye8uLIplf5hM9VhzpGNLEj3Br" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,6 +44,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -63,12 +69,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5b1e2b85-f951-4c5c-a5ce-0b66d49ba16a" name="Changes" comment="" />
+      <changelist id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="" />
       <created>1636225791791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636225791791</updated>
       <workItem from="1636225794623" duration="3767000" />
+      <workItem from="1636304816860" duration="9987000" />
     </task>
     <task id="LOCAL-00001" summary="trabajo sabado zzz">
       <created>1636229663784</created>
@@ -84,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636297208933</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="COmmit estoy por terminar el 17 de arrays">
+      <created>1636305041890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636305041890</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,10 +114,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="trabajo sabado zzz" />
     <MESSAGE value="PRIMER COMMIT DEVELOP BARAJA" />
-    <option name="LAST_COMMIT_MESSAGE" value="PRIMER COMMIT DEVELOP BARAJA" />
+    <MESSAGE value="COmmit estoy por terminar el 17 de arrays" />
+    <option name="LAST_COMMIT_MESSAGE" value="COmmit estoy por terminar el 17 de arrays" />
   </component>
 </project>
