@@ -2,6 +2,7 @@ package ui;
 
 import servicios.ServiciosBaraja;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
         ServiciosBaraja serviciosBaraja = new ServiciosBaraja();
         do {
             System.out.println("Ingrese f para baraja francesa o e para española");
-            tipoBaraja = sc.nextLine().charAt(0);
+            tipoBaraja = sc.nextLine().toLowerCase().charAt(0);
         }while (tipoBaraja != 'f' && tipoBaraja != 'e');
         if (tipoBaraja == 'e'){
             baraja = serviciosBaraja.inicializarBaraja(40, 10);
