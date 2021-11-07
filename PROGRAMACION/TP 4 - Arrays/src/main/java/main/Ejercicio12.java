@@ -3,10 +3,8 @@ package main;
 import java.util.Scanner;
 
 public class Ejercicio12 {
-    public static void main(String[] args) {
 //        12. Leer por teclado una tabla de 10 elementos numéricos enteros y leer una posición (entre
 //                0 y 9). Eliminar el elemento situado en la posición dada sin dejar huecos.
-    }
 
     public int[] ejercicio(Scanner sc) {
         final int arrayLength = 10;
