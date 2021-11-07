@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,40 +12,41 @@ public class Main {
         Main claseMain = new Main();
         int[] resultadoFinalArray;
         do {
-            System.out.println("Seleccione una opción del 1 al 11 o 0 para terminar: ");
+            System.out.println("Seleccione una opción del 1 al 16 o 0 para terminar: ");
             opcion = sc.nextInt();
             sc.nextLine();
             switch (opcion) {
                 case 1:
                     Ejercicio1 ej1 = new Ejercicio1();
-                    resultadoFinalArray = ej1.ejercicio(sc);
+                    resultadoFinalArray = ej1.ejercicio();
                     claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 2:
                     Ejercicio2 ej2 = new Ejercicio2();
-                    resultadoFinalArray = ej2.ejercicio(sc);
-                    claseMain.mostrarArrayResultado(resultadoFinalArray);
+                    ej2.ejercicio();
                     break;
                 case 3:
                     Ejercicio3 ej3 = new Ejercicio3();
-                    ej3.ejercicio(sc);
+                    ej3.ejercicio();
                     break;
                 case 4:
                     Ejercicio4 ej4 = new Ejercicio4();
-                    ej4.ejercicio(sc);
+                    resultadoFinalArray = ej4.ejercicio();
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 5:
                     Ejercicio5 ej5 = new Ejercicio5();
-                    resultadoFinalArray = ej5.ejercicio(sc);
+                    resultadoFinalArray = ej5.ejercicio();
                     claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 6:
                     Ejercicio6 ej6 = new Ejercicio6();
-                    ej6.ejercicio(sc);
+                    resultadoFinalArray = ej6.ejercicio();
+                    claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 7:
                     Ejercicio7 ej7 = new Ejercicio7();
-                    resultadoFinal = ej7.ejercicio(sc);
+                    resultadoFinal = ej7.ejercicio();
                     System.out.println(resultadoFinal);
                     break;
                 case 8:
@@ -54,7 +56,7 @@ public class Main {
                     break;
                 case 9:
                     Ejercicio9 ej9 = new Ejercicio9();
-                    resultadoFinalArray = ej9.ejercicio(sc);
+                    resultadoFinalArray = ej9.ejercicio();
                     claseMain.mostrarArrayResultado(resultadoFinalArray);
                     break;
                 case 10:
@@ -74,7 +76,7 @@ public class Main {
                     break;
                 case 13:
                     Ejercicio13 ej13= new Ejercicio13();
-                    ej13.ejercicio(sc);
+                    ej13.ejercicio();
                     break;
                 case 14:
                     Ejercicio14 ej14 = new Ejercicio14();
@@ -103,5 +105,17 @@ public class Main {
         for (int i : resultadoFinalArray) {
             System.out.println(i);
         }
+    }
+
+    // creo el random fuera de la llenarArray() por una sugerencia de sonar lint, para que no se inicialice cada vez que la llamo
+    private final Random numRandom = new Random();
+
+    public int[] llenarArray(int cantArray){
+        int[] arrayLleno = new int[cantArray];
+        for (int i = 0; i < arrayLleno.length; i++) {
+            // valor de 1 a 100
+            arrayLleno[i] = numRandom.nextInt(100)+1;
+        }
+        return arrayLleno;
     }
 }

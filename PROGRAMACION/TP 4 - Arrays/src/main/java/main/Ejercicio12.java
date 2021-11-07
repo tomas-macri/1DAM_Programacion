@@ -3,19 +3,15 @@ package main;
 import java.util.Scanner;
 
 public class Ejercicio12 {
-    public static void main(String[] args) {
 //        12. Leer por teclado una tabla de 10 elementos numéricos enteros y leer una posición (entre
 //                0 y 9). Eliminar el elemento situado en la posición dada sin dejar huecos.
-    }
 
     public int[] ejercicio(Scanner sc) {
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1));
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
         //tengo numeros
+
         int posicionEliminar;
         do {
             System.out.println("Ingrese una posicion entre 0 y 9: ");

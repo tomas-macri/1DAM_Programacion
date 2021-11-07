@@ -1,17 +1,12 @@
 package main;
 
-import java.util.Scanner;
-
 public class Ejercicio7 {
-    public String ejercicio(Scanner sc) {
+    public String ejercicio() {
 //        7. Leer por teclado una serie de 10 números enteros. La aplicación debe indicarnos si los
 //        números están ordenados de forma creciente, decreciente, o si están desordenados.
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese el numero de la posicion " + (i+1) + " del array: ");
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
         boolean ordAscendentes = true;
         boolean ordDescendentes = true;
 

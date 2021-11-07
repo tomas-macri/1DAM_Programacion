@@ -6,11 +6,9 @@ public class Ejercicio10 {
     public int[] ejercicio(Scanner sc) {
 //        10. Ídem, desplazar N posiciones (N es introducido por el usuario).
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese el numero " + (i+1) + " del array: ");
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
+
         System.out.println("Ingrese cuantas posiciones quiere desplazar el array");
         int cantPosiciones = sc.nextInt();
         int[] arrayNumerosDesplazados = new int[arrayLength];

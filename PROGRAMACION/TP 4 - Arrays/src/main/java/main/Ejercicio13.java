@@ -1,21 +1,15 @@
 package main;
 
-import java.util.Scanner;
 
 public class Ejercicio13 {
-    public static void main(String[] args) {
 //        13. Leer 10 enteros. Guardar en otra tabla los elementos pares de la primera, y a
 //        continuación los elementos impares. Realizar dos versiones: una trabajando con los valores
 //        y otra trabajando con los índices.
-    }
 
-    public void ejercicio(Scanner sc) {
+    public void ejercicio() {
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1));
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
         // tengo numeros
         int[] arrayNumerosPares = new int[arrayLength];
         int[] arrayNumerosImpares = new int[arrayLength];
@@ -60,26 +54,27 @@ public class Ejercicio13 {
 
     private void soutArrayIndex(int arrayLength, int[] arrayIndex) {
         for (int i = 0; i < arrayLength/2; i++) {
-            if(i == arrayIndex.length-1){
+            if(i == 0){
                 System.out.print(arrayIndex[i]);
-                System.out.println();
             }
             else{
-                System.out.print(arrayIndex[i] + " - ");
+                System.out.print(" - " + arrayIndex[i]);
             }
         }
+        System.out.println();
     }
 
     private void soutArraysNumeros(int[] arrayNumeros) {
         for (int i = 0; i < arrayNumeros.length; i++) {
-            if(i == arrayNumeros.length-1){
-                System.out.print(arrayNumeros[i]);
-                System.out.println();
-            }
-            else{
-                System.out.print(arrayNumeros[i] + " - ");
+            if (arrayNumeros[i] != 0) {
+                if (i == 0) {
+                    System.out.print(arrayNumeros[i]);
+
+                } else {
+                    System.out.print(" - " + arrayNumeros[i]);
+                }
             }
         }
-
+        System.out.println();
     }
 }

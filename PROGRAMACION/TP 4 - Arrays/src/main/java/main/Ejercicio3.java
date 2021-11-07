@@ -1,21 +1,18 @@
 package main;
 
-import java.util.Scanner;
-
 public class Ejercicio3 {
-    public void ejercicio(Scanner sc) {
+    public void ejercicio() {
 //        3. Leer 5 números por teclado y a continuación realizar la media de los números positivos,
 //                la media de los negativos y contar el número de ceros.
         final int lengthArray = 5;
-        int[] arrayNumeros = new int[lengthArray];
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(lengthArray);
         int contPositivos = 0;
         int contNegativos = 0;
         int acumPositivos = 0;
         int acumNegativos = 0;
         int contCeros = 0;
         for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese el numero de la posicion " + (i + 1));
-            arrayNumeros[i] = sc.nextInt();
             if (arrayNumeros[i] > 0) {
                 //positivo
                 contPositivos++;

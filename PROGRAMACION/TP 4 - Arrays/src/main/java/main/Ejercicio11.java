@@ -3,11 +3,9 @@ package main;
 import java.util.Scanner;
 
 public class Ejercicio11 {
-    public static void main(String[] args) {
         // 11. Leer 5 elementos numéricos que se introducirán ordenados de forma creciente. Éstos
         //los guardaremos en una tabla de tamaño 10. Leer un número N, e insertarlo en el lugar
         //adecuado para que la tabla continúe ordenada.
-    }
 
     public int[] ejercicio(Scanner sc) {
         final int cantNumeroAPedir = 5;
@@ -55,7 +53,7 @@ public class Ejercicio11 {
         int numIngresadoArray;
         for (int i = 0; i < cantNumeroAPedir; i++) {
             if (i == 0){
-                System.out.println("Ingrese un numero para la posicion " + (i+1));
+                System.out.println("Ingrese un numero en la posicion " + (i+1));
                 arrayNumeros[i] = sc.nextInt();
             }
             else {

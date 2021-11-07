@@ -1,24 +1,19 @@
 package main;
 
-import java.util.Scanner;
-
 public class Ejercicio4 {
-    public void ejercicio(Scanner sc) {
+    public int[] ejercicio() {
 //        4. Leer 10 números enteros. Debemos mostrarlos en el siguiente orden: el primero, el
 //        último, el segundo, el penúltimo, el tercero, etc.
 
         final int lengthArray = 10;
-        int[] arrayNumeros = new int[lengthArray];
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(lengthArray);
+        int[] arrayResultado = new int[lengthArray];
 
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese un numero");
-            arrayNumeros[i] = sc.nextInt();
+        for (int i = 0, j = arrayNumeros.length-1, contArray = 0; i < j; i++, j--, contArray+=2) {
+            arrayResultado[contArray] = arrayNumeros[i];
+            arrayResultado[(contArray+1)] = arrayNumeros[j];
         }
-
-
-        for (int i = 0, j = arrayNumeros.length-1; i < j; i++, j--) {
-            System.out.println(arrayNumeros[i]);
-            System.out.println(arrayNumeros[j]);
-        }
+        return arrayResultado;
     }
 }
