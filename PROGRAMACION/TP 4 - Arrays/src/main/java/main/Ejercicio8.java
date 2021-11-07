@@ -10,12 +10,8 @@ Ejercicio8 {
 //        posición indicada, desplazando los que estén detrás.
 
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-
-        for (int i = 0; i < 8; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1));
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
 
         System.out.println("Ingrese el numero a insertar");
         int numeroInsertar = sc.nextInt();

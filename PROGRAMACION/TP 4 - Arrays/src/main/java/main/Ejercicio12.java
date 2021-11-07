@@ -10,12 +10,10 @@ public class Ejercicio12 {
 
     public int[] ejercicio(Scanner sc) {
         final int arrayLength = 10;
-        int[] arrayNumeros = new int[arrayLength];
-        for (int i = 0; i < arrayNumeros.length; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1));
-            arrayNumeros[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] arrayNumeros = claseMain.llenarArray(arrayLength);
         //tengo numeros
+
         int posicionEliminar;
         do {
             System.out.println("Ingrese una posicion entre 0 y 9: ");

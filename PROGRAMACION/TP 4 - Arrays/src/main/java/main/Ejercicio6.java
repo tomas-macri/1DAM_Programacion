@@ -1,35 +1,35 @@
 package main;
 
-import java.util.Scanner;
-
 public class Ejercicio6 {
-    public void ejercicio(Scanner sc) {
+    public int[] ejercicio() {
 //        6. Leer los datos correspondiente a dos tablas de 12 elementos numéricos, y mezclarlos en
 //        una tercera de la forma: 3 de la tabla A, 3 de la B, otros 3 de A, otros 3 de la B, etc.
         final int cantDatosPorArray = 3;
         final int lengthArray = 12;
-        int[] primerArray = new int[lengthArray];
-        int[] segundoArray = new int[lengthArray];
-        for (int i = 0; i < primerArray.length; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1) + " del array 1: ");
-            primerArray[i] = sc.nextInt();
-        }
+        Main claseMain = new Main();
+        int[] primerArray = claseMain.llenarArray(lengthArray);
+        int[] segundoArray = claseMain.llenarArray(lengthArray);
 
-        for (int i = 0; i < segundoArray.length; i++) {
-            System.out.println("Ingrese un numero para la posicion " + (i+1) + " del array 2: ");
-            segundoArray[i] = sc.nextInt();
-        }
         int contPrimerArray = 0;
         int contSegundoArray = 0;
-        for (int i = 0; i < primerArray.length/cantDatosPorArray; i++) {
-            for (int j = 0; j < cantDatosPorArray; j++) {
-                System.out.println(primerArray[contPrimerArray]);
+        int[] arrayResultado = new int[lengthArray*2];
+        int contArrayResultado = 0;
+        for (int i = 0; i < lengthArray/cantDatosPorArray; i++) {
+            for (int inicioContador = contArrayResultado;contArrayResultado < cantDatosPorArray+inicioContador; contArrayResultado++) {
+                //inicioContador guarda el valor del contador al inicar el for,
+                // mientras el contador del array no valga la suma de la cantidad de datos por array que quiera el user (3) + lo que valia al incio
+                // se sigue incrementando
+                arrayResultado[contArrayResultado] = primerArray[contPrimerArray];
                 contPrimerArray++;
             }
-            for (int j = 0; j < cantDatosPorArray; j++) {
-                System.out.println(segundoArray[contSegundoArray]);
+            for (int inicioContador = contArrayResultado;contArrayResultado < cantDatosPorArray+inicioContador; contArrayResultado++) {
+                //inicioContador guarda el valor del contador al inicar el for,
+                // mientras el contador del array no valga la suma de la cantidad de datos por array que quiera el user (3) + lo que valia al incio
+                // se sigue incrementando
+                arrayResultado[contArrayResultado] = (segundoArray[contSegundoArray]);
                 contSegundoArray++;
             }
         }
+        return arrayResultado;
     }
 }

@@ -55,7 +55,7 @@ public class Ejercicio11 {
         int numIngresadoArray;
         for (int i = 0; i < cantNumeroAPedir; i++) {
             if (i == 0){
-                System.out.println("Ingrese un numero para la posicion " + (i+1));
+                System.out.println("Ingrese un numero en la posicion " + (i+1));
                 arrayNumeros[i] = sc.nextInt();
             }
             else {
