@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++">
+    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,7 @@
       <workItem from="1636225794623" duration="3767000" />
       <workItem from="1636304816860" duration="9987000" />
       <workItem from="1636360051145" duration="59000" />
-      <workItem from="1636360127900" duration="2069000" />
+      <workItem from="1636360127900" duration="3386000" />
     </task>
     <task id="LOCAL-00001" summary="trabajo sabado zzz">
       <created>1636229663784</created>
@@ -113,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636361112247</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit solo baeraja española ++ ++">
+      <created>1636362291469</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636362291469</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,14 +145,15 @@
     <MESSAGE value="COmmit estoy por terminar el 17 de arrays" />
     <MESSAGE value="commit solo baeraja española" />
     <MESSAGE value="commit solo baeraja española ++" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++" />
+    <MESSAGE value="commit solo baeraja española ++ ++" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++ ++" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>71</line>
+          <line>72</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

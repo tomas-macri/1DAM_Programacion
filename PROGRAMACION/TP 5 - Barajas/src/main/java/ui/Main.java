@@ -15,6 +15,7 @@ public class Main {
 
         System.out.println("Ingrese a que quiere jugar: ");
         System.out.println("17 para el ejercicio");
+        System.out.println("7 para las 7 1/2");
         System.out.println();
         int opcion = sc.nextInt();
         sc.nextLine();
@@ -68,7 +69,7 @@ public class Main {
         System.out.println("El jugador sumó un total de " + acumValorJug1);
         System.out.println();
         System.out.println("Ahora es el turno de la banca: ");
-
+        Thread.sleep(3000);
         if (acumValorJug1 <= 7.5 || acumValorBanca >= acumValorJug1) {
             plantarse = false;
         }
