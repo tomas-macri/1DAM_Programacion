@@ -9,19 +9,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ServiciosBaraja serviciosBaraja = new ServiciosBaraja();
         Main claseMain = new Main();
-        char tipoBaraja;
-        do {
-            System.out.println("Ingrese f para baraja francesa o e para española");
-            tipoBaraja = sc.nextLine().toLowerCase().charAt(0);
-        }while (tipoBaraja != 'f' && tipoBaraja != 'e');
 
         int[] baraja;
-        if (tipoBaraja == 'e'){
-            baraja = serviciosBaraja.inicializarBaraja(40, 10);
-        }
-        else{
-            baraja = serviciosBaraja.inicializarBaraja(52,13);
-        }
+        baraja = serviciosBaraja.inicializarBaraja(40, 10);
 
         System.out.println("Ingrese a que quiere jugar: ");
         System.out.println("17 para el ejercicio");
