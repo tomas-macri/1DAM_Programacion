@@ -56,6 +56,7 @@ public class Main {
             if (plantOPedir == 'd'){
                 System.out.println("Nueva carta para el jugador 1: " + baraja[contTotalBaraja]);
                 acumValorJug1+= valoresSieteYMedia[(baraja[contTotalBaraja])-1];
+                System.out.println("Llevas acumulado un total de " + acumValorJug1 + " puntos.");
                 contTotalBaraja++;
             }
             else {
@@ -73,6 +74,7 @@ public class Main {
         while (acumValorBanca <= 6 && !plantarse) {
             System.out.println("Nueva carta para la banca: " + baraja[contTotalBaraja]);
             acumValorBanca += valoresSieteYMedia[(baraja[contTotalBaraja]) - 1];
+            System.out.println("La banca lleva un total de " + acumValorBanca + " puntos.");
             contTotalBaraja++;
             if (acumValorBanca >= acumValorJug1){
                 plantarse = true;
