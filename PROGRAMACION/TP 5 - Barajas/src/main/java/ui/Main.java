@@ -63,10 +63,11 @@ public class Main {
                 plantarse = true;
             }
         }while (acumValorJug1 <= 7.5 && !plantarse);
+        plantarse = true;
+
         System.out.println("El jugador sumó un total de " + acumValorJug1);
         System.out.println();
         System.out.println("Ahora es el turno de la banca: ");
-
 
         if (acumValorJug1 <= 7.5 || acumValorBanca >= acumValorJug1) {
             plantarse = false;
