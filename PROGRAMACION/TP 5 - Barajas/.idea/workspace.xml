@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++ ++">
+    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +44,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunManager">
@@ -78,7 +80,7 @@
       <workItem from="1636360051145" duration="59000" />
       <workItem from="1636360127900" duration="4032000" />
       <workItem from="1636534355743" duration="7000" />
-      <workItem from="1636615794669" duration="541000" />
+      <workItem from="1636615794669" duration="5324000" />
     </task>
     <task id="LOCAL-00001" summary="trabajo sabado zzz">
       <created>1636229663784</created>
@@ -129,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636368216962</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO">
+      <created>1636616475043</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636616475043</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,16 +164,31 @@
     <MESSAGE value="commit solo baeraja española ++" />
     <MESSAGE value="commit solo baeraja española ++ ++" />
     <MESSAGE value="commit solo baeraja española ++ ++ ++" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++ ++ ++" />
+    <MESSAGE value="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="2" />
+          <line>122</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

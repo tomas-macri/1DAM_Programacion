@@ -36,40 +36,58 @@ public class Main {
 
     private void sieteYMedia(Scanner sc, ServiciosBaraja serviciosBaraja, int[] baraja) throws InterruptedException {
         int contTotalBaraja = 0;
-        double acumValorJug1 = 0;
         double acumValorBanca = 0;
+        double maximoPuntajeJuego = 7.5;
         int cantCartasPorPalo = baraja.length/4;
         double[] valoresSieteYMedia = serviciosBaraja.inicializarValoresCartasPorJuego(cantCartasPorPalo);
+        int cantJugadores;
+        System.out.println("Ingrese la cantidad de jugadores: ");
+        cantJugadores = sc.nextInt();
+        sc.nextLine();
+        int[] jugadores = new int[cantJugadores];
+        double[] acumPuntosJugadores = new double[cantJugadores];
 
-        System.out.println("Primera carta del jugador 1: " + baraja[contTotalBaraja]);
-        acumValorJug1+= valoresSieteYMedia[(baraja[contTotalBaraja])-1];
-        contTotalBaraja++;
+        // primera carta a cada jugador
+        for (int i = 0; i < jugadores.length; i++) {
+            System.out.println("Primera carta del jugador " + (i+1) + ": " + baraja[contTotalBaraja]);
+            acumPuntosJugadores[i] += valoresSieteYMedia[(baraja[contTotalBaraja])-1];
+            contTotalBaraja++;
+            System.out.println();
+        }
 
+        // primera carta a la banca
         System.out.println("Primera carta de la banca: " + baraja[contTotalBaraja]);
         acumValorBanca+= valoresSieteYMedia[(baraja[contTotalBaraja])-1];
         contTotalBaraja++;
+        System.out.println();
 
         boolean plantarse = false;
-        char plantOPedir;
-        do{
-            plantOPedir = validacionPlantOPedir(sc);
-            if (plantOPedir == 'd'){
-                System.out.println("Nueva carta para el jugador 1: " + baraja[contTotalBaraja]);
-                acumValorJug1+= valoresSieteYMedia[(baraja[contTotalBaraja])-1];
-                System.out.println("Llevas acumulado un total de " + acumValorJug1 + " puntos.");
-                contTotalBaraja++;
-            }
-            else {
-                plantarse = true;
-            }
-        }while (acumValorJug1 <= 7.5 && !plantarse);
-        plantarse = true;
+        //va jugando cada jugador
+        for (int i = 0; i < cantJugadores; i++) {
+            plantarse = false; // cuando se planta el primera jugador vuelve a valer false
+            System.out.println("JUGADOR " + (i+1));
+            char plantOPedir;
+            do{
+                System.out.println("Llevas acumulado un total de " + acumPuntosJugadores[i] + " puntos.");
+                plantOPedir = validacionPlantOPedir(sc);
+                if (plantOPedir == 'd'){
+                    System.out.println("Nueva carta para el jugador " + (i+1) + ": " + baraja[contTotalBaraja]);
+                    acumPuntosJugadores[i] += valoresSieteYMedia[(baraja[contTotalBaraja])-1]; // -1 porque los valores de baraja van de 1 a 10
+                    contTotalBaraja++;
+                }
+                else {
+                    plantarse = true;
+                }
+            }while (acumPuntosJugadores[i] <= 7.5 && !plantarse);
+            System.out.println("El jugador " + (i+1) + " sumó un total de " + acumPuntosJugadores[i]);
+            System.out.println();
+        }
+        double maximoPuntajeJugador = serviciosBaraja.calcularMaximoPuntaje(acumPuntosJugadores, maximoPuntajeJuego);
 
-        System.out.println("El jugador sumó un total de " + acumValorJug1);
-        System.out.println();
+        plantarse = true; // por defecto la banca se plantaría
         System.out.println("Ahora es el turno de la banca: ");
         Thread.sleep(3000);
-        if (acumValorJug1 <= 7.5 || acumValorBanca >= acumValorJug1) {
+        if (maximoPuntajeJugador <= 7.5 || acumValorBanca >=  maximoPuntajeJugador) {
             plantarse = false;
         }
         while (acumValorBanca <= 6 && !plantarse) {
@@ -77,29 +95,34 @@ public class Main {
             acumValorBanca += valoresSieteYMedia[(baraja[contTotalBaraja]) - 1];
             System.out.println("La banca lleva un total de " + acumValorBanca + " puntos.");
             contTotalBaraja++;
-            if (acumValorBanca >= acumValorJug1){
+            if (acumValorBanca >= maximoPuntajeJugador){
                 plantarse = true;
             }
             Thread.sleep(3000);
         }
         System.out.println("La banca sumó un total de " + acumValorBanca);
 
-        if (acumValorJug1>7.5){
-            System.out.println("LA BANCA GANA!");
+        for (int i = 0; i < jugadores.length; i++) {
+            System.out.println("RESULTADOS DEL JUGADOR " + (i+1));
+            if (acumPuntosJugadores[i] >7.5){
+                System.out.println("LA BANCA TE GANO!");
+            }
+            else if(acumValorBanca>7.5 || acumPuntosJugadores[i] > acumValorBanca){
+                System.out.println("HAS GANADO!");
+            }
+            else {
+                System.out.println("LA BANCA TE GANO!");
+            }
+            System.out.println();
         }
-        else if(acumValorBanca>7.5 || acumValorJug1 > acumValorBanca){
-            System.out.println("EL JUGADOR 1 GANA!");
-        }
-        else {
-            System.out.println("LA BANCA GANA!");
-        }
+        System.out.println();
     }
 
     private char validacionPlantOPedir(Scanner sc) {
         char plantOPedir;
         do {
             System.out.println("Ingresa p para plantarse o d para que te de una carta");
-            plantOPedir = sc.nextLine().toLowerCase().charAt(0);
+            plantOPedir = sc.nextLine().charAt(0);
         }while (plantOPedir != 'p' && plantOPedir != 'd');
         return plantOPedir;
     }
