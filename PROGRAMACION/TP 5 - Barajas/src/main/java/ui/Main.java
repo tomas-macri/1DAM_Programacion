@@ -12,24 +12,26 @@ public class Main {
 
         int[] baraja;
         baraja = serviciosBaraja.inicializarBaraja(40, 10);
-
-        System.out.println("Ingrese a que quiere jugar: ");
-        System.out.println("17 para el ejercicio");
-        System.out.println("7 para las 7 1/2");
-        System.out.println();
-        int opcion = sc.nextInt();
-        sc.nextLine();
-        switch (opcion){
-            case 17:
-                claseMain.ejercicio17(baraja);
-                break;
-            case 7:
-                claseMain.sieteYMedia(sc, serviciosBaraja, baraja);
-                break;
-            default:
-                System.out.println("Juego inexistente");
-                break;
-        }
+        int opcion;
+        do{
+            System.out.println("Ingrese a que quiere jugar: ");
+            System.out.println("17 para el ejercicio");
+            System.out.println("7 para las 7 1/2");
+            System.out.println();
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion){
+                case 17:
+                    claseMain.ejercicio17(baraja);
+                    break;
+                case 7:
+                    claseMain.sieteYMedia(sc, serviciosBaraja, baraja);
+                    break;
+                default:
+                    System.out.println("Juego inexistente");
+                    break;
+            }
+        }while (opcion != 0);
     }
 
     private void sieteYMedia(Scanner sc, ServiciosBaraja serviciosBaraja, int[] baraja) throws InterruptedException {
@@ -50,10 +52,7 @@ public class Main {
         boolean plantarse = false;
         char plantOPedir;
         do{
-            do {
-                System.out.println("Ingresa p para plantarse o d para que te de una carta");
-                plantOPedir = sc.nextLine().toLowerCase().charAt(0);
-            }while (plantOPedir != 'p' && plantOPedir != 'd');
+            plantOPedir = validacionPlantOPedir(sc);
             if (plantOPedir == 'd'){
                 System.out.println("Nueva carta para el jugador 1: " + baraja[contTotalBaraja]);
                 acumValorJug1+= valoresSieteYMedia[(baraja[contTotalBaraja])-1];
@@ -94,6 +93,15 @@ public class Main {
         else {
             System.out.println("LA BANCA GANA!");
         }
+    }
+
+    private char validacionPlantOPedir(Scanner sc) {
+        char plantOPedir;
+        do {
+            System.out.println("Ingresa p para plantarse o d para que te de una carta");
+            plantOPedir = sc.nextLine().toLowerCase().charAt(0);
+        }while (plantOPedir != 'p' && plantOPedir != 'd');
+        return plantOPedir;
     }
 
     private void ejercicio17(int[] baraja) throws InterruptedException {
