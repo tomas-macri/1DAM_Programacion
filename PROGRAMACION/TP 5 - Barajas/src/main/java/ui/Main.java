@@ -41,8 +41,10 @@ public class Main {
         int cantCartasPorPalo = baraja.length/4;
         double[] valoresSieteYMedia = serviciosBaraja.inicializarValoresCartasPorJuego(cantCartasPorPalo);
         int cantJugadores;
-        System.out.println("Ingrese la cantidad de jugadores: ");
-        cantJugadores = sc.nextInt();
+        do {
+            System.out.println("Ingrese la cantidad de jugadores: ");
+            cantJugadores = sc.nextInt();
+        }while (cantJugadores < 1);
         sc.nextLine();
         int[] jugadores = new int[cantJugadores];
         double[] acumPuntosJugadores = new double[cantJugadores];
@@ -61,7 +63,7 @@ public class Main {
         contTotalBaraja++;
         System.out.println();
 
-        boolean plantarse = false;
+        boolean plantarse;
         //va jugando cada jugador
         for (int i = 0; i < cantJugadores; i++) {
             plantarse = false; // cuando se planta el primera jugador vuelve a valer false
@@ -105,13 +107,13 @@ public class Main {
         for (int i = 0; i < jugadores.length; i++) {
             System.out.println("RESULTADOS DEL JUGADOR " + (i+1));
             if (acumPuntosJugadores[i] >7.5){
-                System.out.println("LA BANCA TE GANO!");
+                System.out.println("LA BANCA TE GANÓ!");
             }
             else if(acumValorBanca>7.5 || acumPuntosJugadores[i] > acumValorBanca){
                 System.out.println("HAS GANADO!");
             }
             else {
-                System.out.println("LA BANCA TE GANO!");
+                System.out.println("LA BANCA TE GANÓ!");
             }
             System.out.println();
         }

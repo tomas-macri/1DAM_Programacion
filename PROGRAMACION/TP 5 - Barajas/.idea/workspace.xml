@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO">
+    <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++ ++ +++++++++ CAMBIOS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servicios/ServiciosBaraja.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio15.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio16.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio17.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio19.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio20.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +91,9 @@
       <workItem from="1636360051145" duration="59000" />
       <workItem from="1636360127900" duration="4032000" />
       <workItem from="1636534355743" duration="7000" />
-      <workItem from="1636615794669" duration="5324000" />
+      <workItem from="1636615794669" duration="5860000" />
+      <workItem from="1636624259842" duration="699000" />
+      <workItem from="1636702802104" duration="3141000" />
     </task>
     <task id="LOCAL-00001" summary="trabajo sabado zzz">
       <created>1636229663784</created>
@@ -138,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636616475043</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit solo baeraja española ++ ++ ++ +++++++++ CAMBIOS">
+      <created>1636621282947</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636621282947</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,24 +185,25 @@
     <MESSAGE value="commit solo baeraja española ++ ++" />
     <MESSAGE value="commit solo baeraja española ++ ++ ++" />
     <MESSAGE value="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++ ++ ++ +++++++++ TERMINADO" />
+    <MESSAGE value="commit solo baeraja española ++ ++ ++ +++++++++ CAMBIOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit solo baeraja española ++ ++ ++ +++++++++ CAMBIOS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>122</line>
+          <line>121</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>90</line>
+          <line>89</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>71</line>
+          <line>70</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
