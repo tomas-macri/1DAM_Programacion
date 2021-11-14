@@ -43,6 +43,16 @@ public class ServiciosBaraja {
             }
         }
         return valoresArray;
-        // else con baraja francesa
+    }
+
+    public double calcularMaximoPuntaje(double[] acumPuntosJugadores, double maximoPuntajeJuego) {
+        double valorMax = 0;
+        for (int i = 0; i < acumPuntosJugadores.length; i++) {
+            if (acumPuntosJugadores[i] > valorMax && acumPuntosJugadores[i] <= maximoPuntajeJuego){
+                valorMax = acumPuntosJugadores[i];
+            }
+        }
+        return valorMax;
+
     }
 }
