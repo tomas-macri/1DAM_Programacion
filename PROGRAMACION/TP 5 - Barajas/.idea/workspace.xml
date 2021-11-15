@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aca45e09-cb93-4229-b1e6-2b1886eeefdb" name="Changes" comment="commit solo baeraja española ++ ++ ++ +++++++++ CAMBIOS">
+      <change afterPath="$PROJECT_DIR$/../examenSorpresa/src/main/java/main/EJ1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examenSorpresa/src/main/java/main/EJ2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examenSorpresa/src/main/java/servicios/ServiciosBaraja.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio15.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio16.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio17.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio18.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio19.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TP1 - Secuenciales/src/main/java/Ejercicio20.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +83,8 @@
       <workItem from="1636534355743" duration="7000" />
       <workItem from="1636615794669" duration="5860000" />
       <workItem from="1636624259842" duration="699000" />
-      <workItem from="1636702802104" duration="3141000" />
+      <workItem from="1636702802104" duration="3776000" />
+      <workItem from="1636961664200" duration="1213000" />
     </task>
     <task id="LOCAL-00001" summary="trabajo sabado zzz">
       <created>1636229663784</created>
@@ -193,17 +184,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>121</line>
+          <line>123</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>89</line>
+          <line>91</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ui/Main.java</url>
-          <line>70</line>
+          <line>72</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
