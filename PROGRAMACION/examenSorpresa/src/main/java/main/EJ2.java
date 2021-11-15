@@ -9,6 +9,7 @@ public class EJ2 {
     public static void main(String[] args) {
         EJ2 ej = new EJ2();
         int[] arrayNumeros = new int[]{-10, -6, -5, -3, -2, 3, 4, 6, 7, 9};
+
         if (ej.pedirNumerosValidosCrecientes(arrayNumeros)) {
 
             int cantidadNumerosNegativos = 0;
