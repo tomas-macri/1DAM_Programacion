@@ -27,11 +27,13 @@ public class MainSith {
             }
 
             // RONDAS
-                for (int j = 0; j < cantJugadores; i++) {
-                    if (cartaJugadores[(j+1)%cantJugadores] != 10) {
-
-                        System.out.println("JUGADOR " + ((i + j)%cantJugadores + 1));
-                        System.out.println("Tu carta actual es un " + cartaJugadores[j]);
+                for (int j = 0; j < cantJugadores; j++) {
+                    if (cartaJugadores[((j+i+1)%cantJugadores)] != 10) {
+                        int valorCartaSiguiente = (j + i + 1)%cantJugadores;
+                        int valorCartaJugadorActual = (j+i)%cantJugadores;
+                        int jugadorActual = (i + j)%cantJugadores + 1;
+                        System.out.println("JUGADOR " + (jugadorActual));
+                        System.out.println("Tu carta actual es un " + cartaJugadores[valorCartaJugadorActual]);
                         System.out.println("Si quieres cambiar la carta con la del siguiennte jugador introduce 'yes'");
                         System.out.println("Si no quieres más cartas y quieres plantarte introduce 'no'");
                         String cambiarCartas = sc.nextLine();
@@ -40,10 +42,10 @@ public class MainSith {
                             System.out.println(" ");
                         } else if (cambiarCartas.equals("yes")) {
                             // cambio cartas
-                            int aux = cartaJugadores[j];
-                            cartaJugadores[j] = cartaJugadores[(j + 1)%cantJugadores];
-                            cartaJugadores[(j+1)%cantJugadores] = aux;
-                            System.out.println("El JUGADOR " + ((i + j)%cantJugadores+1) + " se cambio la carta y obtuvo un " + cartaJugadores[j]);
+                            int aux = cartaJugadores[valorCartaJugadorActual];
+                            cartaJugadores[valorCartaJugadorActual] = cartaJugadores[valorCartaSiguiente];
+                            cartaJugadores[valorCartaSiguiente] = aux;
+                            System.out.println("El JUGADOR " + (jugadorActual) + " se cambio la carta y obtuvo un " + cartaJugadores[valorCartaJugadorActual]);
                         }
                     }
                     else {
