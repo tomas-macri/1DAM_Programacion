@@ -30,8 +30,7 @@ public class MainSith {
                 for (int j = 0; j < cantJugadores; i++) {
                     if (cartaJugadores[(j+1)%cantJugadores] != 10) {
 
-                        System.out.println("JUGADOR " + ((i + j)%cantJugadores + 1))
-                        ;
+                        System.out.println("JUGADOR " + ((i + j)%cantJugadores + 1));
                         System.out.println("Tu carta actual es un " + cartaJugadores[j]);
                         System.out.println("Si quieres cambiar la carta con la del siguiennte jugador introduce 'yes'");
                         System.out.println("Si no quieres más cartas y quieres plantarte introduce 'no'");
