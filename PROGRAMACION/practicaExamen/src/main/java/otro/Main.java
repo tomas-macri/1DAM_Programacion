@@ -4,7 +4,7 @@ import servicios.ServiciosBaraja;
 
 import java.util.Arrays;
 
-public class Opcion1 {
+public class Main {
 
     public static void main(String[] args) {
 
