@@ -27,4 +27,12 @@ public class ServiciosBaraja {
             baraja[posicionArray2] = cartaPosi1;
         }
     }
+
+    public boolean quedanCartas(int cont, int cantCartas, int cantJugadores, int limiteCartas){
+        boolean sePuede = false;
+        if (cont + cantCartas*cantJugadores <= limiteCartas){
+            sePuede = true;
+        }
+        return sePuede;
+    }
 }

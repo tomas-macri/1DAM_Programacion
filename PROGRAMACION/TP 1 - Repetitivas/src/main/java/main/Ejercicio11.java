@@ -18,10 +18,9 @@ public class Ejercicio11 {
         System.out.println("Ingrese un número: ");
         numeroIngresado = sc.nextInt();
         sc.nextLine();
-        for (int i = 2; i <= Math.sqrt(numeroIngresado); i++){
+        for (int i = 2; i <= Math.sqrt(numeroIngresado) && esPrimo; i++){
             if (numeroIngresado % i == 0){
                 esPrimo = false;
-                break;
             }
         }
         if (esPrimo){
