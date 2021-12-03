@@ -88,26 +88,30 @@ public class Main {
                     int posicionGanadorEmpate = 0;
                     empate = false;
                     int contadorEmpates = 0;
-                    int CONTENEMPATEN = numeroEmpates;
+                    int contEmpates = numeroEmpates;
                     do {
                         int cartaMayorDesempate = -1;
                         contadorEmpates++;
                         if (numeroEmpates <= (baraja.length - indiceBaraja)) {
-                            int[] ARRAYVALOREMPATES = new int[CONTENEMPATEN];
-                            int[] ARRAYPOSICIONEMPATES = new int[CONTENEMPATEN];
-                            for (int j = 0; j < ARRAYVALOREMPATES.length;j++){//numeroEmpates; j++) {
-                                ARRAYVALOREMPATES[j] = baraja[indiceBaraja];
+                            int[] arrayValoresEmpates = new int[contEmpates];
+                            for (int j = 0; j < arrayValoresEmpates.length;j++){//numeroEmpates; j++) {
+                                arrayValoresEmpates[j] = baraja[indiceBaraja];
                                 indiceBaraja++;
 
-                                System.out.println("carta sacada por jugador" + posicionesEmpate[j] + " es " + ARRAYVALOREMPATES[j]);
-                                if (ARRAYVALOREMPATES[j] > cartaMayorDesempate) {
-                                    cartaMayorDesempate = ARRAYVALOREMPATES[j];
-                                    posicionGanadorEmpate = j;
+                                System.out.println("carta sacada por jugador" + posicionesEmpate[j] + " es " + arrayValoresEmpates[j]);
+                                if (arrayValoresEmpates[j] > cartaMayorDesempate) {
+                                    cartaMayorDesempate = arrayValoresEmpates[j];
                                     empate = false;
-                                    CONTENEMPATEN = 1;
-                                } else if (ARRAYVALOREMPATES[j] == cartaMayorDesempate) {
+                                    numeroEmpates = 0;
+                                    posicionesEmpate[numeroEmpates] = j;
+                                    numeroEmpates++;
+                                    contEmpates = 1;
+
+                                } else if (arrayValoresEmpates[j] == cartaMayorDesempate) {
                                     empate = true;
-                                    CONTENEMPATEN++;
+                                    posicionesEmpate[numeroEmpates] = j;
+                                    numeroEmpates++;
+                                    contEmpates++;
                                 }
                             }
                         }
