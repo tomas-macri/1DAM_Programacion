@@ -78,23 +78,26 @@ public class Main {
                 } else {
                     System.out.println("hay empate");
                     int numeroEmpates = 0;
+                    int numeroEmpatesTotal = 0;
                     Arrays.fill(posicionesEmpate, 0);
                     for (int j = 0; j < mesa.length; j++) {
                         if (mesa[j] == mayor) {
                             posicionesEmpate[numeroEmpates] = j;
                             numeroEmpates++;
+                            numeroEmpatesTotal++;
                         }
                     }
                     int posicionGanadorEmpate = 0;
                     empate = false;
                     int contadorEmpates = 0;
-                    int contEmpates = numeroEmpates;
                     do {
                         int cartaMayorDesempate = -1;
                         contadorEmpates++;
                         if (numeroEmpates <= (baraja.length - indiceBaraja)) {
-                            int[] arrayValoresEmpates = new int[contEmpates];
-                            for (int j = 0; j < arrayValoresEmpates.length;j++){//numeroEmpates; j++) {
+                            int[] arrayValoresEmpates = new int[numeroEmpates];
+                            numeroEmpatesTotal+=numeroEmpates; //total empates mas de una ronda
+                            numeroEmpates = 0;
+                            for (int j = 0; j < arrayValoresEmpates.length;j++){
                                 arrayValoresEmpates[j] = baraja[indiceBaraja];
                                 indiceBaraja++;
 
@@ -105,13 +108,10 @@ public class Main {
                                     numeroEmpates = 0;
                                     posicionesEmpate[numeroEmpates] = j;
                                     numeroEmpates++;
-                                    contEmpates = 1;
-
                                 } else if (arrayValoresEmpates[j] == cartaMayorDesempate) {
                                     empate = true;
                                     posicionesEmpate[numeroEmpates] = j;
                                     numeroEmpates++;
-                                    contEmpates++;
                                 }
                             }
                         }
@@ -122,7 +122,7 @@ public class Main {
                         }
                     } while (empate);
                     System.out.println("la baza se la lleva " + posicionesEmpate[posicionGanadorEmpate]);
-                    cartasGanadas[posicionMayor] += jugadores + (numeroEmpates * contadorEmpates);
+                    cartasGanadas[posicionMayor] += jugadores + (numeroEmpatesTotal * contadorEmpates);
                 }
             }
         } while (jugadores * 3 <= 40 - indiceBaraja);
