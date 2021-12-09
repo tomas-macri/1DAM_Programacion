@@ -8,36 +8,33 @@ import java.util.Random;
 
 public class DaoCartas {
 
-    private final Cartas[] baraja = new Cartas[40];
-    private final int[] arrayLimites = new int[Suits.values().length];
-    private int indiceBaraja = 0;
+    private final static int LIMITE_BARAJA = 40;
+    private final static int LIMITE_PALO = 10;
 
-    public Cartas[] inicializarBaraja(int cartasPorPalo){
+
+    private final Cartas[] barajaBocaArriba;
+    private final Cartas[] barajaBocaAbajo;
+    private final int[] arrayLimites = new int[Suits.values().length];
+    private int indiceBaraja;
+
+
+    public DaoCartas(){
+        barajaBocaAbajo = new Cartas[LIMITE_BARAJA];
+        barajaBocaArriba = new Cartas[LIMITE_BARAJA];
+        indiceBaraja = 0;
+    }
+
+    public Cartas[] inicializarBaraja(){
         int contador = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < cartasPorPalo; j++) {
-                baraja[contador] = new Cartas(j,Suits.values()[i]);
+
+        for (int i = 0; i < Suits.values().length; i++) {
+            for (int j = 0; j < LIMITE_PALO; j++) {
+                barajaBocaAbajo[contador] = new Cartas(j+1, Suits.values()[i]);
                 contador++;
             }
-
-
-            /*if (i== 0){
-                 baraja[i] = new Cartas((i%cartasPorPalo) + 1, Suits.PICAS);
-             }
-             else if (i%4 == 1){
-                 baraja[i] = new Cartas((i%cartasPorPalo) + 1, Suits.DIAMANTES);
-             }
-             else if (i%4 == 2){
-                 baraja[i] = new Cartas((i%cartasPorPalo) + 1 , Suits.CORAZONES);
-             }
-             else{
-                 baraja[i] = new Cartas((i%cartasPorPalo) + 1, Suits.TREBOL);
-             }*/
         }
-        // tengo baraja ordenada
-        //barajar
-        barajar(baraja);
-        return Arrays.copyOf(baraja, baraja.length);
+        barajar(barajaBocaArriba);
+        return Arrays.copyOf(barajaBocaArriba, barajaBocaArriba.length);
     }
 
     private void barajar(Cartas[] baraja){
@@ -54,14 +51,49 @@ public class DaoCartas {
         }
     }
 
-    public Cartas sacarCarta(){
-        Cartas unaCarta = baraja[indiceBaraja];
+    public void sacarUnaCarta(){
+        if (indiceBaraja < LIMITE_BARAJA){
+            barajaBocaAbajo[indiceBaraja] = barajaBocaArriba[indiceBaraja];
+            indiceBaraja++;
+        }
+    }
+
+    public Cartas giveLaQueEstaEncimaCard() {
+        Cartas c = null;
+
+        if (indiceBaraja<LIMITE_BARAJA){
+            c = barajaBocaArriba[indiceBaraja];
+            indiceBaraja++;
+        }
+        barajaBocaArriba[indiceBaraja] = c;
+        return c;
+    }
+
+
+
+
+
+    public void colocarCarta(Cartas c)
+    {
+        arrayLimites[c.getPalo().ordinal()]++;
+    }
+
+    public int giveActualDePaloEnMesa(Suits suit) {
+            return arrayLimites[suit.ordinal()];
+    }
+
+
+
+
+
+        public Cartas sacarCarta(){
+        Cartas unaCarta = barajaBocaArriba[indiceBaraja];
         indiceBaraja++;
         return unaCarta;
     }
 
     public boolean quedanCartasEnBaraja() {
-        return (baraja.length > indiceBaraja);
+        return (barajaBocaArriba.length > indiceBaraja);
     }
 
     public boolean getLimiteCarta (Cartas carta){

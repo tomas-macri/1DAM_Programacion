@@ -8,7 +8,7 @@ public class Solitario {
     public static void main(String[] args) {
 
         DaoCartas daoCartas = new DaoCartas();
-        Cartas[] miBaraja = daoCartas.inicializarBaraja(10);
+        Cartas[] miBaraja = daoCartas.inicializarBaraja();
         for (int i = 0; i < miBaraja.length; i++) {
             System.out.println("carta " + (i+1) + ": " + miBaraja[i].toString());
         }
@@ -36,7 +36,7 @@ public class Solitario {
                     sePudoPonerCarta = true;
                 }
 
-                //mallllllll;;;;;;;
+                //mallllllll
 
             }while (daoCartas.quedanCartasEnBaraja());
         }while (sePudoPonerCarta);
