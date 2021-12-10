@@ -9,37 +9,51 @@ public class Solitario {
 
         DaoCartas daoCartas = new DaoCartas();
         Cartas[] miBaraja = daoCartas.inicializarBaraja();
-        for (int i = 0; i < miBaraja.length; i++) {
-            System.out.println("carta " + (i+1) + ": " + miBaraja[i].toString());
-        }
 
         System.out.println("COMIENZA EL SOLITARIO");
         boolean sePudoPonerCarta = false;
+        boolean seColocaCarta = false;
         do {
+            sePudoPonerCarta = false;
             do {
-                sePudoPonerCarta = false;
-                Cartas[] arrayCartasMesa = new Cartas[miBaraja.length];
-                int contArrayMesa = 0;
-                int cartasLevantadas = 0; // variable que indicara cuantas cartas se pusieron sobre las pilas de los cuatro palos
-
                 //saco 2 cartas
-                for (int i = 0; i < 2; i++) {
-                    Cartas cartaDeLaBaraja = daoCartas.sacarCarta();
-                    System.out.println("Carta nueva " + (i + 1) + ": " + cartaDeLaBaraja);
-                    arrayCartasMesa[contArrayMesa] = cartaDeLaBaraja;
-                    contArrayMesa++;
+                System.out.println("NUEVA VUELTAAAAAA");
+                for (int i = 0; i < 2 && daoCartas.quedanCartasEnBaraja(); i++) {
+                    System.out.println();
+                    System.out.println("Carta nueva " + (i + 1) + ": " + daoCartas.sacarUnaCarta());
                 }
-
-                //empiezo a poner mientras se pueda (validar con if antes de mandar index de abajo)
-                while (daoCartas.getLimiteCarta(arrayCartasMesa[contArrayMesa - cartasLevantadas])){
-                    daoCartas.ponerCarta(arrayCartasMesa[contArrayMesa - cartasLevantadas]);
-                    sePudoPonerCarta = true;
-                }
-
-                //mallllllll
-
+                do{
+                    if (daoCartas.giveLaQueEstaEncimaCard() != null){
+                        if (daoCartas.getLimiteCarta(daoCartas.giveLaQueEstaEncimaCard())) {
+                            System.out.println();
+                            System.out.println("Se ha puesto el " + daoCartas.ponerCarta(daoCartas.giveLaQueEstaEncimaCard()));
+                            System.out.println();
+                            seColocaCarta = true;
+                            sePudoPonerCarta = true;
+                        }
+                        else {
+                            seColocaCarta = false;
+                        }
+                    }
+                    else {
+                        seColocaCarta = false;
+                    }
+                }while(seColocaCarta);
             }while (daoCartas.quedanCartasEnBaraja());
+            System.out.println("DOY LA VUELTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            System.out.println(daoCartas.getLimites().toString());
+
+
+
+            daoCartas.darVueltaBaraja(); // AL DAR VUELTA QUEDA UN ERROR CON LA ULTIMA CARTA DE LA BARAJA REVISARRRRRRRR
         }while (sePudoPonerCarta);
+
+        if (!sePudoPonerCarta){
+            System.out.println("perdiste");
+        }
+        else {
+            System.out.println("ganaste");
+        }
 
 
     }
