@@ -8,18 +8,20 @@ import java.util.Random;
 
 public class DaoCartas {
 
-    private final static int LIMITE_BARAJA = 40;
-    private final static int LIMITE_PALO = 10;
+    private static final int LIMITE_BARAJA = 40;
+    private static final int LIMITE_PALO = 10;
 
 
     private final Cartas[] barajaBocaArriba;
     private final Cartas[] barajaBocaAbajo;
-    private final int[] arrayLimites = new int[Suits.values().length];
+    private final int[] arrayLimites;
     private int indiceBaraja;
     private int indiceBarajaArriba;
+    private int cantidadCartasRestantes = LIMITE_BARAJA;
 
 
     public DaoCartas(){
+        arrayLimites = new int[Suits.values().length];
         barajaBocaAbajo = new Cartas[LIMITE_BARAJA];
         barajaBocaArriba = new Cartas[LIMITE_BARAJA];
         indiceBaraja = 0;
@@ -30,7 +32,7 @@ public class DaoCartas {
         int contador = 0;
 
         for (int i = 0; i < Suits.values().length; i++) {
-            for (int j = 0; j < LIMITE_PALO; j++) {
+            for (int j = LIMITE_PALO-1; j >= 0; j--) {
                 barajaBocaAbajo[contador] = new Cartas(j+1, Suits.values()[i]);
                 contador++;
             }
@@ -54,7 +56,7 @@ public class DaoCartas {
     }
 
     public Cartas sacarUnaCarta(){
-        if (indiceBaraja < LIMITE_BARAJA){
+        if (indiceBaraja < cantidadCartasRestantes){
             barajaBocaArriba[indiceBarajaArriba] = barajaBocaAbajo[indiceBaraja];
             indiceBaraja++;
             indiceBarajaArriba++;
@@ -64,24 +66,10 @@ public class DaoCartas {
 
     public Cartas giveLaQueEstaEncimaCard() {
         Cartas c = null;
-        if (indiceBarajaArriba >0){
+        if (indiceBarajaArriba > 0){
             c = barajaBocaArriba[indiceBarajaArriba-1];
         }
         return c;
-    }
-
-
-
-
-
-
-    public int giveActualDePaloEnMesa(Suits suit) {
-            return arrayLimites[suit.ordinal()];
-    }
-
-
-    public boolean quedanCartasEnBaraja() {
-        return (barajaBocaArriba.length > indiceBaraja);
     }
 
     public boolean getLimiteCarta (Cartas carta){
@@ -97,23 +85,32 @@ public class DaoCartas {
         Cartas cartaColocada = cartaAPoner;
         indiceBarajaArriba--;
         return cartaColocada;
-        //eliminar carta de la baraja?????????
     }
 
     public void darVueltaBaraja(){
-        for (int i = indiceBarajaArriba-1; i > 0 ; i--) {
+        for (int i = 0; i < indiceBarajaArriba ; i++) {
             barajaBocaAbajo[i] = barajaBocaArriba[i];
         }
+        cantidadCartasRestantes = indiceBarajaArriba;
         indiceBaraja = 0;
         indiceBarajaArriba = 0;
     }
 
+    public boolean sePuedenDarVueltaCartas(){
+        return ((cantidadCartasRestantes - indiceBaraja) > 0);
+    }
 
-    public StringBuilder getLimites() {
-        StringBuilder mensaje = new StringBuilder();
-        for (int i = 0; i < arrayLimites.length; i++) {
-            mensaje.append("Limite para ").append(Suits.values()[i]).append(": ").append(arrayLimites[i]);
+    public int getLimite(Suits suit) {
+        return arrayLimites[suit.ordinal()];
+    }
+
+    public boolean limitesCompletos(){
+        boolean completos = true;
+        for (int i = 0; i < Suits.values().length; i++) {
+            if (arrayLimites[i] != 10) {
+                completos = false;
+            }
         }
-        return mensaje;
+        return completos;
     }
 }
