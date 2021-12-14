@@ -1,6 +1,5 @@
 package tateti.data;
 
-import tateti.modelo.Celda;
 import tateti.modelo.Tablero;
 
 public class DaoTablero {
@@ -10,9 +9,9 @@ public class DaoTablero {
 
     private int jugadas;
 
-    public DaoTablero() {
+    public DaoTablero(int x, int y) {
 
-        tablero = new Tablero(3,3);
+        tablero = new Tablero(x, y);
     }
 
 
@@ -30,12 +29,19 @@ public class DaoTablero {
     public boolean setCelda(int x, int y, String valor){
         boolean celdaVacia = false;
 
-        if (celdaVacia(x,y))
+        if (celdaVacia(x,y)){
             tablero.setCelda(x,y,valor);
-        else
+            jugadas++;
+        }
+        else{
             celdaVacia = true;
+        }
 
         return celdaVacia;
+    }
+
+    public int getJugadas(){
+        return jugadas;
     }
 
 
@@ -43,20 +49,63 @@ public class DaoTablero {
     {
         boolean bingo = false;
 
-        if (tablero.getCelda(0,0)!= null &&
-                tablero.getCelda(0,0) == tablero.getCelda(0,1) &&
-                tablero.getCelda(0,2) == tablero.getCelda(0,1))
+        if (!tablero.getCelda(0,0).equals("-") &&                                    //1 - -
+                tablero.getCelda(0,0).equals(tablero.getCelda(0,1)) &&         //1 - -
+                tablero.getCelda(0,2).equals(tablero.getCelda(0,1))){          //1 - -
             bingo = true;
+        }
+
+    else if (!tablero.getCelda(1,0).equals("-") &&                              //- 1 -
+                tablero.getCelda(1,1).equals(tablero.getCelda(1,0)) &&         //- 1 -
+                tablero.getCelda(1,2).equals(tablero.getCelda(1,1))){          //- 1 -
+            bingo = true;
+        }
+
+        else if (!tablero.getCelda(2,0).equals("-") &&                               //- - 1
+                tablero.getCelda(2,1).equals(tablero.getCelda(2,0)) &&         //- - 1
+                tablero.getCelda(2,2).equals(tablero.getCelda(2,1))){          //- - 1
+            bingo = true;
+        }
 
 
 
+        else if (!tablero.getCelda(0,0).equals("-") &&                          //1 1 1
+                tablero.getCelda(1,0).equals(tablero.getCelda(0,0)) &&         //- - -
+                tablero.getCelda(2,0).equals(tablero.getCelda(1,0))){          //- - -
+            bingo = true;
+        }
+
+        else if (!tablero.getCelda(0,1).equals("-") &&                          //- - -
+                tablero.getCelda(1,1).equals(tablero.getCelda(0,1)) &&         //1 1 1
+                tablero.getCelda(2,1).equals(tablero.getCelda(1,1))){          //- - -
+            bingo = true;
+        }
+
+        else if (!tablero.getCelda(0,2).equals("-") &&                          //- - -
+                tablero.getCelda(1,2).equals(tablero.getCelda(0,2)) &&         //- - -
+                tablero.getCelda(2,2).equals(tablero.getCelda(1,2))){          //1 1 1
+            bingo = true;
+        }
+
+
+        else if (!tablero.getCelda(0,0).equals("-") &&                          //1 - -
+                tablero.getCelda(1,1).equals(tablero.getCelda(0,0)) &&         //- 1 -
+                tablero.getCelda(2,2).equals(tablero.getCelda(1,1))){          //- - 1
+            bingo = true;
+        }
+
+        else if (!tablero.getCelda(2,0).equals("-") &&                          //- - 1
+                tablero.getCelda(1,1).equals(tablero.getCelda(2,0)) &&         //- 1 -
+                tablero.getCelda(0,2).equals(tablero.getCelda(1,1))){          //1 - -
+            bingo = true;
+        }
         return bingo;
     }
 
     public boolean hayCeldaLibre() {
-        boolean hay = false;
+        boolean hay = true;
         if (jugadas == 9){
-            hay = true;
+            hay = false;
         }
         return hay;
 
