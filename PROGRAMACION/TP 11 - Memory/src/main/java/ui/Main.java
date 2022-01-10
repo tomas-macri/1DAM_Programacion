@@ -5,9 +5,6 @@ import dao.DaoTablero;
 import java.util.Scanner;
 
 public class Main {
-    private static final int EJE_X = 3;
-    private static final int EJE_Y = 3;
-
     public static void main(String[] args) {
 
 
@@ -34,6 +31,8 @@ public class Main {
                 dao = new DaoTablero(20, 20);
                 break;
         }
+
+
 
 
 
