@@ -43,62 +43,68 @@ public class Main {
                 break;
         }
         dao = new DaoTablero(ejeX, ejeY);
-        System.out.println(dao.getTablero().toString());
+        System.out.println(dao.getTablero());
         dao.rellenarTablero();
-        System.out.println(dao.getTablero().toString());
-
-        do {
-            int posiX;
-            int posiY;
-            System.out.println("nueva ronda:");
-            Ficha ficha1 = main.elegirFicha(sc, dao, ejeY, ejeX);
-            System.out.println(dao.getTablero().toString());
-            Ficha ficha2 = main.elegirFicha(sc,dao,ejeY,ejeX);
-            System.out.println(dao.getTablero().toString());
-            dao.compararFichas(ficha1, ficha2);
-
-
-        }while (!dao.hayFichasCubiertas());
+        System.out.println(dao.getTablero());
+        boolean jugador1 = true; //variable que dice el turno de quien es
+        int acumPuntos1 = 0;
+        int acumPuntos2 = 0;
         // tengo tablero sin valores
-
-
+        int quienLeToca;
+        do {
+            if (jugador1){
+                quienLeToca = 1;
+            }
+            else {
+                quienLeToca = 2;
+            }
+            System.out.println(dao.getTablero());
+            System.out.println("Turno del jugador " + quienLeToca + ":");
+            Ficha ficha1 = main.elegirFicha(sc, dao, ejeY, ejeX);
+            System.out.println(dao.getTablero());
+            Ficha ficha2 = main.elegirFicha(sc,dao,ejeY,ejeX);
+            System.out.println(dao.getTablero());
+            if (dao.compararFichas(ficha1, ficha2)){
+                System.out.println("Es una pareja!");
+                if (jugador1){
+                    System.out.println("El jugador 1 suma dos puntos");
+                    acumPuntos1+=2;
+                }
+                else {
+                    System.out.println("El jugador 2 suma dos puntos");
+                    acumPuntos2+=2;
+                }
+            }
+            else {
+                jugador1 = !jugador1;
+            }
+            System.out.println("Puntos del jugador 1: " + acumPuntos1);
+            System.out.println("Puntos del jugador 2: " + acumPuntos2);
+        }while (!dao.hayFichasCubiertas());
+        System.out.println("Puntos finales del jugador 1: " + acumPuntos1);
+        System.out.println("Puntos finales del jugador 2: " + acumPuntos2);
+        String mensajeFinal = "empate, que aburridos";
+        if (acumPuntos1 > acumPuntos2){
+            mensajeFinal = "El jugador 1 gana!";
+        }
+        else if (acumPuntos2 > acumPuntos1){
+            mensajeFinal = "El jugador 2 gana!";
+        }
+        System.out.println(mensajeFinal);
 
     }
 
     private Ficha elegirFicha(Scanner sc, DaoTablero dao, int ejeY, int ejeX) {
-        int posiX = -1;
-        int posiY = -1;
-        while (posiX > ejeX || posiX < 0 || posiY > ejeY || posiY < 0) {
+        int posiX;
+        int posiY;
+        do {
             System.out.println("seleccione la posicion del eje x de la ficha que quiere dar vuelta: ");
             posiX = sc.nextInt();
             System.out.println("seleccione la posicion del eje y de la ficha que quiere dar vuelta: ");
             posiY = sc.nextInt();
             sc.nextLine();
-        }
+        }while (posiX >= ejeX || posiX < 0 || posiY >= ejeY || posiY < 0 || dao.fichaDescubierta(posiX, posiY));
         return dao.descubrirFicha(posiX,posiY);
     }
-//        do {
-//            do {
-//                do {
-//                    System.out.println("Elige el x de la celda (1 a 3, de izquierda a derecha): ");
-//                    xElegido = sc.nextInt();
-//                    System.out.println("Elige el y de la celda (1 a 3 de arriba a abajo): ");
-//                    yElegido = sc.nextInt();
-//                    sc.nextLine();
-//                } while ((xElegido - 1) < 0 || (xElegido - 1) > 2 || (yElegido - 1) < 0 || (yElegido - 1) > 2);
-//            } while (dao.setCelda(xElegido - 1, yElegido - 1, ValoresCelda.values()[dao.getJugadas()%2].toString()));
-//
-//            main.printJuego(dao);
-//
-//        } while (dao.hayCeldaLibre() && !dao.tresLinea());
-//
-//        String mensajeFinal = "Empate, que aburrido";
-//        if (dao.tresLinea()){
-//         ///  mensajeFinal = "GANO EL JUGADOR QUE USA " + ValoresCelda.values()[(dao.getJugadas()-1)%2].toString(); //-1 porque gana el anterior
-//        }
-//
-//        System.out.println(mensajeFinal);
-//
-//    }
-//
+
 }

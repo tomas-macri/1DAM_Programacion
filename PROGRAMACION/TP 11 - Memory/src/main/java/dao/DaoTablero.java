@@ -10,8 +10,6 @@ public class DaoTablero {
     //BD
     private Tablero tablero;
 
-    private int jugadas;
-
     public DaoTablero(int x, int y) {
 
         tablero = new Tablero(x, y);
@@ -30,8 +28,9 @@ public class DaoTablero {
         return tablero;
     }
 
+    Random r = new Random(); // el Random esta inicializado fuera por una sugerencia del SonarLint
+
     private void mezclarFichas() {
-        Random r = new Random();
 
         int indiceX1;
         int indiceY1;
@@ -54,32 +53,6 @@ public class DaoTablero {
 
     }
 
-    public int getCelda(int x, int y) {
-        return tablero.getValorFicha(x, y);
-    }
-
-
-    private boolean celdaVacia(int x, int y) {
-        return tablero.getValorFicha(x, y) == 0;
-    }
-
-    public boolean setCelda(int x, int y, int valor) {
-        boolean celdaVacia = false;
-
-        if (celdaVacia(x, y)) {
-            tablero.setValorFicha(x, y, valor);
-            jugadas++;
-        } else {
-            celdaVacia = true;
-        }
-
-        return celdaVacia;
-    }
-
-    public int getJugadas() {
-        return jugadas;
-    }
-
 
     public boolean hayFichasCubiertas() {
         boolean todasDescubiertas = true;
@@ -94,16 +67,27 @@ public class DaoTablero {
 
     }
 
+    public boolean fichaDescubierta(int x, int y){
+        return tablero.getFichaDescubierta(x, y);
+    }
+
     public Ficha descubrirFicha(int x, int y) {
         tablero.setFichaDescubierta(x, y, true);
         return tablero.getFicha(x,y);
     }
 
-    public void compararFichas(Ficha ficha1, Ficha ficha2){
-        //main ghasta aca llegue
+    public boolean compararFichas(Ficha ficha1, Ficha ficha2){
+        boolean iguales = true;
+        if (ficha1.getValor() != ficha2.getValor())
+        {
+            ficha1.setDescubierta(false);
+            ficha2.setDescubierta(false);
+            iguales = false;
+        }
+        return iguales;
     }
 
-    public Tablero getTablero() {
-        return tablero;
+    public String getTablero() {
+        return tablero.toString();
     }
 }
