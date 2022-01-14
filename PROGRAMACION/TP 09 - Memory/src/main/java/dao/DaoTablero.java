@@ -67,19 +67,18 @@ public class DaoTablero {
 
     }
 
-    public boolean fichaDescubierta(int x, int y){
+    public boolean fichaDescubierta(int x, int y) {
         return tablero.getFichaDescubierta(x, y);
     }
 
     public Ficha descubrirFicha(int x, int y) {
         tablero.setFichaDescubierta(x, y, true);
-        return tablero.getFicha(x,y);
+        return tablero.getFicha(x, y);
     }
 
-    public boolean compararFichas(Ficha ficha1, Ficha ficha2){
+    public boolean compararFichas(Ficha ficha1, Ficha ficha2) {
         boolean iguales = true;
-        if (ficha1.getValor() != ficha2.getValor())
-        {
+        if (ficha1.getValor() != ficha2.getValor()) {
             ficha1.setDescubierta(false);
             ficha2.setDescubierta(false);
             iguales = false;

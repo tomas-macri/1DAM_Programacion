@@ -20,7 +20,7 @@ public class Main {
         System.out.println("COMIENZA MEMORY");
         System.out.println("Selecciona un nivel de dificultad (1 es facil y 3 es dificil)");
         dificultad = sc.nextInt();
-        while (dificultad < 1 || dificultad > 3){
+        while (dificultad < 1 || dificultad > 3) {
             System.out.println("Selecciona un nivel de dificultad (1 es facil y 3 es dificil)");
             dificultad = sc.nextInt();
         }
@@ -42,55 +42,54 @@ public class Main {
             default:
                 break;
         }
+        int cantidadJugadores;
+        do {
+            System.out.println("Cuantos jugadores seran?: ");
+            cantidadJugadores = sc.nextInt();
+        } while (cantidadJugadores <= 1);
+        sc.nextLine();
+
         dao = new DaoTablero(ejeX, ejeY);
         dao.rellenarTablero();
-        boolean jugador1 = true; //variable que dice el turno de quien es
-        int acumPuntos1 = 0;
-        int acumPuntos2 = 0;
-        // tengo tablero sin valores
-        int quienLeToca;
+        int[] arrayJugadores = new int[cantidadJugadores];
+        int turnoJugador = 0;
         do {
-            if (jugador1){
-                quienLeToca = 1;
-            }
-            else {
-                quienLeToca = 2;
-            }
             System.out.println(dao.getTablero());
-            System.out.println("Turno del jugador " + quienLeToca + ":");
+            System.out.println("Turno del jugador " + ((turnoJugador % arrayJugadores.length) + 1) + ":");
             Ficha ficha1 = main.elegirFicha(sc, dao, ejeY, ejeX);
             System.out.println(dao.getTablero());
-            Ficha ficha2 = main.elegirFicha(sc,dao,ejeY,ejeX);
+            Ficha ficha2 = main.elegirFicha(sc, dao, ejeY, ejeX);
             System.out.println(dao.getTablero());
-            if (dao.compararFichas(ficha1, ficha2)){
+            if (dao.compararFichas(ficha1, ficha2)) {
                 System.out.println("Es una pareja!");
-                if (jugador1){
-                    System.out.println("El jugador 1 suma dos puntos");
-                    acumPuntos1+=2;
-                }
-                else {
-                    System.out.println("El jugador 2 suma dos puntos");
-                    acumPuntos2+=2;
-                }
-            }
-            else {
+                arrayJugadores[turnoJugador % arrayJugadores.length] += 2;
+            } else {
                 System.out.println("Eso no es una pareja :(");
                 System.out.println();
-                jugador1 = !jugador1;
+                turnoJugador++;
             }
-            System.out.println("Puntos del jugador 1: " + acumPuntos1);
-            System.out.println("Puntos del jugador 2: " + acumPuntos2);
-        }while (!dao.hayFichasCubiertas());
-        System.out.println("Puntos finales del jugador 1: " + acumPuntos1);
-        System.out.println("Puntos finales del jugador 2: " + acumPuntos2);
-        String mensajeFinal = "empate, que aburridos";
-        if (acumPuntos1 > acumPuntos2){
-            mensajeFinal = "El jugador 1 gana!";
+            for (int i = 0; i < arrayJugadores.length; i++) {
+                System.out.println("Puntos del jugador " + (i + 1) + ": " + arrayJugadores[i]);
+            }
+        } while (!dao.hayFichasCubiertas());
+
+        int ganadorPuntos = -1;
+        int posiGanador = -1;
+        int cantEmpatados = 0;
+        for (int i = 0; i < arrayJugadores.length; i++) {
+            if (arrayJugadores[i] > ganadorPuntos) {
+                posiGanador = i;
+                ganadorPuntos = arrayJugadores[i];
+                cantEmpatados = 1;
+            } else if (arrayJugadores[i] == ganadorPuntos) {
+                cantEmpatados++;
+            }
         }
-        else if (acumPuntos2 > acumPuntos1){
-            mensajeFinal = "El jugador 2 gana!";
+        if (cantEmpatados > 1) {
+            System.out.println("Hubo un empate a " + ganadorPuntos + " entre " + cantEmpatados + " jugadores");
+        } else {
+            System.out.println("El ganador es el jugador " + (posiGanador + 1) + " con " + ganadorPuntos + " puntos");
         }
-        System.out.println(mensajeFinal);
 
     }
 
@@ -103,8 +102,8 @@ public class Main {
             System.out.println("seleccione la posicion del eje y de la ficha que quiere dar vuelta: ");
             posiY = sc.nextInt();
             sc.nextLine();
-        }while (posiX >= ejeX || posiX < 0 || posiY >= ejeY || posiY < 0 || dao.fichaDescubierta(posiX, posiY));
-        return dao.descubrirFicha(posiX,posiY);
+        } while (posiX >= ejeX || posiX < 0 || posiY >= ejeY || posiY < 0 || dao.fichaDescubierta(posiX, posiY));
+        return dao.descubrirFicha(posiX, posiY);
     }
 
 }
