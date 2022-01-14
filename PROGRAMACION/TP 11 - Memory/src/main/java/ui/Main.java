@@ -43,9 +43,7 @@ public class Main {
                 break;
         }
         dao = new DaoTablero(ejeX, ejeY);
-        System.out.println(dao.getTablero());
         dao.rellenarTablero();
-        System.out.println(dao.getTablero());
         boolean jugador1 = true; //variable que dice el turno de quien es
         int acumPuntos1 = 0;
         int acumPuntos2 = 0;
@@ -76,6 +74,8 @@ public class Main {
                 }
             }
             else {
+                System.out.println("Eso no es una pareja :(");
+                System.out.println();
                 jugador1 = !jugador1;
             }
             System.out.println("Puntos del jugador 1: " + acumPuntos1);
