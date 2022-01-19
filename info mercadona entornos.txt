@@ -1,0 +1,21 @@
+usuarios (admin y clientes)
+
+admin --> abm productos (stock) añde borra o modifica 
+
+clientes --> hacen una lista de productos
+
+se muestran solo los productos que tienen stock.
+
+clientes --> tienen dinero cargado --> se descuenta la compra y se puede cargar con su tarjeta. No puede ser negativo pero (((se puede cargar justo antes de pagar o sacar productos de la lista))).
+
+clientes --> lista de listas de compras previas.
+
+clientes --> tienen lista de tarjetas para elegir
+
+
+
+1234567890'¡+`poiuytrewqasdfghjklñ´ç-.,mnbvcxz<0123456987bgfngfnfmmgh,.j.ljk kmg ,gmkg jn gtfkm g hygjnhygf k  gtghhffg dgfhfgfdfggfdgrryjy bcfjj jygjhnbghjhgtytyjhggffdssedaqqawsedrftgyhujikolpñkmnjnhbgvfcs
+
+q w e r t y u i o p
+ a s d f g h j k l ñ
+  z x c v b n m
