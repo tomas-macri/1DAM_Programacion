@@ -1,10 +1,10 @@
 usuarios (admin y clientes)
 
-admin --> abm productos (stock) añde borra o modifica 
+admin --> abm productos (stock) añde borra o modifica // done
 
 clientes --> hacen una lista de productos
 
-se muestran solo los productos que tienen stock.
+//se muestran solo los productos que tienen stock.
 
 clientes --> tienen dinero cargado --> se descuenta la compra y se puede cargar con su tarjeta. No puede ser negativo pero (((se puede cargar justo antes de pagar o sacar productos de la lista))).
 

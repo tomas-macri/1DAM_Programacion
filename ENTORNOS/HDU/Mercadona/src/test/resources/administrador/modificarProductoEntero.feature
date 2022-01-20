@@ -1,8 +1,13 @@
 #Administrador Mercadona
-Feature: Como administrador quiero poder modificar un producto de la lista de productos
+Feature: Como administrador quiero poder modificar un producto entero de la lista de productos
   Background:
     Given un usuario administrador
     When el usuario ingresa un 2
+    #menu en el que elige entre agregar, modificar o eliminar
+
+    And el usuario ingesa un 1
+    #menu en el que elige entre modificar un producto entero, solo su stock, solo su precio o solo su nombre
+
     And el nombre de un producto
     And ingresa un producto con un nombre, precio y stock validos
 

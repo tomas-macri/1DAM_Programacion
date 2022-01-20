@@ -1,7 +1,7 @@
 #Cliente Mercadona
 Feature: Como cliente quiero poder agregar un producto de la lista de la compra
   Background:
-    Given un usuario clientes
+    Given un usuario cliente
     When el usuario ingresa un 1
     And el nombre de un producto
 
@@ -29,7 +29,7 @@ Feature: Como cliente quiero poder agregar un producto de la lista de la compra
   Scenario: nombre no valido
     When el nombre no tiene un valor
     Then No se busca el producto
-    And Se pide un nombre valido para poder buscar en la lista de productos
+    And Se pide un nombre valido para poder buscar en la lista de la compra
 
 
 
