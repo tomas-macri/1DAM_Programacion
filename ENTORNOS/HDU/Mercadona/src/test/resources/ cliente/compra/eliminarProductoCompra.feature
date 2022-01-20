@@ -2,7 +2,7 @@
 Feature: Como cliente quiero poder eliminar un producto de la lista de la compra
   Background:
     Given un usuario cliente
-    When el usuario ingresa un 2
+    And el usuario ingresa un 2
     And el nombre de un producto
 
   Scenario: eliminar exitosamente

@@ -2,7 +2,7 @@
 Feature: Como cliente quiero poder agregar un producto de la lista de la compra
   Background:
     Given un usuario cliente
-    When el usuario ingresa un 1
+    And el usuario ingresa un 1
     And el nombre de un producto
 
   Scenario: agregar exitosamente

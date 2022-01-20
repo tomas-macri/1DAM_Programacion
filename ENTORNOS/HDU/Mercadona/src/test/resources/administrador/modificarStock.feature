@@ -1,8 +1,8 @@
 #Administrador Mercadona
-Feature: Como administrador quiero poder modificar el stock de un producto de la lista de productos
+Feature: Como administrador quiero poder modificar el stock de un producto de la lista de productos para actualizar la lista
   Background:
     Given un usuario administrador
-    When el usuario ingresa un 2
+    And el usuario ingresa un 2
     #menu en el que elige entre agregar, modificar o eliminar
 
     And el usuario ingesa un 2

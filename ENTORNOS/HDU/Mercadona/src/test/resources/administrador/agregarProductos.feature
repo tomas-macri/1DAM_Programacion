@@ -1,8 +1,8 @@
 #Administrador Mercadona
-Feature: Como administrador quiero poder agregar un producto a la lista de productos
+Feature: Como administrador quiero poder agregar un producto a la lista de productos para actualizar la lista
   Background:
     Given un usuario administrador
-    When el usuario ingresa un 1
+    And el usuario ingresa un 1
     And un producto con un nombre, precio y stock
 
   Scenario: agregar exitosamente
@@ -10,6 +10,7 @@ Feature: Como administrador quiero poder agregar un producto a la lista de produ
     And el precio tiene un valor
     And el valor del precio es mayor que 0
     And el stock es mayor o igual que 0
+    And no hay un producto con el mimso nombre en la lista de productos
     Then Agrega el producto a la lista de productos disponibles
     And Se informa de que el producto se agrego exitosamente
 
