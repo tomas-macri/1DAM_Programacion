@@ -6,7 +6,7 @@ clientes --> hacen una lista de productos --> agregan y sacan productos de la li
 
 //se muestran solo los productos que tienen stock.
 
-clientes --> tienen dinero cargado --> se descuenta la compra y se puede cargar con su tarjeta. No puede ser negativo pero (((se puede cargar justo antes de pagar o sacar productos de la lista))). 
+clientes --> tienen dinero cargado --> se descuenta la compra y se puede cargar con su tarjeta. No puede ser negativo pero (((se puede cargar justo antes de pagar o sacar productos de la lista))). // done
 
 clientes --> lista de listas de compras previas.
 

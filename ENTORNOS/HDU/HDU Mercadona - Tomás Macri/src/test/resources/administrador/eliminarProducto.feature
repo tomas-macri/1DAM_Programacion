@@ -2,7 +2,7 @@
 Feature: Como administrador quiero poder eliminar un producto de la lista de productos para actualizar la lista
   Background:
     Given un usuario administrador
-    And el usuario ingresa un 2
+    And el usuario ingresa un 3
     And el nombre de un producto
 
   Scenario: eliminar exitosamente
