@@ -1,5 +1,5 @@
 #Cliente Mercadona
-Feature: Como cliente quiero poder ingresar fondos a una tarjeta de mi lista de tarjetas
+Feature: Como cliente quiero poder ingresar fondos a una tarjeta de mi lista de tarjetas para poder pagar mis compras con esa tarjeta
   Background:
     Given un usuario cliente
     And el usuario ingresa un 6

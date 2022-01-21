@@ -1,5 +1,5 @@
 #Cliente Mercadona
-Feature: Como cliente quiero poder agregar un producto de la lista de la compra
+Feature: Como cliente quiero poder agregar un producto de la lista de la compra para poder llevarmelo
   Background:
     Given un usuario cliente
     And el usuario ingresa un 1

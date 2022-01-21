@@ -1,5 +1,5 @@
 #Cliente Mercadona
-Feature: Como cliente quiero poder agregar una tarjeta a la lista de mis tarjetas
+Feature: Como cliente quiero poder agregar una tarjeta a la lista de mis tarjetas para poder usarla en futuras compras
   Background:
     Given un usuario cliente
     And el usuario ingresa un 4
