@@ -12,17 +12,45 @@ public class DaoProducto {
     }
 
     public boolean agregarProducto(Producto productoNuevo){
-        if (!listaProductos.contains(productoNuevo)){
+        if (!elProductoExiste(productoNuevo)){
             return listaProductos.add(productoNuevo);
         }
         return false;
     }
 
     public boolean eliminarProducto(String nombProd){
-        //las variables precio y stock no son necesarias a la hora de eliminar un producto, por lo que no se le piden al usuario
-        return listaProductos.remove(new Producto(nombProd, 0, 0));
+        return listaProductos.remove(new Producto(nombProd));
     }
 
+    public boolean elProductoExiste(Producto prod){
+        return listaProductos.contains(prod);
+    }
+
+    public void modificarProducto(Producto prodNuevo, String nombOriginal){
+        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
+        listaProductos.set(indexProdViejo, prodNuevo);
+    }
+
+    public void modificarProductoNombre(String nombOriginal, String nombNuevo){
+        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
+        listaProductos.get(indexProdViejo).setNombre(nombNuevo);
+    }
+
+    public void modificarProductoPrecio(String nombOriginal, double precioNuevo){
+        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
+        listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
+    }
+
+    public void modificarProductoStock(String nombOriginal, int stockNuevo){
+        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
+        listaProductos.get(indexProdViejo).setStock(stockNuevo);
+    }
+
+
+
+    public Producto getProducto(String nombre){
+        return listaProductos.get(listaProductos.indexOf(nombre));
+    }
 
     @Override
     public String toString() {
