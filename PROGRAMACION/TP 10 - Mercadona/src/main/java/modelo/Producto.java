@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Producto {
 
+
+
     String nombre;
     double precio;
     int stock;
@@ -18,6 +20,17 @@ public class Producto {
         this.stock = stock;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -37,7 +50,7 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Objects.equals(nombre, producto.nombre);
+        return Objects.equals(nombre.toLowerCase(), producto.nombre.toLowerCase());
     }
 
     @Override

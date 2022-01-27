@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class DaoProducto {
 
-    ArrayList<Producto> listaProductos;
+    private final ArrayList<Producto> listaProductos;
 
     public DaoProducto() {
         listaProductos = new ArrayList<>();
     }
 
     public boolean agregarProducto(Producto productoNuevo){
-        if (!elProductoExiste(productoNuevo)){
+        if (!(elProductoExiste(productoNuevo) && (productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))){
             return listaProductos.add(productoNuevo);
         }
         return false;
@@ -26,30 +26,53 @@ public class DaoProducto {
         return listaProductos.contains(prod);
     }
 
-    public void modificarProducto(Producto prodNuevo, String nombOriginal){
+    public boolean modificarProducto(Producto prodNuevo, String nombOriginal){
+        boolean exito = false;
         int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        listaProductos.set(indexProdViejo, prodNuevo);
+        if (indexProdViejo >= 0){
+            listaProductos.set(indexProdViejo, prodNuevo);
+            exito = true;
+        }
+        return exito;
     }
 
-    public void modificarProductoNombre(String nombOriginal, String nombNuevo){
+    public boolean modificarProductoNombre(String nombOriginal, String nombNuevo){
+        boolean exito = false;
         int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        listaProductos.get(indexProdViejo).setNombre(nombNuevo);
+        if (indexProdViejo >= 0 && !nombNuevo.equals("")){
+            listaProductos.get(indexProdViejo).setNombre(nombNuevo);
+            exito = true;
+        }
+        return exito;
     }
 
-    public void modificarProductoPrecio(String nombOriginal, double precioNuevo){
+    public boolean modificarProductoPrecio(String nombOriginal, double precioNuevo){
+        boolean exito = false;
         int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
+        if (indexProdViejo >= 0 && precioNuevo >= 0){
+            listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
+            exito = true;
+        }
+        return exito;
     }
 
-    public void modificarProductoStock(String nombOriginal, int stockNuevo){
+    public boolean modificarProductoStock(String nombOriginal, int stockNuevo){
+        boolean exito = false;
         int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        listaProductos.get(indexProdViejo).setStock(stockNuevo);
+        if (indexProdViejo >= 0 && stockNuevo >= 0){
+            listaProductos.get(indexProdViejo).setStock(stockNuevo);
+            exito = true;
+        }
+        return exito;
     }
 
-
-
-    public Producto getProducto(String nombre){
-        return listaProductos.get(listaProductos.indexOf(nombre));
+    public String getProducto(String nombProd){
+        String producto = "error";
+        int indexProdViejo = listaProductos.indexOf(new Producto(nombProd));
+        if (indexProdViejo >= 0){
+            producto = listaProductos.get(indexProdViejo).toString();
+        }
+        return producto;
     }
 
     @Override

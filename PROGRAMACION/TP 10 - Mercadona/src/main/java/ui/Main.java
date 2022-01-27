@@ -24,95 +24,7 @@ public class Main {
                     break;
                 case 2:
                     // modificar prod
-                    do{
-                        System.out.println("MODIFICAR PRODUCTOS");
-                        System.out.println();
-                        System.out.println("Seleccione una opcion:");
-                        System.out.println();
-                        System.out.println("1 - Modificar un producto entero (nombre, stock y precio)");
-                        System.out.println("2 - Modificar el nombre de un producto");
-                        System.out.println("3 - Modificar el precio de un producto");
-                        System.out.println("4 - Modificar el stock de un producto");
-                        System.out.println("5 - Volver al inicio");
-
-                        int opcionModi = sc.nextInt();
-                        sc.nextLine();
-                        System.out.println();
-
-                        String nomProdMod;
-                        do{
-                            System.out.println("Ingrese el nombre del producto a modificar. Recuerde que tiene que estar previamente cargado en la lista de productos");
-                            nomProdMod = sc.nextLine();
-                            //las variables precio y stock no son necesarias a la hora de buscar un producto, por lo que no se le piden al usuario
-                        }while (!daoProducto.elProductoExiste(new Producto(nomProdMod)));
-
-                        String nuevoNombreProd;
-                        double nuevoPrecioProd;
-                        int nuevoStockProd;
-
-                        switch (opcionModi){
-                            case 1:
-
-                                // pedir nuevo nombre
-                                do{
-                                    System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod +": ");
-                                    nuevoNombreProd = sc.nextLine();
-                                }while (nuevoNombreProd.equals(""));
-
-                                // pedir precio
-                                do{
-                                    System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod +": ");
-                                    nuevoPrecioProd = sc.nextDouble();
-                                }while (nuevoPrecioProd < 0);
-
-                                // pedir stock
-                                do {
-                                    System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod +": ");
-                                    nuevoStockProd = sc.nextInt();
-                                }while (nuevoStockProd < 0);
-
-                                // cambiar
-                                Producto prodNuevo = new Producto(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd);
-                                daoProducto.modificarProducto(prodNuevo, nomProdMod);
-                                break;
-                            case 2:
-                                do{
-                                    System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod +": ");
-                                    nuevoNombreProd = sc.nextLine();
-                                }while (nuevoNombreProd.equals(""));
-                                daoProducto.modificarProductoNombre(nomProdMod, nuevoNombreProd);
-
-
-                                // pedir nuevo nombre
-                                // cambiar solo nombre
-                                break;
-                            case 3:
-                                // pedir nuevo precio
-                                do{
-                                    System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod +": ");
-                                    nuevoPrecioProd = sc.nextDouble();
-                                }while (nuevoPrecioProd < 0);
-                                // cambiar solo el precio
-                                daoProducto.modificarProductoPrecio(nomProdMod, nuevoPrecioProd);
-                                break;
-                            case 4:
-                                // pedir stock
-                                do {
-                                    System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod +": ");
-                                    nuevoStockProd = sc.nextInt();
-                                }while (nuevoStockProd < 0);
-                                // cambiar solo el stock
-                                daoProducto.modificarProductoStock(nomProdMod, nuevoStockProd);
-                                break;
-                            case 5:
-                                break;
-                            default:
-                                break;
-                        }
-                    } while (opcion != 5);
-                    System.out.println();
-                    System.out.println("Saliendo de modificar producto...");
-                    System.out.println();
+                    main.modificarProducto(sc, daoProducto, opcion);
                     break;
                 case 3:
                     // eliminar prod
@@ -131,6 +43,98 @@ public class Main {
                     break;
             }
         } while (opcion != 5);
+    }
+
+    private void modificarProducto(Scanner sc, DaoProducto daoProducto, int opcion) {
+        do{
+            System.out.println("MODIFICAR PRODUCTOS");
+            System.out.println();
+            System.out.println("Seleccione una opcion:");
+            System.out.println();
+            System.out.println("1 - Modificar un producto entero (nombre, stock y precio)");
+            System.out.println("2 - Modificar el nombre de un producto");
+            System.out.println("3 - Modificar el precio de un producto");
+            System.out.println("4 - Modificar el stock de un producto");
+            System.out.println("5 - Volver al inicio");
+
+            int opcionModi = sc.nextInt();
+            sc.nextLine();
+            System.out.println();
+
+            String nomProdMod;
+            do{
+                System.out.println("Ingrese el nombre del producto a modificar. Recuerde que tiene que estar previamente cargado en la lista de productos");
+                nomProdMod = sc.nextLine();
+                //las variables precio y stock no son necesarias a la hora de buscar un producto, por lo que no se le piden al usuario
+            }while (!daoProducto.elProductoExiste(new Producto(nomProdMod)));
+
+            String nuevoNombreProd;
+            double nuevoPrecioProd;
+            int nuevoStockProd;
+
+            switch (opcionModi){
+                case 1:
+
+                    // pedir nuevo nombre
+                    do{
+                        System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod +": ");
+                        nuevoNombreProd = sc.nextLine();
+                    }while (nuevoNombreProd.equals(""));
+
+                    // pedir precio
+                    do{
+                        System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod +": ");
+                        nuevoPrecioProd = sc.nextDouble();
+                    }while (nuevoPrecioProd < 0);
+
+                    // pedir stock
+                    do {
+                        System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod +": ");
+                        nuevoStockProd = sc.nextInt();
+                    }while (nuevoStockProd < 0);
+
+                    // cambiar
+                    Producto prodNuevo = new Producto(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd);
+                    daoProducto.modificarProducto(prodNuevo, nomProdMod);
+                    break;
+                case 2:
+                    do{
+                        System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod +": ");
+                        nuevoNombreProd = sc.nextLine();
+                    }while (nuevoNombreProd.equals(""));
+                    daoProducto.modificarProductoNombre(nomProdMod, nuevoNombreProd);
+
+
+                    // pedir nuevo nombre
+                    // cambiar solo nombre
+                    break;
+                case 3:
+                    // pedir nuevo precio
+                    do{
+                        System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod +": ");
+                        nuevoPrecioProd = sc.nextDouble();
+                    }while (nuevoPrecioProd < 0);
+                    // cambiar solo el precio
+                    daoProducto.modificarProductoPrecio(nomProdMod, nuevoPrecioProd);
+                    break;
+                case 4:
+                    // pedir stock
+                    do {
+                        System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod +": ");
+                        nuevoStockProd = sc.nextInt();
+                    }while (nuevoStockProd < 0);
+                    // cambiar solo el stock
+                    daoProducto.modificarProductoStock(nomProdMod, nuevoStockProd);
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
+        } while (opcion != 5);
+        System.out.println();
+        System.out.println("Saliendo de modificar producto...");
+        System.out.println();
     }
 
     private int mostrarMenu(Scanner sc) {
