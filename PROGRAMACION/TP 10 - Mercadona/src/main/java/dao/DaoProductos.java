@@ -1,13 +1,14 @@
 package dao;
 
 import modelo.Producto;
+
 import java.util.ArrayList;
 
-public class DaoProducto {
+public class DaoProductos {
 
     private final ArrayList<Producto> listaProductos;
 
-    public DaoProducto() {
+    public DaoProductos() {
         listaProductos = new ArrayList<>();
     }
 

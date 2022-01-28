@@ -5,30 +5,30 @@ import modelo.Producto;
 
 import java.util.Scanner;
 
-public class UIProductos {
+public class UIClientes {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DaoProductos daoProductos = new DaoProductos();
-        UIProductos uiProductos = new UIProductos();
+        UIClientes uiClientes = new UIClientes();
         int opcion;
         System.out.println("Bienvenido administrador");
         System.out.println();
 
         do {
-            opcion = uiProductos.mostrarMenu(sc);
+            opcion = uiClientes.mostrarMenu(sc);
             System.out.println();
             switch (opcion) {
                 case 1:
                     //agregar productos
-                    uiProductos.agregarProducto(sc, daoProductos);
+                    uiClientes.agregarCliente(sc, daoProductos);
                     break;
                 case 2:
                     // modificar prod
-                    uiProductos.modificarProducto(sc, daoProductos);
+                    uiClientes.modificarProducto(sc, daoProductos);
                     break;
                 case 3:
                     // eliminar prod
-                    uiProductos.eliminarProducto(sc, daoProductos);
+                    uiClientes.eliminarProducto(sc, daoProductos);
                     break;
                 case 4:
                     // mostrar productos
@@ -61,7 +61,7 @@ public class UIProductos {
         return opcion;
     }
 
-    private void agregarProducto(Scanner sc, DaoProductos dao) {
+    private void agregarCliente(Scanner sc, DaoProductos dao) {
         System.out.println("AGREGAR PRODUCTOS");
         System.out.println();
         String nomProd;
