@@ -5,7 +5,6 @@ Feature: Como cliente quiero poder pagar una vez realizada mi compra para poder 
     Given un usuario cliente
     And una lista de compras
     And un numero de tarjeta
-    And el usuario ingresa un 3
 
     # Casos exitosos
   Scenario: pagar exitosamente
@@ -49,7 +48,7 @@ Feature: Como cliente quiero poder pagar una vez realizada mi compra para poder 
 
 
   Scenario: No hay productos en la lista de compras
-    When la lista de compras no tiene productos
+    When la lista de compras no tiene productos = []
     Then ínformarle al cliente que su lista esta vacia
     And enviarlo de vuelta a la pagina de compras
 
