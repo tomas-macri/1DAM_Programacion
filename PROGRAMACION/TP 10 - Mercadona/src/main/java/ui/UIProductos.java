@@ -1,17 +1,19 @@
 package ui;
 
+import common.Constantes;
 import dao.DaoProductos;
 import modelo.Producto;
 
 import java.util.Scanner;
 
 public class UIProductos {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         DaoProductos daoProductos = new DaoProductos();
         UIProductos uiProductos = new UIProductos();
         int opcion;
-        System.out.println("Bienvenido administrador");
+        System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
         System.out.println();
 
         do {
@@ -37,7 +39,7 @@ public class UIProductos {
                     break;
                 case 5:
                     // salir
-                    System.out.println("Chau!");
+                    System.out.println(Constantes.CHAU);
                     break;
                 default:
                     break;
@@ -49,12 +51,8 @@ public class UIProductos {
     private int mostrarMenu(Scanner sc) {
         int opcion;
         do {
-            System.out.println("Elija una opcion:");
-            System.out.println("1 - Agregar Productos");
-            System.out.println("2 - Modificar Productos");
-            System.out.println("3 - Eliminar Productos");
-            System.out.println("4 - Ver todos los productos");
-            System.out.println("5 - Salir");
+            System.out.println(Constantes.MENU_ADMINISTRADOR_PRODUCTOS);
+
             opcion = sc.nextInt();
             sc.nextLine();
         } while (opcion < 1 || opcion > 5);
@@ -62,87 +60,73 @@ public class UIProductos {
     }
 
     private void agregarProducto(Scanner sc, DaoProductos dao) {
-        System.out.println("AGREGAR PRODUCTOS");
+        System.out.println(Constantes.AGREGAR_PRODUCTOS);
         System.out.println();
         String nomProd;
         int stockProd;
         double precioProd;
         int opcion;
         do {
-//            do {
-            System.out.println("Ingrese nombre del producto:");
+            System.out.println(Constantes.INGRESE_NOMBRE_DEL_PRODUCTO);
             nomProd = sc.nextLine();
-            //} while (nomProd.equals(""));
             System.out.println();
 
-            //do {
-            System.out.println("Ingrese precio del producto:");
+            System.out.println(Constantes.INGRESE_PRECIO_DEL_PRODUCTO);
             precioProd = sc.nextDouble();
             System.out.println();
-            //} while (precioProd < 0);
 
-            //do {
-            System.out.println("Ingrese stock del producto:");
+            System.out.println(Constantes.INGRESE_STOCK_DEL_PRODUCTO);
             stockProd = sc.nextInt();
             sc.nextLine();
             System.out.println();
-            // } while (stockProd < 0);
 
 
             Producto unProd = new Producto(nomProd, precioProd, stockProd);
 
             if (dao.agregarProducto(unProd)) {
-                System.out.println("Se agrego " + unProd + " a la lista de productos disponibles");
+                System.out.println(Constantes.SE_AGREGO + unProd + Constantes.A_LA_LISTA_DE_PRODUCTOS_DISPONIBLES);
             } else {
-                System.out.println("El producto ya se encontraba en la lista de productos, por lo que no se agrego");
+                System.out.println(Constantes.EL_PRODUCTO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_PRODUCTOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);
             }
 
             System.out.println();
-            System.out.println("Ingrese 1 si quiere agregar otro producto o cualquier otro numero si quiere salir");
+            System.out.println(Constantes.INGRESE_1_SI_QUIERE_AGREGAR_OTRO_PRODUCTO_O_CUALQUIER_OTRO_NUMERO_SI_QUIERE_SALIR);
             opcion = sc.nextInt();
             sc.nextLine();
         } while (opcion == 1);
         System.out.println();
-        System.out.println("Saliendo de agregar producto...");
+        System.out.println(Constantes.SALIENDO_DE_AGREGAR_PRODUCTO);
         System.out.println();
     }
 
     private void eliminarProducto(Scanner sc, DaoProductos dao) {
         String nomProducto;
-        System.out.println("ELIMINAR PRODUCTOS");
+        System.out.println(Constantes.ELIMINAR_PRODUCTOS);
         System.out.println();
         int opcion;
         do {
-            System.out.println("Ingrese el nombre del producto que desea eliminar: ");
+            System.out.println(Constantes.INGRESE_NOMBRE_DEL_PRODUCTO);
             nomProducto = sc.nextLine();
 
             if (dao.eliminarProducto(nomProducto)) {
-                System.out.println("Se elimino " + nomProducto + " de la lista de productos");
+                System.out.println("Se elimino " + nomProducto + Constantes.DE_LA_LISTA_DE_PRODUCTOS);
             } else {
-                System.out.println("El producto " + nomProducto + "no se encontraba en la lista de productos, por lo que no se elimino");
+                System.out.println(Constantes.EL_PRODUCTO + nomProducto + Constantes.NO_SE_ENCONTRABA_EN_LA_LISTA_DE_PRODUCTOS_POR_LO_QUE_NO_SE_ELIMINO);
             }
             System.out.println();
-            System.out.println("Ingrese 1 si quiere continuar o cualquier otro numero si quiere salir");
+            System.out.println(Constantes.INGRESE_1_SI_QUIERE_ELIMINAR_OTRO_PRODUCTO_O_CUALQUIER_OTRO_NUMERO_SI_QUIERE_SALIR);
             opcion = sc.nextInt();
             sc.nextLine();
         } while (opcion == 1);
         System.out.println();
-        System.out.println("Saliendo de eliminar producto...");
+        System.out.println(Constantes.SALIENDO_DE_ELIMINAR_PRODUCTO);
         System.out.println();
     }
 
     private void modificarProducto(Scanner sc, DaoProductos daoProductos) {
         int opcionModi;
         do {
-            System.out.println("MODIFICAR PRODUCTOS");
-            System.out.println();
-            System.out.println("Seleccione una opcion:");
-            System.out.println();
-            System.out.println("1 - Modificar un producto entero (nombre, stock y precio)");
-            System.out.println("2 - Modificar el nombre de un producto");
-            System.out.println("3 - Modificar el precio de un producto");
-            System.out.println("4 - Modificar el stock de un producto");
-            System.out.println("5 - Volver al inicio");
+            System.out.println(Constantes.MENU_ADMINISTRADOR_MODIFICAR_PRODUCTOS);
 
             opcionModi = sc.nextInt();
             sc.nextLine();
@@ -152,7 +136,7 @@ public class UIProductos {
 
         } while (opcionModi != 5);
         System.out.println();
-        System.out.println("Saliendo de modificar producto...");
+        System.out.println(Constantes.SALIENDO_DE_MODIFICAR_PRODUCTO);
         System.out.println();
     }
 
@@ -190,63 +174,64 @@ public class UIProductos {
 
     private void modificarStockProducto(Scanner sc, DaoProductos daoProductos, String nomProdMod) {
         int nuevoStockProd;
-        do {
-            System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod + ": ");
+            System.out.println(Constantes.INGRESE_EL_NUEVO_STOCK_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
             nuevoStockProd = sc.nextInt();
-        } while (nuevoStockProd < 0);
         // cambiar solo el stock
         if (daoProductos.modificarProductoStock(nomProdMod, nuevoStockProd)) {
-            System.out.println("Se modifico el producto. Ahora es " + daoProductos.getProducto(nomProdMod));
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + daoProductos.getProducto(nomProdMod));
         } else {
-            System.out.println("No se encontro el producto en nuestra lista de productos o el stock ingresado es menor que 0. Intente nuevamente");
+            System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_STOCK_INGRESADO_ES_MENOR_QUE_0_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarPrecioProducto(Scanner sc, DaoProductos daoProductos, String nomProdMod) {
         double nuevoPrecioProd;
-        do {
-            System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod + ": ");
+            System.out.println(Constantes.INGRESE_EL_NUEVO_PRECIO_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
             nuevoPrecioProd = sc.nextDouble();
-        } while (nuevoPrecioProd < 0);
         // cambiar solo el precio
-        daoProductos.modificarProductoPrecio(nomProdMod, nuevoPrecioProd);
+        if (daoProductos.modificarProductoPrecio(nomProdMod, nuevoPrecioProd)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + daoProductos.getProducto(nomProdMod));
+        } else {
+            System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_PRECIO_INGRESADO_ES_MENOR_QUE_0_INTENTE_NUEVAMENTE);
+        }
     }
 
     private void modificarNombreProducto(Scanner sc, DaoProductos daoProductos, String nomProdMod) {
         String nuevoNombreProd;
-        do {
-            System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod + ": ");
+            System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA + nomProdMod + ": ");
             nuevoNombreProd = sc.nextLine();
-        } while (nuevoNombreProd.equals(""));
-        daoProductos.modificarProductoNombre(nomProdMod, nuevoNombreProd);
+        if (daoProductos.modificarProductoNombre(nomProdMod, nuevoNombreProd)){
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + daoProductos.getProducto(nuevoNombreProd));
+        }
+        else {
+            System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
+        }
     }
 
     private void modificarProductoEntero(Scanner sc, DaoProductos daoProductos, String nomProdMod) {
         double nuevoPrecioProd;
         int nuevoStockProd;
         String nuevoNombreProd;
-        //do{
-        System.out.println("Ingrese el nuevo nombre que tendra el/la " + nomProdMod + ": ");
+        System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        //}while (nuevoNombreProd.equals(""));
 
         // pedir precio
-        //do{
-        System.out.println("Ingrese el nuevo precio que tendra el/la " + nomProdMod + ": ");
+        System.out.println(Constantes.INGRESE_EL_NUEVO_PRECIO_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
         nuevoPrecioProd = sc.nextDouble();
         sc.nextLine();
-        //}while (nuevoPrecioProd < 0);
 
         // pedir stock
-        //do {
-        System.out.println("Ingrese el nuevo stock que tendra el/la " + nomProdMod + ": ");
+        System.out.println(Constantes.INGRESE_EL_NUEVO_STOCK_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
         nuevoStockProd = sc.nextInt();
         sc.nextLine();
-        //}while (nuevoStockProd < 0);
 
         // cambiar
         Producto prodNuevo = new Producto(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd);
-        daoProductos.modificarProducto(prodNuevo, nomProdMod);
+        if (daoProductos.modificarProducto(prodNuevo, nomProdMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + daoProductos.getProducto(nuevoNombreProd));
+        } else {
+            System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_ALGUNO_DE_LOS_CAMPOS_INGRESADOS_ES_INVALIDO_INTENTE_NUEVAMENTE);
+        }
     }
 
 }
