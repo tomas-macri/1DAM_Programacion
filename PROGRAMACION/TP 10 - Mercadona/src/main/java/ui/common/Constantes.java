@@ -1,4 +1,4 @@
-package common;
+package ui.common;
 
 public class Constantes {
 

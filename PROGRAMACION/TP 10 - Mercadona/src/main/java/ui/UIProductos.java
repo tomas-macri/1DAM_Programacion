@@ -1,6 +1,6 @@
 package ui;
 
-import common.Constantes;
+import ui.common.Constantes;
 import dao.DaoProductos;
 import modelo.Producto;
 

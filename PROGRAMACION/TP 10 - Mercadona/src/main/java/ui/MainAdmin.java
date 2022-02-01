@@ -1,6 +1,6 @@
 package ui;
 
-import common.Constantes;
+import ui.common.Constantes;
 
 import java.util.Scanner;
 
