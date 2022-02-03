@@ -18,12 +18,12 @@ public class Constantes {
 
     // PRODUCTOS
 
-    public static final String MENU_ADMINISTRADOR_PRODUCTOS = "Elija una opcion: \n " +
+    public static final String MENU_ADMINISTRADOR_PRODUCTOS = "Elija una opcion: \n" +
             "1 - Agregar Productos \n" +
-            " 2 - Modificar Productos \n" +
-            " 3 - Eliminar Productos \n" +
-            " 4 - Ver todos los productos \n" +
-            " 5 - Salir ";
+            "2 - Modificar Productos \n" +
+            "3 - Eliminar Productos \n" +
+            "4 - Ver todos los productos \n" +
+            "5 - Salir ";
     public static final String AGREGAR_PRODUCTOS = "AGREGAR PRODUCTOS";
     public static final String INGRESE_NOMBRE_DEL_PRODUCTO = "Ingrese nombre del producto:";
     public static final String INGRESE_PRECIO_DEL_PRODUCTO = "Ingrese precio del producto:";
@@ -39,7 +39,7 @@ public class Constantes {
     public static final String NO_SE_ENCONTRABA_EN_LA_LISTA_DE_PRODUCTOS_POR_LO_QUE_NO_SE_ELIMINO = " no se encontraba en la lista de productos, por lo que no se elimino";
     public static final String INGRESE_1_SI_QUIERE_ELIMINAR_OTRO_PRODUCTO_O_CUALQUIER_OTRO_NUMERO_SI_QUIERE_SALIR = "Ingrese 1 si quiere eliminar otro producto o cualquier otro numero si quiere salir";
     public static final String SALIENDO_DE_ELIMINAR_PRODUCTO = "Saliendo de eliminar producto...";
-    public static final String MENU_ADMINISTRADOR_MODIFICAR_PRODUCTOS = "MODIFICAR PRODUCTOS \n Seleccione una opcion: \n " +
+    public static final String MENU_ADMINISTRADOR_MODIFICAR_PRODUCTOS = "MODIFICAR PRODUCTOS \n Seleccione una opcion: \n" +
             "1 - Modificar un producto entero (nombre, stock y precio) \n" +
             "2 - Modificar el nombre de un producto \n" +
             "3 - Modificar el precio de un producto \n" +

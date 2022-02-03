@@ -6,12 +6,7 @@ import java.util.LinkedHashMap;
 
 public class DaoUsuarios {
 
-    private final LinkedHashMap<String, Usuario> listaUsuarios;
-
-
-    public DaoUsuarios() {
-        listaUsuarios = new LinkedHashMap<>();
-    }
+    private static final LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
 
 
     public boolean agregarusuario(Usuario usuarioNuevo) {

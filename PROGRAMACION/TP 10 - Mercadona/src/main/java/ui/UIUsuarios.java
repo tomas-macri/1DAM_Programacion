@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UIUsuarios {
 
-    public static void main(String[] args) {
+    public void inicioUIUsuarios() {
         Scanner sc = new Scanner(System.in);
         DaoUsuarios daoUsuarios = new DaoUsuarios();
         UIUsuarios uiUsuarios = new UIUsuarios();
@@ -22,15 +22,15 @@ public class UIUsuarios {
             switch (opcion) {
                 case 1:
                     //agregar usuarios
-                    uiUsuarios.agregarUsuario(sc, daoUsuarios);
+                    uiUsuarios.agregarUsuario(sc);
                     break;
                 case 2:
                     // modificar prod
-                    uiUsuarios.modificarUsuario(sc, daoUsuarios);
+                    uiUsuarios.modificarUsuario(sc);
                     break;
                 case 3:
                     // eliminar prod
-                    uiUsuarios.eliminarUsuario(sc, daoUsuarios);
+                    uiUsuarios.eliminarUsuario(sc);
                     break;
                 case 4:
                     // mostrar usuarios
@@ -59,7 +59,9 @@ public class UIUsuarios {
         return opcion;
     }
 
-    private void agregarUsuario(Scanner sc, DaoUsuarios dao) {
+    private void agregarUsuario(Scanner sc) {
+        DaoUsuarios dao = new DaoUsuarios();
+
         System.out.println(Constantes.AGREGAR_USUARIO);
         System.out.println();
         String nomCliente;
@@ -91,7 +93,7 @@ public class UIUsuarios {
     }
 
 
-    private void modificarUsuario(Scanner sc, DaoUsuarios daoUsuarios) {
+    private void modificarUsuario(Scanner sc) {
         int opcionModi;
         do {
             do {
@@ -104,7 +106,7 @@ public class UIUsuarios {
                 sc.nextLine();
                 System.out.println();
             }while (opcionModi < 1 || opcionModi > 4);
-            switchModificar(sc, daoUsuarios, opcionModi);
+            switchModificar(sc, opcionModi);
 
 
         } while (opcionModi != 4);
@@ -113,7 +115,7 @@ public class UIUsuarios {
         System.out.println();
     }
 
-    private void switchModificar(Scanner sc, DaoUsuarios daoUsuarios, int opcionModi) {
+    private void switchModificar(Scanner sc, int opcionModi) {
         String nomProdMod;
         if (opcionModi != 4) {
             System.out.println(Constantes.INGRESE_EL_DNI_DEL_USUARIO_A_MODIFICAR_RECUERDE_QUE_TIENE_QUE_ESTAR_PREVIAMENTE_CARGADO_EN_LA_LISTA_DE_USUARIOS_PARA_VOLVER_INGRESE_0);
@@ -121,13 +123,13 @@ public class UIUsuarios {
             if (!nomProdMod.equals("0")) {
                 switch (opcionModi) {
                     case 1:
-                        modificarUsuarioEntero(sc, daoUsuarios, nomProdMod);
+                        modificarUsuarioEntero(sc, nomProdMod);
                         break;
                     case 2:
-                        modificarDNIUsuario(sc, daoUsuarios, nomProdMod);
+                        modificarDNIUsuario(sc, nomProdMod);
                         break;
                     case 3:
-                        modificarNombreUsuario(sc, daoUsuarios, nomProdMod);
+                        modificarNombreUsuario(sc, nomProdMod);
                         break;
                     default:
                         break;
@@ -136,31 +138,34 @@ public class UIUsuarios {
         }
     }
 
-    private void modificarDNIUsuario(Scanner sc, DaoUsuarios daoUsuarios, String dniMod) {
+    private void modificarDNIUsuario(Scanner sc, String dniMod) {
+        DaoUsuarios dao = new DaoUsuarios();
         String nuevoDNI;
         System.out.println(Constantes.INGRESE_EL_NUEVO_DNI_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoDNI = sc.nextLine();
         // cambiar solo el dni
-        if (daoUsuarios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + daoUsuarios.getUsuario(nuevoDNI));
+        if (dao.modificarUsuarioDNI(dniMod, nuevoDNI)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(nuevoDNI));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_SE_INTENTO_CAMBIAR_POR_UN_DNI_DE_UN_USUARIO_QUE_YA_ESTA_EN_LA_LISTA_INTENTE_NUEVAMENTE);
         }
     }
 
-    private void modificarNombreUsuario(Scanner sc, DaoUsuarios daoUsuarios, String dniMod) {
+    private void modificarNombreUsuario(Scanner sc, String dniMod) {
+        DaoUsuarios dao = new DaoUsuarios();
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (daoUsuarios.modificarUsuarioNombre(dniMod, nuevoNombreProd)){
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + daoUsuarios.getUsuario(dniMod));
+        if (dao.modificarUsuarioNombre(dniMod, nuevoNombreProd)){
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(dniMod));
         }
         else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
     }
 
-    private void modificarUsuarioEntero(Scanner sc, DaoUsuarios daoUsuarios, String dniMod) {
+    private void modificarUsuarioEntero(Scanner sc, String dniMod) {
+        DaoUsuarios dao = new DaoUsuarios();
         String nuevoDNIUsuario;
         String nuevoNombreUsuario;
 
@@ -173,14 +178,15 @@ public class UIUsuarios {
 
         // cambiar
         Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario);
-        if (daoUsuarios.modificarUsuario(userNuevo, dniMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + daoUsuarios.getUsuario(nuevoDNIUsuario));
+        if (dao.modificarUsuario(userNuevo, dniMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(nuevoDNIUsuario));
         } else {
             System.out.println(Constantes.ERROR_BUSQUEDA_Y_MODIFICACION_USUARIOS);
         }
     }
 
-    private void eliminarUsuario(Scanner sc, DaoUsuarios dao) {
+    private void eliminarUsuario(Scanner sc) {
+        DaoUsuarios dao = new DaoUsuarios();
         String dniUsuario;
         System.out.println(Constantes.ELIMINAR_USUARIOS);
         System.out.println();

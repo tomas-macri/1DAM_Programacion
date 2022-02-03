@@ -9,6 +9,8 @@ public class MainAdmin {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion;
+        UIUsuarios uiUsuarios = new UIUsuarios();
+        UIProductos uiProductos = new UIProductos();
 
 
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
@@ -23,11 +25,11 @@ public class MainAdmin {
             switch (opcion) {
                 case 1:
                     //ir a la ui de usuarios
-                    UIUsuarios.main(args);
+                    uiUsuarios.inicioUIUsuarios();
                     break;
                 case 2:
                     // modificar prod
-                    UIProductos.main(args);
+                    uiProductos.inicioUIProductos();
                     break;
                 case 3:
                     System.out.println(Constantes.CHAU);

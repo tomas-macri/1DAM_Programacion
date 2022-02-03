@@ -3,20 +3,16 @@ package dao;
 import modelo.Producto;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DaoProductos {
 
-    private final ArrayList<Producto> listaProductos;
+    private static final ArrayList<Producto> listaProductos = new ArrayList<>();
 
-    public DaoProductos() {
-        listaProductos = new ArrayList<>();
-    }
 
     public boolean agregarProducto(Producto productoNuevo) {
-        if (!elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
-            return listaProductos.add(productoNuevo);
-        }
-        return false;
+        return listaProductos.add(productoNuevo);
     }
 
     public boolean eliminarProducto(String nombProd) {
@@ -27,59 +23,34 @@ public class DaoProductos {
         return listaProductos.contains(prod);
     }
 
-    public boolean modificarProducto(Producto prodNuevo, String nombOriginal) {
-        boolean exito = false;
-        if (!(prodNuevo.getNombre().equals("") || prodNuevo.getPrecio() <= 0 || prodNuevo.getStock() < 0)) {
-            int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-            if (indexProdViejo >= 0) {
-                listaProductos.set(indexProdViejo, prodNuevo);
-                exito = true;
-            }
-        }
-        return exito;
+    public void modificarProducto(int indexProdViejo, Producto prodNuevo) {
+        listaProductos.set(indexProdViejo, prodNuevo);
     }
 
-    public boolean modificarProductoNombre(String nombOriginal, String nombNuevo) {
-        boolean exito = false;
-        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        if (indexProdViejo >= 0 && !nombNuevo.equals("")) {
-            listaProductos.get(indexProdViejo).setNombre(nombNuevo);
-            exito = true;
-        }
-        return exito;
+    public void modificarProductoNombre(int indexProdViejo, String nombNuevo) {
+        listaProductos.get(indexProdViejo).setNombre(nombNuevo);
     }
 
-    public boolean modificarProductoPrecio(String nombOriginal, double precioNuevo) {
-        boolean exito = false;
-        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        if (indexProdViejo >= 0 && precioNuevo >= 0) {
-            listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
-            exito = true;
-        }
-        return exito;
+    public void modificarProductoPrecio(int indexProdViejo, double precioNuevo) {
+        listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
     }
 
-    public boolean modificarProductoStock(String nombOriginal, int stockNuevo) {
-        boolean exito = false;
-        int indexProdViejo = listaProductos.indexOf(new Producto(nombOriginal));
-        if (indexProdViejo >= 0 && stockNuevo >= 0) {
-            listaProductos.get(indexProdViejo).setStock(stockNuevo);
-            exito = true;
-        }
-        return exito;
+    public void modificarProductoStock(int indexProdViejo, int stockNuevo) {
+        listaProductos.get(indexProdViejo).setStock(stockNuevo);
     }
 
-    public String getProducto(String nombProd) {
-        String producto = "error";
-        int indexProdViejo = listaProductos.indexOf(new Producto(nombProd));
-        if (indexProdViejo >= 0) {
-            producto = listaProductos.get(indexProdViejo).toString();
-        }
-        return producto;
+    public String getProducto(int indexProd) {
+        return listaProductos.get(indexProd).toString();
     }
 
-    @Override
-    public String toString() {
-        return "Lista de productos = " + listaProductos;
+    public int obtenerIndexProducto(Producto prod) {
+        return listaProductos.indexOf(prod);
+    }
+
+
+    public List<Producto> devolverLista() {
+        return listaProductos.stream()
+                .map(producto -> new Producto(producto.getNombre(), producto.getPrecio(), producto.getStock()))
+                .collect(Collectors.toUnmodifiableList());
     }
 }
