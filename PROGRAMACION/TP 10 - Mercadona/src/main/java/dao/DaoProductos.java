@@ -47,7 +47,6 @@ public class DaoProductos {
         return listaProductos.indexOf(prod);
     }
 
-
     public List<Producto> devolverLista() {
         return listaProductos.stream()
                 .map(producto -> new Producto(producto.getNombre(), producto.getPrecio(), producto.getStock()))

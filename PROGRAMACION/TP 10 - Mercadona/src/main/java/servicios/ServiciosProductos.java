@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class ServiciosProductos {
     DaoProductos daoProductos = new DaoProductos();
     public boolean agregarProducto(Producto productoNuevo) {
-        if (!elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
+        if (!daoProductos.elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
             return daoProductos.agregarProducto(productoNuevo);
         }
         return false;
@@ -19,9 +19,7 @@ public class ServiciosProductos {
         return daoProductos.eliminarProducto(nombProd);
     }
 
-    public boolean elProductoExiste(Producto prod) {
-        return daoProductos.elProductoExiste(prod);
-    }
+
 
     public boolean modificarProducto(Producto prodNuevo, String nombOriginal) {
         boolean exito = false;
