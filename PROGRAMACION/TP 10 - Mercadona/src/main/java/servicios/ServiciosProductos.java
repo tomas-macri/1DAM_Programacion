@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ServiciosProductos {
-    DaoProductos daoProductos = new DaoProductos();
     public boolean agregarProducto(Producto productoNuevo) {
+        DaoProductos daoProductos = new DaoProductos();
         if (!daoProductos.elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
             return daoProductos.agregarProducto(productoNuevo);
         }
@@ -16,12 +16,14 @@ public class ServiciosProductos {
     }
 
     public boolean eliminarProducto(String nombProd) {
+        DaoProductos daoProductos = new DaoProductos();
         return daoProductos.eliminarProducto(nombProd);
     }
 
 
 
     public boolean modificarProducto(Producto prodNuevo, String nombOriginal) {
+        DaoProductos daoProductos = new DaoProductos();
         boolean exito = false;
         if (!(prodNuevo.getNombre().equals("") || prodNuevo.getPrecio() <= 0 || prodNuevo.getStock() < 0)) {
             int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
@@ -34,6 +36,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoNombre(String nombOriginal, String nombNuevo) {
+        DaoProductos daoProductos = new DaoProductos();
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && !nombNuevo.equals("")) {
@@ -44,6 +47,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoPrecio(String nombOriginal, double precioNuevo) {
+        DaoProductos daoProductos = new DaoProductos();
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && precioNuevo >= 0) {
@@ -54,6 +58,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoStock(String nombOriginal, int stockNuevo) {
+        DaoProductos daoProductos = new DaoProductos();
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && stockNuevo >= 0) {
@@ -64,6 +69,7 @@ public class ServiciosProductos {
     }
 
     public String getProducto(String nombProd) {
+        DaoProductos daoProductos = new DaoProductos();
         String producto = "error";
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombProd));
         if (indexProdViejo >= 0) {
@@ -73,6 +79,7 @@ public class ServiciosProductos {
     }
 
     public List<Producto> getLista() {
+        DaoProductos daoProductos = new DaoProductos();
         return daoProductos.devolverLista();
     }
 }

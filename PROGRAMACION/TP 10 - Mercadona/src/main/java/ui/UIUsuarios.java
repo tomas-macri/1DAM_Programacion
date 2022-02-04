@@ -1,7 +1,8 @@
 package ui;
 
+import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
-import dao.DaoUsuarios;
+import servicios.ServiciosUsuarios;
 import modelo.Usuario;
 
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class UIUsuarios {
 
     public void inicioUIUsuarios() {
         Scanner sc = new Scanner(System.in);
-        DaoUsuarios daoUsuarios = new DaoUsuarios();
+        ServiciosUsuarios ServiciosUsuarios = new ServiciosUsuarios();
         UIUsuarios uiUsuarios = new UIUsuarios();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
@@ -34,7 +35,7 @@ public class UIUsuarios {
                     break;
                 case 4:
                     // mostrar usuarios
-                    System.out.println(daoUsuarios);
+                    System.out.println(ServiciosUsuarios);
                     System.out.println();
                     break;
                 case 5:
@@ -60,7 +61,7 @@ public class UIUsuarios {
     }
 
     private void agregarUsuario(Scanner sc) {
-        DaoUsuarios dao = new DaoUsuarios();
+        ServiciosUsuarios servicios = new ServiciosUsuarios();
 
         System.out.println(Constantes.AGREGAR_USUARIO);
         System.out.println();
@@ -77,7 +78,7 @@ public class UIUsuarios {
             System.out.println();
             Usuario unUser = new Usuario(dniCliente, nomCliente);
 
-            if (dao.agregarusuario(unUser)) {
+            if (servicios.agregarusuario(unUser)) {
                 System.out.println(Constantes.SE_AGREGO + unUser + Constantes.A_LA_LISTA_DE_USUARIOS_DISPONIBLES);
             } else {
                 System.out.println(Constantes.EL_USUARIO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_USUARIOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);
@@ -139,25 +140,25 @@ public class UIUsuarios {
     }
 
     private void modificarDNIUsuario(Scanner sc, String dniMod) {
-        DaoUsuarios dao = new DaoUsuarios();
+        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoDNI;
         System.out.println(Constantes.INGRESE_EL_NUEVO_DNI_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoDNI = sc.nextLine();
         // cambiar solo el dni
-        if (dao.modificarUsuarioDNI(dniMod, nuevoDNI)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(nuevoDNI));
+        if (servicios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(nuevoDNI));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_SE_INTENTO_CAMBIAR_POR_UN_DNI_DE_UN_USUARIO_QUE_YA_ESTA_EN_LA_LISTA_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarNombreUsuario(Scanner sc, String dniMod) {
-        DaoUsuarios dao = new DaoUsuarios();
+        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (dao.modificarUsuarioNombre(dniMod, nuevoNombreProd)){
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(dniMod));
+        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd)){
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(dniMod));
         }
         else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
@@ -165,7 +166,7 @@ public class UIUsuarios {
     }
 
     private void modificarUsuarioEntero(Scanner sc, String dniMod) {
-        DaoUsuarios dao = new DaoUsuarios();
+        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoDNIUsuario;
         String nuevoNombreUsuario;
 
@@ -178,15 +179,15 @@ public class UIUsuarios {
 
         // cambiar
         Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario);
-        if (dao.modificarUsuario(userNuevo, dniMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + dao.getUsuario(nuevoDNIUsuario));
+        if (servicios.modificarUsuario(userNuevo, dniMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(nuevoDNIUsuario));
         } else {
             System.out.println(Constantes.ERROR_BUSQUEDA_Y_MODIFICACION_USUARIOS);
         }
     }
 
     private void eliminarUsuario(Scanner sc) {
-        DaoUsuarios dao = new DaoUsuarios();
+        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String dniUsuario;
         System.out.println(Constantes.ELIMINAR_USUARIOS);
         System.out.println();
@@ -195,7 +196,7 @@ public class UIUsuarios {
             System.out.println(Constantes.INGRESE_EL_DNI_DEL_USUARIO_QUE_DESEA_ELIMINAR);
             dniUsuario = sc.nextLine();
 
-            Usuario userEliminado = dao.eliminarUsuario(dniUsuario);
+            Usuario userEliminado = servicios.eliminarUsuario(dniUsuario);
 
             if (userEliminado != null) {
                 System.out.println(Constantes.SE_ELIMINO + userEliminado + Constantes.DE_LA_LISTA_DE_USUARIOS);

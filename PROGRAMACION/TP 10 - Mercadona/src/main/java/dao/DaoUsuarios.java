@@ -1,8 +1,11 @@
 package dao;
 
+import modelo.Producto;
 import modelo.Usuario;
 
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DaoUsuarios {
 
@@ -27,48 +30,50 @@ public class DaoUsuarios {
     }
 
     public boolean elUsuarioExiste(String key) {
-        return listaUsuarios.containsKey(key);
+        return listaUsuarios.get(key)!=null;
     }
 //
-    public boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal) {
-        boolean exito = false;
-        Usuario usuarioViejo = listaUsuarios.get(dniOriginal);
-        if (usuarioViejo != null && !elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
-            listaUsuarios.remove(dniOriginal);
-            listaUsuarios.put(usuarioNuevo.getDni(), usuarioNuevo);
-            exito = true;
-        }
-        return exito;
-    }
+//    public boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal) {
+//        boolean exito = false;
+//        Usuario usuarioViejo = listaUsuarios.get(dniOriginal);
+//        if (usuarioViejo != null && !elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
+//            listaUsuarios.remove(dniOriginal);
+//            listaUsuarios.put(usuarioNuevo.getDni(), usuarioNuevo);
+//            exito = true;
+//        }
+//        return exito;
+//    }
 
 //
-    public boolean modificarUsuarioNombre(String dniOriginal, String nombNuevo) {
-        Usuario usuarioViejo = listaUsuarios.get(dniOriginal);
-        if (usuarioViejo != null && !(nombNuevo.equals(""))) {
-            return listaUsuarios.replace(dniOriginal, usuarioViejo, new Usuario(dniOriginal, nombNuevo));
-        }
-        return false;
+    public boolean modificarUsuarioNombre(String dniOriginal, Usuario userViejo, Usuario userNuevo) {
+        return listaUsuarios.replace(dniOriginal, userViejo, userNuevo);
     }
 
-    public boolean modificarUsuarioDNI(String dniOriginal, String dniNuevo) {
-        boolean exito = false;
-        Usuario usuarioViejo = listaUsuarios.get(dniOriginal);
-        if (usuarioViejo != null && !elUsuarioExiste(dniNuevo) && !(dniNuevo.equals(""))) {
-            listaUsuarios.remove(dniOriginal);
-            listaUsuarios.put(dniNuevo, new Usuario(dniNuevo, usuarioViejo.getNombre()));
-            exito = true;
-        }
-        return exito;
-    }
+//    public boolean modificarUsuarioDNI(String dniOriginal, String dniNuevo) {
+//        boolean exito = false;
+//        Usuario usuarioViejo = listaUsuarios.get(dniOriginal);
+//        if (usuarioViejo != null && !elUsuarioExiste(dniNuevo) && !(dniNuevo.equals(""))) {
+//            listaUsuarios.remove(dniOriginal);
+//            listaUsuarios.put(dniNuevo, new Usuario(dniNuevo, usuarioViejo.getNombre()));
+//            exito = true;
+//        }
+//        return exito;
+//    }
 
-    public String getUsuario(String dni) {
-        String usuario = "error";
+    public Usuario getUsuario(String dni) {
+        Usuario usuario = null;
         Usuario user = listaUsuarios.get(dni);
         if (user != null) {
-            usuario = user.toString();
+            usuario = user;
         }
         return usuario;
     }
+
+//    public List<Producto> devolverLista() {
+//        return listaUsuarios()
+//                .map(producto -> new Producto(producto.getNombre(), producto.getPrecio(), producto.getStock()))
+//                .collect(Collectors.toUnmodifiableList());
+//    }
 
     @Override
     public String toString() {
