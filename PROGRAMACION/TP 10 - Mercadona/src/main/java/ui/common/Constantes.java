@@ -2,7 +2,8 @@ package ui.common;
 
 public class Constantes {
 
-    private Constantes(){}
+    private Constantes() {
+    }
 
 
     // MAIN ADMINISTRADOR
@@ -13,7 +14,6 @@ public class Constantes {
             "2 - Gestionar Productos \n" +
             "3 - Salir";
     public static final String CHAU = "Chau!";
-
 
 
     // PRODUCTOS
@@ -55,7 +55,6 @@ public class Constantes {
     public static final String INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA = "Ingrese el nuevo nombre que tendra el/la ";
     public static final String NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE = "No se encontro el producto en nuestra lista de productos o el nombre nuevo no tiene un valor. Intente nuevamente";
     public static final String NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_ALGUNO_DE_LOS_CAMPOS_INGRESADOS_ES_INVALIDO_INTENTE_NUEVAMENTE = "No se encontro el producto en nuestra lista de productos o el alguno de los campos ingresados es inválido. Intente nuevamente";
-
 
 
     // USUARIOS

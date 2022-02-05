@@ -3,7 +3,6 @@ package servicios;
 import dao.DaoUsuarios;
 import modelo.Usuario;
 
-import java.util.LinkedHashMap;
 
 public class ServiciosUsuarios {
 
@@ -21,7 +20,7 @@ public class ServiciosUsuarios {
     public Usuario eliminarUsuario(String dni) {
         DaoUsuarios dao = new DaoUsuarios();
         Usuario userBorrado = null;
-        if (elUsuarioExiste(dni)){
+        if (elUsuarioExiste(dni)) {
             userBorrado = dao.eliminarUsuario(dni);
         }
         return userBorrado;
@@ -29,8 +28,9 @@ public class ServiciosUsuarios {
 
     public boolean elUsuarioExiste(String key) {
         DaoUsuarios daoUsuarios = new DaoUsuarios();
-        return daoUsuarios.getUsuario(key)!=null;
+        return daoUsuarios.getUsuario(key) != null;
     }
+
     //
     public boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal) {
         boolean exito = false;
@@ -49,7 +49,7 @@ public class ServiciosUsuarios {
         DaoUsuarios dao = new DaoUsuarios();
         Usuario usuarioViejo = dao.getUsuario(dniOriginal);
         if (usuarioViejo != null && !(nombNuevo.equals(""))) {
-            return dao.modificarUsuarioNombre(dniOriginal, usuarioViejo, new Usuario(dniOriginal, nombNuevo);
+            return dao.modificarUsuarioNombre(dniOriginal, usuarioViejo, new Usuario(dniOriginal, nombNuevo));
         }
         return false;
     }
@@ -67,18 +67,18 @@ public class ServiciosUsuarios {
     }
 
     public String getUsuario(String dni) {
-        String usuario = "error";
-        DaoUsuarios dao = new DaoUsuarios();
-        Usuario user = dao.get(dni);
+        DaoUsuarios daoUsuarios = new DaoUsuarios();
+        Usuario user = daoUsuarios.getUsuario(dni);
         if (user != null) {
-            usuario = user.toString();
+            return user.toString();
         }
-        return usuario;
+        return "error";
     }
 
-    @Override
-    public String toString() {
-        return "Lista de usuarios = " + listaUsuarios;
+    public String getLista() {
+        DaoUsuarios daoUsuarios = new DaoUsuarios();
+        return daoUsuarios.toString();
     }
+
 
 }

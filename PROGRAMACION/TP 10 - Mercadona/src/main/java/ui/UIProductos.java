@@ -176,12 +176,11 @@ public class UIProductos {
     }
 
     private void modificarStockProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos ServiciosProductos = new ServiciosProductos();
-        int nuevoStockProd;
-            System.out.println(Constantes.INGRESE_EL_NUEVO_STOCK_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
-            nuevoStockProd = sc.nextInt();
-        // cambiar solo el stock
         ServiciosProductos serviciosProductos = new ServiciosProductos();
+        int nuevoStockProd;
+        System.out.println(Constantes.INGRESE_EL_NUEVO_STOCK_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
+        nuevoStockProd = sc.nextInt();
+        // cambiar solo el stock
         if (serviciosProductos.modificarProductoStock(nomProdMod, nuevoStockProd)) {
             System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nomProdMod));
         } else {
@@ -190,12 +189,11 @@ public class UIProductos {
     }
 
     private void modificarPrecioProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos ServiciosProductos = new ServiciosProductos();
-        double nuevoPrecioProd;
-            System.out.println(Constantes.INGRESE_EL_NUEVO_PRECIO_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
-            nuevoPrecioProd = sc.nextDouble();
-        // cambiar solo el precio
         ServiciosProductos serviciosProductos = new ServiciosProductos();
+        double nuevoPrecioProd;
+        System.out.println(Constantes.INGRESE_EL_NUEVO_PRECIO_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
+        nuevoPrecioProd = sc.nextDouble();
+        // cambiar solo el precio
         if (serviciosProductos.modificarProductoPrecio(nomProdMod, nuevoPrecioProd)) {
             System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nomProdMod));
         } else {
@@ -204,15 +202,13 @@ public class UIProductos {
     }
 
     private void modificarNombreProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos ServiciosProductos = new ServiciosProductos();
-        String nuevoNombreProd;
-            System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA + nomProdMod + ": ");
-            nuevoNombreProd = sc.nextLine();
         ServiciosProductos serviciosProductos = new ServiciosProductos();
-        if (serviciosProductos.modificarProductoNombre(nomProdMod, nuevoNombreProd)){
+        String nuevoNombreProd;
+        System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA + nomProdMod + ": ");
+        nuevoNombreProd = sc.nextLine();
+        if (serviciosProductos.modificarProductoNombre(nomProdMod, nuevoNombreProd)) {
             System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nuevoNombreProd));
-        }
-        else {
+        } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
     }

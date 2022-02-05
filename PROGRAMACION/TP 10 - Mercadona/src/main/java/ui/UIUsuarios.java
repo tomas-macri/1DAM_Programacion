@@ -2,7 +2,6 @@ package ui;
 
 import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
-import servicios.ServiciosUsuarios;
 import modelo.Usuario;
 
 import java.util.Scanner;
@@ -11,7 +10,7 @@ public class UIUsuarios {
 
     public void inicioUIUsuarios() {
         Scanner sc = new Scanner(System.in);
-        ServiciosUsuarios ServiciosUsuarios = new ServiciosUsuarios();
+        ServiciosUsuarios serviciosUsuarios = new ServiciosUsuarios();
         UIUsuarios uiUsuarios = new UIUsuarios();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
@@ -35,7 +34,7 @@ public class UIUsuarios {
                     break;
                 case 4:
                     // mostrar usuarios
-                    System.out.println(ServiciosUsuarios);
+                    System.out.println(serviciosUsuarios.getLista());
                     System.out.println();
                     break;
                 case 5:
@@ -106,7 +105,7 @@ public class UIUsuarios {
                 opcionModi = sc.nextInt();
                 sc.nextLine();
                 System.out.println();
-            }while (opcionModi < 1 || opcionModi > 4);
+            } while (opcionModi < 1 || opcionModi > 4);
             switchModificar(sc, opcionModi);
 
 
@@ -157,10 +156,9 @@ public class UIUsuarios {
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd)){
+        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd)) {
             System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(dniMod));
-        }
-        else {
+        } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
     }

@@ -4,7 +4,7 @@ import dao.DaoProductos;
 import modelo.Producto;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class ServiciosProductos {
     public boolean agregarProducto(Producto productoNuevo) {
@@ -19,7 +19,6 @@ public class ServiciosProductos {
         DaoProductos daoProductos = new DaoProductos();
         return daoProductos.eliminarProducto(nombProd);
     }
-
 
 
     public boolean modificarProducto(Producto prodNuevo, String nombOriginal) {
@@ -71,9 +70,9 @@ public class ServiciosProductos {
     public String getProducto(String nombProd) {
         DaoProductos daoProductos = new DaoProductos();
         String producto = "error";
-        int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombProd));
-        if (indexProdViejo >= 0) {
-            producto = daoProductos.getProducto(indexProdViejo);
+        int indexProd = daoProductos.obtenerIndexProducto(new Producto(nombProd));
+        if (indexProd >= 0) {
+            producto = daoProductos.getProducto(indexProd);
         }
         return producto;
     }
