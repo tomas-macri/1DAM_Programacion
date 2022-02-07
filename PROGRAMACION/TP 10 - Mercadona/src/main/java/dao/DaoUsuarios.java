@@ -1,13 +1,18 @@
 package dao;
 
+import modelo.Producto;
 import modelo.Usuario;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class DaoUsuarios {
 
     private static final LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
+
 
 
     public void agregarusuario(Usuario usuarioNuevo) {
@@ -35,10 +40,13 @@ public class DaoUsuarios {
     }
 
 
-    @Override
-    public String toString() {
+
+    public List<Usuario> devolverLista() {
         // tuve que dejar este metodo en vez de devolver una unmodifiable list porque los maps no tienen un metodo .stream()
-        return "Lista de usuarios = " + listaUsuarios.clone();
+        return listaUsuarios.values().stream()
+                .map(usuario -> new Usuario(usuario.getDni(), usuario.getNombre()))
+                .collect(Collectors.toUnmodifiableList());
+
     }
 
 }

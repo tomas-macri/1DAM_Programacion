@@ -3,6 +3,8 @@ package servicios;
 import dao.DaoUsuarios;
 import modelo.Usuario;
 
+import java.util.List;
+
 
 public class ServiciosUsuarios {
 
@@ -75,9 +77,9 @@ public class ServiciosUsuarios {
         return "error";
     }
 
-    public String getLista() {
+    public List<Usuario> getLista() {
         DaoUsuarios daoUsuarios = new DaoUsuarios();
-        return daoUsuarios.toString();
+        return daoUsuarios.devolverLista();
     }
 
 
