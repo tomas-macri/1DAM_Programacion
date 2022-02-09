@@ -17,7 +17,6 @@ public class Main
 
         String dniIngresado;
         do {
-            System.out.println(serviciosUsuarios.getLista().toString());
             System.out.println("Bienvenido al Mercadona");
             System.out.println("Ingrese su DNI o fin para salir: ");
             dniIngresado = sc.nextLine();
