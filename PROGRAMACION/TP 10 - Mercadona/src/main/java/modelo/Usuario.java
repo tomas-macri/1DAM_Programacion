@@ -6,11 +6,24 @@ public class Usuario {
 
     String dni;
     String nombre;
-
+    boolean admin;
 
     public Usuario(String dni, String nombre) {
         this.dni = dni;
         this.nombre = nombre;
+        this.admin = false;
+    }
+
+
+    public Usuario(String dni, String nombre, boolean esAdmin) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.admin = esAdmin;
+    }
+
+
+    public boolean isAdmin() {
+        return admin;
     }
 
 

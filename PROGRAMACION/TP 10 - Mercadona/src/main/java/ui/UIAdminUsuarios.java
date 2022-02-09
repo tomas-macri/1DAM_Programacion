@@ -6,12 +6,12 @@ import modelo.Usuario;
 
 import java.util.Scanner;
 
-public class UIUsuarios {
+public class UIAdminUsuarios {
 
     public void inicioUIUsuarios() {
         Scanner sc = new Scanner(System.in);
         ServiciosUsuarios serviciosUsuarios = new ServiciosUsuarios();
-        UIUsuarios uiUsuarios = new UIUsuarios();
+        UIAdminUsuarios uiUsuarios = new UIAdminUsuarios();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
         System.out.println();
@@ -145,7 +145,7 @@ public class UIUsuarios {
         nuevoDNI = sc.nextLine();
         // cambiar solo el dni
         if (servicios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(nuevoDNI));
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(nuevoDNI));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_SE_INTENTO_CAMBIAR_POR_UN_DNI_DE_UN_USUARIO_QUE_YA_ESTA_EN_LA_LISTA_INTENTE_NUEVAMENTE);
         }
@@ -157,7 +157,7 @@ public class UIUsuarios {
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
         if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(dniMod));
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(dniMod));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
@@ -178,7 +178,7 @@ public class UIUsuarios {
         // cambiar
         Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario);
         if (servicios.modificarUsuario(userNuevo, dniMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuario(nuevoDNIUsuario));
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(nuevoDNIUsuario));
         } else {
             System.out.println(Constantes.ERROR_BUSQUEDA_Y_MODIFICACION_USUARIOS);
         }

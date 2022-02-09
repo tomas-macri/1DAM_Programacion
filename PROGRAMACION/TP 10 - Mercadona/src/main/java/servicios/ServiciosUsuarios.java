@@ -68,7 +68,7 @@ public class ServiciosUsuarios {
         return exito;
     }
 
-    public String getUsuario(String dni) {
+    public String getUsuarioString(String dni) {
         DaoUsuarios daoUsuarios = new DaoUsuarios();
         Usuario user = daoUsuarios.getUsuario(dni);
         if (user != null) {
@@ -76,6 +76,13 @@ public class ServiciosUsuarios {
         }
         return "error";
     }
+
+
+    public Usuario getUsuario(String dni) {
+        DaoUsuarios daoUsuarios = new DaoUsuarios();
+        return daoUsuarios.getUsuario(dni);
+    }
+
 
     public List<Usuario> getLista() {
         DaoUsuarios daoUsuarios = new DaoUsuarios();

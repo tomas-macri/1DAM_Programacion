@@ -6,31 +6,31 @@ import modelo.Producto;
 
 import java.util.Scanner;
 
-public class UIProductos {
+public class UIAdminProductos {
 
     public void inicioUIProductos() {
         ServiciosProductos serviciosProductos = new ServiciosProductos();
         Scanner sc = new Scanner(System.in);
-        UIProductos uiProductos = new UIProductos();
+        UIAdminProductos uiAdminProductos = new UIAdminProductos();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
         System.out.println();
 
         do {
-            opcion = uiProductos.mostrarMenu(sc);
+            opcion = uiAdminProductos.mostrarMenu(sc);
             System.out.println();
             switch (opcion) {
                 case 1:
                     //agregar productos
-                    uiProductos.agregarProducto(sc);
+                    uiAdminProductos.agregarProducto(sc);
                     break;
                 case 2:
                     // modificar prod
-                    uiProductos.modificarProducto(sc);
+                    uiAdminProductos.modificarProducto(sc);
                     break;
                 case 3:
                     // eliminar prod
-                    uiProductos.eliminarProducto(sc);
+                    uiAdminProductos.eliminarProducto(sc);
                     break;
                 case 4:
                     // mostrar productos

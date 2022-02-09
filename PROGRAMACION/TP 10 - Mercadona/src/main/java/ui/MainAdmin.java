@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class MainAdmin {
 
-    public static void main(String[] args) {
+    public void inicioMenuAdmin() {
         Scanner sc = new Scanner(System.in);
         int opcion;
-        UIUsuarios uiUsuarios = new UIUsuarios();
-        UIProductos uiProductos = new UIProductos();
+        UIAdminUsuarios uiUsuarios = new UIAdminUsuarios();
+        UIAdminProductos uiAdminProductos = new UIAdminProductos();
 
 
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
@@ -29,7 +29,7 @@ public class MainAdmin {
                     break;
                 case 2:
                     // modificar prod
-                    uiProductos.inicioUIProductos();
+                    uiAdminProductos.inicioUIProductos();
                     break;
                 case 3:
                     System.out.println(Constantes.CHAU);

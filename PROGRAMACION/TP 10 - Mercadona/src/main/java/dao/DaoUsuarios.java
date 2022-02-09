@@ -11,39 +11,42 @@ import java.util.stream.Collectors;
 
 public class DaoUsuarios {
 
-    private static final LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
+
+//    public DaoUsuarios(){
+//        BD.listaUsuarios = BD.listaUsuarios;
+//    }
 
 
 
     public void agregarusuario(Usuario usuarioNuevo) {
         String dni = usuarioNuevo.getDni();
         if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {
-            listaUsuarios.put(dni, usuarioNuevo);
+            BD.listaUsuarios.put(dni, usuarioNuevo);
         }
     }
 
     public Usuario eliminarUsuario(String dni) {
-        return listaUsuarios.remove(dni);
+        return BD.listaUsuarios.remove(dni);
     }
 
     public boolean elUsuarioExiste(String key) {
-        return listaUsuarios.get(key) != null;
+        return BD.listaUsuarios.get(key) != null;
     }
 
     public boolean modificarUsuarioNombre(String dniOriginal, Usuario userViejo, Usuario userNuevo) {
-        return listaUsuarios.replace(dniOriginal, userViejo, userNuevo);
+        return BD.listaUsuarios.replace(dniOriginal, userViejo, userNuevo);
     }
 
 
     public Usuario getUsuario(String dni) {
-        return listaUsuarios.get(dni);
+        return BD.listaUsuarios.get(dni);
     }
 
 
 
     public List<Usuario> devolverLista() {
         // tuve que dejar este metodo en vez de devolver una unmodifiable list porque los maps no tienen un metodo .stream()
-        return listaUsuarios.values().stream()
+        return BD.listaUsuarios.values().stream()
                 .map(usuario -> new Usuario(usuario.getDni(), usuario.getNombre()))
                 .collect(Collectors.toUnmodifiableList());
 
