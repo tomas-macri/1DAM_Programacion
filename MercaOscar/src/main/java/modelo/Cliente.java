@@ -9,7 +9,7 @@ public class Cliente {
 
     private String dni;
     private String nombre;
-    private Set<Monedero> monederos;
+    private HashSet<Monedero> monederos;
     private List<LineaCompra> carrito;
     private List<List<LineaCompra>> comprasAntiguas;
 

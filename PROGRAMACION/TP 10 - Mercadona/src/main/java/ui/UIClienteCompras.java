@@ -32,6 +32,7 @@ public class UIClienteCompras {
                     break;
                 case 4:
                     //pagar
+                    break;
                 case 5:
                     // salir
                     System.out.println(Constantes.CHAU);

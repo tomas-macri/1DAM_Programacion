@@ -1,9 +1,7 @@
 package ui;
 
 
-import dao.BD;
-import dao.DaoUsuarios;
-import modelo.Producto;
+
 import modelo.Usuario;
 import servicios.ServiciosUsuarios;
 
@@ -27,7 +25,7 @@ public class Main
                     mainAdmin.inicioMenuAdmin();
                 } else {
                     MainClientes mainClientes = new MainClientes();
-                    mainClientes.inicioMenuClientes();
+                    mainClientes.inicioMenuClientes(userConEseDni);
                 }
             } else {
                 System.out.println("Usuario INEXISTENTE");

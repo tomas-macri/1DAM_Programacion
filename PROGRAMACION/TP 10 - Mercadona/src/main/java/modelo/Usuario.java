@@ -1,14 +1,25 @@
 package modelo;
 
-import java.util.Objects;
+import java.util.*;
 
 public class Usuario {
 
-    String dni;
-    String nombre;
-    boolean admin;
+    private String dni;
+    private String nombre;
+    private boolean admin;
+    private Set<Tarjeta> listaTarjetas;
+    private List<ProductoComprado> carrito;
+
+
+    private Usuario(){
+        listaTarjetas = new HashSet<>();
+        carrito = new ArrayList<>();
+    }
+
+
 
     public Usuario(String dni, String nombre) {
+        this();
         this.dni = dni;
         this.nombre = nombre;
         this.admin = false;
@@ -16,6 +27,7 @@ public class Usuario {
 
 
     public Usuario(String dni, String nombre, boolean esAdmin) {
+        this();
         this.dni = dni;
         this.nombre = nombre;
         this.admin = esAdmin;
@@ -33,6 +45,23 @@ public class Usuario {
 
     public String getNombre() {
         return nombre;
+    }
+
+
+    public Set<Tarjeta> getListaTarjetas() {
+        return listaTarjetas;
+    }
+
+    public void setListaTarjetas(Set<Tarjeta> listaTarjetas) {
+        this.listaTarjetas = listaTarjetas;
+    }
+
+    public List<ProductoComprado> getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(List<ProductoComprado> carrito) {
+        this.carrito = carrito;
     }
 
     @Override

@@ -1,11 +1,12 @@
 package ui;
 
+import modelo.Usuario;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class MainClientes {
-    public void inicioMenuClientes(){
+    public void inicioMenuClientes(Usuario userLogueado){
         System.out.println("BIENVENIDO AL MENU DE LOS CLIENTES");
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -23,7 +24,7 @@ public class MainClientes {
                         "3 - Administrar mis tarjetas \n " +
                         "4 - Salir");
                 opcion = sc.nextInt();
-            } while (opcion < 1 || opcion > 3);
+            } while (opcion < 1 || opcion > 4);
             sc.nextLine();
             System.out.println();
             switch (opcion) {
@@ -33,9 +34,10 @@ public class MainClientes {
                     break;
                 case 2:
                     // ver las comprar previas
+                    break;
                 case 3:
                     //ir a la ui de tarjetas
-                    uiClienteTarjetas.inicioUITarjetas();
+                    uiClienteTarjetas.inicioUITarjetas(userLogueado);
                     break;
                 case 4:
                     System.out.println(Constantes.CHAU);
@@ -43,6 +45,6 @@ public class MainClientes {
                 default:
                     break;
             }
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 }
