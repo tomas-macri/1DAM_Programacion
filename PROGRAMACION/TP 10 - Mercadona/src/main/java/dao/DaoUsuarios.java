@@ -1,21 +1,11 @@
 package dao;
 
-import modelo.Producto;
 import modelo.Usuario;
-
-import java.util.Collection;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class DaoUsuarios {
-
-
-//    public DaoUsuarios(){
-//        BD.listaUsuarios = BD.listaUsuarios;
-//    }
-
 
 
     public void agregarusuario(Usuario usuarioNuevo) {
@@ -45,7 +35,6 @@ public class DaoUsuarios {
 
 
     public List<Usuario> devolverLista() {
-        // tuve que dejar este metodo en vez de devolver una unmodifiable list porque los maps no tienen un metodo .stream()
         return BD.listaUsuarios.values().stream()
                 .map(usuario -> new Usuario(usuario.getDni(), usuario.getNombre()))
                 .collect(Collectors.toUnmodifiableList());
