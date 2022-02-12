@@ -67,15 +67,16 @@ public class ServiciosProductos {
         return exito;
     }
 
-    public String getProducto(String nombProd) {
+    public Producto getProducto(String nombProd) {
         DaoProductos daoProductos = new DaoProductos();
-        String producto = "error";
+        Producto producto = null;
         int indexProd = daoProductos.obtenerIndexProducto(new Producto(nombProd));
         if (indexProd >= 0) {
             producto = daoProductos.getProducto(indexProd);
         }
         return producto;
     }
+
 
     public List<Producto> getLista() {
         DaoProductos daoProductos = new DaoProductos();

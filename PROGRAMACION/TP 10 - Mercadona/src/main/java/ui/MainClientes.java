@@ -30,7 +30,7 @@ public class MainClientes {
             switch (opcion) {
                 case 1:
                     //ir a la ui de compras
-                    uiClienteCompras.inicioUICompras();
+                    uiClienteCompras.inicioUICompras(userLogueado);
                     break;
                 case 2:
                     // ver las comprar previas

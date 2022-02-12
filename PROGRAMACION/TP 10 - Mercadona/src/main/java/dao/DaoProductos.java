@@ -41,8 +41,8 @@ public class DaoProductos {
         BD.listaProductos.get(indexProdViejo).setStock(stockNuevo);
     }
 
-    public String getProducto(int indexProd) {
-        return BD.listaProductos.get(indexProd).toString();
+    public Producto getProducto(int indexProd) {
+        return BD.listaProductos.get(indexProd);
     }
 
     public int obtenerIndexProducto(Producto prod) {
