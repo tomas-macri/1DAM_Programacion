@@ -25,39 +25,21 @@ public class UIClienteCompras {
             switch (opcion) {
                 case 1:
                     //agregar productos a la compra
-
-
-                    Producto prodAComprar;
-                    String nombProd;
-                    do {
-                        System.out.println("Ingrese el nombre del producto que quiere agregar a la compra o fin para terminar: ");
-                        nombProd = sc.nextLine();
-                        prodAComprar = serviciosProductos.getProducto(nombProd);
-                    } while (prodAComprar == null || !nombProd.equalsIgnoreCase("fin"));
-
-                    if (!nombProd.equalsIgnoreCase("fin")){
-                        int stockAComprar;
-                        do {
-                            System.out.println("Ingrese la cantidad a comprar de " + prodAComprar);
-                            stockAComprar = sc.nextInt();
-                            sc.nextLine();
-                        }while (serviciosCompras.hayStock(stockAComprar, prodAComprar));
-
-                        ProductoComprado productoComprado = new ProductoComprado(prodAComprar, stockAComprar);
-                        serviciosCompras.agregarALaCompra(productoComprado, userLogueado);
-
-                    }
-
-
+                    agregarProdACompra(userLogueado, sc, serviciosCompras, serviciosProductos);
                     break;
                 case 2:
                     // eliminar prod de la compra
+                    System.out.println("Ingrese el nombre del producto que desea eliminar de la lista de compras");
+
+                    String nombProd = sc.nextLine();
+                    Producto prodAComprar = serviciosProductos.getProducto(nombProd);
+                    serviciosCompras.eliminarDeLaCompra(prodAComprar, userLogueado);
                     break;
+
                 case 3:
                     // mostrar productos
-                    // System.out.println(serviciosProductos.getLista());
-
-                    // System.out.println();
+                    System.out.println(serviciosCompras.getListaCompra(userLogueado));
+                    System.out.println();
                     break;
                 case 4:
                     //pagar
@@ -70,6 +52,34 @@ public class UIClienteCompras {
                     break;
             }
         } while (opcion != 5);
+    }
+
+    private void agregarProdACompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {
+        Producto prodAComprar;
+        String nombProd;
+        do {
+            System.out.println("Ingrese el nombre del producto que quiere agregar a la compra o fin para terminar: ");
+            nombProd = sc.nextLine();
+            prodAComprar = serviciosProductos.getProducto(nombProd);
+
+            if (prodAComprar != null && !nombProd.equalsIgnoreCase("fin")) {
+                int stockAComprar;
+                System.out.println("Ingrese la cantidad a comprar de " + prodAComprar);
+                stockAComprar = sc.nextInt();
+                sc.nextLine();
+
+                if (serviciosCompras.hayStock(stockAComprar, prodAComprar)) {
+                    System.out.println("Se agregaron " + stockAComprar + " de " + prodAComprar + " a la lista de compras");
+                    System.out.println();
+
+                    ProductoComprado productoComprado = new ProductoComprado(prodAComprar, stockAComprar);
+                    serviciosCompras.agregarALaCompra(productoComprado, userLogueado);
+                } else {
+                    System.out.println("El stock que ingresó es menor que 1 o es mayor al stock que nos queda del producto " + prodAComprar);
+                    System.out.println();
+                }
+            }
+        } while (!nombProd.equalsIgnoreCase("fin"));
     }
 
 

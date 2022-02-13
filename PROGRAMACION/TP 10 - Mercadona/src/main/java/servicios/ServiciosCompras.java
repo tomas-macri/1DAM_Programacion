@@ -1,16 +1,17 @@
 package servicios;
 
 import dao.DaoCompras;
-import dao.DaoProductos;
 import modelo.Producto;
 import modelo.ProductoComprado;
 import modelo.Usuario;
+
+import java.util.List;
 
 public class ServiciosCompras {
 
     public boolean hayStock(int stockAComprar, Producto prod){
         DaoCompras daoCompras = new DaoCompras();
-        if (stockAComprar < 0 && stockAComprar - prod.getStock() > 0){
+        if (stockAComprar > 0 && prod.getStock() - stockAComprar > 0){
             daoCompras.quitarStock(stockAComprar, prod);
             return true;
         }
@@ -27,4 +28,13 @@ public class ServiciosCompras {
         return false;
     }
 
+    public boolean eliminarDeLaCompra(Producto prod, Usuario user){
+        DaoCompras daoCompras = new DaoCompras();
+        return daoCompras.eliminarDeLaCompra(prod, user);
+    }
+
+    public List<ProductoComprado> getListaCompra(Usuario userLogueado) {
+        DaoCompras daoCompras = new DaoCompras();
+        return daoCompras.devolverLista(userLogueado);
+    }
 }

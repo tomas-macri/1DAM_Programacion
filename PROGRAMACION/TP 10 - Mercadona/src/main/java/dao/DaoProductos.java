@@ -2,16 +2,10 @@ package dao;
 
 import modelo.Producto;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DaoProductos {
-
-
-    public DaoProductos(){
-        BD.listaProductos = new ArrayList<>();
-    }
 
     public boolean agregarProducto(Producto productoNuevo) {
         return BD.listaProductos.add(productoNuevo);

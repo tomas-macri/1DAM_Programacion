@@ -1,6 +1,5 @@
 package dao;
 
-import modelo.Producto;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
 public class DaoTarjetas {
     public void agregarusuario(Tarjeta tarjNueva, Usuario cliente) {
         String nombreTarj = tarjNueva.getNombre();
-        if (!laTarjetaExiste(tarjNueva.getNombre(), cliente) && !(tarjNueva.getNombre().equals("") || tarjNueva.getSaldo()<0)) {
+        if (!laTarjetaExiste(nombreTarj, cliente) && !(nombreTarj.equals("") || tarjNueva.getSaldo()<0)) {
             BD.listaUsuarios.get(cliente.getDni()).getListaTarjetas().add(tarjNueva);
         }
     }
