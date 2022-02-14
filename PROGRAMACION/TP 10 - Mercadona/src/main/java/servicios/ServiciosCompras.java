@@ -30,12 +30,16 @@ public class ServiciosCompras {
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user){
         DaoCompras daoCompras = new DaoCompras();
+<<<<<<< HEAD
         if (prod != null){
             return daoCompras.eliminarDeLaCompra(prod, user);
         }
         else{
             return false;
         }
+=======
+        return daoCompras.eliminarDeLaCompra(prod, user);
+>>>>>>> 8344a7053992cd746b92e02f7d34e5c2c816c551
     }
 
     public List<ProductoComprado> getListaCompra(Usuario userLogueado) {
