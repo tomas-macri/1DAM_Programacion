@@ -5,6 +5,7 @@ import modelo.Usuario;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class DaoTarjetas {
@@ -23,6 +24,19 @@ public class DaoTarjetas {
             }
         });
         return existe.get();
+    }
+
+    public Tarjeta getTarjeta(String nombreTarj, Usuario user){
+
+        AtomicReference<Tarjeta> tarjADevolver = new AtomicReference<>();
+        tarjADevolver.set(new Tarjeta("error", 0));
+
+        user.getListaTarjetas().forEach(tarjeta -> {
+            if (tarjeta.getNombre().equalsIgnoreCase(nombreTarj)) {
+                tarjADevolver.set(tarjeta);
+            }
+        });
+        return tarjADevolver.get();
     }
 
     public List<Tarjeta> devolverLista(Usuario user) {

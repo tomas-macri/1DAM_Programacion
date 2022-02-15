@@ -1,7 +1,9 @@
 package ui;
 
+import dao.DaoTarjetas;
 import modelo.Producto;
 import modelo.ProductoComprado;
+import modelo.Tarjeta;
 import modelo.Usuario;
 import servicios.ServiciosCompras;
 import servicios.ServiciosProductos;
@@ -17,7 +19,7 @@ public class UIClienteCompras {
         int opcion;
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_COMPRAS);
         System.out.println();
-        ServiciosCompras serviciosCompras = new ServiciosCompras();
+        ServiciosCompras serviciosCompras = new ServiciosCompras(userLogueado);
         ServiciosProductos serviciosProductos = new ServiciosProductos();
         do {
             opcion = uiClienteCompras.mostrarMenu(sc);
@@ -38,6 +40,7 @@ public class UIClienteCompras {
                     break;
                 case 4:
                     //pagar
+                    pagar(userLogueado, sc, serviciosCompras);
                     break;
                 case 5:
                     // salir
@@ -47,6 +50,21 @@ public class UIClienteCompras {
                     break;
             }
         } while (opcion != 5);
+    }
+
+    private void pagar(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras) {
+        String nombTarjeta;
+
+        System.out.println(Constantes.INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR);
+        nombTarjeta= sc.nextLine();
+        DaoTarjetas daoTarjetas = new DaoTarjetas();
+        Tarjeta tarjetaParaPagar = daoTarjetas.getTarjeta(nombTarjeta, userLogueado);
+        if (serviciosCompras.pagar(tarjetaParaPagar, userLogueado)){
+            System.out.println(Constantes.LA_COMPRA_SE_REALIZO_CON_EXITO);
+        }
+        else {
+            System.out.println(Constantes.HUBO_UN_PROBLEMA_A_LA_HORA_DE_REALIZAR_LA_COMPRA);
+        }
     }
 
     private void eliminarProductoDeLaCompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {

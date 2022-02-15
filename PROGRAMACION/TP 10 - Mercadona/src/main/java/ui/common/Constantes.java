@@ -45,6 +45,9 @@ public class Constantes {
     public static final String LA_TARJETA_YA_SE_ENCONTRABA_EN_TU_LISTA_DE_TARJETAS_O_ALGUNOS_DE_LOS_CAMPOS_INGRESADOS_NO_ES_VÁLIDO = "La tarjeta ya se encontraba en tu lista de tarjetas o algunos de los campos ingresados no es válido";
     public static final String INGRESE_1_SI_QUIERE_AGREGAR_OTRA_TARJETA_O_CUALQUIER_OTRO_NÚMERO_PARA_SALIR = "Ingrese 1 si quiere agregar otra tarjeta o cualquier otro número para salir";
     public static final String SALIENDO_DE_AGREGAR_TARJETA = "Saliendo de agregar tarjeta...";
+    public static final String INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR = "Ingrese el nombre de la tarjeta con la que desea pagar";
+    public static final String LA_COMPRA_SE_REALIZO_CON_EXITO = "La compra se realizo con exito";
+    public static final String HUBO_UN_PROBLEMA_A_LA_HORA_DE_REALIZAR_LA_COMPRA = "Hubo un problema a la hora de realizar la compra";
 
     private Constantes() {
     }

@@ -2,6 +2,7 @@ package dao;
 
 import modelo.Producto;
 import modelo.ProductoComprado;
+import modelo.Tarjeta;
 import modelo.Usuario;
 
 import java.util.List;
@@ -22,6 +23,10 @@ public class DaoCompras {
         return BD.listaUsuarios.get(user.getDni()).getCarrito().remove(new ProductoComprado(prod));
     }
 
+    public void pagar(Tarjeta tarjeta, int valorCompra){
+        tarjeta.setSaldo(tarjeta.getSaldo() - valorCompra);
+        // aqui se deberia añadir la compra a la lista de la compra historica y deberia recibir el user ne le futuro
+    }
 
     public List<ProductoComprado> devolverLista(Usuario userLogueado) {
         return BD.listaUsuarios.get(userLogueado.getDni()).getCarrito().stream()
