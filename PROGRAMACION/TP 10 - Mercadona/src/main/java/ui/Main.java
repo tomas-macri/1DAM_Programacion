@@ -1,39 +1,41 @@
 package ui;
 
 
-
-import modelo.Usuario;
-import servicios.ServiciosUsuarios;
-import ui.common.Constantes;
-
 import java.util.Scanner;
 
-public class Main
-{
+public class Main {
 
     public static void main(String[] args) {
-        ServiciosUsuarios serviciosUsuarios = new ServiciosUsuarios();
         Scanner sc = new Scanner(System.in);
+        int opcion;
 
-        String dniIngresado;
+        System.out.println("BIENVENIDO AL MERCADONA");
+
+
         do {
-            System.out.println(Constantes.BIENVENIDO_AL_MERCADONA);
-            System.out.println(Constantes.INGRESE_SU_DNI_O_FIN_PARA_SALIR);
-            dniIngresado = sc.nextLine();
-            Usuario userConEseDni = serviciosUsuarios.getUsuario(dniIngresado);
-            if (userConEseDni != null) {
-                if (userConEseDni.isAdmin()) {
-                    MainAdmin mainAdmin = new MainAdmin();
-                    mainAdmin.inicioMenuAdmin();
-                } else {
-                    MainClientes mainClientes = new MainClientes();
-                    mainClientes.inicioMenuClientes(userConEseDni);
-                }
-            } else {
-                System.out.println(Constantes.USUARIO_INEXISTENTE);
+            System.out.println("SELECCIONE UNA OPCION: \n" +
+                    "1 - LOGIN \n" +
+                    "2 - REGISTRARME \n" +
+                    "3 - SALIR");
+            opcion = sc.nextInt();
+            sc.nextLine();
 
-            }
 
-        }while (!dniIngresado.equalsIgnoreCase(Constantes.FIN));
+        switch (opcion){
+            case 1:
+                MainLogin mainLogin = new MainLogin();
+                mainLogin.inicioLogin();
+                break;
+            case 2:
+                MainRegistrarse mainRegistrarse = new MainRegistrarse();
+                mainRegistrarse.inicioRegistrarse();
+                break;
+            default:
+                break;
+        }
+
+        } while (opcion!=3);
     }
+
+
 }

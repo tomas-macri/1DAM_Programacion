@@ -1,9 +1,11 @@
 package ui;
 
+import modelo.ProductoCaducable;
 import ui.common.Constantes;
 import servicios.ServiciosProductos;
 import modelo.Producto;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class UIAdminProductos {
@@ -67,6 +69,7 @@ public class UIAdminProductos {
         String nomProd;
         int stockProd;
         double precioProd;
+        int cuandoCaduca;
         int opcion;
         do {
             System.out.println(Constantes.INGRESE_NOMBRE_DEL_PRODUCTO);
@@ -82,8 +85,17 @@ public class UIAdminProductos {
             sc.nextLine();
             System.out.println();
 
+            System.out.println("Ingrese dentro de cuantos minutos caducara el producto o 0 si no caduca");
+            cuandoCaduca = sc.nextInt();
+            sc.nextLine();
 
-            Producto unProd = new Producto(nomProd, precioProd, stockProd);
+            Producto unProd;
+            if (cuandoCaduca <= 0){
+                unProd = new Producto(nomProd, precioProd, stockProd);
+            }
+            else {
+                unProd = new ProductoCaducable(nomProd, precioProd, stockProd, LocalDateTime.now().plusMinutes(cuandoCaduca));
+            }
 
             if (dao.agregarProducto(unProd)) {
                 System.out.println(Constantes.SE_AGREGO + unProd + Constantes.A_LA_LISTA_DE_PRODUCTOS_DISPONIBLES);
