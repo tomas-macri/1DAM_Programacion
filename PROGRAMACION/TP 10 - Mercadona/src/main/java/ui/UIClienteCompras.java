@@ -89,7 +89,7 @@ public class UIClienteCompras {
             nombProd = sc.nextLine();
             prodAComprar = serviciosProductos.getProducto(nombProd);
 
-            if (prodAComprar != null && !nombProd.equalsIgnoreCase("fin")) {
+            if (prodAComprar != null && !nombProd.equalsIgnoreCase(Constantes.FIN)) {
                 int stockAComprar;
                 System.out.println(Constantes.INGRESE_LA_CANTIDAD_A_COMPRAR_DE + prodAComprar);
                 stockAComprar = sc.nextInt();
@@ -106,7 +106,7 @@ public class UIClienteCompras {
                     System.out.println();
                 }
             }
-        } while (!nombProd.equalsIgnoreCase("fin"));
+        } while (!nombProd.equalsIgnoreCase(Constantes.FIN));
     }
 
 
