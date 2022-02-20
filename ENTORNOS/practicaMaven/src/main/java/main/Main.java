@@ -2,6 +2,6 @@ package main;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Este es el proyecto de maven");
+                            System.out.println("Este es el proyecto de maven");
     }
 }
