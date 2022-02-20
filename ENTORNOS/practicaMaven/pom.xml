@@ -12,6 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <versionLombok>1.18.16</versionLombok>
+        <exename>miexe.exe</exename>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -22,11 +23,55 @@
             <version>${versionLombok}</version>
             <scope>provided</scope>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+
     </dependencies>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+
+            <properties>
+                <env>test</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>pro</id>
+
+            <properties>
+                <env>pro</env>
+            </properties>
+        </profile>
+    </profiles>
+
 
     <build>
 
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+            </plugin>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -38,12 +83,13 @@
                 <version>3.0.0</version>
             </plugin>
 
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <javadocExecutable>C:\Program Files\Java\jdk-11.0.11\bin\javadoc.exe</javadocExecutable>
+                    <javadocExecutable>C:\Users\tomas\desktop\jdk-11.0.11\bin\javadoc.exe</javadocExecutable>
                 </configuration>
                 <executions>
                     <execution>
