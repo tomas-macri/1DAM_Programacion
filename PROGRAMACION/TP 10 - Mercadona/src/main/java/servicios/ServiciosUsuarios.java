@@ -1,6 +1,8 @@
 package servicios;
 
+import dao.DaoCompras;
 import dao.DaoUsuarios;
+import modelo.ProductoComprado;
 import modelo.Usuario;
 
 import java.util.List;
@@ -88,6 +90,8 @@ public class ServiciosUsuarios {
         DaoUsuarios daoUsuarios = new DaoUsuarios();
         return daoUsuarios.devolverLista();
     }
+
+
 
 
 }

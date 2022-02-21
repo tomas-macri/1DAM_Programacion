@@ -1,5 +1,6 @@
 package dao;
 
+import modelo.ProductoComprado;
 import modelo.Usuario;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,5 +41,4 @@ public class DaoUsuarios {
                 .collect(Collectors.toUnmodifiableList());
 
     }
-
 }

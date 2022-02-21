@@ -1,6 +1,8 @@
 package servicios;
 
+import dao.BD;
 import dao.DaoCompras;
+import dao.DaoUsuarios;
 import modelo.Producto;
 import modelo.ProductoComprado;
 import modelo.Tarjeta;
@@ -13,7 +15,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ServiciosCompras {
 
     public ServiciosCompras(Usuario user){
+        //vaciarCarrito(user.getCarrito());
         user.setCarrito(new ArrayList<>());
+    }
+
+    private void vaciarCarrito(List<ProductoComprado> carrito) {
+        carrito.forEach(
+                productoComprado -> {
+                    Producto productoDejado = BD.listaProductos.get(BD.listaProductos.indexOf(productoComprado.getProducto()));
+                    productoDejado.setStock(productoDejado.getStock() + productoComprado.getCantidad());
+                }
+        );
     }
 
     public boolean hayStock(int stockAComprar, Producto prod){
@@ -62,7 +74,7 @@ public class ServiciosCompras {
 
             if (saldoDisponible - valorFinalCompra.get() > 0){
                 DaoCompras daoCompras = new DaoCompras();
-                daoCompras.pagar(tarjeta, valorFinalCompra.get());
+                daoCompras.pagar(tarjeta, valorFinalCompra.get(), user);
                 return true;
             }
             else {
@@ -73,5 +85,10 @@ public class ServiciosCompras {
            pudoPagar = false;
         }
         return pudoPagar;
+    }
+
+    public List<List<ProductoComprado>> getComprasPrevias(Usuario userLogueado){
+        DaoCompras daoCompras = new DaoCompras();
+        return daoCompras.devolverComprasPrevias(userLogueado);
     }
 }

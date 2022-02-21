@@ -1,6 +1,8 @@
 package ui;
 
 import modelo.Usuario;
+import servicios.ServiciosCompras;
+import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
 
 import java.util.Scanner;
@@ -11,6 +13,7 @@ public class MainClientes {
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
         Scanner sc = new Scanner(System.in);
         int opcion;
+        ServiciosCompras serviciosCompras = new ServiciosCompras(userLogueado);
         UIClienteCompras uiClienteCompras = new UIClienteCompras();
         UIClienteTarjetas uiClienteTarjetas = new UIClienteTarjetas();
 
@@ -35,6 +38,7 @@ public class MainClientes {
                     break;
                 case 2:
                     // ver las comprar previas
+                    System.out.println(serviciosCompras.getComprasPrevias(userLogueado));
                     break;
                 case 3:
                     //ir a la ui de tarjetas

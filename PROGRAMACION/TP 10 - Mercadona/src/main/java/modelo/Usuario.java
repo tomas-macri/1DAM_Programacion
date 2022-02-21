@@ -9,11 +9,13 @@ public class Usuario {
     private boolean admin;
     private Set<Tarjeta> listaTarjetas;
     private List<ProductoComprado> carrito;
+    private List<List<ProductoComprado>> comprasPrevias;
 
 
     private Usuario(){
         listaTarjetas = new HashSet<>();
         carrito = new ArrayList<>();
+        comprasPrevias = new ArrayList<>();
     }
 
 
@@ -62,6 +64,14 @@ public class Usuario {
 
     public void setCarrito(List<ProductoComprado> carrito) {
         this.carrito = carrito;
+    }
+
+    public List<List<ProductoComprado>> getComprasPrevias() {
+        return comprasPrevias;
+    }
+
+    public void setComprasPrevias(List<List<ProductoComprado>> comprasPrevias) {
+        this.comprasPrevias = comprasPrevias;
     }
 
     @Override
