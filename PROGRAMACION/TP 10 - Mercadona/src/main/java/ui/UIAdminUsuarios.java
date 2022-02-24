@@ -4,7 +4,6 @@ import modelo.*;
 import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -90,7 +89,7 @@ public class UIAdminUsuarios {
             if (porcentaje <= 0) {
                 unUser = new Usuario(dniCliente, nomCliente, ingredienteList);
             } else {
-                unUser = new ClienteEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
+                unUser = new UsuarioEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
             }
 
             if (servicios.agregarusuario(unUser)) {
