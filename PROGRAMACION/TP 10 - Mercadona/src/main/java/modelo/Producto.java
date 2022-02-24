@@ -1,22 +1,24 @@
 package modelo;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Producto {
-
-
+public class Producto implements Clonable<Producto>{
     String nombre;
     double precio;
     int stock;
+    List<Ingrediente> listaIngredientes;
+
 
     public Producto(String nombre) {
         this.nombre = nombre;
     }
 
-    public Producto(String nombre, double precio, int stock) {
+    public Producto(String nombre, double precio, int stock, List<Ingrediente> listaIngredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
+        this.listaIngredientes =  listaIngredientes;
     }
 
     public String getNombre() {
@@ -43,6 +45,9 @@ public class Producto {
         this.stock = stock;
     }
 
+    public List<Ingrediente> getListaIngredientes() {
+        return listaIngredientes;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -63,6 +68,19 @@ public class Producto {
                 "nombre='" + nombre + '\'' +
                 ", precio=" + precio +
                 ", stock=" + stock +
-                '}';
+                ", listaIngredientes=" + listaIngredientes +
+                "} \n";
     }
+
+    @Override
+    public Producto clonar() {
+        return new Producto(this.nombre, this.precio, this.stock, this.listaIngredientes);
+    }
+
+
+    /*
+    @Override
+    public Ingrediente clonar() {
+            return new Producto(this.nombre, this.precio, this.stock, this.listaIngredientes);
+    }*/
 }

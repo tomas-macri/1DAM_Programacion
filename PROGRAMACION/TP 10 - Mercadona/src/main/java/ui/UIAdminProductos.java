@@ -1,12 +1,14 @@
 package ui;
 
+import modelo.Ingrediente;
 import modelo.ProductoCaducable;
 import ui.common.Constantes;
 import servicios.ServiciosProductos;
 import modelo.Producto;
 
+import java.awt.datatransfer.FlavorListener;
 import java.time.LocalDateTime;
-import java.util.Scanner;
+import java.util.*;
 
 public class UIAdminProductos {
 
@@ -85,16 +87,18 @@ public class UIAdminProductos {
             sc.nextLine();
             System.out.println();
 
+            List<Ingrediente> ingredienteList;
+            ingredienteList = cargarListIngredientes(sc);
+
             System.out.println("Ingrese dentro de cuantos minutos caducara el producto o 0 si no caduca");
             cuandoCaduca = sc.nextInt();
             sc.nextLine();
 
             Producto unProd;
-            if (cuandoCaduca <= 0){
-                unProd = new Producto(nomProd, precioProd, stockProd);
-            }
-            else {
-                unProd = new ProductoCaducable(nomProd, precioProd, stockProd, LocalDateTime.now().plusMinutes(cuandoCaduca));
+            if (cuandoCaduca <= 0) {
+                unProd = new Producto(nomProd, precioProd, stockProd, ingredienteList);
+            } else {
+                unProd = new ProductoCaducable(nomProd, precioProd, stockProd, ingredienteList, LocalDateTime.now().plusMinutes(cuandoCaduca));
             }
 
             if (dao.agregarProducto(unProd)) {
@@ -111,6 +115,19 @@ public class UIAdminProductos {
         System.out.println();
         System.out.println(Constantes.SALIENDO_DE_AGREGAR_PRODUCTO);
         System.out.println();
+    }
+
+    private List<Ingrediente> cargarListIngredientes(Scanner sc) {
+        String ingrediente;
+        List<Ingrediente> ingredienteList = new ArrayList<>();
+        do {
+            System.out.println("Ingrese los ingredientes del producto o fin para finalizar");
+            ingrediente = sc.nextLine();
+            if (!ingrediente.equalsIgnoreCase(Constantes.FIN)) {
+                ingredienteList.add(new Ingrediente(ingrediente));
+            }
+        } while (!ingrediente.equalsIgnoreCase(Constantes.FIN));
+        return ingredienteList;
     }
 
     private void eliminarProducto(Scanner sc) {
@@ -243,8 +260,13 @@ public class UIAdminProductos {
         nuevoStockProd = sc.nextInt();
         sc.nextLine();
 
+        List<Ingrediente> ingredienteList;
+        ingredienteList = cargarListIngredientes(sc);
+
+
+
         // cambiar
-        Producto prodNuevo = new Producto(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd);
+        Producto prodNuevo = new Producto(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd, ingredienteList);
         if (serviciosProductos.modificarProducto(prodNuevo, nomProdMod)) {
             System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nuevoNombreProd).toString());
         } else {

@@ -45,7 +45,7 @@ public class DaoProductos {
 
     public List<Producto> devolverLista() {
         return BD.listaProductos.stream()
-                .map(producto -> new Producto(producto.getNombre(), producto.getPrecio(), producto.getStock()))
+                .map(Producto::clonar)
                 .collect(Collectors.toUnmodifiableList());
     }
 }

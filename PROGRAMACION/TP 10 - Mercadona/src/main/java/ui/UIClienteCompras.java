@@ -43,6 +43,10 @@ public class UIClienteCompras {
                     pagar(userLogueado, sc, serviciosCompras);
                     break;
                 case 5:
+                    System.out.println(serviciosCompras.getProductosSinAlergia(userLogueado, serviciosProductos.getLista()));
+                    System.out.println();
+                    break;
+                case 6:
                     // salir
                     System.out.println(Constantes.CHAU);
                     break;
@@ -117,7 +121,7 @@ public class UIClienteCompras {
 
             opcion = sc.nextInt();
             sc.nextLine();
-        } while (opcion < 1 || opcion > 5);
+        } while (opcion < 1 || opcion > 6);
         return opcion;
     }
 }

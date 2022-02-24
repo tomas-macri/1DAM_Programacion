@@ -1,0 +1,31 @@
+package ui;
+
+import dao.BD;
+import modelo.Ingrediente;
+import modelo.Usuario;
+import servicios.ServiciosCompras;
+import servicios.ServiciosProductos;
+import servicios.ServiciosUsuarios;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainPrueba {
+
+
+
+    public static void main(String[] args) {
+        ServiciosProductos serviciosProductos = new ServiciosProductos();
+        ServiciosCompras serviciosCompras = new ServiciosCompras(BD.listaUsuarios.get("u1"));
+
+        System.out.println("no caduca");
+        System.out.println(serviciosProductos.getLista());
+
+
+        System.out.println(BD.listaUsuarios.get("u1").getIngredienteList());
+
+
+        System.out.println(serviciosCompras.getProductosSinAlergia(BD.listaUsuarios.get("u1"), serviciosProductos.getLista()));
+    }
+
+}

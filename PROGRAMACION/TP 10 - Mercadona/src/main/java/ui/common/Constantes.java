@@ -27,9 +27,10 @@ public class Constantes {
     public static final String MENU_COMPRAS = "Elija una opcion: \n" +
             "1 - Comprar Productos \n" +
             "2 - Eliminar Productos de la Compra \n" +
-            "3 - Ver todos los Productos \n" +
+            "3 - Ver todos los Productos de mi carrito\n" +
             "4 - Pagar \n" +
-            "5 - Salir ";
+            "5 - Ver los productos disponibles \n" +
+            "6 - Salir ";
     public static final String BIENVENIDO_AL_MENU_DE_LAS_TARJETAS = "BIENVENIDO AL MENU DE LAS TARJETAS";
     public static final String MENU_TARJETA = "Elige una opción: \n " +
             "1 - Agregar tarjeta \n " +

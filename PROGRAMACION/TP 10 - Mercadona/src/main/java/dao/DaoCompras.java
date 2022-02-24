@@ -34,15 +34,8 @@ public class DaoCompras {
     }
 
 
-    // ver con oscarrr
     public List<List<ProductoComprado>> devolverComprasPrevias(Usuario userLogueado) {
         return BD.listaUsuarios.get(userLogueado.getDni()).getComprasPrevias().stream()
-                .map(
-                        productoComprados ->
-                                BD.listaUsuarios.get(userLogueado.getDni()).getCarrito().stream()
-                                        .map(producto -> new ProductoComprado(producto.getProducto(), producto.getCantidad()))
-                                        .collect(Collectors.toUnmodifiableList())
-                )
                 .collect(Collectors.toUnmodifiableList());
 
 

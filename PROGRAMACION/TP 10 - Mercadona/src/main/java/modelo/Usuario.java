@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.*;
 
-public class Usuario {
+public class Usuario implements Clonable<Usuario> {
 
     private String dni;
     private String nombre;
@@ -10,6 +10,7 @@ public class Usuario {
     private Set<Tarjeta> listaTarjetas;
     private List<ProductoComprado> carrito;
     private List<List<ProductoComprado>> comprasPrevias;
+    private List<Ingrediente> ingredienteList;
 
 
     private Usuario(){
@@ -19,12 +20,12 @@ public class Usuario {
     }
 
 
-
-    public Usuario(String dni, String nombre) {
+    public Usuario(String dni, String nombre, List<Ingrediente> ingredienteList) {
         this();
         this.dni = dni;
         this.nombre = nombre;
         this.admin = false;
+        this.ingredienteList = ingredienteList;
     }
 
 
@@ -74,12 +75,21 @@ public class Usuario {
         this.comprasPrevias = comprasPrevias;
     }
 
+    public List<Ingrediente> getIngredienteList() {
+        return ingredienteList;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
                 "dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
-                '}';
+                ", admin=" + admin +
+                ", listaTarjetas=" + listaTarjetas +
+                ", carrito=" + carrito +
+                ", comprasPrevias=" + comprasPrevias +
+                ", ingredienteList=" + ingredienteList +
+                "} \n";
     }
 
     @Override
@@ -95,4 +105,9 @@ public class Usuario {
         return Objects.hash(dni, nombre);
     }
 
+
+    @Override
+    public Usuario clonar() {
+        return new Usuario(this.dni, this.nombre, this.ingredienteList);
+    }
 }

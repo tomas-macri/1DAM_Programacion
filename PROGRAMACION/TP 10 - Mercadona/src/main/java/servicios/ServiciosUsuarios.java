@@ -1,8 +1,7 @@
 package servicios;
 
-import dao.DaoCompras;
 import dao.DaoUsuarios;
-import modelo.ProductoComprado;
+import modelo.Ingrediente;
 import modelo.Usuario;
 
 import java.util.List;
@@ -49,11 +48,11 @@ public class ServiciosUsuarios {
     }
 
     //
-    public boolean modificarUsuarioNombre(String dniOriginal, String nombNuevo) {
+    public boolean modificarUsuarioNombre(String dniOriginal, String nombNuevo, List<Ingrediente> list) {
         DaoUsuarios dao = new DaoUsuarios();
         Usuario usuarioViejo = dao.getUsuario(dniOriginal);
         if (usuarioViejo != null && !(nombNuevo.equals(""))) {
-            return dao.modificarUsuarioNombre(dniOriginal, usuarioViejo, new Usuario(dniOriginal, nombNuevo));
+            return dao.modificarUsuarioNombre(dniOriginal, usuarioViejo, new Usuario(dniOriginal, nombNuevo, list));
         }
         return false;
     }
@@ -64,7 +63,7 @@ public class ServiciosUsuarios {
         Usuario usuarioViejo = dao.getUsuario(dniOriginal);
         if (usuarioViejo != null && !elUsuarioExiste(dniNuevo) && !(dniNuevo.equals(""))) {
             dao.eliminarUsuario(dniOriginal);
-            dao.agregarusuario(new Usuario(dniNuevo, usuarioViejo.getNombre()));
+            dao.agregarusuario(new Usuario(dniNuevo, usuarioViejo.getNombre(), usuarioViejo.getIngredienteList()));
             exito = true;
         }
         return exito;

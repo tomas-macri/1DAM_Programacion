@@ -37,8 +37,7 @@ public class DaoUsuarios {
 
     public List<Usuario> devolverLista() {
         return BD.listaUsuarios.values().stream()
-                .map(usuario -> new Usuario(usuario.getDni(), usuario.getNombre()))
-                .collect(Collectors.toUnmodifiableList());
+                .map(Usuario::clonar).collect(Collectors.toUnmodifiableList());
 
     }
 }

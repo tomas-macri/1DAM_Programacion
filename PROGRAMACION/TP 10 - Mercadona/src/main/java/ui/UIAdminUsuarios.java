@@ -1,9 +1,12 @@
 package ui;
 
+import modelo.*;
 import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
-import modelo.Usuario;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UIAdminUsuarios {
@@ -75,7 +78,20 @@ public class UIAdminUsuarios {
             System.out.println(Constantes.INGRESE_EL_NOMBRE_DEL_USUARIO);
             nomCliente = sc.nextLine();
             System.out.println();
-            Usuario unUser = new Usuario(dniCliente, nomCliente);
+
+            List<Ingrediente> ingredienteList = cargarListIngredientes(sc);
+
+            int porcentaje;
+            System.out.println("Ingrese el porcentaje de descuento que tendrá el cliente si quiere que sea especial o 0 para no aplicar nada:");
+            porcentaje = sc.nextInt();
+            sc.nextLine();
+
+            Usuario unUser;
+            if (porcentaje <= 0) {
+                unUser = new Usuario(dniCliente, nomCliente, ingredienteList);
+            } else {
+                unUser = new ClienteEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
+            }
 
             if (servicios.agregarusuario(unUser)) {
                 System.out.println(Constantes.SE_AGREGO + unUser + Constantes.A_LA_LISTA_DE_USUARIOS_DISPONIBLES);
@@ -92,6 +108,19 @@ public class UIAdminUsuarios {
         System.out.println();
     }
 
+
+    private List<Ingrediente> cargarListIngredientes(Scanner sc) {
+        String ingrediente;
+        List<Ingrediente> ingredienteList = new ArrayList<>();
+        do {
+            System.out.println("Ingrese un ingrediente al que es alergico o fin para finalizar");
+            ingrediente = sc.nextLine();
+            if (!ingrediente.equalsIgnoreCase(Constantes.FIN)) {
+                ingredienteList.add(new Ingrediente(ingrediente));
+            }
+        } while (!ingrediente.equalsIgnoreCase(Constantes.FIN));
+        return ingredienteList;
+    }
 
     private void modificarUsuario(Scanner sc) {
         int opcionModi;
@@ -156,7 +185,7 @@ public class UIAdminUsuarios {
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd)) {
+        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd, servicios.getUsuario(dniMod).getIngredienteList())) {
             System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(dniMod));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
@@ -174,9 +203,10 @@ public class UIAdminUsuarios {
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreUsuario = sc.nextLine();
 
+        List<Ingrediente> ingredienteList = cargarListIngredientes(sc);
 
         // cambiar
-        Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario);
+        Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario, ingredienteList);
         if (servicios.modificarUsuario(userNuevo, dniMod)) {
             System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(nuevoDNIUsuario));
         } else {

@@ -2,8 +2,12 @@ package servicios;
 
 import dao.DaoProductos;
 import modelo.Producto;
+import modelo.ProductoCaducable;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class ServiciosProductos {
@@ -80,6 +84,8 @@ public class ServiciosProductos {
 
     public List<Producto> getLista() {
         DaoProductos daoProductos = new DaoProductos();
-        return daoProductos.devolverLista();
+        return daoProductos.devolverLista().stream()
+                .filter(producto -> !((producto instanceof ProductoCaducable) && ((ProductoCaducable) producto).getCaducidad().isBefore(LocalDateTime.now())))
+                .collect(Collectors.toUnmodifiableList());
     }
 }
