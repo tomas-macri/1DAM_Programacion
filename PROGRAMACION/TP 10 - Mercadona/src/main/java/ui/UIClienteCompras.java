@@ -53,7 +53,7 @@ public class UIClienteCompras {
                 default:
                     break;
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
     }
 
     private void pagar(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras) {

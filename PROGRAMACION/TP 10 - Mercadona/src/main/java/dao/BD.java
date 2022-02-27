@@ -1,9 +1,6 @@
 package dao;
 
-import modelo.Ingrediente;
-import modelo.Producto;
-import modelo.ProductoCaducable;
-import modelo.Usuario;
+import modelo.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -99,6 +96,11 @@ public class BD {
         ingredienteArrayList.add(new Ingrediente("ing8"));
 
         listaUsuarios.put("u4", new Usuario("u4", "cliente4", ingredienteArrayList));
+
+
+        ingredienteArrayList = new ArrayList<>();
+        ingredienteArrayList.add(new Ingrediente("ing5"));
+        listaUsuarios.put("esp1", new UsuarioEspecial("esp1", "clienteEspecial1", ingredienteArrayList, 10));
 
         listaUsuarios.put("a1", new Usuario("a1", "admin1", true));
 

@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.Objects;
 
-public class ProductoComprado {
+public class ProductoComprado implements Clonable<ProductoComprado> {
 
     private Producto producto;
     private int cantidad;
@@ -51,5 +51,10 @@ public class ProductoComprado {
                 "producto=" + producto +
                 ", cantidad=" + cantidad +
                 '}';
+    }
+
+    @Override
+    public ProductoComprado clonar() {
+        return new ProductoComprado(getProducto(), getCantidad());
     }
 }

@@ -3,10 +3,7 @@ package servicios;
 import dao.BD;
 import dao.DaoCompras;
 import dao.DaoUsuarios;
-import modelo.Producto;
-import modelo.ProductoComprado;
-import modelo.Tarjeta;
-import modelo.Usuario;
+import modelo.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,8 +60,12 @@ public class ServiciosCompras {
             );
 
             if (saldoDisponible - valorFinalCompra.get() > 0) {
+                int porcentajeACobrar = 100;
+                if (user.getClass() == UsuarioEspecial.class){
+                    porcentajeACobrar -= ((UsuarioEspecial) user).getPorcentajeDescuento();
+                }
                 DaoCompras daoCompras = new DaoCompras();
-                daoCompras.pagar(tarjeta, valorFinalCompra.get(), user);
+                daoCompras.pagar(tarjeta, valorFinalCompra.get(), user, porcentajeACobrar);
                 return true;
             } else {
                 pudoPagar = false;

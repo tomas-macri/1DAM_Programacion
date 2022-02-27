@@ -19,7 +19,7 @@ public class MainAdmin {
             do {
                 System.out.println(Constantes.MENU_MAIN_ADMINISTRADOR);
                 opcion = sc.nextInt();
-            } while (opcion < 1 || opcion > 3);
+            } while (opcion < 1 || opcion > 4);
             sc.nextLine();
             System.out.println();
             switch (opcion) {
@@ -32,11 +32,15 @@ public class MainAdmin {
                     uiAdminProductos.inicioUIProductos();
                     break;
                 case 3:
+                    MainEstadisticas mainEstadisticas = new MainEstadisticas();
+                    mainEstadisticas.mainEstadisticas();
+                    break;
+                case 4:
                     System.out.println(Constantes.CHAU);
                     break;
                 default:
                     break;
             }
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 }

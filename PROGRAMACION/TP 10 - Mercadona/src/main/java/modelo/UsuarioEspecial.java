@@ -18,8 +18,13 @@ public class UsuarioEspecial extends Usuario {
 
     @Override
     public String toString() {
-        return "ClienteEspecial{" +
-                "porcentajeDescuento=" + porcentajeDescuento +
+        return "UsuarioEspecial{" +
+                "Usuario{" +
+                "dni = '" + getDni() + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", ingredienteList= " + getIngredienteList() +
+                "}" +
+                "porcentajeDescuento= " + porcentajeDescuento +
                 '}';
     }
 

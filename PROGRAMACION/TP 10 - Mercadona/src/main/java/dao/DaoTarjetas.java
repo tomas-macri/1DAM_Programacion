@@ -41,7 +41,7 @@ public class DaoTarjetas {
 
     public List<Tarjeta> devolverLista(Usuario user) {
         return user.getListaTarjetas().stream()
-                .map(tarjeta -> new Tarjeta(tarjeta.getNombre(), tarjeta.getSaldo()))
+                .map(Tarjeta::clonar)
                 .collect(Collectors.toUnmodifiableList());
     }
 }

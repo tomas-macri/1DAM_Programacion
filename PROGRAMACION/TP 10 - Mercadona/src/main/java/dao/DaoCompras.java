@@ -22,14 +22,14 @@ public class DaoCompras {
         return BD.listaUsuarios.get(user.getDni()).getCarrito().remove(new ProductoComprado(prod));
     }
 
-    public void pagar(Tarjeta tarjeta, int valorCompra, Usuario user) {
-        tarjeta.setSaldo(tarjeta.getSaldo() - valorCompra);
+    public void pagar(Tarjeta tarjeta, int valorCompra, Usuario user, int porcentajeACobrar) {
+        tarjeta.setSaldo(tarjeta.getSaldo() - (valorCompra*((double)porcentajeACobrar/100)));
         user.getComprasPrevias().add(user.getCarrito());
     }
 
     public List<ProductoComprado> devolverLista(Usuario userLogueado) {
         return BD.listaUsuarios.get(userLogueado.getDni()).getCarrito().stream()
-                .map(producto -> new ProductoComprado(producto.getProducto(), producto.getCantidad()))
+                .map(ProductoComprado::clonar)
                 .collect(Collectors.toUnmodifiableList());
     }
 

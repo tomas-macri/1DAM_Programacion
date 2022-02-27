@@ -1,11 +1,11 @@
 package modelo;
 
-public class Tarjeta {
+public class Tarjeta implements Clonable<Tarjeta> {
 
     String nombre;
-    int saldo;
+    double saldo;
 
-    public Tarjeta(String nombre, int saldo) {
+    public Tarjeta(String nombre, double saldo) {
         this.nombre = nombre;
         this.saldo = saldo;
     }
@@ -19,11 +19,11 @@ public class Tarjeta {
         this.nombre = nombre;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
@@ -33,5 +33,10 @@ public class Tarjeta {
                 "nombre='" + nombre + '\'' +
                 ", saldo=" + saldo +
                 '}';
+    }
+
+    @Override
+    public Tarjeta clonar() {
+        return new Tarjeta(nombre,saldo);
     }
 }

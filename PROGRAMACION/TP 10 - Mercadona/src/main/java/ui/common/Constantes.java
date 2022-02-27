@@ -49,6 +49,12 @@ public class Constantes {
     public static final String INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR = "Ingrese el nombre de la tarjeta con la que desea pagar";
     public static final String LA_COMPRA_SE_REALIZO_CON_EXITO = "La compra se realizo con exito";
     public static final String HUBO_UN_PROBLEMA_A_LA_HORA_DE_REALIZAR_LA_COMPRA = "Hubo un problema a la hora de realizar la compra";
+    public static final String MENU_ESTADISTICAS = "Elija una opcion: \n" +
+            "1 - Ver productos comprados con más frecuencia \n" +
+            "2 - Ver lista de productos que contienen un ingrediente \n" +
+            "3 - Ver listado de clientes con su gasto total en la tienda \n" +
+            "4 - Salir";
+    public static final String BIENVENIDO_AL_MENU_DE_ESTADISTICAS = "Bienvenido al Menu de Estadisticas: ";
 
     private Constantes() {
     }
@@ -60,7 +66,8 @@ public class Constantes {
     public static final String MENU_MAIN_ADMINISTRADOR = "Seleccione un menu: \n" +
             "1 - Gestionar Clientes \n" +
             "2 - Gestionar Productos \n" +
-            "3 - Salir";
+            "3 - Menu de Estadísticas \n" +
+            "4 - Salir";
     public static final String CHAU = "Chau!";
 
 
