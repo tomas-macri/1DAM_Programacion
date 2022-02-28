@@ -76,11 +76,4 @@ public class Producto implements Clonable<Producto>{
     public Producto clonar() {
         return new Producto(this.nombre, this.precio, this.stock, this.listaIngredientes);
     }
-
-
-    /*
-    @Override
-    public Ingrediente clonar() {
-            return new Producto(this.nombre, this.precio, this.stock, this.listaIngredientes);
-    }*/
 }

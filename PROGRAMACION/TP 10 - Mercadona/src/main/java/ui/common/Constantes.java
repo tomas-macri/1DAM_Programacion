@@ -12,7 +12,9 @@ public class Constantes {
     public static final String COMPRAR = "1 - Comprar \n ";
     public static final String VER_MIS_COMPRAS_PREVIAS = "2 - Ver mis Compras previas \n ";
     public static final String ADMINISTRAR_MIS_TARJETAS = "3 - Administrar mis tarjetas \n ";
-    public static final String SALIR = "4 - Salir";
+    public static final String VER_MI_GASTO_TOTAL = "4 - Ver lo que llevo gastado \n ";
+    public static final String SALIR = "5 - Salir";
+    public static final String LLEVA_GASTADO_UN_TOTAL_DE_€ = "Lleva gastado un total de €";
     public static final String INGRESE_EL_NOMBRE_DEL_PRODUCTO_A_MODIFICAR_RECUERDE_QUE_TIENE_QUE_ESTAR_PREVIAMENTE_CARGADO_EN_LA_LISTA_DE_PRODUCTOS_PARA_VOLVER_INGRESE_0 = "Ingrese el nombre del producto a modificar. Recuerde que tiene que estar previamente cargado en la lista de productos. Para volver ingrese 0";
     public static final String BIENVENIDO_AL_MENU_DE_COMPRAS = "BIENVENIDO AL MENU DE COMPRAS";
     public static final String INGRESE_EL_NOMBRE_DEL_PRODUCTO_QUE_DESEA_ELIMINAR_DE_LA_LISTA_DE_COMPRAS = "Ingrese el nombre del producto que desea eliminar de la lista de compras";
@@ -55,6 +57,7 @@ public class Constantes {
             "3 - Ver listado de clientes con su gasto total en la tienda \n" +
             "4 - Salir";
     public static final String BIENVENIDO_AL_MENU_DE_ESTADISTICAS = "Bienvenido al Menu de Estadisticas: ";
+    public static final String INGRESE_EL_NOMBRE_DEL_INGREDIENTE_QUE_QUIERE_BUSCAR_EN_LOS_PRODUCTOS_O_FIN_PARA_SALIR = "Ingrese el nombre del ingrediente que quiere buscar en los productos o fin para salir";
 
     private Constantes() {
     }

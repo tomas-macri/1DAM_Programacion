@@ -2,12 +2,12 @@ package ui;
 
 import modelo.Usuario;
 import servicios.ServiciosCompras;
-import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class MainClientes {
+
 
     public void inicioMenuClientes(Usuario userLogueado){
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
@@ -26,9 +26,10 @@ public class MainClientes {
                         Constantes.COMPRAR +
                         Constantes.VER_MIS_COMPRAS_PREVIAS +
                         Constantes.ADMINISTRAR_MIS_TARJETAS +
+                        Constantes.VER_MI_GASTO_TOTAL +
                         Constantes.SALIR);
                 opcion = sc.nextInt();
-            } while (opcion < 1 || opcion > 4);
+            } while (opcion < 1 || opcion > 5);
             sc.nextLine();
             System.out.println();
             switch (opcion) {
@@ -45,11 +46,14 @@ public class MainClientes {
                     uiClienteTarjetas.inicioUITarjetas(userLogueado);
                     break;
                 case 4:
+                    System.out.println(Constantes.LLEVA_GASTADO_UN_TOTAL_DE_€ + serviciosCompras.dineroGastadoPorCliente(userLogueado));
+                    break;
+                case 5:
                     System.out.println(Constantes.CHAU);
                     break;
                 default:
                     break;
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 }

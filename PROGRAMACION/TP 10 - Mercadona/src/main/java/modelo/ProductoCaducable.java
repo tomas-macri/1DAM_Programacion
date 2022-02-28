@@ -39,11 +39,4 @@ public class ProductoCaducable extends Producto implements Clonable<Producto> {
     public Producto clonar() {
         return new ProductoCaducable(this.getNombre(), this.getPrecio(), this.getStock(), this.getListaIngredientes(), this.caducidad);
     }
-
-
-
-    /*@Override
-    public Producto clonar() {
-        return new ProductoCaducable(this.nombre, this.precio, this.stock, this.listaIngredientes, this.caducidad);
-    }*/
 }

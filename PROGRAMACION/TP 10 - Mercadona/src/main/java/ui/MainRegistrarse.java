@@ -29,11 +29,9 @@ public class MainRegistrarse {
 
             List<Ingrediente>  ingredienteArrayList = cargarListIngredientes(sc);
             Usuario unUser = new Usuario(dniCliente, nomCliente, ingredienteArrayList);
-            if (!dniCliente.equalsIgnoreCase("-1")) {
-                if (servicios.agregarusuario(unUser)) {
+            if (!dniCliente.equalsIgnoreCase("-1") && servicios.agregarusuario(unUser)) {
                     MainClientes mainClientes = new MainClientes();
                     mainClientes.inicioMenuClientes(unUser);
-                }
             }
         } while (!dniCliente.equalsIgnoreCase("-1"));
     }

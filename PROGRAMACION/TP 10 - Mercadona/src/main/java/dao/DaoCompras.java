@@ -5,6 +5,7 @@ import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,4 +41,21 @@ public class DaoCompras {
 
 
     }
+
+    public List<Producto> getProductosSinAlergias(Usuario userLogueado,List<Producto> lista) {
+        return lista.stream()
+                .filter(producto ->
+                        producto.getListaIngredientes().stream()
+                                .noneMatch(ingrediente -> userLogueado.getIngredienteList().contains(ingrediente))
+                )
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    public Double dineroGastadoDeCliente(Usuario userLogueado) {
+
+        return userLogueado.getComprasPrevias().stream()
+                .flatMap(Collection::stream).mapToDouble(value -> value.getProducto().getPrecio() * value.getCantidad()).sum();
+    }
+
+
 }

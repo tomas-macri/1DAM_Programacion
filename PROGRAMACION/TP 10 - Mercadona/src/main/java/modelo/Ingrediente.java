@@ -24,7 +24,7 @@ public class Ingrediente implements Clonable<Ingrediente> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ingrediente that = (Ingrediente) o;
-        return nombre.equals(that.nombre);
+        return nombre.equalsIgnoreCase(that.nombre);
     }
 
     @Override
@@ -43,9 +43,4 @@ public class Ingrediente implements Clonable<Ingrediente> {
     public Ingrediente clonar() {
         return new Ingrediente(this.nombre);
     }
-
-    /* @Override
-    public Producto clonar() {
-        return new Ingrediente(this.nombre);
-    }*/
 }

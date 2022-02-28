@@ -1,14 +1,11 @@
 package servicios;
 
-import dao.BD;
 import dao.DaoCompras;
-import dao.DaoUsuarios;
 import modelo.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class ServiciosCompras {
 
@@ -18,7 +15,7 @@ public class ServiciosCompras {
 
     public boolean hayStock(int stockAComprar, Producto prod) {
         DaoCompras daoCompras = new DaoCompras();
-        if (stockAComprar > 0 && prod.getStock() - stockAComprar > 0) {
+        if (stockAComprar > 0 && prod.getStock() - stockAComprar >= 0) {
             daoCompras.quitarStock(stockAComprar, prod);
             return true;
         }
@@ -54,9 +51,8 @@ public class ServiciosCompras {
         if (!tarjeta.getNombre().equalsIgnoreCase("error") && user != null && !user.getCarrito().isEmpty()) {
             double saldoDisponible = tarjeta.getSaldo();
             AtomicInteger valorFinalCompra = new AtomicInteger();
-            user.getCarrito().stream().forEach(productoComprado -> {
-                        valorFinalCompra.addAndGet((int) (productoComprado.getCantidad() * productoComprado.getProducto().getPrecio()));
-                    }
+            user.getCarrito().forEach(productoComprado -> valorFinalCompra.addAndGet((int) (productoComprado.getCantidad() * productoComprado.getProducto().getPrecio()))
+
             );
 
             if (saldoDisponible - valorFinalCompra.get() > 0) {
@@ -82,13 +78,12 @@ public class ServiciosCompras {
     }
 
     public List<Producto> getProductosSinAlergia(Usuario userLogueado, List<Producto> lista) {
+        DaoCompras daoCompras = new DaoCompras();
+        return daoCompras.getProductosSinAlergias(userLogueado, lista);
+    }
 
-        return lista.stream()
-                .filter(producto ->
-                        producto.getListaIngredientes().stream()
-                        .noneMatch(ingrediente -> userLogueado.getIngredienteList().contains(ingrediente))
-                )
-                .collect(Collectors.toList());
-
+    public Double dineroGastadoPorCliente(Usuario userLogueado){
+        DaoCompras daoCompras = new DaoCompras();
+        return daoCompras.dineroGastadoDeCliente(userLogueado);
     }
 }
