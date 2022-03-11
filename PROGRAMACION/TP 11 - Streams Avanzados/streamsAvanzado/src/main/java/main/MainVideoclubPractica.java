@@ -26,25 +26,25 @@ public class MainVideoclubPractica {
 
   }
 
-  private static void setupSocioSocios() {
+  public static void setupSocioSocios() {
 
     Faker f = new Faker();
     ServiciosVideoclub sv = new ServiciosVideoclub();
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 5; i++) {
       Socio socio = new Socio(f.phoneNumber().extension(), f.name().firstName(), f.gameOfThrones().city(), f.phoneNumber().subscriberNumber(), f.number().numberBetween(1, 99));
       sv.addSocio(socio);
     }
   }
 
-  private static void setupProductos() {
+  public static void setupProductos() {
 
     Faker f = new Faker();
     ServiciosVideoclub sv = new ServiciosVideoclub();
 
     Random r = new Random();
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 15; i++) {
 
       Producto pelicula = new Pelicula(f.name().title(), r.nextInt(10), f.music().genre(), FormatoPelicula.DVD, f.name().lastName(), "120");
       int numeroActores = r.nextInt(50);
@@ -53,12 +53,12 @@ public class MainVideoclubPractica {
       }
       sv.addProducto(pelicula);
     }
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 15; i++) {
 
       Producto videoJuego = new Videojuego(f.name().title(), r.nextInt(10), f.music().genre(), f.name().lastName());
       sv.addProducto(videoJuego);
     }
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 15; i++) {
 
       Producto documental = new Documental(f.animal().name(), r.nextInt(10), f.music().genre(), FormatoPelicula.VIDEO, f.name().lastName(), "120");
       sv.addProducto(documental);
@@ -66,17 +66,18 @@ public class MainVideoclubPractica {
   }
 
 
-  private static void setAlquileres() {
+  public static void setAlquileres() {
 
     Faker f = new Faker();
     Random r = new Random();
     ServiciosVideoclub sv = new ServiciosVideoclub();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10; i++) {
       Socio s = sv.getTodosLosSocios().get(r.nextInt(sv.getTodosLosSocios().size()));
       Producto producto = sv.getTodosProductos().get(r.nextInt(sv.getTodosProductos().size()));
       sv.alquilarProducto(producto, s.getNif());
       Alquiler alquiler = new Alquiler(LocalDateTime.now().minusSeconds(r.nextInt(Configuration.getDiasAlquilerPeliculas() * 2)), s, producto);
       Encuesta e = new Encuesta(r.nextInt(5) + 1, true);
+
       sv.devolverProducto(s.getNif(), e);
     }
   }

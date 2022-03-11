@@ -2,8 +2,9 @@ package videoclub.dao.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Random;
 public abstract class Producto {
+    Random r = new Random();
 
     private String titulo;
     private List<Encuesta> encuestas;
@@ -21,17 +22,8 @@ public abstract class Producto {
 
     public Producto() {
         encuestas = new ArrayList<>();
-        this.cantidadAlquilada = 0;
+        this.cantidadAlquilada = r.nextInt(100) + 1;
         this.valoracionMedia = 0;
-    }
-
-    @Override
-    public String toString() {
-        return "titulo='" + titulo + '\'' +
-                ", cantidad=" + cantidad +
-                ", cantidadAlquilada=" + cantidadAlquilada +
-                ", cantidadDisponible=" + (cantidad - cantidadAlquilada) +
-                ", genero='" + genero;
     }
 
     public String getTitulo() {
@@ -77,5 +69,17 @@ public abstract class Producto {
 
     public void setValoracionMedia(double valoracionMedia) {
         this.valoracionMedia = valoracionMedia;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "titulo='" + titulo + '\'' +
+                ", encuestas=" + encuestas +
+                ", cantidad=" + cantidad +
+                ", cantidadAlquilada=" + cantidadAlquilada +
+                ", genero='" + genero + '\'' +
+                ", valoracionMedia=" + valoracionMedia +
+                '}';
     }
 }

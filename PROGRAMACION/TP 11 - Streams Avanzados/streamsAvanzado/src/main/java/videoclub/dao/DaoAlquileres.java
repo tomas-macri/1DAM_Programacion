@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class DaoAlquileres {
 
-    // el nif como clave primaria
+    // el nif como clave primariaa
     private static final Map<String, Alquiler> alquileres = new HashMap<>();
 
     public boolean addAlquiler(Alquiler alquiler) {
@@ -41,3 +41,76 @@ public class DaoAlquileres {
         return alquileres.values().stream().collect(Collectors.toList());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -83,12 +83,19 @@ public class ServiciosVideoclub {
             alquilado = "Actualmente no tenemos este producto disponible.\n" +
                     "Disculpe las molestias";
         } else {
-            p.setCantidadAlquilada(p.getCantidadAlquilada() + 1);
-            Alquiler alquiler = new Alquiler(LocalDateTime.now(), daoSocios.getSocioPorNif(nifSocio), p);
-            if(daoAlquileres.addAlquiler(alquiler)){
-                alquilado = "Producto alquilado correctamente\n" +
-                        "MUCHAS GRACIAS";
-            }
+            // aca iria la funcion de abajoaahybaaaaaaaaadfvgvntjuk,i
+        }
+        alquilado = AlquilarPorqueSi(p, nifSocio, alquilado, daoAlquileres, daoSocios);
+
+        return alquilado;
+    }
+
+    private String AlquilarPorqueSi(Producto p, String nifSocio, String alquilado, DaoAlquileres daoAlquileres, DaoSocios daoSocios) {
+        p.setCantidadAlquilada(p.getCantidadAlquilada() + 1);
+        Alquiler alquiler = new Alquiler(LocalDateTime.now(), daoSocios.getSocioPorNif(nifSocio), p);
+        if(daoAlquileres.addAlquiler(alquiler)){
+            alquilado = "Producto alquilado correctamente\n" +
+                    "MUCHAS GRACIAS";
         }
         return alquilado;
     }

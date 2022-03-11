@@ -59,7 +59,4 @@ public class StreamsPedidos {
 
     }
 
-    public void setFacturaTotal() {
-
-    }
 }

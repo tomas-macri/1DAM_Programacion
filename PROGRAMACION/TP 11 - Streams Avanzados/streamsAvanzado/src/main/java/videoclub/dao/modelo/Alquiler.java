@@ -2,8 +2,10 @@ package videoclub.dao.modelo;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Random;
 
 public class Alquiler {
+
     private LocalDateTime fechaAlquiler;
     private Socio socio;
     private Producto productoAlquilado;

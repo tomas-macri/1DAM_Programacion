@@ -26,6 +26,6 @@ public class Documental extends Producto{
     return "Documental: (" + super.toString() +
             ", formato=" + formato +
             ", director='" + director +
-            ", duracion='" + duracion + ")";
+            ", duracion='" + duracion + ") \n";
   }
 }

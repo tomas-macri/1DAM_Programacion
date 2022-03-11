@@ -21,6 +21,6 @@ public class Videojuego extends Producto{
     public String toString() {
         return
                 "Videojuego: (" + super.toString() +
-        ", fabricante='" + fabricante + ")";
+        ", fabricante='" + fabricante + ")\n";
     }
 }

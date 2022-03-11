@@ -11,6 +11,14 @@ public class Socio {
   private int edad;
   private boolean sancionado;
 
+  public Socio(String nif, String nombre, String direccion, String telefono, int edad, boolean sancionado) {
+    this.nif = nif;
+    this.nombre = nombre;
+    this.direccion = direccion;
+    this.telefono = telefono;
+    this.edad = edad;
+    this.sancionado = sancionado;
+  }
 
   public Socio(String nif, String nombre, String direccion, String telefono, int edad) {
     this.nif = nif;
@@ -86,4 +94,17 @@ public class Socio {
   public void setSancionado(boolean sancionado) {
     this.sancionado = sancionado;
   }
+
+  @Override
+  public String toString() {
+    return "Socio{" +
+            "nif='" + nif + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", direccion='" + direccion + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", edad=" + edad +
+            ", sancionado=" + sancionado +
+            "} \n";
+  }
+
 }
