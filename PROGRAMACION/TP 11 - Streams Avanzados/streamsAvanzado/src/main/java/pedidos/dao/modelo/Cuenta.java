@@ -11,6 +11,12 @@ public class Cuenta {
         this.saldo = 0;
     }
 
+    public Cuenta(String numeroTarjeta, int saldo) {
+        // constructor creado para probar media de saldos
+        this.numeroTarjeta = numeroTarjeta;
+        this.saldo = saldo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -43,7 +43,7 @@ public class Cliente {
                 ", direccion='" + direccion + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
-                ", cuentas=" + cuentas +
+                ", cantidad de cuentas=" + cuentas.size() +
                 '}';
     }
 
