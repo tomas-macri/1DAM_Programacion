@@ -8,7 +8,7 @@ import videoclub.servicios.ServiciosVideoclub;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-public class MainVideoclubPractica {
+public class  MainVideoclubPractica {
 
   public static void main(String[] args) {
     setupSocioSocios();

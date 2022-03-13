@@ -4,7 +4,7 @@ public class PRUEBAS {
 
     public static void main(String[] args) {
 
-        // STREAMS CLIENTES --> no se por que la clase sale en rojo pero compila
+        // STREAMS CLIENTES
         StreamsClientes streamsClientes = new StreamsClientes();
 
         System.out.println();
@@ -24,6 +24,39 @@ public class PRUEBAS {
         streamsClientes.clientesYSumaSaldoTodasCuentas();
         streamsClientes.cuartoClienteConMasDinero();
         streamsClientes.numeroClientesPorDominioCorreo();
+
+        //STREAMS PEDIDOS
+        StreamsPedidos streamsPedidos = new StreamsPedidos();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("STREAMS PEDIDOS (PARA VER QUE FUNCIONEN DEBERIAN CARGARSE)");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        streamsPedidos.lacantidadMediaPedidaDeCadaProductoEnCadaPedidoCompuesto();
+        streamsPedidos.pedidoSimpleConMasLineasdePedido();
+        streamsPedidos.todoelDineroFacturadoEnTotalentodosLosPedidos();
+
+        // STREAMS PRODUCTOS
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("STREAMS PRODUCTOS");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        StreamsProductos streamsProductos = new StreamsProductos();
+
+        streamsProductos.productoMasCaro();
+        streamsProductos.productoMasBarato();
+        streamsProductos.mediaPrecioTodosLosProductos();
+        streamsProductos.productosAgrupadosPorRangoPrecio10en10();
+        streamsProductos.productosConPrecio11a20YStockMayor5();
+
+
         // STREAMS VIEDOCLUB
 
 
@@ -31,19 +64,24 @@ public class PRUEBAS {
         MainVideoclubPractica.setupSocioSocios();
         MainVideoclubPractica.setupProductos();
         MainVideoclubPractica.setAlquileres();
-//
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
-//        System.out.println("STREAMS VIEDOCLUB");
-//        System.out.println();
-//        System.out.println();
-//        System.out.println();
-//        streamsVideoClub.mostrarListas();
-//        streamsVideoClub.numeroSociosSancionados();
-//        streamsVideoClub.mediaEdadDeSociosSancionados();
-//        streamsVideoClub.listaDiezProductosMasAlquilados();
-//        streamsVideoClub.numeroProductosAlquiladosPorTipo();
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("STREAMS VIEDOCLUB");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        streamsVideoClub.mostrarListas();
+        streamsVideoClub.numeroSociosSancionados();
+        streamsVideoClub.mediaEdadDeSociosSancionados();
+        streamsVideoClub.listaDiezProductosMasAlquilados();
+        streamsVideoClub.numeroProductosAlquiladosPorTipo();
+//        streamsVideoClub.todosLosActoresDistintosDeTodasLasPeliculas();
+//        streamsVideoClub.peliculaConMasActores();
+//        streamsVideoClub.productoConSuValoracionMediaOrdenadosDeMayoraMenor();
+//        streamsVideoClub.las10PeliculasMejorValoradas();
+        streamsVideoClub.todosLosFabricantesDistintosDeVideoJuegosEnUnSoloString();
     }
 }
 
