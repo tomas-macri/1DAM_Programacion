@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Errores {
+public class erroresTest {
 
     @Test
     @DisplayName("OPERADOR NO VALIDO CORRECTO")

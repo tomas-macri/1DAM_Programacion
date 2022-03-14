@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="PRUEBAS" />
         <module name="Calculadora" />
+        <module name="Pruebas Calculadora - Tomás Macri" />
       </profile>
     </annotationProcessing>
   </component>
