@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3e24d5c-4998-424c-b503-ce8b96574566" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/ServiciosCalculadoraValidosTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../PROGRAMACION/TP 12 - Ficheros0/config/miProperty.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../PROGRAMACION/TP 12 - Ficheros0/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosCalculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servicios/ServiciosCalculadora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="b3e24d5c-4998-424c-b503-ce8b96574566" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PROGRAMACION/TP 13 - Mercadona con ficheros" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -92,6 +85,7 @@
       <workItem from="1646984015285" duration="105000" />
       <workItem from="1647243436134" duration="800000" />
       <workItem from="1647348894850" duration="944000" />
+      <workItem from="1647848138230" duration="41000" />
     </task>
     <servers />
   </component>
