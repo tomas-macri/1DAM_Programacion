@@ -42,6 +42,5 @@ public class DaoUsuarios {
     public List<Usuario> devolverLista() {
         return bdUsuarios.values().stream()
                 .map(Usuario::clonar).collect(Collectors.toUnmodifiableList());
-
     }
 }

@@ -5,12 +5,18 @@ import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DaoCompras {
 
+    private LinkedHashMap<String, Usuario> bdUsuarios;
+    public DaoCompras(LinkedHashMap<String, Usuario> bdUsuarios){
+        this.bdUsuarios = bdUsuarios;
+    }
 
     public void quitarStock(int cant, Producto prod) {
         prod.setStock(prod.getStock() - cant);
@@ -21,7 +27,9 @@ public class DaoCompras {
     }
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
-        return BD.listaUsuarios.get(user.getDni()).getCarrito().remove(new ProductoComprado(prod));
+        return bdUsuarios.get(user.getDni())
+                .getCarrito()
+                .remove(new ProductoComprado(prod));
     }
 
     public void pagar(Tarjeta tarjeta, int valorCompra, Usuario user, int porcentajeACobrar) {
@@ -30,14 +38,14 @@ public class DaoCompras {
     }
 
     public List<ProductoComprado> devolverLista(Usuario userLogueado) {
-        return BD.listaUsuarios.get(userLogueado.getDni()).getCarrito().stream()
+        return bdUsuarios.get(userLogueado.getDni()).getCarrito().stream()
                 .map(ProductoComprado::clonar)
                 .collect(Collectors.toUnmodifiableList());
     }
 
 
     public List<List<ProductoComprado>> devolverComprasPrevias(Usuario userLogueado) {
-        return BD.listaUsuarios.get(userLogueado.getDni()).getComprasPrevias().stream()
+        return bdUsuarios.get(userLogueado.getDni()).getComprasPrevias().stream()
                 .collect(Collectors.toUnmodifiableList());
 
 

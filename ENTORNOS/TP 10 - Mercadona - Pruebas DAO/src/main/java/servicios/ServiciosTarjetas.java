@@ -13,7 +13,7 @@ public class ServiciosTarjetas {
         String nombre = tarjNueva.getNombre();
         DaoTarjetas dao = new DaoTarjetas();
         if (!laTarjetaExiste(nombre, user) && !(nombre.equals("") || tarjNueva.getSaldo()<0)) {
-            dao.agregarusuario(tarjNueva, user);
+            dao.agregarTarjeta(tarjNueva, user);
             return true;
         }
         return false;
