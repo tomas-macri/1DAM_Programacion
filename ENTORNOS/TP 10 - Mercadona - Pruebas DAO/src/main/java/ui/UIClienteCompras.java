@@ -7,6 +7,7 @@ import modelo.Tarjeta;
 import modelo.Usuario;
 import servicios.ServiciosCompras;
 import servicios.ServiciosProductos;
+import servicios.ServiciosTarjetas;
 import ui.common.Constantes;
 
 import java.util.Scanner;
@@ -61,8 +62,8 @@ public class UIClienteCompras {
 
         System.out.println(Constantes.INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR);
         nombTarjeta= sc.nextLine();
-        DaoTarjetas daoTarjetas = new DaoTarjetas();
-        Tarjeta tarjetaParaPagar = daoTarjetas.getTarjeta(nombTarjeta, userLogueado);
+        ServiciosTarjetas serviciosTarjetas = new ServiciosTarjetas();
+        Tarjeta tarjetaParaPagar = serviciosTarjetas.getTarjeta(nombTarjeta, userLogueado);
         if (serviciosCompras.pagar(tarjetaParaPagar, userLogueado)){
             System.out.println(Constantes.LA_COMPRA_SE_REALIZO_CON_EXITO);
         }

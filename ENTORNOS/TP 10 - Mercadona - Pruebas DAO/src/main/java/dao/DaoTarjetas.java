@@ -3,17 +3,27 @@ package dao;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class DaoTarjetas {
-    public void agregarTarjeta(Tarjeta tarjNueva, Usuario cliente) {
+
+    private LinkedHashMap<String, Usuario> bdUsuarios;
+    public DaoTarjetas(LinkedHashMap<String, Usuario> bdUsuarios){
+        this.bdUsuarios = bdUsuarios;
+    }
+
+    public boolean agregarTarjeta(Tarjeta tarjNueva, Usuario cliente) {
         String nombreTarj = tarjNueva.getNombre();
         if (!laTarjetaExiste(nombreTarj, cliente) && !(nombreTarj.equals("") || tarjNueva.getSaldo()<0)) {
-            BD.listaUsuarios.get(cliente.getDni()).getListaTarjetas().add(tarjNueva);
+            bdUsuarios.get(cliente.getDni()).getListaTarjetas().add(tarjNueva);
+            return true;
         }
+        return false;
     }
 
     public boolean laTarjetaExiste(String nombTarjetaValidar, Usuario c) {
@@ -36,6 +46,9 @@ public class DaoTarjetas {
                 tarjADevolver.set(tarjeta);
             }
         });
+        if (tarjADevolver.get().getNombre().equalsIgnoreCase("error")){
+            return null;
+        }
         return tarjADevolver.get();
     }
 
