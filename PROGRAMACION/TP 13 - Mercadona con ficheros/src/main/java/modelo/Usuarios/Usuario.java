@@ -9,6 +9,7 @@ import java.util.*;
 
 public abstract class Usuario implements Clonable<Usuario> {
 
+    public String type;
     private String dni;
     private String nombre;
     private boolean admin;
@@ -31,6 +32,7 @@ public abstract class Usuario implements Clonable<Usuario> {
         this.nombre = nombre;
         this.admin = false;
         this.ingredienteList = ingredienteList;
+        this.type = type;
     }
 
 

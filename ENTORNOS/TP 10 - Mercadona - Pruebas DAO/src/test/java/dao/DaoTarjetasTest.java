@@ -213,10 +213,10 @@ public class DaoTarjetasTest {
 
         DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
 
-        // NO SE POR QUE EL ASSERT EQUALS DE LAS LISTAS ME DA ERROR
-        //assertEquals(new ArrayList<>(listTarjetas), daoTarjetas.devolverLista(usuario));
-        assertEquals(listTarjetas.size(), daoTarjetas.devolverLista(usuario).size());
+        List<Tarjeta> listaObtenida = daoTarjetas.devolverLista(usuario);
+
+        for (int i = 0; i < listaObtenida.size(); i++) {
+            assertEquals(listTarjetas.get(i).getNombre(), listaObtenida.get(i).getNombre());
+        }
     }
-
-
 }

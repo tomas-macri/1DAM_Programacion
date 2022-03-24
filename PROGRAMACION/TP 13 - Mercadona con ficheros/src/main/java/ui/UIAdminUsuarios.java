@@ -95,7 +95,7 @@ public class UIAdminUsuarios {
                 unUser = new UsuarioEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
             }
 
-            if (servicios.agregarusuario(unUser)) {
+            if (servicios.agregarUsuario(unUser)) {
                 System.out.println(Constantes.SE_AGREGO + unUser + Constantes.A_LA_LISTA_DE_USUARIOS_DISPONIBLES);
             } else {
                 System.out.println(Constantes.EL_USUARIO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_USUARIOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);

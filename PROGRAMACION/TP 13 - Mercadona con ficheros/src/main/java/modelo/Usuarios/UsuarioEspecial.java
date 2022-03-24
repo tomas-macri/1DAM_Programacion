@@ -11,6 +11,7 @@ public class UsuarioEspecial extends Usuario {
     public UsuarioEspecial(String dni, String nombre, List<Ingrediente> ingredienteList, int porcentajeDescuento) {
         super(dni, nombre, ingredienteList);
         this.porcentajeDescuento = porcentajeDescuento;
+        type="UsuarioEspecial";
     }
 
 

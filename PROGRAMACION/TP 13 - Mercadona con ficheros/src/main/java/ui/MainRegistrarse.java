@@ -30,7 +30,7 @@ public class MainRegistrarse {
 
             List<Ingrediente>  ingredienteArrayList = cargarListIngredientes(sc);
             Usuario unUser = new UsuarioNormal(dniCliente, nomCliente, ingredienteArrayList);
-            if (!dniCliente.equalsIgnoreCase("-1") && servicios.agregarusuario(unUser)) {
+            if (!dniCliente.equalsIgnoreCase("-1") && servicios.agregarUsuario(unUser)) {
                     MainClientes mainClientes = new MainClientes();
                     mainClientes.inicioMenuClientes(unUser);
             }

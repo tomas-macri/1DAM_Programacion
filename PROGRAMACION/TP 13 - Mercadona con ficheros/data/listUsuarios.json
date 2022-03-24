@@ -1,0 +1,1 @@
+{"a1":{"dni":"a1","nombre":"admin","admin":true,"listaTarjetas":[],"carrito":[],"comprasPrevias":[],"ingredienteList":[]},"u2":{"porcentajeDescuento":10,"type":"UsuarioEspecial","dni":"u2","nombre":"user2","admin":false,"listaTarjetas":[],"carrito":[],"comprasPrevias":[],"ingredienteList":[{"nombre":"ing1"},{"nombre":"ing2"},{"nombre":"ing3"}]}}

@@ -11,12 +11,11 @@ import java.util.List;
 public class ServiciosUsuarios {
 
 
-    public boolean agregarusuario(Usuario usuarioNuevo) {
+    public boolean agregarUsuario(Usuario usuarioNuevo) {
         String dni = usuarioNuevo.getDni();
         DaoUsuarios dao = new DaoUsuarios();
         if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {
-            dao.agregarusuario(usuarioNuevo);
-            return true;
+            return dao.agregarUsuario(usuarioNuevo);
         }
         return false;
     }
@@ -42,7 +41,7 @@ public class ServiciosUsuarios {
         Usuario usuarioViejo = dao.getUsuario(dniOriginal);
         if (usuarioViejo != null && !elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
             dao.eliminarUsuario(dniOriginal);
-            dao.agregarusuario(usuarioNuevo);
+            dao.agregarUsuario(usuarioNuevo);
             exito = true;
         }
         return exito;
@@ -64,7 +63,7 @@ public class ServiciosUsuarios {
         Usuario usuarioViejo = dao.getUsuario(dniOriginal);
         if (usuarioViejo != null && !elUsuarioExiste(dniNuevo) && !(dniNuevo.equals(""))) {
             dao.eliminarUsuario(dniOriginal);
-            dao.agregarusuario(new UsuarioNormal(dniNuevo, usuarioViejo.getNombre(), usuarioViejo.getIngredienteList()));
+            dao.agregarUsuario(new UsuarioNormal(dniNuevo, usuarioViejo.getNombre(), usuarioViejo.getIngredienteList()));
             exito = true;
         }
         return exito;
