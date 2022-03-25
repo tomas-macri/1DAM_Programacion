@@ -64,7 +64,7 @@ public class UIAdminProductos {
         return opcion;
     }
 
-    private void agregarProducto(Scanner sc) {
+    public void agregarProducto(Scanner sc) {
         ServiciosProductos dao = new ServiciosProductos();
         System.out.println(Constantes.AGREGAR_PRODUCTOS);
         System.out.println();

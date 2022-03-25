@@ -24,6 +24,7 @@ public class UsuarioEspecial extends Usuario {
         return "UsuarioEspecial{" +
                 "Usuario{" +
                 "dni = '" + getDni() + '\'' +
+                "type='" + type + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", ingredienteList= " + getIngredienteList() +
                 "}" +

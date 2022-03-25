@@ -9,12 +9,18 @@ import java.util.List;
 public class ProductoCaducable extends Producto implements Clonable<Producto> {
     private LocalDateTime caducidad;
 
+    /*public ProductoCaducable(){
+        super();
+        type="ProductoCaducable";
+    }*/
+
     public ProductoCaducable(String nombre,
                              double precio,
                              int stock,
                              List<Ingrediente> ingredienteArrayList,
                              LocalDateTime caducidad) {
         super(nombre, precio , stock, ingredienteArrayList);
+        type = "ProductoCaducable";
 
         this.caducidad = caducidad;
     }
@@ -30,10 +36,11 @@ public class ProductoCaducable extends Producto implements Clonable<Producto> {
     @Override
     public String toString() {
         return "ProductoCaducable{" +
-                "nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", stock=" + stock +
-                ", listaIngredientes=" + listaIngredientes +
+                "nombre='" + getNombre() + '\'' +
+                "tipo='" + type + '\'' +
+                ", precio=" + getPrecio() +
+                ", stock=" + getStock() +
+                ", listaIngredientes=" + getListaIngredientes() +
                 ", caducidad=" + caducidad +
                 '}';
     }

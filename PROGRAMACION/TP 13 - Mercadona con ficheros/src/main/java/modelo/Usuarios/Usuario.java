@@ -32,7 +32,6 @@ public abstract class Usuario implements Clonable<Usuario> {
         this.nombre = nombre;
         this.admin = false;
         this.ingredienteList = ingredienteList;
-        this.type = type;
     }
 
 
@@ -42,7 +41,6 @@ public abstract class Usuario implements Clonable<Usuario> {
         this.nombre = nombre;
         this.admin = esAdmin;
     }
-
 
 
     public boolean isAdmin() {
@@ -91,6 +89,7 @@ public abstract class Usuario implements Clonable<Usuario> {
     public String toString() {
         return "Usuario{" +
                 "dni='" + dni + '\'' +
+                "tipo='" + type + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", admin=" + admin +
                 ", listaTarjetas=" + listaTarjetas +

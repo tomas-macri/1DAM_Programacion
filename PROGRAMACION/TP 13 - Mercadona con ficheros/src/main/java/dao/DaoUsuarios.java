@@ -16,12 +16,12 @@ public class DaoUsuarios {
     }
 
     public boolean agregarUsuario(Usuario usuarioNuevo) {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             String dni = usuarioNuevo.getDni();
             if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {
                 clientes.put(dni, usuarioNuevo);
-                usuariosDataBase.saveClientes(clientes);
+                usuariosDataBase.saveUsuarios(clientes);
                 return true;
             }
 
@@ -31,17 +31,17 @@ public class DaoUsuarios {
     }
 
     public Usuario eliminarUsuario(String dni) {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             Usuario userEliminado = clientes.remove(dni);
-            usuariosDataBase.saveClientes(clientes);
+            usuariosDataBase.saveUsuarios(clientes);
             return userEliminado;
         }
         return null;
     }
 
     public boolean elUsuarioExiste(String key) {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             return clientes.get(key) != null;
         }
@@ -49,10 +49,10 @@ public class DaoUsuarios {
     }
 
     public boolean modificarUsuarioNombre(String dniOriginal, Usuario userViejo, Usuario userNuevo) {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             boolean seCambio = clientes.replace(dniOriginal, userViejo, userNuevo);
-            usuariosDataBase.saveClientes(clientes);
+            usuariosDataBase.saveUsuarios(clientes);
             return seCambio;
 
         }
@@ -61,7 +61,7 @@ public class DaoUsuarios {
 
 
     public Usuario getUsuario(String dni) {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             return clientes.get(dni);
         }
@@ -70,7 +70,7 @@ public class DaoUsuarios {
 
 
     public List<Usuario> devolverLista() {
-        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadClientes();
+        LinkedHashMap<String, Usuario> clientes = usuariosDataBase.loadUsuarios();
         if (clientes != null) {
             return clientes.values().stream()
                     .map(Usuario::clonar).collect(Collectors.toUnmodifiableList());

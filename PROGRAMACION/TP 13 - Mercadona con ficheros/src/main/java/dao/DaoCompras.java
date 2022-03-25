@@ -6,6 +6,7 @@ import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,8 +17,18 @@ public class DaoCompras {
     }
 
     public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
-        return userLogueado.getCarrito().add(prodComp);
+        DataBase dataBase = new DataBase();
+        LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
+        if (usuarios != null) {
+            Usuario userLogueadoBD = usuarios.get(userLogueado.getDni());
+            boolean seAgrego = userLogueadoBD.getCarrito().add(prodComp);
+            dataBase.saveUsuarios(usuarios);
+            return seAgrego;
+        }
+        return false;
     }
+
+    // REEMPLAZAR TOD0 COMO ARRIBA
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
         return BD.listaUsuarios.get(user.getDni()).getCarrito().remove(new ProductoComprado(prod));

@@ -37,16 +37,9 @@ public class Configuracion {
     public String getPathProductos() {
         return pathProductos;
     }
-
-    public void setPathProductos(String pathProductos) {
-        this.pathProductos = pathProductos;
-    }
-
+    
     public String getPathUsuarios() {
         return pathUsuarios;
     }
 
-    public void setPathUsuarios(String pathUsuarios) {
-        this.pathUsuarios = pathUsuarios;
-    }
 }

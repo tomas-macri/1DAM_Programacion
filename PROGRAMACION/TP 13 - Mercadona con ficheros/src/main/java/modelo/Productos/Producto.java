@@ -7,11 +7,16 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class Producto implements Clonable<Producto> {
-    String nombre;
-    double precio;
-    int stock;
-    List<Ingrediente> listaIngredientes;
 
+    public String type;
+    private String nombre;
+    private double precio;
+    private int stock;
+    private List<Ingrediente> listaIngredientes;
+
+    protected Producto(){
+
+    }
 
     public Producto(String nombre) {
         this.nombre = nombre;

@@ -33,13 +33,13 @@ public class DataBase {
 
         RuntimeTypeAdapterFactory<Usuario> usuarioAdapter =
                 RuntimeTypeAdapterFactory
-                        .of(Usuario.class)
+                        .of(Usuario.class, "type", true)
                         .registerSubtype(UsuarioEspecial.class)
                         .registerSubtype(UsuarioNormal.class);
 
         RuntimeTypeAdapterFactory<Producto> productosAdapter =
                 RuntimeTypeAdapterFactory
-                        .of(Producto.class)
+                        .of(Producto.class, "type", true)
                         .registerSubtype(ProductoCaducable.class)
                         .registerSubtype(ProductoNormal.class);
 
@@ -71,7 +71,7 @@ public class DataBase {
         this.configuracion = configuracion;
     }
 
-    public LinkedHashMap<String, Usuario> loadClientes() {
+    public LinkedHashMap<String, Usuario> loadUsuarios() {
         Type userListType = new TypeToken<LinkedHashMap<String, Usuario>>() {
         }.getType();
 
@@ -90,7 +90,7 @@ public class DataBase {
     }
 
 
-    public boolean saveClientes(LinkedHashMap<String, Usuario> clientes) {
+    public boolean saveUsuarios(LinkedHashMap<String, Usuario> clientes) {
 
         try (FileWriter w = new FileWriter(configuracion.getPathUsuarios())) {
             gson.toJson(clientes, w);
@@ -106,12 +106,18 @@ public class DataBase {
         }.getType();
 
         List<Producto> productos = new ArrayList<>();
-        try {
+        try (FileReader w = new FileReader(configuracion.getPathProductos())) {
             productos = gson.fromJson(
-                    new FileReader(configuracion.getPathProductos()),
+                   w,
                     userListType);
         } catch (FileNotFoundException e) {
             log.error(e.getMessage(), e);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+        if (productos == null){
+            productos = new ArrayList<>() {
+            };
         }
         return productos;
     }
