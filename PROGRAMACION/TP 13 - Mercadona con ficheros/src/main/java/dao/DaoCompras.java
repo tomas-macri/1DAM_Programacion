@@ -5,6 +5,7 @@ import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -12,42 +13,61 @@ import java.util.stream.Collectors;
 
 public class DaoCompras {
 
+    private DataBase dataBase;
+
+    public DaoCompras() {
+        this.dataBase = new DataBase();
+    }
+
     public void quitarStock(int cant, Producto prod) {
         prod.setStock(prod.getStock() - cant);
     }
 
-    public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
-        DataBase dataBase = new DataBase();
+    public Usuario agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
         LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
         if (usuarios != null) {
             Usuario userLogueadoBD = usuarios.get(userLogueado.getDni());
-            boolean seAgrego = userLogueadoBD.getCarrito().add(prodComp);
+            userLogueadoBD.getCarrito().add(prodComp);
             dataBase.saveUsuarios(usuarios);
-            return seAgrego;
+            return userLogueadoBD;
         }
-        return false;
+        return userLogueado;
     }
 
     // REEMPLAZAR TOD0 COMO ARRIBA
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
-        return BD.listaUsuarios.get(user.getDni()).getCarrito().remove(new ProductoComprado(prod));
+        LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
+        if (usuarios != null) {
+            Usuario userLogueadoBD = usuarios.get(user.getDni());
+            boolean seElimino = userLogueadoBD.getCarrito().remove(new ProductoComprado(prod));
+            dataBase.saveUsuarios(usuarios);
+            return seElimino;
+        }
+        return false;
     }
 
     public void pagar(Tarjeta tarjeta, int valorCompra, Usuario user, int porcentajeACobrar) {
-        tarjeta.setSaldo(tarjeta.getSaldo() - (valorCompra*((double)porcentajeACobrar/100)));
-        user.getComprasPrevias().add(user.getCarrito());
+        LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
+        if (usuarios != null) {
+            Usuario userLogueadoBD = usuarios.get(user.getDni());
+            Tarjeta tarjetaBD = userLogueadoBD.getListaTarjetas().stream().filter(tarjeta1 -> tarjeta1.getNombre().equalsIgnoreCase(tarjeta.getNombre())).findFirst().get();
+            tarjetaBD.setSaldo(tarjetaBD.getSaldo() - (valorCompra * ((double) porcentajeACobrar / 100)));
+            userLogueadoBD.getComprasPrevias().add(user.getCarrito());
+            userLogueadoBD.setCarrito(new ArrayList<>());
+            dataBase.saveUsuarios(usuarios);
+        }
     }
 
     public List<ProductoComprado> devolverLista(Usuario userLogueado) {
-        return BD.listaUsuarios.get(userLogueado.getDni()).getCarrito().stream()
+        return dataBase.loadUsuarios().get(userLogueado.getDni()).getCarrito().stream()
                 .map(ProductoComprado::clonar)
                 .collect(Collectors.toUnmodifiableList());
     }
 
 
     public List<List<ProductoComprado>> devolverComprasPrevias(Usuario userLogueado) {
-        return BD.listaUsuarios.get(userLogueado.getDni()).getComprasPrevias().stream()
+        return dataBase.loadUsuarios().get(userLogueado.getDni()).getComprasPrevias().stream()
                 .collect(Collectors.toUnmodifiableList());
 
 

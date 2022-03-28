@@ -25,14 +25,13 @@ public class ServiciosCompras {
         return false;
     }
 
-    public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
+    public Usuario agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
         DaoCompras daoCompras = new DaoCompras();
 
         if (prodComp != null && userLogueado != null) {
-            daoCompras.agregarALaCompra(prodComp, userLogueado);
-            return true;
+            return daoCompras.agregarALaCompra(prodComp, userLogueado);
         }
-        return false;
+        return userLogueado;
     }
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user) {

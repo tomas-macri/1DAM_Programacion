@@ -3,16 +3,25 @@ package dao;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 public class DaoTarjetas {
+    private DataBase bdUsuarios;
+
+    public DaoTarjetas(){
+        this.bdUsuarios = new DataBase();
+    }
+
     public void agregarusuario(Tarjeta tarjNueva, Usuario cliente) {
         String nombreTarj = tarjNueva.getNombre();
         if (!laTarjetaExiste(nombreTarj, cliente) && !(nombreTarj.equals("") || tarjNueva.getSaldo()<0)) {
-            BD.listaUsuarios.get(cliente.getDni()).getListaTarjetas().add(tarjNueva);
+            LinkedHashMap<String, Usuario> usuarios = bdUsuarios.loadUsuarios();
+            usuarios.get(cliente.getDni()).getListaTarjetas().add(tarjNueva);
+            bdUsuarios.saveUsuarios(usuarios);
         }
     }
 

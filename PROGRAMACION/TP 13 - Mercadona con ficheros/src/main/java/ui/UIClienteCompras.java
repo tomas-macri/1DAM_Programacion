@@ -27,7 +27,7 @@ public class UIClienteCompras {
             switch (opcion) {
                 case 1:
                     //agregar productos a la compra
-                    agregarProdACompra(userLogueado, sc, serviciosCompras, serviciosProductos);
+                    userLogueado = agregarProdACompra(userLogueado, sc, serviciosCompras, serviciosProductos);
                     break;
                 case 2:
                     eliminarProductoDeLaCompra(userLogueado, sc, serviciosCompras, serviciosProductos);
@@ -85,7 +85,7 @@ public class UIClienteCompras {
         }
     }
 
-    private void agregarProdACompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {
+    private Usuario agregarProdACompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {
         Producto prodAComprar;
         String nombProd;
         do {
@@ -104,13 +104,14 @@ public class UIClienteCompras {
                     System.out.println();
 
                     ProductoComprado productoComprado = new ProductoComprado(prodAComprar, stockAComprar);
-                    serviciosCompras.agregarALaCompra(productoComprado, userLogueado);
+                    userLogueado = serviciosCompras.agregarALaCompra(productoComprado, userLogueado);
                 } else {
                     System.out.println(Constantes.EL_STOCK_QUE_INGRESÓ_ES_MENOR_QUE_1_O_ES_MAYOR_AL_STOCK_QUE_NOS_QUEDA_DEL_PRODUCTO + prodAComprar);
                     System.out.println();
                 }
             }
         } while (!nombProd.equalsIgnoreCase(Constantes.FIN));
+        return userLogueado;
     }
 
 

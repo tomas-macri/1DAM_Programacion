@@ -60,7 +60,7 @@ public abstract class Producto implements Clonable<Producto> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass() && o.getClass()!= ProductoCaducable.class) return false;
         Producto producto = (Producto) o;
         return Objects.equals(nombre.toLowerCase(), producto.nombre.toLowerCase());
     }
