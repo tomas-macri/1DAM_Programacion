@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.materialfx.font.*?>
+<?import common.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="853.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+   <children>
+       <TextField fx:id="txtNombre" layoutX="186.0" layoutY="63.0" promptText="%NOMBRE" />
+      <Button layoutX="261.0" layoutY="175.0" mnemonicParsing="false" onAction="#saludar" text="%Bienvenido" />
+      <Label layoutX="112.0" layoutY="67.0" text="Nombre" />
+     <MFXButton buttonType="RAISED" layoutX="86.0" layoutY="119.0" mnemonicParsing="false" onAction="#verSeleccionTabla" prefHeight="44.0" prefWidth="79.0" text="Bienvenida" />
+     <MFXButton buttonType="RAISED" layoutX="86.0" layoutY="119.0" mnemonicParsing="false" onAction="#verSeleccionTabla" prefHeight="44.0" prefWidth="79.0" text="Bienvenida" />
+      <TableView fx:id="table" layoutX="354.0" layoutY="63.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="columnNombre" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="columnEdad" prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C3" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+    <MFXFontIcon description="mfx-logo" layoutX="53.0" layoutY="80.0" size="40.0" wrappingWidth="44.0" />
+      <MFXButton fx:id="borrar" layoutX="134.0" layoutY="238.0" onAction="#borrarElemento" text="Borrar" />
+      <MFXFontIcon description="mfx-bell" layoutX="260.0" layoutY="273.0" selectionEnd="1" selectionStart="1" size="24.0" wrappingWidth="29.0" />
+      <MFXButton layoutX="86.0" layoutY="286.0" mnemonicParsing="false" text="Button" />
+      <MFXDatePicker fx:id="fecha" layoutX="254.0" layoutY="299.0" />
+      <MFXListView fx:id="listado" layoutX="594.0" layoutY="63.0" onMouseClicked="#update" prefHeight="200.0" prefWidth="200.0" />
+      <MFXComboBox fx:id="combo" layoutX="554.0" layoutY="311.0" onAction="#selection" />
+      <MFXComboBox fx:id="combo2" layoutX="554.0" layoutY="365.0" />
+      <MFXTextField fx:id="nombre" floatingText="nombre" layoutX="233.0" layoutY="341.0" />
+      <MFXTextField fx:id="edad" floatMode="BORDER" floatingText="edad" layoutX="233.0" layoutY="390.0" />
+
+   </children>
+</AnchorPane>
