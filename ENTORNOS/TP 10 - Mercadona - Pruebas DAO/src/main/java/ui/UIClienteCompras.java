@@ -1,6 +1,7 @@
 package ui;
 
 import dao.DaoTarjetas;
+import jakarta.inject.Inject;
 import modelo.Producto;
 import modelo.ProductoComprado;
 import modelo.Tarjeta;
@@ -13,17 +14,26 @@ import ui.common.Constantes;
 import java.util.Scanner;
 
 public class UIClienteCompras {
+    
+    private ServiciosTarjetas serviciosTarjetas;
+    private ServiciosCompras serviciosCompras;
+    private ServiciosProductos serviciosProductos;
+
+    @Inject
+    public UIClienteCompras(ServiciosTarjetas serviciosTarjetas, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos){
+        this.serviciosTarjetas = serviciosTarjetas;
+        this.serviciosCompras = serviciosCompras;
+        this.serviciosProductos = serviciosProductos;
+
+    }
 
     public void inicioUICompras(Usuario userLogueado) {
         Scanner sc = new Scanner(System.in);
-        UIClienteCompras uiClienteCompras = new UIClienteCompras();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_COMPRAS);
         System.out.println();
-        ServiciosCompras serviciosCompras = new ServiciosCompras(userLogueado);
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         do {
-            opcion = uiClienteCompras.mostrarMenu(sc);
+            opcion = mostrarMenu(sc);
             System.out.println();
             switch (opcion) {
                 case 1:
@@ -62,7 +72,6 @@ public class UIClienteCompras {
 
         System.out.println(Constantes.INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR);
         nombTarjeta= sc.nextLine();
-        ServiciosTarjetas serviciosTarjetas = new ServiciosTarjetas();
         Tarjeta tarjetaParaPagar = serviciosTarjetas.getTarjeta(nombTarjeta, userLogueado);
         if (serviciosCompras.pagar(tarjetaParaPagar, userLogueado)){
             System.out.println(Constantes.LA_COMPRA_SE_REALIZO_CON_EXITO);

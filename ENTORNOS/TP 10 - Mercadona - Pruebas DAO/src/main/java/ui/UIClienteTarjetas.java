@@ -1,18 +1,25 @@
 package ui;
 
+import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuario;
 import servicios.ServiciosTarjetas;
+import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class UIClienteTarjetas {
+    private ServiciosTarjetas serviciosTarjetas;
+
+    @Inject
+    public UIClienteTarjetas(ServiciosTarjetas serviciosTarjetas){
+        this.serviciosTarjetas = serviciosTarjetas;
+    }
 
     public void inicioUITarjetas(Usuario usuarioLogueado){
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LAS_TARJETAS);
         Scanner sc = new Scanner(System.in);
-        ServiciosTarjetas serviciosTarjetas = new ServiciosTarjetas();
         int opcion;
         do {
             do {
@@ -53,7 +60,6 @@ public class UIClienteTarjetas {
 
 
     private void agregarTarjeta(Scanner sc, Usuario userLogueado) {
-        ServiciosTarjetas servicios = new ServiciosTarjetas();
 
         System.out.println(Constantes.AGREGAR_TARJETA);
         System.out.println();
@@ -71,7 +77,7 @@ public class UIClienteTarjetas {
             System.out.println();
             Tarjeta unaTarjeta = new Tarjeta(nombTarjeta, saldoTarjeta);
 
-            if (servicios.agregarTarjeta(unaTarjeta, userLogueado)) {
+            if (serviciosTarjetas.agregarTarjeta(unaTarjeta, userLogueado)) {
                 System.out.println(Constantes.SE_AGREGO + unaTarjeta + Constantes.A_TU_LISTA_DE_TARJETAS);
             } else {
                 System.out.println(Constantes.LA_TARJETA_YA_SE_ENCONTRABA_EN_TU_LISTA_DE_TARJETAS_O_ALGUNOS_DE_LOS_CAMPOS_INGRESADOS_NO_ES_VÁLIDO);

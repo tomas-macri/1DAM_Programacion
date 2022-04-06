@@ -1,5 +1,8 @@
 package ui;
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Usuario;
 import servicios.ServiciosUsuarios;
@@ -11,8 +14,16 @@ import java.util.Scanner;
 
 public class MainRegistrarse {
 
+    private ServiciosUsuarios serviciosUsuarios;
+
+    @Inject
+    public MainRegistrarse(ServiciosUsuarios serviciosUsuarios){
+        this.serviciosUsuarios = serviciosUsuarios;
+    }
+
     public void inicioRegistrarse() {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
+        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+        final SeContainer container = initializer.initialize();
         Scanner sc = new Scanner(System.in);
         System.out.println("CREAR UN USUARIO");
         System.out.println();
@@ -29,8 +40,8 @@ public class MainRegistrarse {
 
             List<Ingrediente>  ingredienteArrayList = cargarListIngredientes(sc);
             Usuario unUser = new Usuario(dniCliente, nomCliente, ingredienteArrayList);
-            if (!dniCliente.equalsIgnoreCase("-1") && servicios.agregarusuario(unUser)) {
-                    MainClientes mainClientes = new MainClientes();
+            if (!dniCliente.equalsIgnoreCase("-1") && serviciosUsuarios.agregarUsuario(unUser)) {
+                    MainClientes mainClientes = container.select(MainClientes.class).get();
                     mainClientes.inicioMenuClientes(unUser);
             }
         } while (!dniCliente.equalsIgnoreCase("-1"));

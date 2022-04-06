@@ -2,6 +2,7 @@ package servicios;
 
 import dao.BD;
 import dao.DaoTarjetas;
+import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
@@ -9,6 +10,12 @@ import java.util.List;
 
 public class ServiciosTarjetas {
 
+    private DaoTarjetas daoTarjetas;
+
+    @Inject
+    public ServiciosTarjetas(DaoTarjetas daoTarjetas){
+        this.daoTarjetas = daoTarjetas;
+    }
 
     public boolean agregarTarjeta(Tarjeta tarjNueva, Usuario user) {
         String nombre = tarjNueva.getNombre();

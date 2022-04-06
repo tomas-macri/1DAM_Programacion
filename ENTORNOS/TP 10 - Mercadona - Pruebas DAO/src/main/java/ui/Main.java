@@ -1,11 +1,15 @@
 package ui;
 
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
+        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+        final SeContainer container = initializer.initialize();
         Scanner sc = new Scanner(System.in);
         int opcion;
 
@@ -23,11 +27,11 @@ public class Main {
 
         switch (opcion){
             case 1:
-                MainLogin mainLogin = new MainLogin();
+                MainLogin mainLogin = container.select(MainLogin.class).get();
                 mainLogin.inicioLogin();
                 break;
             case 2:
-                MainRegistrarse mainRegistrarse = new MainRegistrarse();
+                MainRegistrarse mainRegistrarse = container.select(MainRegistrarse.class).get();
                 mainRegistrarse.inicioRegistrarse();
                 break;
             default:

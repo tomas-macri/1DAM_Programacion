@@ -1,5 +1,8 @@
 package ui;
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.inject.Inject;
 import modelo.Usuario;
 import servicios.ServiciosCompras;
 import ui.common.Constantes;
@@ -8,14 +11,23 @@ import java.util.Scanner;
 
 public class MainClientes {
 
+    private ServiciosCompras serviciosCompras;
+
+    @Inject
+    public MainClientes(ServiciosCompras serviciosCompras){
+        this.serviciosCompras = serviciosCompras;
+    }
+
 
     public void inicioMenuClientes(Usuario userLogueado){
+        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+        final SeContainer container = initializer.initialize();
+
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
         Scanner sc = new Scanner(System.in);
         int opcion;
-        ServiciosCompras serviciosCompras = new ServiciosCompras(userLogueado);
-        UIClienteCompras uiClienteCompras = new UIClienteCompras();
-        UIClienteTarjetas uiClienteTarjetas = new UIClienteTarjetas();
+        UIClienteCompras uiClienteCompras = container.select(UIClienteCompras.class).get();
+        UIClienteTarjetas uiClienteTarjetas = container.select(UIClienteTarjetas.class).get();
 
 
         System.out.println(Constantes.BIENVENIDO_CLIENTE);

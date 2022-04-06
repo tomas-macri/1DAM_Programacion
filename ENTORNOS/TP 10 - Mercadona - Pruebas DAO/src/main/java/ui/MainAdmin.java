@@ -1,17 +1,21 @@
 package ui;
 
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class MainAdmin {
+    SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+    final SeContainer container = initializer.initialize();
 
     public void inicioMenuAdmin() {
         Scanner sc = new Scanner(System.in);
         int opcion;
-        UIAdminUsuarios uiUsuarios = new UIAdminUsuarios();
-        UIAdminProductos uiAdminProductos = new UIAdminProductos();
-
+        UIAdminUsuarios uiUsuarios = container.select(UIAdminUsuarios.class).get();
+        UIAdminProductos uiAdminProductos = container.select(UIAdminProductos.class).get();
+        MainEstadisticas mainEstadisticas = container.select(MainEstadisticas.class).get();
 
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
 
@@ -32,7 +36,7 @@ public class MainAdmin {
                     uiAdminProductos.inicioUIProductos();
                     break;
                 case 3:
-                    MainEstadisticas mainEstadisticas = new MainEstadisticas();
+
                     mainEstadisticas.mainEstadisticas();
                     break;
                 case 4:

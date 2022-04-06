@@ -11,7 +11,7 @@ import java.util.List;
 public class ServiciosUsuarios {
 
 
-    public boolean agregarusuario(Usuario usuarioNuevo) {
+    public boolean agregarUsuario(Usuario usuarioNuevo) {
         String dni = usuarioNuevo.getDni();
         DaoUsuarios dao = new DaoUsuarios(BD.listaUsuarios);
         if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {

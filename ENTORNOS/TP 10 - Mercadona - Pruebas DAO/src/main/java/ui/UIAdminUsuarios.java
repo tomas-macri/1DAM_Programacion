@@ -1,5 +1,6 @@
 package ui;
 
+import jakarta.inject.Inject;
 import modelo.*;
 import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
@@ -9,30 +10,36 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UIAdminUsuarios {
+    private ServiciosUsuarios serviciosUsuarios;
+
+    @Inject
+    public UIAdminUsuarios(ServiciosUsuarios serviciosUsuarios){
+        this.serviciosUsuarios = serviciosUsuarios;
+    }
+
+
 
     public void inicioUIUsuarios() {
         Scanner sc = new Scanner(System.in);
-        ServiciosUsuarios serviciosUsuarios = new ServiciosUsuarios();
-        UIAdminUsuarios uiUsuarios = new UIAdminUsuarios();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
         System.out.println();
 
         do {
-            opcion = uiUsuarios.mostrarMenu(sc);
+            opcion = mostrarMenu(sc);
             System.out.println();
             switch (opcion) {
                 case 1:
                     //agregar usuarios
-                    uiUsuarios.agregarUsuario(sc);
+                    agregarUsuario(sc);
                     break;
                 case 2:
                     // modificar prod
-                    uiUsuarios.modificarUsuario(sc);
+                    modificarUsuario(sc);
                     break;
                 case 3:
                     // eliminar prod
-                    uiUsuarios.eliminarUsuario(sc);
+                    eliminarUsuario(sc);
                     break;
                 case 4:
                     // mostrar usuarios
@@ -62,7 +69,6 @@ public class UIAdminUsuarios {
     }
 
     private void agregarUsuario(Scanner sc) {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
 
         System.out.println(Constantes.AGREGAR_USUARIO);
         System.out.println();
@@ -92,7 +98,7 @@ public class UIAdminUsuarios {
                 unUser = new UsuarioEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
             }
 
-            if (servicios.agregarusuario(unUser)) {
+            if (serviciosUsuarios.agregarUsuario(unUser)) {
                 System.out.println(Constantes.SE_AGREGO + unUser + Constantes.A_LA_LISTA_DE_USUARIOS_DISPONIBLES);
             } else {
                 System.out.println(Constantes.EL_USUARIO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_USUARIOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);
@@ -167,32 +173,29 @@ public class UIAdminUsuarios {
     }
 
     private void modificarDNIUsuario(Scanner sc, String dniMod) {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoDNI;
         System.out.println(Constantes.INGRESE_EL_NUEVO_DNI_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoDNI = sc.nextLine();
         // cambiar solo el dni
-        if (servicios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(nuevoDNI));
+        if (serviciosUsuarios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(nuevoDNI));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_SE_INTENTO_CAMBIAR_POR_UN_DNI_DE_UN_USUARIO_QUE_YA_ESTA_EN_LA_LISTA_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarNombreUsuario(Scanner sc, String dniMod) {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (servicios.modificarUsuarioNombre(dniMod, nuevoNombreProd, servicios.getUsuario(dniMod).getIngredienteList())) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(dniMod));
+        if (serviciosUsuarios.modificarUsuarioNombre(dniMod, nuevoNombreProd, serviciosUsuarios.getUsuario(dniMod).getIngredienteList())) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(dniMod));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarUsuarioEntero(Scanner sc, String dniMod) {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String nuevoDNIUsuario;
         String nuevoNombreUsuario;
 
@@ -206,15 +209,14 @@ public class UIAdminUsuarios {
 
         // cambiar
         Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario, ingredienteList);
-        if (servicios.modificarUsuario(userNuevo, dniMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + servicios.getUsuarioString(nuevoDNIUsuario));
+        if (serviciosUsuarios.modificarUsuario(userNuevo, dniMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(nuevoDNIUsuario));
         } else {
             System.out.println(Constantes.ERROR_BUSQUEDA_Y_MODIFICACION_USUARIOS);
         }
     }
 
     private void eliminarUsuario(Scanner sc) {
-        ServiciosUsuarios servicios = new ServiciosUsuarios();
         String dniUsuario;
         System.out.println(Constantes.ELIMINAR_USUARIOS);
         System.out.println();
@@ -223,7 +225,7 @@ public class UIAdminUsuarios {
             System.out.println(Constantes.INGRESE_EL_DNI_DEL_USUARIO_QUE_DESEA_ELIMINAR);
             dniUsuario = sc.nextLine();
 
-            Usuario userEliminado = servicios.eliminarUsuario(dniUsuario);
+            Usuario userEliminado = serviciosUsuarios.eliminarUsuario(dniUsuario);
 
             if (userEliminado != null) {
                 System.out.println(Constantes.SE_ELIMINO + userEliminado + Constantes.DE_LA_LISTA_DE_USUARIOS);
