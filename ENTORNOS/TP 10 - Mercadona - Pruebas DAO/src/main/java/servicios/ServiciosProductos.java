@@ -2,6 +2,7 @@ package servicios;
 
 import dao.BD;
 import dao.DaoProductos;
+import jakarta.inject.Inject;
 import modelo.Producto;
 import modelo.ProductoCaducable;
 
@@ -11,8 +12,17 @@ import java.util.stream.Collectors;
 
 
 public class ServiciosProductos {
+    
+    private DaoProductos daoProductos;
+    
+    @Inject
+    public ServiciosProductos (DaoProductos daoProductos){
+        this.daoProductos = daoProductos;
+    }
+    
+    
     public boolean agregarProducto(Producto productoNuevo) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         if (!daoProductos.elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
             return daoProductos.agregarProducto(productoNuevo);
         }
@@ -20,13 +30,13 @@ public class ServiciosProductos {
     }
 
     public boolean eliminarProducto(String nombProd) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         return daoProductos.eliminarProducto(nombProd);
     }
 
 
     public boolean modificarProducto(Producto prodNuevo, String nombOriginal) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         boolean exito = false;
         if (!(prodNuevo.getNombre().equals("") || prodNuevo.getPrecio() <= 0 || prodNuevo.getStock() < 0)) {
             int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
@@ -39,7 +49,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoNombre(String nombOriginal, String nombNuevo) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && !nombNuevo.equals("")) {
@@ -50,7 +60,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoPrecio(String nombOriginal, double precioNuevo) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && precioNuevo >= 0) {
@@ -61,7 +71,7 @@ public class ServiciosProductos {
     }
 
     public boolean modificarProductoStock(String nombOriginal, int stockNuevo) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         boolean exito = false;
         int indexProdViejo = daoProductos.obtenerIndexProducto(new Producto(nombOriginal));
         if (indexProdViejo >= 0 && stockNuevo >= 0) {
@@ -72,7 +82,7 @@ public class ServiciosProductos {
     }
 
     public Producto getProducto(String nombProd) {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         Producto producto = null;
         int indexProd = daoProductos.obtenerIndexProducto(new Producto(nombProd));
         if (indexProd >= 0) {
@@ -83,7 +93,7 @@ public class ServiciosProductos {
 
 
     public List<Producto> getLista() {
-        DaoProductos daoProductos = new DaoProductos(BD.listaProductos);
+       
         return daoProductos.devolverLista().stream()
                 .filter(producto -> !((producto instanceof ProductoCaducable) && ((ProductoCaducable) producto).getCaducidad().isBefore(LocalDateTime.now())))
                 .collect(Collectors.toUnmodifiableList());

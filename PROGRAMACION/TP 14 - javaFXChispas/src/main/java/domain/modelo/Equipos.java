@@ -6,17 +6,17 @@ import lombok.Data;
 import java.util.Objects;
 
 @Data
-public class Persona {
+public class Equipos {
 
     private final String nombre;
-    private final Integer edad;
+    private final Integer champions;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Persona persona = (Persona) o;
-        return Objects.equals(nombre, persona.nombre);
+        Equipos equipos = (Equipos) o;
+        return Objects.equals(nombre, equipos.nombre);
     }
 
     @Override

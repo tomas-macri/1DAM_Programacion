@@ -26,7 +26,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             Producto nuevoProduct = new Producto("prod4", 50,15
                     , new ArrayList<>());
@@ -54,7 +57,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             Producto nuevoProduct = new Producto("prod1", 55, 15
                     , new ArrayList<>());
@@ -80,7 +86,10 @@ class DaoProductosTest {
                     , ingredienteArrayList));
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             boolean ProductEliminado = daoProductos.eliminarProducto("prod1");
             assertTrue(ProductEliminado);
@@ -104,7 +113,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
            boolean ProductEliminado = daoProductos.eliminarProducto("prod4");
 
@@ -129,7 +141,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             Producto prodObtenido = daoProductos.getProducto(listaBD.indexOf(new Producto("prod1")));
 
@@ -155,7 +170,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             Producto Producto = daoProductos.getProducto(listaBD.indexOf(new Producto("prod4")));
 
@@ -180,7 +198,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             boolean seCambio = daoProductos.modificarProductoNombre(listaBD.indexOf(new Producto("prod1")), "nuevoProd1");
 
@@ -205,7 +226,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             boolean seCambio = daoProductos.modificarProductoNombre(listaBD.indexOf(new Producto("prod4")), "nuevoProd4");
 
@@ -231,7 +255,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         boolean seCambio = daoProductos.modificarProductoPrecio(listaBD.indexOf(new Producto("prod1")), 85);
 
@@ -256,7 +283,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         boolean seCambio = daoProductos.modificarProductoPrecio(listaBD.indexOf(new Producto("prod4")), 85);
 
@@ -283,7 +313,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         boolean seCambio = daoProductos.modificarProductoStock(listaBD.indexOf(new Producto("prod1")), 55);
 
@@ -308,7 +341,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         //// las validaciones de que el stock y el precio sean positivos deberian hacerse en servicios, por lo que no las compruebo en el dao
         // las validaciones de que el stock y el precio sean positivos deberian hacerse en servicios, por lo que no las compruebo en el dao
@@ -342,7 +378,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         boolean seCambio = daoProductos.modificarProducto(listaBD.indexOf(new Producto("prod1")), new Producto("prodNuevo", 50, 65, new ArrayList<>()));
 
@@ -367,7 +406,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
 
         boolean seCambio = daoProductos.modificarProducto(listaBD.indexOf(new Producto("prod4")), new Producto("prodNuevo", 50, 65, new ArrayList<>()));
 
@@ -393,7 +435,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             boolean existe = daoProductos.elProductoExiste(new Producto("prod1"));
 
@@ -417,7 +462,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             boolean existe = daoProductos.elProductoExiste(new Producto("prod4"));
 
@@ -441,7 +489,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
             Producto producto = new Producto("prod1");
             int index = daoProductos.obtenerIndexProducto(producto);
             assertEquals(0, index);
@@ -464,7 +515,10 @@ class DaoProductosTest {
         listaBD.add(new Producto("prod3", 3, 10
                 , ingredienteArrayList));
 
-        DaoProductos daoProductos = new DaoProductos(listaBD);
+        BD bdProductos = new BD();
+        bdProductos.listaProductos = listaBD;
+
+        DaoProductos daoProductos = new DaoProductos(bdProductos);
         Producto producto = new Producto("prod4");
         int index = daoProductos.obtenerIndexProducto(producto);
         assertEquals(-1, index);
@@ -487,7 +541,10 @@ class DaoProductosTest {
             listaBD.add(new Producto("prod3", 3, 10
                     , ingredienteArrayList));
 
-            DaoProductos daoProductos = new DaoProductos(listaBD);
+            BD bdProductos = new BD();
+            bdProductos.listaProductos = listaBD;
+
+            DaoProductos daoProductos = new DaoProductos(bdProductos);
 
             assertEquals(listaBD, daoProductos.devolverLista());
         }

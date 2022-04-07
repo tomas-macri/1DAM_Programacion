@@ -2,6 +2,10 @@ package servicios;
 
 import dao.BD;
 import dao.DaoCompras;
+import dao.DaoProductos;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.inject.Inject;
 import modelo.*;
 
 import java.util.ArrayList;
@@ -9,14 +13,20 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ServiciosCompras {
+    
+    SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+    final SeContainer container = initializer.initialize();
 
+    private DaoCompras daoCompras;
 
-    public ServiciosCompras(Usuario user) {
+    @Inject
+    public ServiciosCompras(Usuario user, DaoCompras daoCompras) {
         user.setCarrito(new ArrayList<>());
+        this.daoCompras = daoCompras;
+        
     }
 
     public boolean hayStock(int stockAComprar, Producto prod) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         if (stockAComprar > 0 && prod.getStock() - stockAComprar >= 0) {
             daoCompras.quitarStock(stockAComprar, prod);
             return true;
@@ -25,8 +35,6 @@ public class ServiciosCompras {
     }
 
     public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
-
         if (prodComp != null && userLogueado != null) {
             daoCompras.agregarALaCompra(prodComp, userLogueado);
             return true;
@@ -35,7 +43,6 @@ public class ServiciosCompras {
     }
 
     public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         if (prod != null) {
             return daoCompras.eliminarDeLaCompra(prod, user);
         } else {
@@ -44,7 +51,6 @@ public class ServiciosCompras {
     }
 
     public List<ProductoComprado> getListaCompra(Usuario userLogueado) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         return daoCompras.devolverLista(userLogueado);
     }
 
@@ -62,7 +68,6 @@ public class ServiciosCompras {
                 if (user.getClass() == UsuarioEspecial.class){
                     porcentajeACobrar -= ((UsuarioEspecial) user).getPorcentajeDescuento();
                 }
-                DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
                 daoCompras.pagar(tarjeta, valorFinalCompra.get(), user, porcentajeACobrar);
                 return true;
             } else {
@@ -75,17 +80,14 @@ public class ServiciosCompras {
     }
 
     public List<List<ProductoComprado>> getComprasPrevias(Usuario userLogueado) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         return daoCompras.devolverComprasPrevias(userLogueado);
     }
 
     public List<Producto> getProductosSinAlergia(Usuario userLogueado, List<Producto> lista) {
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         return daoCompras.getProductosSinAlergias(userLogueado, lista);
     }
 
     public Double dineroGastadoPorCliente(Usuario userLogueado){
-        DaoCompras daoCompras = new DaoCompras(BD.listaUsuarios);
         return daoCompras.dineroGastadoDeCliente(userLogueado);
     }
 }

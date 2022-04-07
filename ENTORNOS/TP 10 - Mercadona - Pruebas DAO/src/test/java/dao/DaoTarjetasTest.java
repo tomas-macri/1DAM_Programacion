@@ -25,7 +25,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", 200);
@@ -47,7 +49,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", -50);
@@ -70,7 +74,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", 50);
@@ -96,7 +102,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario usuario = listaBD.get("dni1");
         Tarjeta tarjetaValida = new Tarjeta("t1", 200);
@@ -122,7 +130,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario usuario = listaBD.get("dni1");
         Tarjeta tarjetaValida = new Tarjeta("t1", 200);
@@ -148,7 +158,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
 
@@ -174,7 +186,9 @@ public class DaoTarjetasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         userLogueado.getListaTarjetas().add(new Tarjeta("t1", 500));
@@ -211,7 +225,9 @@ public class DaoTarjetasTest {
         usuario.getListaTarjetas().add(tar1);
         usuario.getListaTarjetas().add(tar2);
 
-        DaoTarjetas daoTarjetas = new DaoTarjetas(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
 
         List<Tarjeta> listaObtenida = daoTarjetas.devolverLista(usuario);
 

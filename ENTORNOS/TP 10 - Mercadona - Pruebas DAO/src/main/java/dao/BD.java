@@ -1,16 +1,22 @@
 package dao;
 
+import jakarta.ejb.Singleton;
 import modelo.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class BD {
-    public static LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
-    public static ArrayList<Producto> listaProductos = new ArrayList<>();
 
-    static {
+public class BD {
+    public  LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
+    public ArrayList<Producto> listaProductos = new ArrayList<>();
+
+    public BD() {
+        inicializarListas(listaUsuarios, listaProductos);
+    }
+
+    public void inicializarListas(LinkedHashMap<String, Usuario> listaUsuarios, ArrayList<Producto> listaProductos) {
         ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
 
         ingredienteArrayList.add(new Ingrediente("ing1"));
@@ -106,4 +112,11 @@ public class BD {
 
     }
 
+    public LinkedHashMap<String, Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
+    }
 }

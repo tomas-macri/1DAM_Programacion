@@ -29,7 +29,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         Producto productoPrueba = new Producto("prod1", 15, 12, ingredienteArrayList);
         daoCompras.quitarStock(1, productoPrueba);
@@ -52,7 +54,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 15, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
@@ -76,7 +80,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 15, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
@@ -101,7 +107,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         Usuario userComprando = listaBD.get("dni1");
 
@@ -124,7 +132,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 10, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
@@ -159,7 +169,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 10, 12, ingredienteArrayList), 5);
         ProductoComprado productoPrueba2 = new ProductoComprado(new Producto("prod2", 12, 13, ingredienteArrayList), 4);
@@ -190,7 +202,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
 
         Usuario userComprando = listaBD.get("dni1");
@@ -228,7 +242,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
         Usuario userComprando = listaBD.get("dni1");
 
@@ -276,7 +292,9 @@ public class DaoComprasTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoCompras daoCompras = new DaoCompras(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoCompras daoCompras = new DaoCompras(bd);
 
 
         Usuario userComprando = listaBD.get("dni1");

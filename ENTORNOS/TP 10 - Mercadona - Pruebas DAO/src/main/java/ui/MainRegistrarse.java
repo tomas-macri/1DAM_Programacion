@@ -15,15 +15,15 @@ import java.util.Scanner;
 public class MainRegistrarse {
 
     private ServiciosUsuarios serviciosUsuarios;
+    private MainClientes mainClientes;
 
     @Inject
-    public MainRegistrarse(ServiciosUsuarios serviciosUsuarios){
+    public MainRegistrarse(ServiciosUsuarios serviciosUsuarios, MainClientes mainClientes){
         this.serviciosUsuarios = serviciosUsuarios;
+        this.mainClientes = mainClientes;
     }
 
     public void inicioRegistrarse() {
-        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-        final SeContainer container = initializer.initialize();
         Scanner sc = new Scanner(System.in);
         System.out.println("CREAR UN USUARIO");
         System.out.println();
@@ -41,7 +41,6 @@ public class MainRegistrarse {
             List<Ingrediente>  ingredienteArrayList = cargarListIngredientes(sc);
             Usuario unUser = new Usuario(dniCliente, nomCliente, ingredienteArrayList);
             if (!dniCliente.equalsIgnoreCase("-1") && serviciosUsuarios.agregarUsuario(unUser)) {
-                    MainClientes mainClientes = container.select(MainClientes.class).get();
                     mainClientes.inicioMenuClientes(unUser);
             }
         } while (!dniCliente.equalsIgnoreCase("-1"));

@@ -12,23 +12,21 @@ import java.util.Scanner;
 public class MainClientes {
 
     private ServiciosCompras serviciosCompras;
+    private UIClienteCompras uiClienteCompras;
+    private UIClienteTarjetas uiClienteTarjetas;
 
     @Inject
     public MainClientes(ServiciosCompras serviciosCompras){
         this.serviciosCompras = serviciosCompras;
+        this.uiClienteCompras = uiClienteCompras;
+        this.uiClienteTarjetas = uiClienteTarjetas;
     }
 
 
     public void inicioMenuClientes(Usuario userLogueado){
-        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-        final SeContainer container = initializer.initialize();
-
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
         Scanner sc = new Scanner(System.in);
         int opcion;
-        UIClienteCompras uiClienteCompras = container.select(UIClienteCompras.class).get();
-        UIClienteTarjetas uiClienteTarjetas = container.select(UIClienteTarjetas.class).get();
-
 
         System.out.println(Constantes.BIENVENIDO_CLIENTE);
 

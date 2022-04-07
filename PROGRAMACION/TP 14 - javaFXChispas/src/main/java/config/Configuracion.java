@@ -14,7 +14,7 @@ import java.io.IOException;
 @Log4j2
 @Singleton
 public class Configuracion {
-    private String pathPaises;
+    private String pathEquipos;
 
     public Configuracion(){
 
@@ -25,7 +25,7 @@ public class Configuracion {
 
                 JsonNode node = mapper.readTree(Configuracion.class.getClassLoader().getResourceAsStream("config.yaml"));
 
-                this.pathPaises = node.get("pathPaises").asText();
+                this.pathEquipos = node.get("pathEquipos").asText();
 
             } catch (IOException e) {
                 System.out.println(e.getMessage());

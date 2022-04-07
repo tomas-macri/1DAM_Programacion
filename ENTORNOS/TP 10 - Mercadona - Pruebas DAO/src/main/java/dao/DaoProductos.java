@@ -1,5 +1,6 @@
 package dao;
 
+import jakarta.inject.Inject;
 import modelo.Producto;
 
 import java.util.ArrayList;
@@ -10,9 +11,12 @@ public class DaoProductos {
 
     private ArrayList<Producto> bdProductos;
 
-    public DaoProductos(ArrayList<Producto> bdProductos) {
-        this.bdProductos = bdProductos;
+    @Inject
+    public DaoProductos(BD bd) {
+        this.bdProductos = bd.listaProductos;
     }
+
+
 
     public boolean agregarProducto(Producto productoNuevo) {
         if (!elProductoExiste(productoNuevo)) {

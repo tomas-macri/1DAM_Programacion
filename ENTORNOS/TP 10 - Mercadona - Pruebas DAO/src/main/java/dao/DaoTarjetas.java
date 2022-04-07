@@ -1,5 +1,6 @@
 package dao;
 
+import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
@@ -13,8 +14,10 @@ import java.util.stream.Collectors;
 public class DaoTarjetas {
 
     private LinkedHashMap<String, Usuario> bdUsuarios;
-    public DaoTarjetas(LinkedHashMap<String, Usuario> bdUsuarios){
-        this.bdUsuarios = bdUsuarios;
+
+    @Inject
+    public DaoTarjetas(BD bd){
+        this.bdUsuarios = bd.listaUsuarios;
     }
 
     public boolean agregarTarjeta(Tarjeta tarjNueva, Usuario cliente) {

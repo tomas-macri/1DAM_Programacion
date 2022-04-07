@@ -1,11 +1,11 @@
 package dao;
 
+import jakarta.inject.Inject;
 import modelo.Producto;
 import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuario;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,8 +14,9 @@ import java.util.stream.Collectors;
 public class DaoCompras {
 
     private LinkedHashMap<String, Usuario> bdUsuarios;
-    public DaoCompras(LinkedHashMap<String, Usuario> bdUsuarios){
-        this.bdUsuarios = bdUsuarios;
+    @Inject
+    public DaoCompras(BD bd){
+        this.bdUsuarios = bd.listaUsuarios;
     }
 
     public void quitarStock(int cant, Producto prod) {

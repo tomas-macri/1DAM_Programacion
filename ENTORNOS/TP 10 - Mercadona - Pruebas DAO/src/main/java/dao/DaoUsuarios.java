@@ -1,5 +1,6 @@
 package dao;
 
+import jakarta.inject.Inject;
 import modelo.Usuario;
 
 import java.util.LinkedHashMap;
@@ -11,7 +12,8 @@ public class DaoUsuarios {
 
     private LinkedHashMap<String, Usuario> bdUsuarios;
 
-    public DaoUsuarios(LinkedHashMap<String, Usuario> bdUsuarios){this.bdUsuarios = bdUsuarios;}
+    @Inject
+    public DaoUsuarios(BD bd){this.bdUsuarios = bd.listaUsuarios;}
 
 
     public boolean agregarusuario(Usuario usuarioNuevo) {

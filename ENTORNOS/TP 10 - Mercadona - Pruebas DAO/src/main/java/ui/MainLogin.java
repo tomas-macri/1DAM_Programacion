@@ -15,10 +15,14 @@ public class MainLogin
 {
 
     private ServiciosUsuarios serviciosUsuarios;
+    private MainAdmin mainAdmin;
+    private MainClientes mainClientes;
 
     @Inject
-    public MainLogin(ServiciosUsuarios serviciosUsuarios){
+    public MainLogin(ServiciosUsuarios serviciosUsuarios, MainAdmin mainAdmin, MainClientes mainClientes){
         this.serviciosUsuarios = serviciosUsuarios;
+        this.mainAdmin = mainAdmin;
+        this.mainClientes = mainClientes;
     }
 
     public void inicioLogin() {
@@ -31,13 +35,9 @@ public class MainLogin
             dniIngresado = sc.nextLine();
             Usuario userConEseDni = serviciosUsuarios.getUsuario(dniIngresado);
             if (userConEseDni != null) {
-                SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-                final SeContainer container = initializer.initialize();
                 if (userConEseDni.isAdmin()) {
-                    MainAdmin mainAdmin = container.select(MainAdmin.class).get();
                     mainAdmin.inicioMenuAdmin();
                 } else {
-                    MainClientes mainClientes = container.select(MainClientes.class).get();
                     mainClientes.inicioMenuClientes(userConEseDni);
                 }
             } else {

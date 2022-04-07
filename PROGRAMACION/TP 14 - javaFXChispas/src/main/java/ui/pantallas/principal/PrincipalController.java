@@ -1,9 +1,10 @@
 package ui.pantallas.principal;
 
 import common.Constantes;
-import dao.DaoPersonas;
-import domain.ServiciosPersonas;
-import domain.modelo.Persona;
+import dao.DaoEquipos;
+import dao.DataBase;
+import domain.ServiciosEquipos;
+import domain.modelo.Equipos;
 import io.github.palexdev.materialfx.controls.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,30 +40,30 @@ public class PrincipalController implements Initializable {
     @FXML
     private MFXDatePicker fecha;
     @FXML
-    private MFXListView<Persona> listado;
+    private MFXListView<Equipos> listado;
     @FXML
     private MFXComboBox<String> combo;
 
     private PrincipalViewModel viewModel;
 
     @FXML
-    private TableColumn<Persona, String> columnNombre;
+    private TableColumn<Equipos, String> columnNombre;
     @FXML
-    private TableColumn<Persona, Integer> columnEdad;
+    private TableColumn<Equipos, Integer> columnEdad;
 
     @FXML
-    private TableView<Persona> table;
+    private TableView<Equipos> table;
 
     @FXML
     private TextField txtNombre;
 
     public PrincipalController() {
-        viewModel = new PrincipalViewModel(new ServiciosPersonas(new DaoPersonas()));
+        viewModel = new PrincipalViewModel(new ServiciosEquipos(new DaoEquipos(new DataBase())));
     }
 
     @FXML
     private void saludar() {
-        viewModel.addPersona(new Persona(nombreDefecto, 10));
+        viewModel.addPersona(new Equipos(nombreDefecto, 10));
 
         String nombre = !txtNombre.getText().isBlank()
                 ? txtNombre.getText() : nombreDefecto;
@@ -81,15 +82,15 @@ public class PrincipalController implements Initializable {
         columnEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-        table.setItems(viewModel.getState().get().getPersonas());
+        table.setItems(viewModel.getState().get().getEquipos());
         combo.getItems().addAll("Alejandro", "Pedro", "Juan");
-        List<Persona> personas = new ArrayList<>();
+        List<Equipos> equipos = new ArrayList<>();
 
-        personas.add(new Persona("Alejandro", 10));
-        personas.add(new Persona("Pedro", 20));
-        personas.add(new Persona("Juan", 30));
+        equipos.add(new Equipos("Alejandro", 10));
+        equipos.add(new Equipos("Pedro", 20));
+        equipos.add(new Equipos("Juan", 30));
 
-        listado.getItems().addAll(personas);
+        listado.getItems().addAll(equipos);
 
         listado.getSelectionModel().setAllowsMultipleSelection(false);
 
@@ -106,9 +107,9 @@ public class PrincipalController implements Initializable {
     @FXML
     private void verSeleccionTabla(ActionEvent actionEvent) {
 
-        Persona p = table.getSelectionModel().getSelectedItem();
+        Equipos p = table.getSelectionModel().getSelectedItem();
         if (p != null) {
-            viewModel.updatePersona(new Persona(p.getNombre(), p.getEdad() + 1));
+            viewModel.updatePersona(new Equipos(p.getNombre(), p.getChampions() + 1));
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText(p.getNombre());
             a.showAndWait();
@@ -138,7 +139,7 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private void borrarElemento(ActionEvent actionEvent) {
-        Persona p = listado.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+        Equipos p = listado.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
         if (p != null) {
             listado.getItems().remove(p);
         }
@@ -147,10 +148,10 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private void update(MouseEvent mouseEvent) {
-        Persona p = listado.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+        Equipos p = listado.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
         if (p != null) {
             nombre.setText(p.getNombre());
-            edad.setText(p.getEdad().toString());
+            edad.setText(p.getChampions().toString());
         }
 
     }

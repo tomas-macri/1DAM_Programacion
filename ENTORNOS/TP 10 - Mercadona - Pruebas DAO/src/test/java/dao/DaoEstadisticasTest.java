@@ -47,7 +47,11 @@ public class DaoEstadisticasTest {
         listaBDProductos.add(prod2);
         listaBDProductos.add(prod3);
 
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(listaBDUsuarios, listaBDProductos);
+
+        BD bd = new BD();
+        bd.listaProductos = listaBDProductos;
+        bd.listaUsuarios = listaBDUsuarios;
+        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
 
 
         user1.getCarrito().add(new ProductoComprado(prod2, 10));
@@ -156,7 +160,10 @@ public class DaoEstadisticasTest {
         listaBDProductos.add(prod2);
         listaBDProductos.add(prod3);
 
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(listaBDUsuarios, listaBDProductos);
+        BD bd = new BD();
+        bd.listaProductos = listaBDProductos;
+        bd.listaUsuarios = listaBDUsuarios;
+        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
 
         List<Producto> listaProdsConIng2 = new ArrayList<>();
         listaProdsConIng2.add(prod1);
@@ -200,7 +207,10 @@ public class DaoEstadisticasTest {
         listaBDProductos.add(prod2);
         listaBDProductos.add(prod3);
 
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(listaBDUsuarios, listaBDProductos);
+        BD bd = new BD();
+        bd.listaProductos = listaBDProductos;
+        bd.listaUsuarios = listaBDUsuarios;
+        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
 
 
         user1.getCarrito().add(new ProductoComprado(prod2, 10));

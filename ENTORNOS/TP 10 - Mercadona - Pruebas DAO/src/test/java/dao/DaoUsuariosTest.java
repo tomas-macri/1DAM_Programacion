@@ -27,7 +27,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario nuevoUser = new Usuario("dni4", "user4", new ArrayList<>());
         boolean seAgrego = daoUsuarios.agregarusuario(nuevoUser);
@@ -50,7 +52,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario nuevoUser = new Usuario("dni1", "user4", new ArrayList<>());
         boolean seAgrego = daoUsuarios.agregarusuario(nuevoUser);
@@ -73,7 +77,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario userEliminado = daoUsuarios.eliminarUsuario("dni1");
 
@@ -95,7 +101,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario userEliminado = daoUsuarios.eliminarUsuario("dni4");
 
@@ -116,7 +124,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario usuario = daoUsuarios.getUsuario("dni1");
 
@@ -137,7 +147,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         Usuario usuario = daoUsuarios.getUsuario("dni4");
 
@@ -158,7 +170,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         boolean seCambio = daoUsuarios.modificarUsuarioNombre("dni1", listaBD.get("dni1"), new Usuario("dni1", "nuevoUser1", ingredienteArrayList));
 
@@ -179,7 +193,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         boolean seCambio = daoUsuarios.modificarUsuarioNombre("dni4", listaBD.get("dni4"), new Usuario("dni5", "pepe", new ArrayList<>()));
 
@@ -200,7 +216,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         boolean existe = daoUsuarios.elUsuarioExiste("dni1");
 
@@ -221,7 +239,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         boolean existe = daoUsuarios.elUsuarioExiste("dni4");
 
@@ -242,7 +262,9 @@ class DaoUsuariosTest {
         listaBD.put("dni2", new Usuario("dni2", "user2", ingredienteArrayList));
         listaBD.put("dni3", new Usuario("dni3", "user3", ingredienteArrayList));
 
-        DaoUsuarios daoUsuarios = new DaoUsuarios(listaBD);
+        BD bd = new BD();
+        bd.listaUsuarios = listaBD;
+        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
 
         assertEquals(new ArrayList<>(listaBD.values()), daoUsuarios.devolverLista());
     }

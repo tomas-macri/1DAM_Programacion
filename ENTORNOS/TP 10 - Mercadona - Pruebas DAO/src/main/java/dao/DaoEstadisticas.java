@@ -1,6 +1,7 @@
 package dao;
 
 
+import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Producto;
 import modelo.ProductoComprado;
@@ -14,9 +15,10 @@ public class DaoEstadisticas {
     private LinkedHashMap<String, Usuario> bdUsuarios;
     private List<Producto> bdProductos;
 
-    public DaoEstadisticas(LinkedHashMap<String, Usuario> bdUsuarios, List<Producto> bdProductos){
-        this.bdUsuarios = bdUsuarios;
-        this.bdProductos = bdProductos;
+    @Inject
+    public DaoEstadisticas(BD bd){
+        this.bdUsuarios = bd.listaUsuarios;
+        this.bdProductos = bd.listaProductos;
     }
 
     public List<Map.Entry<String, Double>> listaProductosPorOrdenDeCompra() {

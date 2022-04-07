@@ -1,5 +1,7 @@
 package modelo;
 
+import jakarta.inject.Inject;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +15,7 @@ public class Producto implements Clonable<Producto>{
     public Producto(String nombre) {
         this.nombre = nombre;
     }
+
 
     public Producto(String nombre, double precio, int stock, List<Ingrediente> listaIngredientes) {
         this.nombre = nombre;
