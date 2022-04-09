@@ -1,5 +1,6 @@
 package dao;
 
+import dao.impl.DaoUsuariosImpl;
 import modelo.Ingrediente;
 import modelo.Usuario;
 import org.junit.jupiter.api.DisplayName;
@@ -29,10 +30,10 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
         Usuario nuevoUser = new Usuario("dni4", "user4", new ArrayList<>());
-        boolean seAgrego = daoUsuarios.agregarusuario(nuevoUser);
+        boolean seAgrego = daoUsuariosImpl.agregarusuario(nuevoUser);
 
         assertEquals(nuevoUser, listaBD.get(nuevoUser.getDni()));
         assertTrue(seAgrego);
@@ -54,10 +55,10 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
         Usuario nuevoUser = new Usuario("dni1", "user4", new ArrayList<>());
-        boolean seAgrego = daoUsuarios.agregarusuario(nuevoUser);
+        boolean seAgrego = daoUsuariosImpl.agregarusuario(nuevoUser);
 
         assertEquals(nuevoUser, listaBD.get(nuevoUser.getDni()));
         assertFalse(seAgrego);
@@ -79,9 +80,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        Usuario userEliminado = daoUsuarios.eliminarUsuario("dni1");
+        Usuario userEliminado = daoUsuariosImpl.eliminarUsuario("dni1");
 
         assertNotEquals(userEliminado, listaBD.get(userEliminado.getDni()));
         assertEquals("user1", userEliminado.getNombre());
@@ -103,9 +104,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        Usuario userEliminado = daoUsuarios.eliminarUsuario("dni4");
+        Usuario userEliminado = daoUsuariosImpl.eliminarUsuario("dni4");
 
         assertNull(userEliminado);
     }
@@ -126,9 +127,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        Usuario usuario = daoUsuarios.getUsuario("dni1");
+        Usuario usuario = daoUsuariosImpl.getUsuario("dni1");
 
         assertEquals(new Usuario("dni1", "user1", ingredienteArrayList), usuario);
     }
@@ -149,9 +150,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        Usuario usuario = daoUsuarios.getUsuario("dni4");
+        Usuario usuario = daoUsuariosImpl.getUsuario("dni4");
 
         assertNull(usuario);
     }
@@ -172,9 +173,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        boolean seCambio = daoUsuarios.modificarUsuarioNombre("dni1", listaBD.get("dni1"), new Usuario("dni1", "nuevoUser1", ingredienteArrayList));
+        boolean seCambio = daoUsuariosImpl.modificarUsuarioNombre("dni1", listaBD.get("dni1"), new Usuario("dni1", "nuevoUser1", ingredienteArrayList));
 
         assertTrue(seCambio);
     }
@@ -195,9 +196,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        boolean seCambio = daoUsuarios.modificarUsuarioNombre("dni4", listaBD.get("dni4"), new Usuario("dni5", "pepe", new ArrayList<>()));
+        boolean seCambio = daoUsuariosImpl.modificarUsuarioNombre("dni4", listaBD.get("dni4"), new Usuario("dni5", "pepe", new ArrayList<>()));
 
         assertFalse(seCambio);
     }
@@ -218,9 +219,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        boolean existe = daoUsuarios.elUsuarioExiste("dni1");
+        boolean existe = daoUsuariosImpl.elUsuarioExiste("dni1");
 
         assertTrue(existe);
     }
@@ -241,9 +242,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        boolean existe = daoUsuarios.elUsuarioExiste("dni4");
+        boolean existe = daoUsuariosImpl.elUsuarioExiste("dni4");
 
         assertFalse(existe);
     }
@@ -264,9 +265,9 @@ class DaoUsuariosTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoUsuarios daoUsuarios = new DaoUsuarios(bd);
+        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(bd);
 
-        assertEquals(new ArrayList<>(listaBD.values()), daoUsuarios.devolverLista());
+        assertEquals(new ArrayList<>(listaBD.values()), daoUsuariosImpl.devolverLista());
     }
 
 

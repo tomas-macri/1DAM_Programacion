@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UIAdminUsuarios {
-    private ServiciosUsuarios serviciosUsuarios;
+    private ServiciosUsuarios serviciosUsuariosImpl;
 
     @Inject
-    public UIAdminUsuarios(ServiciosUsuarios serviciosUsuarios){
-        this.serviciosUsuarios = serviciosUsuarios;
+    public UIAdminUsuarios(ServiciosUsuarios serviciosUsuariosImpl){
+        this.serviciosUsuariosImpl = serviciosUsuariosImpl;
     }
 
 
@@ -43,7 +43,7 @@ public class UIAdminUsuarios {
                     break;
                 case 4:
                     // mostrar usuarios
-                    System.out.println(serviciosUsuarios.getLista());
+                    System.out.println(serviciosUsuariosImpl.getLista());
                     System.out.println();
                     break;
                 case 5:
@@ -98,7 +98,7 @@ public class UIAdminUsuarios {
                 unUser = new UsuarioEspecial(dniCliente, nomCliente, ingredienteList, porcentaje);
             }
 
-            if (serviciosUsuarios.agregarUsuario(unUser)) {
+            if (serviciosUsuariosImpl.agregarUsuario(unUser)) {
                 System.out.println(Constantes.SE_AGREGO + unUser + Constantes.A_LA_LISTA_DE_USUARIOS_DISPONIBLES);
             } else {
                 System.out.println(Constantes.EL_USUARIO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_USUARIOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);
@@ -177,8 +177,8 @@ public class UIAdminUsuarios {
         System.out.println(Constantes.INGRESE_EL_NUEVO_DNI_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoDNI = sc.nextLine();
         // cambiar solo el dni
-        if (serviciosUsuarios.modificarUsuarioDNI(dniMod, nuevoDNI)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(nuevoDNI));
+        if (serviciosUsuariosImpl.modificarUsuarioDNI(dniMod, nuevoDNI)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuariosImpl.getUsuarioString(nuevoDNI));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_SE_INTENTO_CAMBIAR_POR_UN_DNI_DE_UN_USUARIO_QUE_YA_ESTA_EN_LA_LISTA_INTENTE_NUEVAMENTE);
         }
@@ -188,8 +188,8 @@ public class UIAdminUsuarios {
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_USUARIO + dniMod + Constantes.DOS_PUNTOS);
         nuevoNombreProd = sc.nextLine();
-        if (serviciosUsuarios.modificarUsuarioNombre(dniMod, nuevoNombreProd, serviciosUsuarios.getUsuario(dniMod).getIngredienteList())) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(dniMod));
+        if (serviciosUsuariosImpl.modificarUsuarioNombre(dniMod, nuevoNombreProd, serviciosUsuariosImpl.getUsuario(dniMod).getIngredienteList())) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuariosImpl.getUsuarioString(dniMod));
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_USUARIO_EN_NUESTRA_LISTA_DE_USUARIOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
@@ -209,8 +209,8 @@ public class UIAdminUsuarios {
 
         // cambiar
         Usuario userNuevo = new Usuario(nuevoDNIUsuario, nuevoNombreUsuario, ingredienteList);
-        if (serviciosUsuarios.modificarUsuario(userNuevo, dniMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuarios.getUsuarioString(nuevoDNIUsuario));
+        if (serviciosUsuariosImpl.modificarUsuario(userNuevo, dniMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_USUARIO_AHORA_ES + serviciosUsuariosImpl.getUsuarioString(nuevoDNIUsuario));
         } else {
             System.out.println(Constantes.ERROR_BUSQUEDA_Y_MODIFICACION_USUARIOS);
         }
@@ -225,7 +225,7 @@ public class UIAdminUsuarios {
             System.out.println(Constantes.INGRESE_EL_DNI_DEL_USUARIO_QUE_DESEA_ELIMINAR);
             dniUsuario = sc.nextLine();
 
-            Usuario userEliminado = serviciosUsuarios.eliminarUsuario(dniUsuario);
+            Usuario userEliminado = serviciosUsuariosImpl.eliminarUsuario(dniUsuario);
 
             if (userEliminado != null) {
                 System.out.println(Constantes.SE_ELIMINO + userEliminado + Constantes.DE_LA_LISTA_DE_USUARIOS);

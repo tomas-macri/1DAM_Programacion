@@ -1,6 +1,8 @@
 package dao;
 
-import domain.modelo.Equipos;
+import domain.modelo.Equipo;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -13,14 +15,45 @@ public class DaoEquipos {
     }
 
 
-    public void addEquipo(Equipos equipoNuevo) {
-        List<Equipos> equipos = bd.loadEquipos();
+    public Equipo addEquipo(Equipo equipoNuevo) {
+        ObservableList<Equipo> equipos = FXCollections.observableArrayList(bd.loadEquipos());
+        if (equipos == null) {
+            equipos = FXCollections.observableArrayList();
+        }
         equipos.add(equipoNuevo);
         bd.saveEquipos(equipos);
+        return equipoNuevo;
     }
 
-    public List<Equipos> getPersonas() {
+    public ObservableList<Equipo> getEquipos() {
+        ObservableList<Equipo> equipos = FXCollections.observableArrayList(bd.loadEquipos());
+        if (equipos == null) {
+            equipos = FXCollections.observableArrayList();
+        }
         return equipos;
     }
 
+    public Equipo updateEquipo(Equipo equipo, Equipo equipoNuevo) {
+        ObservableList<Equipo> equipos = FXCollections.observableArrayList(bd.loadEquipos());
+        if (equipos == null) {
+            equipos = FXCollections.observableArrayList();
+        }
+        int indexEquipoViejo = equipos.indexOf(equipo);
+        if (indexEquipoViejo >= 0) {
+            equipos.set(indexEquipoViejo, equipoNuevo);
+        }
+        bd.saveEquipos(equipos);
+        return equipo;
+    }
+
+    public Equipo deleteEquipo(Equipo equipo) {
+        ObservableList<Equipo> equipos = FXCollections.observableArrayList(bd.loadEquipos());
+        if (equipos == null) {
+            equipos = FXCollections.observableArrayList();
+        }
+        boolean equipoEliminado = equipos.remove(equipo);
+        bd.saveEquipos(equipos);
+
+        return equipoEliminado ? equipo : null;
+    }
 }

@@ -6,16 +6,21 @@ import lombok.Data;
 import java.util.Objects;
 
 @Data
-public class Equipos {
+public class Equipo {
 
     private final String nombre;
     private final Integer champions;
+
+    public Equipo(String nombre, Integer champions){
+        this.nombre = nombre;
+        this.champions = champions;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Equipos equipos = (Equipos) o;
+        Equipo equipos = (Equipo) o;
         return Objects.equals(nombre, equipos.nombre);
     }
 
@@ -23,4 +28,5 @@ public class Equipos {
     public int hashCode() {
         return Objects.hash(nombre);
     }
+
 }

@@ -11,7 +11,6 @@ import lombok.extern.log4j.Log4j2;
 import java.io.IOException;
 
 @Getter
-@Log4j2
 @Singleton
 public class Configuracion {
     private String pathEquipos;
@@ -23,7 +22,7 @@ public class Configuracion {
 
             try {
 
-                JsonNode node = mapper.readTree(Configuracion.class.getClassLoader().getResourceAsStream("config.yaml"));
+                JsonNode node = mapper.readTree(Configuracion.class.getClassLoader().getResourceAsStream("config.yml"));
 
                 this.pathEquipos = node.get("pathEquipos").asText();
 

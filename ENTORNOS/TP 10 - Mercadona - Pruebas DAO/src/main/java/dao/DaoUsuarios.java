@@ -1,48 +1,19 @@
 package dao;
 
-import jakarta.inject.Inject;
 import modelo.Usuario;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
+public interface DaoUsuarios {
+    boolean agregarusuario(Usuario usuarioNuevo);
 
-public class DaoUsuarios {
+    Usuario eliminarUsuario(String dni);
 
-    private LinkedHashMap<String, Usuario> bdUsuarios;
+    boolean elUsuarioExiste(String key);
 
-    @Inject
-    public DaoUsuarios(BD bd){this.bdUsuarios = bd.listaUsuarios;}
+    boolean modificarUsuarioNombre(String dniOriginal, Usuario userViejo, Usuario userNuevo);
 
+    Usuario getUsuario(String dni);
 
-    public boolean agregarusuario(Usuario usuarioNuevo) {
-        String dni = usuarioNuevo.getDni();
-        if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {
-            bdUsuarios.put(dni, usuarioNuevo);
-            return true;
-        }
-        return false;
-    }
-
-    public Usuario eliminarUsuario(String dni) {
-        return bdUsuarios.remove(dni);
-    }
-
-    public boolean elUsuarioExiste(String key) {
-        return bdUsuarios.get(key) != null;
-    }
-
-    public boolean modificarUsuarioNombre(String dniOriginal, Usuario userViejo, Usuario userNuevo) {
-        return bdUsuarios.replace(dniOriginal, userViejo, userNuevo);
-    }
-
-    public Usuario getUsuario(String dni) {
-        return bdUsuarios.get(dni);
-    }
-
-    public List<Usuario> devolverLista() {
-        return bdUsuarios.values().stream()
-                .map(Usuario::clonar).collect(Collectors.toUnmodifiableList());
-    }
+    List<Usuario> devolverLista();
 }

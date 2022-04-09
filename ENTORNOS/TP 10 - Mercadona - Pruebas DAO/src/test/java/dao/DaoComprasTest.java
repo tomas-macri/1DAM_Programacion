@@ -1,5 +1,6 @@
 package dao;
 
+import dao.impl.DaoComprasImpl;
 import modelo.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,10 +32,10 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         Producto productoPrueba = new Producto("prod1", 15, 12, ingredienteArrayList);
-        daoCompras.quitarStock(1, productoPrueba);
+        daoComprasImpl.quitarStock(1, productoPrueba);
         assertEquals(11, productoPrueba.getStock());
 
     }
@@ -56,12 +57,12 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 15, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
 
-        boolean seAgrego = daoCompras.agregarALaCompra(productoPrueba, userComprando);
+        boolean seAgrego = daoComprasImpl.agregarALaCompra(productoPrueba, userComprando);
         assertTrue(seAgrego);
     }
 
@@ -82,13 +83,13 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 15, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
         userComprando.getCarrito().add(productoPrueba);
 
-        boolean seElimino = daoCompras.eliminarDeLaCompra(new Producto("prod1"), userComprando);
+        boolean seElimino = daoComprasImpl.eliminarDeLaCompra(new Producto("prod1"), userComprando);
         assertTrue(seElimino);
     }
 
@@ -109,11 +110,11 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         Usuario userComprando = listaBD.get("dni1");
 
-        boolean seElimino = daoCompras.eliminarDeLaCompra(new Producto("prod1"), userComprando);
+        boolean seElimino = daoComprasImpl.eliminarDeLaCompra(new Producto("prod1"), userComprando);
         assertFalse(seElimino);
     }
 
@@ -134,7 +135,7 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 10, 12, ingredienteArrayList), 5);
         Usuario userComprando = listaBD.get("dni1");
@@ -148,7 +149,7 @@ public class DaoComprasTest {
         );
 
         List<ProductoComprado> compra = userComprando.getCarrito();
-        daoCompras.pagar(tarjetita, valorFinalCompra.get(), userComprando, 100);
+        daoComprasImpl.pagar(tarjetita, valorFinalCompra.get(), userComprando, 100);
         assertEquals(150, tarjetita.getSaldo());
         assertIterableEquals(compra, userComprando.getComprasPrevias().get(userComprando.getComprasPrevias().size()-1));
     }
@@ -171,7 +172,7 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         ProductoComprado productoPrueba = new ProductoComprado(new Producto("prod1", 10, 12, ingredienteArrayList), 5);
         ProductoComprado productoPrueba2 = new ProductoComprado(new Producto("prod2", 12, 13, ingredienteArrayList), 4);
@@ -183,7 +184,7 @@ public class DaoComprasTest {
 
 
         List<ProductoComprado> compra = userComprando.getCarrito();
-        List<ProductoComprado> carritoActual = daoCompras.devolverLista(userComprando);
+        List<ProductoComprado> carritoActual = daoComprasImpl.devolverLista(userComprando);
         assertEquals(compra, carritoActual);
     }
 
@@ -204,7 +205,7 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
 
         Usuario userComprando = listaBD.get("dni1");
@@ -225,7 +226,7 @@ public class DaoComprasTest {
             userComprando.setCarrito(new ArrayList<>());
         }
 
-        assertEquals(comprasHistoricas, daoCompras.devolverComprasPrevias(userComprando));
+        assertEquals(comprasHistoricas, daoComprasImpl.devolverComprasPrevias(userComprando));
     }
 
     @Test
@@ -244,7 +245,7 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
         Usuario userComprando = listaBD.get("dni1");
 
@@ -272,7 +273,7 @@ public class DaoComprasTest {
         productosValidos.add(prod2);
         productosValidos.add(prod3);
 
-        assertIterableEquals(productosValidos, daoCompras.getProductosSinAlergias(userComprando, productoList));
+        assertIterableEquals(productosValidos, daoComprasImpl.getProductosSinAlergias(userComprando, productoList));
 
 
     }
@@ -294,7 +295,7 @@ public class DaoComprasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoCompras daoCompras = new DaoCompras(bd);
+        DaoComprasImpl daoComprasImpl = new DaoComprasImpl(bd);
 
 
         Usuario userComprando = listaBD.get("dni1");
@@ -318,7 +319,7 @@ public class DaoComprasTest {
             userComprando.setCarrito(new ArrayList<>());
         }
 
-        assertEquals(acumDineroGastado, daoCompras.dineroGastadoDeCliente(userComprando));
+        assertEquals(acumDineroGastado, daoComprasImpl.dineroGastadoDeCliente(userComprando));
     }
 
 

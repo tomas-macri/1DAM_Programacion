@@ -1,93 +1,26 @@
 package servicios;
 
-import dao.BD;
-import dao.DaoCompras;
-import dao.DaoProductos;
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
-import jakarta.inject.Inject;
-import modelo.*;
+import modelo.Producto;
+import modelo.ProductoComprado;
+import modelo.Tarjeta;
+import modelo.Usuario;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class ServiciosCompras {
-    
-    SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-    final SeContainer container = initializer.initialize();
+public interface ServiciosCompras {
+    boolean hayStock(int stockAComprar, Producto prod);
 
-    private DaoCompras daoCompras;
+    boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado);
 
-    @Inject
-    public ServiciosCompras(Usuario user, DaoCompras daoCompras) {
-        user.setCarrito(new ArrayList<>());
-        this.daoCompras = daoCompras;
-        
-    }
+    boolean eliminarDeLaCompra(Producto prod, Usuario user);
 
-    public boolean hayStock(int stockAComprar, Producto prod) {
-        if (stockAComprar > 0 && prod.getStock() - stockAComprar >= 0) {
-            daoCompras.quitarStock(stockAComprar, prod);
-            return true;
-        }
-        return false;
-    }
+    List<ProductoComprado> getListaCompra(Usuario userLogueado);
 
-    public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
-        if (prodComp != null && userLogueado != null) {
-            daoCompras.agregarALaCompra(prodComp, userLogueado);
-            return true;
-        }
-        return false;
-    }
+    boolean pagar(Tarjeta tarjeta, Usuario user);
 
-    public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
-        if (prod != null) {
-            return daoCompras.eliminarDeLaCompra(prod, user);
-        } else {
-            return false;
-        }
-    }
+    List<List<ProductoComprado>> getComprasPrevias(Usuario userLogueado);
 
-    public List<ProductoComprado> getListaCompra(Usuario userLogueado) {
-        return daoCompras.devolverLista(userLogueado);
-    }
+    List<Producto> getProductosSinAlergia(Usuario userLogueado, List<Producto> lista);
 
-    public boolean pagar(Tarjeta tarjeta, Usuario user) {
-        boolean pudoPagar;
-        if (!tarjeta.getNombre().equalsIgnoreCase("error") && user != null && !user.getCarrito().isEmpty()) {
-            double saldoDisponible = tarjeta.getSaldo();
-            AtomicInteger valorFinalCompra = new AtomicInteger();
-            user.getCarrito().forEach(productoComprado -> valorFinalCompra.addAndGet((int) (productoComprado.getCantidad() * productoComprado.getProducto().getPrecio()))
-
-            );
-
-            if (saldoDisponible - valorFinalCompra.get() > 0) {
-                int porcentajeACobrar = 100;
-                if (user.getClass() == UsuarioEspecial.class){
-                    porcentajeACobrar -= ((UsuarioEspecial) user).getPorcentajeDescuento();
-                }
-                daoCompras.pagar(tarjeta, valorFinalCompra.get(), user, porcentajeACobrar);
-                return true;
-            } else {
-                pudoPagar = false;
-            }
-        } else {
-            pudoPagar = false;
-        }
-        return pudoPagar;
-    }
-
-    public List<List<ProductoComprado>> getComprasPrevias(Usuario userLogueado) {
-        return daoCompras.devolverComprasPrevias(userLogueado);
-    }
-
-    public List<Producto> getProductosSinAlergia(Usuario userLogueado, List<Producto> lista) {
-        return daoCompras.getProductosSinAlergias(userLogueado, lista);
-    }
-
-    public Double dineroGastadoPorCliente(Usuario userLogueado){
-        return daoCompras.dineroGastadoDeCliente(userLogueado);
-    }
+    Double dineroGastadoPorCliente(Usuario userLogueado);
 }

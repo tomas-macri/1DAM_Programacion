@@ -1,5 +1,6 @@
 package dao;
 
+import dao.impl.DaoEstadisticasImpl;
 import modelo.Ingrediente;
 import modelo.Producto;
 import modelo.ProductoComprado;
@@ -7,7 +8,6 @@ import modelo.Usuario;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.security.KeyStore;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -51,7 +51,7 @@ public class DaoEstadisticasTest {
         BD bd = new BD();
         bd.listaProductos = listaBDProductos;
         bd.listaUsuarios = listaBDUsuarios;
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
+        DaoEstadisticasImpl daoEstadisticasImpl = new DaoEstadisticasImpl(bd);
 
 
         user1.getCarrito().add(new ProductoComprado(prod2, 10));
@@ -108,7 +108,7 @@ public class DaoEstadisticasTest {
         listaResultado.add(new AbstractMap.SimpleEntry<String, Double>("prod1", 9.0));
 
 
-        List<Map.Entry<String, Double>> prodMasComprados = daoEstadisticas.listaProductosPorOrdenDeCompra();
+        List<Map.Entry<String, Double>> prodMasComprados = daoEstadisticasImpl.listaProductosPorOrdenDeCompra();
 
         assertEquals(listaResultado, prodMasComprados);
 
@@ -163,13 +163,13 @@ public class DaoEstadisticasTest {
         BD bd = new BD();
         bd.listaProductos = listaBDProductos;
         bd.listaUsuarios = listaBDUsuarios;
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
+        DaoEstadisticasImpl daoEstadisticasImpl = new DaoEstadisticasImpl(bd);
 
         List<Producto> listaProdsConIng2 = new ArrayList<>();
         listaProdsConIng2.add(prod1);
         listaProdsConIng2.add(prod3);
 
-        assertEquals(listaProdsConIng2, daoEstadisticas.listaProductosConIngrediente(new Ingrediente("ing2")));
+        assertEquals(listaProdsConIng2, daoEstadisticasImpl.listaProductosConIngrediente(new Ingrediente("ing2")));
 
     }
 
@@ -210,7 +210,7 @@ public class DaoEstadisticasTest {
         BD bd = new BD();
         bd.listaProductos = listaBDProductos;
         bd.listaUsuarios = listaBDUsuarios;
-        DaoEstadisticas daoEstadisticas = new DaoEstadisticas(bd);
+        DaoEstadisticasImpl daoEstadisticasImpl = new DaoEstadisticasImpl(bd);
 
 
         user1.getCarrito().add(new ProductoComprado(prod2, 10));
@@ -264,7 +264,7 @@ public class DaoEstadisticasTest {
         listaUsuariosOrdenCompra.add(user3);
         listaUsuariosOrdenCompra.add(user1);
 
-        assertEquals(listaUsuariosOrdenCompra, daoEstadisticas.listaClientesPorGasto());
+        assertEquals(listaUsuariosOrdenCompra, daoEstadisticasImpl.listaClientesPorGasto());
 
     }
 

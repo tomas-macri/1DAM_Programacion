@@ -3,11 +3,9 @@ package dao;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import config.Configuracion;
-import domain.modelo.Equipos;
-import lombok.extern.log4j.Log4j2;
+import domain.modelo.Equipo;
 
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,13 +15,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j2
 public class DataBase {
     private Gson gson;
 
     private Configuracion configuracion;
 
     public DataBase() {
+
         this.gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class,
                         (JsonDeserializer<LocalDateTime>) (json, type, jsonDeserializationContext) ->
@@ -37,17 +35,18 @@ public class DataBase {
                 .registerTypeAdapter(LocalDate.class,
                         (JsonSerializer<LocalDate>) (localDateTime, type, jsonSerializationContext) ->
                                 new JsonPrimitive(localDateTime.toString()))
+                //.registerTypeAdapter(Equipo.classadapter)
                 .create();
 
 
         this.configuracion = new Configuracion();
     }
 
-    public List<Equipos> loadEquipos() {
-        Type userListType = new TypeToken<List<Equipos>>() {
+    public List<Equipo> loadEquipos() {
+        Type userListType = new TypeToken<List<Equipo>>() {
         }.getType();
 
-        List<Equipos> productos = new ArrayList<>();
+        List<Equipo> productos = new ArrayList<>();
         try (FileReader w = new FileReader(configuracion.getPathEquipos())) {
             productos = gson.fromJson(
                    w,
@@ -62,7 +61,7 @@ public class DataBase {
         return productos;
     }
 
-    public boolean saveEquipos(List<Equipos> equipos) {
+    public boolean saveEquipos(List<Equipo> equipos) {
 
         try (FileWriter w = new FileWriter(configuracion.getPathEquipos())) {
             gson.toJson(equipos, w);

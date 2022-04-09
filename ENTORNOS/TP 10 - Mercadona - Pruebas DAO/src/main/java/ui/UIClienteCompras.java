@@ -1,6 +1,5 @@
 package ui;
 
-import dao.DaoTarjetas;
 import jakarta.inject.Inject;
 import modelo.Producto;
 import modelo.ProductoComprado;
@@ -15,15 +14,15 @@ import java.util.Scanner;
 
 public class UIClienteCompras {
     
-    private ServiciosTarjetas serviciosTarjetas;
-    private ServiciosCompras serviciosCompras;
-    private ServiciosProductos serviciosProductos;
+    private ServiciosTarjetas serviciosTarjetasImpl;
+    private ServiciosCompras serviciosComprasImpl;
+    private ServiciosProductos serviciosProductosImpl;
 
     @Inject
-    public UIClienteCompras(ServiciosTarjetas serviciosTarjetas, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos){
-        this.serviciosTarjetas = serviciosTarjetas;
-        this.serviciosCompras = serviciosCompras;
-        this.serviciosProductos = serviciosProductos;
+    public UIClienteCompras(ServiciosTarjetas serviciosTarjetasImpl, ServiciosCompras serviciosComprasImpl, ServiciosProductos serviciosProductosImpl){
+        this.serviciosTarjetasImpl = serviciosTarjetasImpl;
+        this.serviciosComprasImpl = serviciosComprasImpl;
+        this.serviciosProductosImpl = serviciosProductosImpl;
 
     }
 
@@ -38,23 +37,23 @@ public class UIClienteCompras {
             switch (opcion) {
                 case 1:
                     //agregar productos a la compra
-                    agregarProdACompra(userLogueado, sc, serviciosCompras, serviciosProductos);
+                    agregarProdACompra(userLogueado, sc, serviciosComprasImpl, serviciosProductosImpl);
                     break;
                 case 2:
-                    eliminarProductoDeLaCompra(userLogueado, sc, serviciosCompras, serviciosProductos);
+                    eliminarProductoDeLaCompra(userLogueado, sc, serviciosComprasImpl, serviciosProductosImpl);
                     break;
 
                 case 3:
                     // mostrar productos
-                    System.out.println(serviciosCompras.getListaCompra(userLogueado));
+                    System.out.println(serviciosComprasImpl.getListaCompra(userLogueado));
                     System.out.println();
                     break;
                 case 4:
                     //pagar
-                    pagar(userLogueado, sc, serviciosCompras);
+                    pagar(userLogueado, sc, serviciosComprasImpl);
                     break;
                 case 5:
-                    System.out.println(serviciosCompras.getProductosSinAlergia(userLogueado, serviciosProductos.getLista()));
+                    System.out.println(serviciosComprasImpl.getProductosSinAlergia(userLogueado, serviciosProductosImpl.getLista()));
                     System.out.println();
                     break;
                 case 6:
@@ -67,13 +66,13 @@ public class UIClienteCompras {
         } while (opcion != 6);
     }
 
-    private void pagar(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras) {
+    private void pagar(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosComprasImpl) {
         String nombTarjeta;
 
         System.out.println(Constantes.INGRESE_EL_NOMBRE_DE_LA_TARJETA_CON_LA_QUE_DESEA_PAGAR);
         nombTarjeta= sc.nextLine();
-        Tarjeta tarjetaParaPagar = serviciosTarjetas.getTarjeta(nombTarjeta, userLogueado);
-        if (serviciosCompras.pagar(tarjetaParaPagar, userLogueado)){
+        Tarjeta tarjetaParaPagar = serviciosTarjetasImpl.getTarjeta(nombTarjeta, userLogueado);
+        if (serviciosComprasImpl.pagar(tarjetaParaPagar, userLogueado)){
             System.out.println(Constantes.LA_COMPRA_SE_REALIZO_CON_EXITO);
         }
         else {
@@ -81,13 +80,13 @@ public class UIClienteCompras {
         }
     }
 
-    private void eliminarProductoDeLaCompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {
+    private void eliminarProductoDeLaCompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosComprasImpl, ServiciosProductos serviciosProductosImpl) {
         // eliminar prod de la compra
         System.out.println(Constantes.INGRESE_EL_NOMBRE_DEL_PRODUCTO_QUE_DESEA_ELIMINAR_DE_LA_LISTA_DE_COMPRAS);
 
         String nombProd = sc.nextLine();
-        Producto prodAComprar = serviciosProductos.getProducto(nombProd);
-        if (serviciosCompras.eliminarDeLaCompra(prodAComprar, userLogueado)){
+        Producto prodAComprar = serviciosProductosImpl.getProducto(nombProd);
+        if (serviciosComprasImpl.eliminarDeLaCompra(prodAComprar, userLogueado)){
             System.out.println(Constantes.EL_PRODUCTO_SE_HA_ELIMINADO_CORRECTAMENTE_DE_LA_LISTA_DE_COMPRAS);
         }
         else {
@@ -95,13 +94,13 @@ public class UIClienteCompras {
         }
     }
 
-    private void agregarProdACompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosCompras, ServiciosProductos serviciosProductos) {
+    private void agregarProdACompra(Usuario userLogueado, Scanner sc, ServiciosCompras serviciosComprasImpl, ServiciosProductos serviciosProductosImpl) {
         Producto prodAComprar;
         String nombProd;
         do {
             System.out.println(Constantes.INGRESE_EL_NOMBRE_DEL_PRODUCTO_QUE_QUIERE_AGREGAR_A_LA_COMPRA_O_FIN_PARA_TERMINAR);
             nombProd = sc.nextLine();
-            prodAComprar = serviciosProductos.getProducto(nombProd);
+            prodAComprar = serviciosProductosImpl.getProducto(nombProd);
 
             if (prodAComprar != null && !nombProd.equalsIgnoreCase(Constantes.FIN)) {
                 int stockAComprar;
@@ -109,12 +108,12 @@ public class UIClienteCompras {
                 stockAComprar = sc.nextInt();
                 sc.nextLine();
 
-                if (serviciosCompras.hayStock(stockAComprar, prodAComprar)) {
+                if (serviciosComprasImpl.hayStock(stockAComprar, prodAComprar)) {
                     System.out.println(Constantes.SE_AGREGARON + stockAComprar + Constantes.DE + prodAComprar + Constantes.A_LA_LISTA_DE_COMPRAS);
                     System.out.println();
 
                     ProductoComprado productoComprado = new ProductoComprado(prodAComprar, stockAComprar);
-                    serviciosCompras.agregarALaCompra(productoComprado, userLogueado);
+                    serviciosComprasImpl.agregarALaCompra(productoComprado, userLogueado);
                 } else {
                     System.out.println(Constantes.EL_STOCK_QUE_INGRESÓ_ES_MENOR_QUE_1_O_ES_MAYOR_AL_STOCK_QUE_NOS_QUEDA_DEL_PRODUCTO + prodAComprar);
                     System.out.println();

@@ -1,7 +1,5 @@
 package ui;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
 import modelo.Usuario;
 import servicios.ServiciosCompras;
@@ -11,13 +9,13 @@ import java.util.Scanner;
 
 public class MainClientes {
 
-    private ServiciosCompras serviciosCompras;
+    private ServiciosCompras serviciosComprasImpl;
     private UIClienteCompras uiClienteCompras;
     private UIClienteTarjetas uiClienteTarjetas;
 
     @Inject
-    public MainClientes(ServiciosCompras serviciosCompras){
-        this.serviciosCompras = serviciosCompras;
+    public MainClientes(ServiciosCompras serviciosComprasImpl){
+        this.serviciosComprasImpl = serviciosComprasImpl;
         this.uiClienteCompras = uiClienteCompras;
         this.uiClienteTarjetas = uiClienteTarjetas;
     }
@@ -49,14 +47,14 @@ public class MainClientes {
                     break;
                 case 2:
                     // ver las comprar previas
-                    System.out.println(serviciosCompras.getComprasPrevias(userLogueado));
+                    System.out.println(serviciosComprasImpl.getComprasPrevias(userLogueado));
                     break;
                 case 3:
                     //ir a la ui de tarjetas
                     uiClienteTarjetas.inicioUITarjetas(userLogueado);
                     break;
                 case 4:
-                    System.out.println(Constantes.LLEVA_GASTADO_UN_TOTAL_DE_€ + serviciosCompras.dineroGastadoPorCliente(userLogueado));
+                    System.out.println(Constantes.LLEVA_GASTADO_UN_TOTAL_DE_€ + serviciosComprasImpl.dineroGastadoPorCliente(userLogueado));
                     break;
                 case 5:
                     System.out.println(Constantes.CHAU);

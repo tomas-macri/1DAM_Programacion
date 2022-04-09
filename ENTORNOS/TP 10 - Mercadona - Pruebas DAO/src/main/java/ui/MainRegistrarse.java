@@ -1,7 +1,5 @@
 package ui;
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Usuario;
@@ -14,12 +12,12 @@ import java.util.Scanner;
 
 public class MainRegistrarse {
 
-    private ServiciosUsuarios serviciosUsuarios;
+    private ServiciosUsuarios serviciosUsuariosImpl;
     private MainClientes mainClientes;
 
     @Inject
-    public MainRegistrarse(ServiciosUsuarios serviciosUsuarios, MainClientes mainClientes){
-        this.serviciosUsuarios = serviciosUsuarios;
+    public MainRegistrarse(ServiciosUsuarios serviciosUsuariosImpl, MainClientes mainClientes){
+        this.serviciosUsuariosImpl = serviciosUsuariosImpl;
         this.mainClientes = mainClientes;
     }
 
@@ -40,7 +38,7 @@ public class MainRegistrarse {
 
             List<Ingrediente>  ingredienteArrayList = cargarListIngredientes(sc);
             Usuario unUser = new Usuario(dniCliente, nomCliente, ingredienteArrayList);
-            if (!dniCliente.equalsIgnoreCase("-1") && serviciosUsuarios.agregarUsuario(unUser)) {
+            if (!dniCliente.equalsIgnoreCase("-1") && serviciosUsuariosImpl.agregarUsuario(unUser)) {
                     mainClientes.inicioMenuClientes(unUser);
             }
         } while (!dniCliente.equalsIgnoreCase("-1"));

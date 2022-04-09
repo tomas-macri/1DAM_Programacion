@@ -1,14 +1,14 @@
 package ui.pantallas.principal;
 
 
-import domain.modelo.Equipos;
+import domain.modelo.Equipo;
 import javafx.collections.ObservableList;
 import lombok.Data;
 
 @Data
-public class PrincipalState {
+public class PrincipalStateBORRAR {
 
-    private final ObservableList<Equipos> equipos;
+    private final ObservableList<Equipo> equipos;
 
     private final String error;
 

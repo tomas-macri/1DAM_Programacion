@@ -1,9 +1,8 @@
 package domain;
 
 import dao.DaoEquipos;
-import domain.modelo.Equipos;
-
-import java.util.List;
+import domain.modelo.Equipo;
+import javafx.collections.ObservableList;
 
 public class ServiciosEquipos {
 
@@ -13,15 +12,26 @@ public class ServiciosEquipos {
         this.daoEquipos = daoEquipos;
     }
 
-    public void addPersona(Equipos p) {
-        daoEquipos.addEquipo(p);
+    public Equipo addEquipo(Equipo equipo) {
+        if (!equipo.getNombre().equalsIgnoreCase("") && equipo.getChampions() >= 0) {
+            return daoEquipos.addEquipo(equipo);
+        }
+        return null;
     }
 
-    // get listado personas
-    public List<Equipos> getPersonas() {
-        return daoEquipos.getPersonas();
+    // get listado equipos
+    public ObservableList<Equipo> getEquipos() {
+        return daoEquipos.getEquipos();
     }
 
+    public Equipo updateEquipo(Equipo equipo, Equipo nuevoEquipo) {
+        if (!nuevoEquipo.getNombre().equalsIgnoreCase("") && nuevoEquipo.getChampions() >= 0) {
+            return daoEquipos.updateEquipo(equipo, nuevoEquipo);
+        }
+        return null;
+    }
 
-
+    public Equipo deleteEquipo(Equipo equipo) {
+        return daoEquipos.deleteEquipo(equipo);
+    }
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import dao.impl.DaoTarjetasImpl;
 import modelo.Ingrediente;
 import modelo.Tarjeta;
 import modelo.Usuario;
@@ -8,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class DaoTarjetasTest {
     @Test
@@ -27,12 +27,12 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", 200);
 
-        assertTrue(daoTarjetas.agregarTarjeta(nuevaTarjeta, userLogueado));
+        assertTrue(daoTarjetasImpl.agregarTarjeta(nuevaTarjeta, userLogueado));
     }
 
     @Test
@@ -51,12 +51,12 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", -50);
 
-        assertFalse(daoTarjetas.agregarTarjeta(nuevaTarjeta, userLogueado));
+        assertFalse(daoTarjetasImpl.agregarTarjeta(nuevaTarjeta, userLogueado));
     }
 
 
@@ -76,16 +76,16 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         Tarjeta nuevaTarjeta = new Tarjeta("tar1", 50);
-        daoTarjetas.agregarTarjeta(nuevaTarjeta, userLogueado);
+        daoTarjetasImpl.agregarTarjeta(nuevaTarjeta, userLogueado);
 
         Tarjeta otraTarjeta = new Tarjeta("tar1", 200);
 
 
-        assertFalse(daoTarjetas.agregarTarjeta(otraTarjeta, userLogueado));
+        assertFalse(daoTarjetasImpl.agregarTarjeta(otraTarjeta, userLogueado));
     }
 
     @Test
@@ -104,13 +104,13 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario usuario = listaBD.get("dni1");
         Tarjeta tarjetaValida = new Tarjeta("t1", 200);
         usuario.getListaTarjetas().add(tarjetaValida);
 
-        Tarjeta tarjetaObtenida = daoTarjetas.getTarjeta("t1", usuario);
+        Tarjeta tarjetaObtenida = daoTarjetasImpl.getTarjeta("t1", usuario);
 
         assertEquals(tarjetaValida, tarjetaObtenida);
     }
@@ -132,14 +132,14 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario usuario = listaBD.get("dni1");
         Tarjeta tarjetaValida = new Tarjeta("t1", 200);
         usuario.getListaTarjetas().add(tarjetaValida);
 
 
-        Tarjeta tarjetaObtenida = daoTarjetas.getTarjeta("t4", usuario);
+        Tarjeta tarjetaObtenida = daoTarjetasImpl.getTarjeta("t4", usuario);
 
         assertNull(tarjetaObtenida);
     }
@@ -160,13 +160,13 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
 
         userLogueado.getListaTarjetas().add(new Tarjeta("t1", 500));
 
-        boolean existe = daoTarjetas.laTarjetaExiste("t1", userLogueado);
+        boolean existe = daoTarjetasImpl.laTarjetaExiste("t1", userLogueado);
 
 
         assertTrue(existe);
@@ -188,12 +188,12 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
         Usuario userLogueado = listaBD.get("dni1");
         userLogueado.getListaTarjetas().add(new Tarjeta("t1", 500));
 
-        boolean existe = daoTarjetas.laTarjetaExiste("t4", userLogueado);
+        boolean existe = daoTarjetasImpl.laTarjetaExiste("t4", userLogueado);
 
         assertFalse(existe);
     }
@@ -227,9 +227,9 @@ public class DaoTarjetasTest {
 
         BD bd = new BD();
         bd.listaUsuarios = listaBD;
-        DaoTarjetas daoTarjetas = new DaoTarjetas(bd);
+        DaoTarjetasImpl daoTarjetasImpl = new DaoTarjetasImpl(bd);
 
-        List<Tarjeta> listaObtenida = daoTarjetas.devolverLista(usuario);
+        List<Tarjeta> listaObtenida = daoTarjetasImpl.devolverLista(usuario);
 
         for (int i = 0; i < listaObtenida.size(); i++) {
             assertEquals(listTarjetas.get(i).getNombre(), listaObtenida.get(i).getNombre());
