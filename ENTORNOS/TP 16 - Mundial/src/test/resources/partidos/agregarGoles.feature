@@ -1,15 +1,15 @@
-Feature: Como usuario quiero agregarle goles a un equipo en un partido determinado
+Feature: Como usuario quiero agregarle goles a un equipo en un partido determinado para poder ver como seguiría el mundial
   Background:
-    Given un Partido partido={Equipo equipo1{nombre: "Argentina", goles:2}, golesEq1=-1, Equipo equipo2={nombre: "Arabia Saudí, goles:"1"}, golesEq2:1}
-    And el usuario selecciona el Equipo equipo{nombre: "Argentina", goles:2}
+    Given un Partido partido={Equipo equipo1{nombre: "Argentina", goles:2, invictos:2}, golesEq1=-1, Equipo equipo2={nombre: "Arabia Saudí", goles:1, invictos:0}, golesEq2:1}
+    And el usuario selecciona el Equipo equipo{nombre: "Argentina", goles:2, invictos:2}
 
     Feature: Agregar exitosamente
       Given golesEq1=2
-      And goles es mayor o igual que 0
+      And goles es mayor que 0
       And goles menor que 10
       When el usuario pulsa "aceptar"
       Then se actualiza el valor de golesEq1 a 2
-      And el Equipo equipo1={nombre: "Argentina", goles:2} se actualiza a equipo1={nombre: "Argentina", goles:4}
+      And el Partido partido={Equipo equipo1{nombre: "Argentina", goles:2, invictos:2}, golesEq1=2, Equipo equipo2={nombre: "Arabia Saudí", goles:1, invictos:0}, golesEq2:1}
 
     Feature: La cantidad de goles es un número negativo
       Given golesEq1=-2
