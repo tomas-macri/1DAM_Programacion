@@ -1,5 +1,6 @@
 package ui;
 
+import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 import servicios.ServiciosTarjetas;
@@ -9,10 +10,16 @@ import java.util.Scanner;
 
 public class UIClienteTarjetas {
 
+    private ServiciosTarjetas serviciosTarjetasImpl;
+
+    @Inject
+    public UIClienteTarjetas(ServiciosTarjetas serviciosTarjetasImpl){
+        this.serviciosTarjetasImpl = serviciosTarjetasImpl;
+    }
+
     public void inicioUITarjetas(Usuario usuarioLogueado){
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LAS_TARJETAS);
         Scanner sc = new Scanner(System.in);
-        ServiciosTarjetas serviciosTarjetas = new ServiciosTarjetas();
         int opcion;
         do {
             do {
@@ -34,7 +41,7 @@ public class UIClienteTarjetas {
                     break;
                 case 4:
                     // ver tarjetas
-                    System.out.println(serviciosTarjetas.devolverLista(usuarioLogueado));
+                    System.out.println(serviciosTarjetasImpl.devolverLista(usuarioLogueado));
                     System.out.println();
                     break;
                 case 5:
@@ -53,8 +60,6 @@ public class UIClienteTarjetas {
 
 
     private void agregarTarjeta(Scanner sc, Usuario userLogueado) {
-        ServiciosTarjetas servicios = new ServiciosTarjetas();
-
         System.out.println(Constantes.AGREGAR_TARJETA);
         System.out.println();
         String nombTarjeta;
@@ -71,7 +76,7 @@ public class UIClienteTarjetas {
             System.out.println();
             Tarjeta unaTarjeta = new Tarjeta(nombTarjeta, saldoTarjeta);
 
-            if (servicios.agregarTarjeta(unaTarjeta, userLogueado)) {
+            if (serviciosTarjetasImpl.agregarTarjeta(unaTarjeta, userLogueado)) {
                 System.out.println(Constantes.SE_AGREGO + unaTarjeta + Constantes.A_TU_LISTA_DE_TARJETAS);
             } else {
                 System.out.println(Constantes.LA_TARJETA_YA_SE_ENCONTRABA_EN_TU_LISTA_DE_TARJETAS_O_ALGUNOS_DE_LOS_CAMPOS_INGRESADOS_NO_ES_VÁLIDO);

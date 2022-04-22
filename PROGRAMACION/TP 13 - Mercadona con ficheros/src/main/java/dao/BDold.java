@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class BD {
+public class BDold {
     public static LinkedHashMap<String, Usuario> listaUsuarios = new LinkedHashMap<>();
     public static ArrayList<Producto> listaProductos = new ArrayList<>();
 

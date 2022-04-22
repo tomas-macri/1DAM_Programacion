@@ -1,5 +1,6 @@
 package ui;
 
+import jakarta.inject.Inject;
 import modelo.Usuarios.Usuario;
 import servicios.ServiciosCompras;
 import ui.common.Constantes;
@@ -8,14 +9,21 @@ import java.util.Scanner;
 
 public class MainClientes {
 
+    private ServiciosCompras serviciosComprasImpl;
+    private UIClienteCompras uiClienteCompras;
+    private UIClienteTarjetas uiClienteTarjetas;
+
+    @Inject
+    public MainClientes(ServiciosCompras serviciosComprasImpl, UIClienteCompras uiClienteCompras, UIClienteTarjetas uiClienteTarjetas) {
+        this.serviciosComprasImpl = serviciosComprasImpl;
+        this.uiClienteCompras = uiClienteCompras;
+        this.uiClienteTarjetas = uiClienteTarjetas;
+    }
 
     public void inicioMenuClientes(Usuario userLogueado){
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
         Scanner sc = new Scanner(System.in);
         int opcion;
-        ServiciosCompras serviciosCompras = new ServiciosCompras(userLogueado);
-        UIClienteCompras uiClienteCompras = new UIClienteCompras();
-        UIClienteTarjetas uiClienteTarjetas = new UIClienteTarjetas();
 
 
         System.out.println(Constantes.BIENVENIDO_CLIENTE);
@@ -39,14 +47,14 @@ public class MainClientes {
                     break;
                 case 2:
                     // ver las comprar previas
-                    System.out.println(serviciosCompras.getComprasPrevias(userLogueado));
+                    System.out.println(serviciosComprasImpl.getComprasPrevias(userLogueado));
                     break;
                 case 3:
                     //ir a la ui de tarjetas
                     uiClienteTarjetas.inicioUITarjetas(userLogueado);
                     break;
                 case 4:
-                    System.out.println(Constantes.LLEVA_GASTADO_UN_TOTAL_DE_€ + serviciosCompras.dineroGastadoPorCliente(userLogueado));
+                    System.out.println(Constantes.LLEVA_GASTADO_UN_TOTAL_DE_€ + serviciosComprasImpl.dineroGastadoPorCliente(userLogueado));
                     break;
                 case 5:
                     System.out.println(Constantes.CHAU);

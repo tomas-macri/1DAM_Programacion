@@ -1,5 +1,6 @@
 package modelo.Usuarios;
 
+import jakarta.inject.Inject;
 import modelo.Clonable;
 import modelo.Ingrediente;
 import modelo.ProductoComprado;
@@ -25,7 +26,7 @@ public abstract class Usuario implements Clonable<Usuario> {
         comprasPrevias = new ArrayList<>();
     }
 
-
+    @Inject
     public Usuario(String dni, String nombre, List<Ingrediente> ingredienteList) {
         this();
         this.dni = dni;

@@ -2,17 +2,28 @@ package ui;
 
 
 
+import jakarta.inject.Inject;
 import modelo.Usuarios.Usuario;
 import servicios.ServiciosUsuarios;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
-public class MainLogin
-{
+public class MainLogin {
+
+
+    private ServiciosUsuarios serviciosUsuariosImpl;
+    private MainAdmin mainAdmin;
+    private MainClientes mainClientes;
+
+    @Inject
+    public MainLogin(ServiciosUsuarios serviciosUsuariosImpl, MainAdmin mainAdmin, MainClientes mainClientes){
+        this.serviciosUsuariosImpl = serviciosUsuariosImpl;
+        this.mainAdmin = mainAdmin;
+        this.mainClientes = mainClientes;
+    }
 
     public void inicioLogin() {
-        ServiciosUsuarios serviciosUsuarios = new ServiciosUsuarios();
         Scanner sc = new Scanner(System.in);
 
         String dniIngresado;
@@ -20,13 +31,11 @@ public class MainLogin
             System.out.println(Constantes.BIENVENIDO_AL_MERCADONA);
             System.out.println(Constantes.INGRESE_SU_DNI_O_FIN_PARA_SALIR);
             dniIngresado = sc.nextLine();
-            Usuario userConEseDni = serviciosUsuarios.getUsuario(dniIngresado);
+            Usuario userConEseDni = serviciosUsuariosImpl.getUsuario(dniIngresado);
             if (userConEseDni != null) {
                 if (userConEseDni.isAdmin()) {
-                    MainAdmin mainAdmin = new MainAdmin();
                     mainAdmin.inicioMenuAdmin();
                 } else {
-                    MainClientes mainClientes = new MainClientes();
                     mainClientes.inicioMenuClientes(userConEseDni);
                 }
             } else {

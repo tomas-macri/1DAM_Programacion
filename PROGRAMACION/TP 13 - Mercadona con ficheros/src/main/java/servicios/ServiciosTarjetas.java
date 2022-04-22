@@ -1,31 +1,16 @@
 package servicios;
 
-import dao.DaoTarjetas;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 
 import java.util.List;
 
-public class ServiciosTarjetas {
+public interface ServiciosTarjetas {
+    boolean agregarTarjeta(Tarjeta tarjNueva, Usuario user);
 
+    boolean laTarjetaExiste(String nombreT, Usuario user);
 
-    public boolean agregarTarjeta(Tarjeta tarjNueva, Usuario user) {
-        String nombre = tarjNueva.getNombre();
-        DaoTarjetas dao = new DaoTarjetas();
-        if (!laTarjetaExiste(nombre, user) && !(nombre.equals("") || tarjNueva.getSaldo()<0)) {
-            dao.agregarusuario(tarjNueva, user);
-            return true;
-        }
-        return false;
-    }
+    List<Tarjeta> devolverLista(Usuario user);
 
-    public boolean laTarjetaExiste(String nombreT, Usuario user) {
-        DaoTarjetas daoTarjetas = new DaoTarjetas();
-        return daoTarjetas.laTarjetaExiste(nombreT, user);
-    }
-
-    public List<Tarjeta> devolverLista(Usuario user){
-        DaoTarjetas daoTarjetas = new DaoTarjetas();
-        return daoTarjetas.devolverLista(user);
-    }
+    Tarjeta getTarjeta(String nombreT, Usuario user);
 }

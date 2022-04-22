@@ -20,6 +20,8 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Produces;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -174,6 +176,7 @@ public final class RuntimeTypeAdapterFactory<T> implements TypeAdapterFactory {
      * @throws IllegalArgumentException if either {@code type} or {@code label}
      *     have already been registered on this type adapter.
      */
+    @Produces
     public RuntimeTypeAdapterFactory<T> registerSubtype(Class<? extends T> type, String label) {
         if (type == null || label == null) {
             throw new NullPointerException();

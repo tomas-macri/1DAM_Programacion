@@ -1,5 +1,6 @@
 package ui;
 
+import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Productos.ProductoCaducable;
 import modelo.Productos.ProductoNormal;
@@ -12,33 +13,38 @@ import java.util.*;
 
 public class UIAdminProductos {
 
+    private ServiciosProductos serviciosProductosImpl;
+
+    @Inject
+    public UIAdminProductos(ServiciosProductos serviciosProductosImpl){
+        this.serviciosProductosImpl = serviciosProductosImpl;
+    }
+
     public void inicioUIProductos() {
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         Scanner sc = new Scanner(System.in);
-        UIAdminProductos uiAdminProductos = new UIAdminProductos();
         int opcion;
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
         System.out.println();
 
         do {
-            opcion = uiAdminProductos.mostrarMenu(sc);
+            opcion = mostrarMenu(sc);
             System.out.println();
             switch (opcion) {
                 case 1:
                     //agregar productos
-                    uiAdminProductos.agregarProducto(sc);
+                    agregarProducto(sc);
                     break;
                 case 2:
                     // modificar prod
-                    uiAdminProductos.modificarProducto(sc);
+                    modificarProducto(sc);
                     break;
                 case 3:
                     // eliminar prod
-                    uiAdminProductos.eliminarProducto(sc);
+                    eliminarProducto(sc);
                     break;
                 case 4:
                     // mostrar productos
-                    System.out.println(serviciosProductos.getLista());
+                    System.out.println(serviciosProductosImpl.getLista());
 
                     System.out.println();
                     break;
@@ -65,7 +71,6 @@ public class UIAdminProductos {
     }
 
     public void agregarProducto(Scanner sc) {
-        ServiciosProductos dao = new ServiciosProductos();
         System.out.println(Constantes.AGREGAR_PRODUCTOS);
         System.out.println();
         String nomProd;
@@ -101,7 +106,7 @@ public class UIAdminProductos {
                 unProd = new ProductoCaducable(nomProd, precioProd, stockProd, ingredienteList, LocalDateTime.now().plusMinutes(cuandoCaduca));
             }
 
-            if (dao.agregarProducto(unProd)) {
+            if (serviciosProductosImpl.agregarProducto(unProd)) {
                 System.out.println(Constantes.SE_AGREGO + unProd + Constantes.A_LA_LISTA_DE_PRODUCTOS_DISPONIBLES);
             } else {
                 System.out.println(Constantes.EL_PRODUCTO_YA_SE_ENCONTRABA_EN_LA_LISTA_DE_PRODUCTOS_O_ALGUNO_DE_SUS_CAMPOS_NO_ERAN_VALIDOS_INTENTE_NUEVAMENTE);
@@ -131,7 +136,6 @@ public class UIAdminProductos {
     }
 
     private void eliminarProducto(Scanner sc) {
-        ServiciosProductos dao = new ServiciosProductos();
         String nomProducto;
         System.out.println(Constantes.ELIMINAR_PRODUCTOS);
         System.out.println();
@@ -140,7 +144,7 @@ public class UIAdminProductos {
             System.out.println(Constantes.INGRESE_NOMBRE_DEL_PRODUCTO);
             nomProducto = sc.nextLine();
 
-            if (dao.eliminarProducto(nomProducto)) {
+            if (serviciosProductosImpl.eliminarProducto(nomProducto)) {
                 System.out.println("Se elimino " + nomProducto + Constantes.DE_LA_LISTA_DE_PRODUCTOS);
             } else {
                 System.out.println(Constantes.EL_PRODUCTO + nomProducto + Constantes.NO_SE_ENCONTRABA_EN_LA_LISTA_DE_PRODUCTOS_POR_LO_QUE_NO_SE_ELIMINO);
@@ -205,45 +209,41 @@ public class UIAdminProductos {
     }
 
     private void modificarStockProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         int nuevoStockProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_STOCK_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
         nuevoStockProd = sc.nextInt();
         // cambiar solo el stock
-        if (serviciosProductos.modificarProductoStock(nomProdMod, nuevoStockProd)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nomProdMod).toString());
+        if (serviciosProductosImpl.modificarProductoStock(nomProdMod, nuevoStockProd)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductosImpl.getProducto(nomProdMod).toString());
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_STOCK_INGRESADO_ES_MENOR_QUE_0_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarPrecioProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         double nuevoPrecioProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_PRECIO_QUE_TENDRA_EL_LA + nomProdMod + Constantes.DOS_PUNTOS);
         nuevoPrecioProd = sc.nextDouble();
         // cambiar solo el precio
-        if (serviciosProductos.modificarProductoPrecio(nomProdMod, nuevoPrecioProd)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nomProdMod).toString());
+        if (serviciosProductosImpl.modificarProductoPrecio(nomProdMod, nuevoPrecioProd)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductosImpl.getProducto(nomProdMod).toString());
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_PRECIO_INGRESADO_ES_MENOR_QUE_0_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarNombreProducto(Scanner sc, String nomProdMod) {
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         String nuevoNombreProd;
         System.out.println(Constantes.INGRESE_EL_NUEVO_NOMBRE_QUE_TENDRA_EL_LA + nomProdMod + ": ");
         nuevoNombreProd = sc.nextLine();
-        if (serviciosProductos.modificarProductoNombre(nomProdMod, nuevoNombreProd)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nuevoNombreProd).toString());
+        if (serviciosProductosImpl.modificarProductoNombre(nomProdMod, nuevoNombreProd)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductosImpl.getProducto(nuevoNombreProd).toString());
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_NOMBRE_NUEVO_NO_TIENE_UN_VALOR_INTENTE_NUEVAMENTE);
         }
     }
 
     private void modificarProductoEntero(Scanner sc, String nomProdMod) {
-        ServiciosProductos serviciosProductos = new ServiciosProductos();
         double nuevoPrecioProd;
         int nuevoStockProd;
         String nuevoNombreProd;
@@ -267,8 +267,8 @@ public class UIAdminProductos {
 
         // cambiar
         Producto prodNuevo = new ProductoNormal(nuevoNombreProd, nuevoPrecioProd, nuevoStockProd, ingredienteList);
-        if (serviciosProductos.modificarProducto(prodNuevo, nomProdMod)) {
-            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductos.getProducto(nuevoNombreProd).toString());
+        if (serviciosProductosImpl.modificarProducto(prodNuevo, nomProdMod)) {
+            System.out.println(Constantes.SE_MODIFICO_EL_PRODUCTO_AHORA_ES + serviciosProductosImpl.getProducto(nuevoNombreProd).toString());
         } else {
             System.out.println(Constantes.NO_SE_ENCONTRO_EL_PRODUCTO_EN_NUESTRA_LISTA_DE_PRODUCTOS_O_EL_ALGUNO_DE_LOS_CAMPOS_INGRESADOS_ES_INVALIDO_INTENTE_NUEVAMENTE);
         }

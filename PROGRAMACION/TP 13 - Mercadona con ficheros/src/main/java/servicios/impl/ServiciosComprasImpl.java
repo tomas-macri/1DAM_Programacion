@@ -1,10 +1,11 @@
 package servicios.impl;
 
 import dao.DaoCompras;
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
 import modelo.*;
+import modelo.Productos.Producto;
+import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioEspecial;
 import servicios.ServiciosCompras;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class ServiciosComprasImpl implements ServiciosCompras {
     public ServiciosComprasImpl(Usuario user, DaoCompras daoComprasImpl) {
         user.setCarrito(new ArrayList<>());
         this.daoComprasImpl = daoComprasImpl;
-        
+
     }
 
     @Override public boolean hayStock(int stockAComprar, Producto prod) {
@@ -30,12 +31,12 @@ public class ServiciosComprasImpl implements ServiciosCompras {
         return false;
     }
 
-    @Override public boolean agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
+    @Override public Usuario agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
+
         if (prodComp != null && userLogueado != null) {
-            daoComprasImpl.agregarALaCompra(prodComp, userLogueado);
-            return true;
+            return daoComprasImpl.agregarALaCompra(prodComp, userLogueado);
         }
-        return false;
+        return userLogueado;
     }
 
     @Override public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
@@ -64,6 +65,7 @@ public class ServiciosComprasImpl implements ServiciosCompras {
                 if (user.getClass() == UsuarioEspecial.class){
                     porcentajeACobrar -= ((UsuarioEspecial) user).getPorcentajeDescuento();
                 }
+
                 daoComprasImpl.pagar(tarjeta, valorFinalCompra.get(), user, porcentajeACobrar);
                 return true;
             } else {

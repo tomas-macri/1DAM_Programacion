@@ -1,96 +1,28 @@
 package servicios;
 
-import dao.DaoUsuarios;
 import modelo.Ingrediente;
 import modelo.Usuarios.Usuario;
-import modelo.Usuarios.UsuarioNormal;
 
 import java.util.List;
 
+public interface ServiciosUsuarios {
+    boolean agregarUsuario(Usuario usuarioNuevo);
 
-public class ServiciosUsuarios {
+    Usuario eliminarUsuario(String dni);
 
-
-    public boolean agregarUsuario(Usuario usuarioNuevo) {
-        String dni = usuarioNuevo.getDni();
-        DaoUsuarios dao = new DaoUsuarios();
-        if (!elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getNombre().equals("") || dni.equals(""))) {
-            return dao.agregarUsuario(usuarioNuevo);
-        }
-        return false;
-    }
-
-    public Usuario eliminarUsuario(String dni) {
-        DaoUsuarios dao = new DaoUsuarios();
-        Usuario userBorrado = null;
-        if (elUsuarioExiste(dni)) {
-            userBorrado = dao.eliminarUsuario(dni);
-        }
-        return userBorrado;
-    }
-
-    public boolean elUsuarioExiste(String key) {
-        DaoUsuarios daoUsuarios = new DaoUsuarios();
-        return daoUsuarios.getUsuario(key) != null;
-    }
+    boolean elUsuarioExiste(String key);
 
     //
-    public boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal) {
-        boolean exito = false;
-        DaoUsuarios dao = new DaoUsuarios();
-        Usuario usuarioViejo = dao.getUsuario(dniOriginal);
-        if (usuarioViejo != null && !elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
-            dao.eliminarUsuario(dniOriginal);
-            dao.agregarUsuario(usuarioNuevo);
-            exito = true;
-        }
-        return exito;
-    }
+    boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal);
 
     //
-    public boolean modificarUsuarioNombre(String dniOriginal, String nombNuevo, List<Ingrediente> list) {
-        DaoUsuarios dao = new DaoUsuarios();
-        Usuario usuarioViejo = dao.getUsuario(dniOriginal);
-        if (usuarioViejo != null && !(nombNuevo.equals(""))) {
-            return dao.modificarUsuarioNombre(dniOriginal, usuarioViejo, new UsuarioNormal(dniOriginal, nombNuevo, list));
-        }
-        return false;
-    }
+    boolean modificarUsuarioNombre(String dniOriginal, String nombNuevo, List<Ingrediente> list);
 
-    public boolean modificarUsuarioDNI(String dniOriginal, String dniNuevo) {
-        boolean exito = false;
-        DaoUsuarios dao = new DaoUsuarios();
-        Usuario usuarioViejo = dao.getUsuario(dniOriginal);
-        if (usuarioViejo != null && !elUsuarioExiste(dniNuevo) && !(dniNuevo.equals(""))) {
-            dao.eliminarUsuario(dniOriginal);
-            dao.agregarUsuario(new UsuarioNormal(dniNuevo, usuarioViejo.getNombre(), usuarioViejo.getIngredienteList()));
-            exito = true;
-        }
-        return exito;
-    }
+    boolean modificarUsuarioDNI(String dniOriginal, String dniNuevo);
 
-    public String getUsuarioString(String dni) {
-        DaoUsuarios daoUsuarios = new DaoUsuarios();
-        Usuario user = daoUsuarios.getUsuario(dni);
-        if (user != null) {
-            return user.toString();
-        }
-        return "error";
-    }
+    String getUsuarioString(String dni);
 
+    Usuario getUsuario(String dni);
 
-    public Usuario getUsuario(String dni) {
-        DaoUsuarios daoUsuarios = new DaoUsuarios();
-        return daoUsuarios.getUsuario(dni);
-    }
-
-
-    public List<Usuario> getLista() {
-        DaoUsuarios daoUsuarios = new DaoUsuarios();
-        return daoUsuarios.devolverLista();
-    }
-
-
-
-
+    List<Usuario> getLista();
 }

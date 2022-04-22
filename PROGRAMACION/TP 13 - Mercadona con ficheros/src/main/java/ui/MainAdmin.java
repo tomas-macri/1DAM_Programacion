@@ -1,16 +1,26 @@
 package ui;
 
+import jakarta.inject.Inject;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class MainAdmin {
 
+    private UIAdminProductos uiAdminProductos;
+    private UIAdminUsuarios uiAdminUsuarios;
+    private MainEstadisticas mainEstadisticas;
+
+    @Inject
+    public MainAdmin(UIAdminProductos uiAdminProductos, UIAdminUsuarios uiAdminUsuarios, MainEstadisticas mainEstadisticas) {
+        this.uiAdminProductos = uiAdminProductos;
+        this.uiAdminUsuarios = uiAdminUsuarios;
+        this.mainEstadisticas = mainEstadisticas;
+    }
+
     public void inicioMenuAdmin() {
         Scanner sc = new Scanner(System.in);
         int opcion;
-        UIAdminUsuarios uiUsuarios = new UIAdminUsuarios();
-        UIAdminProductos uiAdminProductos = new UIAdminProductos();
 
 
         System.out.println(Constantes.BIENVENIDO_ADMINISTRADOR);
@@ -25,14 +35,13 @@ public class MainAdmin {
             switch (opcion) {
                 case 1:
                     //ir a la ui de usuarios
-                    uiUsuarios.inicioUIUsuarios();
+                    uiAdminUsuarios.inicioUIUsuarios();
                     break;
                 case 2:
                     // modificar prod
                     uiAdminProductos.inicioUIProductos();
                     break;
                 case 3:
-                    MainEstadisticas mainEstadisticas = new MainEstadisticas();
                     mainEstadisticas.mainEstadisticas();
                     break;
                 case 4:
