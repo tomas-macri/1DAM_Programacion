@@ -1,11 +1,14 @@
-package ui.pantallas.common;
+package ui.pantallas.commonPantallas;
 
 public enum Pantallas {
 
-    PANTALLA1 ("/fxml/pantalla1.fxml"),
-    LOGIN ("/fxml/login.fxml"),
+
+    LOGIN (ConstantesPantallas.FXML_LOGIN_FXML),
+    REGISTRO(ConstantesPantallas.FXML_REGISTRO_FXML),
+    MAINADMIN(ConstantesPantallas.FXML_MAIN_ADMIN_FXML),
     LISTADO ("/fxml/listado.fxml"),
     DETALLE ("/fxml/detalle.fxml"),
+    PANTALLA1 ("/fxml/pantalla1.fxml"),
     PANTALLANUEVA (ConstantesPantallas.FXML_PANTALLA_NUEVA_FXML);
 
     private String ruta;

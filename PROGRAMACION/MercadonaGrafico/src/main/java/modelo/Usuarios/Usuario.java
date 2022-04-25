@@ -8,7 +8,7 @@ import modelo.Tarjeta;
 
 import java.util.*;
 
-public abstract class Usuario implements Clonable<Usuario> {
+public class Usuario implements Clonable<Usuario> {
 
     public String type;
     private String dni;
@@ -26,7 +26,6 @@ public abstract class Usuario implements Clonable<Usuario> {
         comprasPrevias = new ArrayList<>();
     }
 
-    @Inject
     public Usuario(String dni, String nombre, List<Ingrediente> ingredienteList) {
         this();
         this.dni = dni;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+   <children>
+      <Label alignment="CENTER" layoutX="36.0" layoutY="14.0" prefHeight="176.0" prefWidth="526.0" text="BIENVENIDO AL MERCADONA">
+         <font>
+            <Font name="Carlito Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnInicio" layoutX="171.0" layoutY="177.0" mnemonicParsing="false" onAction="#irAlLogin" prefHeight="60.0" prefWidth="255.0" text="COMENZAR" textFill="#00ac14" />
+   </children>
+</AnchorPane>

@@ -11,6 +11,7 @@
         <module name="TP 10 - Mercadona" />
         <module name="TP 15 - Mercadona Grafico" />
         <module name="Mercadona" />
+        <module name="MercadonaGrafico" />
       </profile>
     </annotationProcessing>
   </component>

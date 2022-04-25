@@ -1,5 +1,4 @@
-package ui.pantallas.common;
-
+package ui.pantallas.commonPantallas;
 import ui.pantallas.principal.PrincipalController;
 
 
@@ -17,6 +16,6 @@ public class BasePantallaController {
 
     public void principalCargado()
     {
-
     }
+
 }
