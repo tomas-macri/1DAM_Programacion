@@ -1,4 +1,4 @@
-package ui;
+package uiGRAFICO;
 
 
 import jakarta.enterprise.inject.se.SeContainer;

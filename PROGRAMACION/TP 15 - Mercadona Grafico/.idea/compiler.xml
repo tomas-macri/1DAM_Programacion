@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TP 10 - Mercadona" />
-        <module name="Mercadona" />
         <module name="TP 13 - Mercadona con ficheros" />
+        <module name="TP 10 - Mercadona" />
+        <module name="TP 15 - Mercadona Grafico" />
+        <module name="Mercadona" />
       </profile>
     </annotationProcessing>
   </component>

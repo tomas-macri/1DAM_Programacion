@@ -6,7 +6,7 @@ import modelo.Ingrediente;
 import modelo.Productos.Producto;
 import modelo.Usuarios.Usuario;
 import servicios.SeviciosEstadisticas;
-import ui.common.Constantes;
+import common.Constantes;
 
 import java.util.ArrayList;
 import java.util.List;

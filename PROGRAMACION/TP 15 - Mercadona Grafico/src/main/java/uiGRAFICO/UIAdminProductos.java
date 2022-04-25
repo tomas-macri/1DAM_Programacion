@@ -1,10 +1,10 @@
-package ui;
+package uiGRAFICO;
 
 import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Productos.ProductoCaducable;
 import modelo.Productos.ProductoNormal;
-import ui.common.Constantes;
+import common.Constantes;
 import servicios.ServiciosProductos;
 import modelo.Productos.Producto;
 

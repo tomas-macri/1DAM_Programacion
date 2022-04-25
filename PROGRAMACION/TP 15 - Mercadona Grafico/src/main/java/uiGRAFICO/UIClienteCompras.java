@@ -1,6 +1,5 @@
-package ui;
+package uiGRAFICO;
 
-import dao.DaoTarjetas;
 import jakarta.inject.Inject;
 import modelo.Productos.Producto;
 import modelo.ProductoComprado;
@@ -9,7 +8,7 @@ import modelo.Usuarios.Usuario;
 import servicios.ServiciosCompras;
 import servicios.ServiciosProductos;
 import servicios.ServiciosTarjetas;
-import ui.common.Constantes;
+import common.Constantes;
 
 import java.util.Scanner;
 

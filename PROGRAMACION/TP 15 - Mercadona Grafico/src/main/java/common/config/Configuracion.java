@@ -1,4 +1,4 @@
-package config;
+package common.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +25,7 @@ public class Configuracion {
             try {
 //                configuracion = new Configuracion();
 //                Properties p = new Properties();
-//                p.load(Configuracion.class.getClassLoader().getResourceAsStream("config.properties"));
+//                p.load(Configuracion.class.getClassLoader().getResourceAsStream("common.config.properties"));
 //                configuracion.pathProductos = p.getProperty("pathProductos");
 //                configuracion.pathUsuarios = p.getProperty("pathUsuarios");
                 JsonNode node = mapper.readTree(

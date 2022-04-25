@@ -1,10 +1,10 @@
-package ui;
+package uiGRAFICO;
 
 import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 import servicios.ServiciosTarjetas;
-import ui.common.Constantes;
+import common.Constantes;
 
 import java.util.Scanner;
 

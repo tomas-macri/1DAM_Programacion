@@ -2,24 +2,18 @@ package dao.impl;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import config.Configuracion;
-import gsonutils.RuntimeTypeAdapterFactory;
+
+import common.config.Configuracion;
 import jakarta.inject.Inject;
 import lombok.extern.log4j.Log4j2;
 import modelo.Productos.Producto;
-import modelo.Productos.ProductoCaducable;
-import modelo.Productos.ProductoNormal;
 import modelo.Usuarios.Usuario;
-import modelo.Usuarios.UsuarioEspecial;
-import modelo.Usuarios.UsuarioNormal;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
