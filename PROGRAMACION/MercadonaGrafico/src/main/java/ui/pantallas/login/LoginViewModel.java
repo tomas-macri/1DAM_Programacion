@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import modelo.Usuarios.Usuario;
 import servicios.impl.ServiciosUsuariosImpl;
 
+import java.util.ArrayList;
+
 public class LoginViewModel {
 
     private ServiciosUsuariosImpl serviciosUsuariosImpl;
@@ -15,7 +17,7 @@ public class LoginViewModel {
     @Inject
     public LoginViewModel(ServiciosUsuariosImpl serviciosUsuariosImpl) {
         this.serviciosUsuariosImpl = serviciosUsuariosImpl;
-        state = new SimpleObjectProperty<>(new LoginState(null,null));
+        state = new SimpleObjectProperty<>(null,null);
     }
 
     private final ObjectProperty<LoginState> state;

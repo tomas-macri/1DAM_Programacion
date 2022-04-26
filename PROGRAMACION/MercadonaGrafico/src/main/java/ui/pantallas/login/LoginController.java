@@ -24,13 +24,6 @@ import java.util.Optional;
 @Log4j2
 public class LoginController extends BasePantallaController {
 
-    @FXML
-    // objeto especial para DI
-    Instance<Object> instance;
-
-
-
-
     private LoginViewModel loginViewModel;
 
     @FXML
@@ -49,7 +42,7 @@ public class LoginController extends BasePantallaController {
             {
                 this.getPrincipalController().sacarAlertError(newState.getError());
             }
-            if (newState.getUserLogueado()!=null)
+            if (newState.getUserLogueado() != null)
             {
                 //cambiar de pantalla
                 this.getPrincipalController().onLoginHecho(newState.getUserLogueado());

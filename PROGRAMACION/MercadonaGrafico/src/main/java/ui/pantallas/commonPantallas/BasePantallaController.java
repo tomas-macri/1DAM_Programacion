@@ -2,7 +2,7 @@ package ui.pantallas.commonPantallas;
 import ui.pantallas.principal.PrincipalController;
 
 
-public class BasePantallaController {
+public abstract class BasePantallaController {
 
     private PrincipalController principalController;
 

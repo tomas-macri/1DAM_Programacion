@@ -31,12 +31,10 @@ import java.util.Optional;
 public class PrincipalController {
 
     @FXML
-    private Menu menuHelp;
     // objeto especial para DI
     Instance<Object> instance;
 
     @FXML
-    private MenuBar menuPrincipal;
     private Stage primaryStage;
 
     private Usuario actualUser;
@@ -64,18 +62,12 @@ public class PrincipalController {
 
         switch (pantalla) {
             case MAINADMIN:
+
                 cargarPantalla(pantalla.getRuta());
                 break;
             case LOGIN:
                 cargarPantalla(pantalla.getRuta());
                 break;
-//            case PANTALLA1:
-//                if (pantallaBienvenida == null){
-//                    pantallaBienvenida = cargarPantalla(pantalla.getRuta());
-//                }
-//
-//                cambioPantalla(pantallaBienvenida);
-//                break;
             default:
                 cargarPantalla(pantalla.getRuta());
                 break;
@@ -106,6 +98,7 @@ public class PrincipalController {
         } catch (IOException e) {
             log.error(e.getMessage(),e);
         }
+        root.setCenter(panePantalla);
         return panePantalla;
     }
 
@@ -115,14 +108,12 @@ public class PrincipalController {
 
     public void logout() {
         actualUser = null;
-        menuPrincipal.setVisible(false);
         cargarPantalla(Pantallas.LOGIN);
     }
 
 
 
     public void initialize() {
-        //menuPrincipal.setVisible(false);
         cargarPantalla(Pantallas.LOGIN);
 
     }
@@ -190,26 +181,6 @@ public class PrincipalController {
     }
 
 
-    @FXML
-    private void menuClick(ActionEvent actionEvent) {
-        switch (((MenuItem)actionEvent.getSource()).getId())
-        {
-            case "menuItemPantalla1":
-                cargarPantalla(Pantallas.PANTALLA1);
-                break;
-            case "menuItemListado":
-                cargarPantalla(Pantallas.LISTADO);
-                break;
-            case "menuItemPantallaNueva":
-                cargarPantalla(Pantallas.PANTALLANUEVA);
-                break;
-            case "menuItemLogout":
-                logout();
-                break;
-        }
-
-
-    }
 
 
     public void irAlLogin(ActionEvent actionEvent) {
@@ -220,9 +191,7 @@ public class PrincipalController {
     public void onLoginHecho(Usuario usuario) {
         actualUser = usuario;
         Pantallas pantalla = Pantallas.PANTALLA1;
-        menuPrincipal.setVisible(false);
         if (actualUser.isAdmin()) {
-            menuHelp.setVisible(true);
             pantalla = Pantallas.MAINADMIN;
 
         }
@@ -238,5 +207,7 @@ public class PrincipalController {
     }
 
 
+    public void listarClientes(ActionEvent actionEvent) {
 
+    }
 }

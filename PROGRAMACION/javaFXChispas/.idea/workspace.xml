@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24acfb61-2175-4d7a-acc1-fd2c855b0aa9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 10 - Mercadona - Pruebas DAO/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 10 - Mercadona - Pruebas DAO/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/registro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/commonPantallas/BasePantallaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/commonPantallas/BasePantallaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/mainAdmin/mainAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/mainAdmin/MainAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/principal/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/principal/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/mainAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/mainAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +39,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP 14 - javaFXChispas" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649148045919</updated>
       <workItem from="1649148047215" duration="52000" />
+      <workItem from="1650973506306" duration="28000" />
     </task>
     <servers />
   </component>

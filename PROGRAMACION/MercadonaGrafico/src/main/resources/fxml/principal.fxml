@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
-   <children>
-      <Label alignment="CENTER" layoutX="36.0" layoutY="14.0" prefHeight="176.0" prefWidth="526.0" text="BIENVENIDO AL MERCADONA">
-         <font>
-            <Font name="Carlito Bold Italic" size="36.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnInicio" layoutX="171.0" layoutY="177.0" mnemonicParsing="false" onAction="#irAlLogin" prefHeight="60.0" prefWidth="255.0" text="COMENZAR" textFill="#00ac14" />
-   </children>
-</AnchorPane>
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
+            <children>
+                  <Label alignment="CENTER" layoutX="36.0" layoutY="14.0" prefHeight="176.0" prefWidth="526.0" text="BIENVENIDO AL MERCADONA">
+                     <font>
+                        <Font name="Carlito Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnInicio" layoutX="171.0" layoutY="177.0" mnemonicParsing="false" onAction="#irAlLogin" prefHeight="60.0" prefWidth="255.0" text="COMENZAR" textFill="#00ac14" />
+            </children>
+         </AnchorPane>
+      </StackPane>
+   </center>
+</BorderPane>
