@@ -2,8 +2,10 @@ package ui.pantallas.editarProducto;
 
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import jakarta.inject.Inject;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +15,7 @@ import modelo.Ingrediente;
 import modelo.Productos.Producto;
 import modelo.Usuarios.Usuario;
 import ui.pantallas.commonPantallas.BasePantallaController;
+import ui.pantallas.commonPantallas.Pantallas;
 import ui.pantallas.mainAdmin.MainAdminViewModel;
 
 import java.awt.*;
@@ -23,6 +26,7 @@ import java.util.ResourceBundle;
 public class EditarProductoController extends BasePantallaController implements Initializable {
     @FXML
     public MFXTableView aaa;
+
     @FXML
     private TextField txtNombre;
 
@@ -32,8 +36,7 @@ public class EditarProductoController extends BasePantallaController implements 
     @FXML
     private TextField txtStock;
 
-//    @FXML
-//    private MFXTableView<Ingrediente> tblIngrediente;
+
 
     @FXML
     private EditarProductoViewModel editarProductoViewModel;
@@ -41,13 +44,6 @@ public class EditarProductoController extends BasePantallaController implements 
     @Inject
     public EditarProductoController(EditarProductoViewModel editarProductoViewModel) {
         this.editarProductoViewModel = editarProductoViewModel;
-    }
-
-
-    public void agregarIngrediente(ActionEvent actionEvent) {
-    }
-
-    public void eliminarIngrediente(ActionEvent actionEvent) {
     }
 
     @Override
@@ -81,4 +77,8 @@ public class EditarProductoController extends BasePantallaController implements 
     }
 
 
+    public void volver(ActionEvent actionEvent) {
+        //editarProductoViewModel.updateProduct(new Producto(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), getPrincipalController().getProdEditar().getListaIngredientes()), getPrincipalController().getProdEditar().getNombre());
+        getPrincipalController().finEditar(Pantallas.MAINADMIN);
+    }
 }

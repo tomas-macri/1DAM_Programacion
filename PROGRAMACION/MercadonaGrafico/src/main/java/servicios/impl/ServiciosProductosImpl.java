@@ -76,6 +76,7 @@ public class ServiciosProductosImpl implements ServiciosProductos {
         return exito;
     }
 
+
     @Override public Producto getProducto(String nombProd) {
         Producto producto = null;
         int indexProd = daoProductosImpl.obtenerIndexProducto(new ProductoNormal(nombProd));

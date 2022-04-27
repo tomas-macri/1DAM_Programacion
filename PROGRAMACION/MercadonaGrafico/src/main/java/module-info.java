@@ -27,6 +27,7 @@ module Mercadona.Grafico{
         exports dao.impl;
         exports servicios.impl;
         exports modelo;
+        exports modelo.Productos;
 
     opens ui.pantallas.editarProducto to javafx.fxml;
     opens ui.pantallas.registro to javafx.fxml;
@@ -39,6 +40,7 @@ module Mercadona.Grafico{
 //        opens ui.pantallas.login;
         opens modelo to com.google.gson;
         opens modelo.Productos to com.google.gson;
+        //opens modelo.Productos;
         opens ui.pantallas.mainAdmin to javafx.fxml;
         opens ui.main;
         opens servicios;

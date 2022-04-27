@@ -6,7 +6,7 @@ import modelo.Ingrediente;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Producto implements Clonable<Producto> {
+public class Producto implements Clonable<Producto> {
 
     public String type;
     private String nombre;
@@ -14,7 +14,7 @@ public abstract class Producto implements Clonable<Producto> {
     private int stock;
     private List<Ingrediente> listaIngredientes;
 
-    protected Producto(){
+    public Producto(){
 
     }
 

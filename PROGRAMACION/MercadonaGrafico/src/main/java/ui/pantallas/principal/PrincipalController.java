@@ -199,6 +199,10 @@ public class PrincipalController {
         cargarPantalla(pantalla);
     }
 
+    public void finEditar(Pantallas pantalla) {
+        cargarPantalla(pantalla);
+    }
+
 
     public void cambiarPantalla(Pantallas pantalla1) {
     }

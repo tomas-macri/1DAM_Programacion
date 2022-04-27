@@ -13,10 +13,7 @@
       <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock:" />
       <TextField fx:id="txtNombre" layoutX="102.0" layoutY="93.0" />
       <TextField fx:id="txtStock" layoutX="102.0" layoutY="196.0" />
-      <MFXTextField fx:id="txtIngrediente" layoutX="300.0" layoutY="113.0" />
-      <MFXButton fx:id="btnFin" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="235.0" text="Finalizar" />
-      <MFXButton fx:id="btnAgregar" layoutX="312.0" layoutY="188.0" mnemonicParsing="false" onAction="#agregarIngrediente" text="Agregar" />
-      <MFXButton fx:id="btnEliminar" layoutX="311.0" layoutY="232.0" mnemonicParsing="false" onAction="#eliminarIngrediente" text="Eliminar" />
+      <MFXButton fx:id="btnFin" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="235.0" text="Finalizar" onAction="#volver"/>
       <MFXTableView fx:id="aaa" layoutX="428.0" layoutY="88.0" prefHeight="290.0" prefWidth="185.0" />
       <Text layoutX="185.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Producto" wrappingWidth="360.13671875">
          <font>

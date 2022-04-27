@@ -38,4 +38,15 @@ public class EditarProductoViewModel {
                 editarProductoState = new EditarProductoState(ingredienteList,null);
             state.setValue(editarProductoState);
     }
+
+    public void updateProduct(Producto prod, String nomProdActual) {
+        EditarProductoState editarProductoState = null;
+        try {
+            serviciosProductos.modificarProducto(prod, nomProdActual);
+            editarProductoState = new EditarProductoState(null,"Producto actualizado");
+        } catch (Exception e) {
+            editarProductoState = new EditarProductoState(null,e.getMessage());
+        }
+        state.setValue(editarProductoState);
+    }
 }
