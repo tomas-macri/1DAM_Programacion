@@ -103,11 +103,11 @@ public class MainAdminController extends BasePantallaController implements Initi
     public void editar(ActionEvent actionEvent) {
         if (tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
             Producto producto = tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
-            getPrincipalController().editarProdOCliente((producto));
+            getPrincipalController().editarProd((producto));
         }
         else if (tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
             Usuario usuario = tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
-            getPrincipalController().editarProdOCliente((usuario));
+            //getPrincipalController().editarProdOCliente((usuario));
         }
     }
 }

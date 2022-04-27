@@ -12,7 +12,7 @@ public enum Pantallas {
     PANTALLA1 ("/fxml/pantalla1.fxml"),
     PANTALLANUEVA (ConstantesPantallas.FXML_PANTALLA_NUEVA_FXML);
 
-    public static final String FXML_EDITAR_FXML = "/fxml/editar.fxml";
+    public static final String FXML_EDITAR_FXML = "/fxml/editarProducto.fxml";
 
 
 

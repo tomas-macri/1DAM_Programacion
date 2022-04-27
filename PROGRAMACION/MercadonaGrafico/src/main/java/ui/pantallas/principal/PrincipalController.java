@@ -20,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import modelo.Productos.Producto;
 import modelo.Productos.ProductoCaducable;
@@ -35,6 +36,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 @Log4j2
+@Data
 public class PrincipalController {
 
     @FXML
@@ -211,5 +213,5 @@ public class PrincipalController {
             cargarPantalla(Pantallas.EDITAR);
         }
     }
-}
+
 
