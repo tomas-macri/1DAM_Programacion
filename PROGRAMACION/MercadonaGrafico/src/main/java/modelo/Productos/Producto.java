@@ -18,6 +18,10 @@ public abstract class Producto implements Clonable<Producto> {
 
     }
 
+    public String getType() {
+        return type;
+    }
+
     public Producto(String nombre) {
         this.nombre = nombre;
     }

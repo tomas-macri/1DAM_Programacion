@@ -6,6 +6,7 @@ import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import io.github.palexdev.materialfx.filter.DoubleFilter;
 import io.github.palexdev.materialfx.filter.IntegerFilter;
 import io.github.palexdev.materialfx.filter.StringFilter;
+import jakarta.inject.Inject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,6 +31,13 @@ public class MainAdminController extends BasePantallaController implements Initi
     @FXML
     private MFXTableView<Producto> tablaProductos;
 
+    private MainAdminViewModel mainAdminViewModel;
+
+    @Inject
+    public MainAdminController(MainAdminViewModel mainAdminViewModel) {
+        this.mainAdminViewModel = mainAdminViewModel;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtText.setText("Bienvenido Administrador");
@@ -49,16 +57,57 @@ public class MainAdminController extends BasePantallaController implements Initi
         );
 
         tablaUsuarios.setVisible(false);
+        MFXTableColumn<Usuario> dni = new MFXTableColumn<>("DNI", true, Comparator.comparing(Usuario::getDni));
+        MFXTableColumn<Usuario> nombre = new MFXTableColumn<>("Nombre", true, Comparator.comparing(Usuario::getNombre));
+        dni.setRowCellFactory(usuario -> new MFXTableRowCell<>(Usuario::getDni));
+        nombre.setRowCellFactory(usuario -> new MFXTableRowCell<>(Usuario::getNombre));
+        tablaUsuarios.getTableColumns().addAll(dni, nombre);
+        tablaUsuarios.getFilters().addAll(
+                new StringFilter<>("DNI", Usuario::getDni),
+                new StringFilter<>("Nombre", Usuario::getNombre)
+        );
+
+        mainAdminViewModel.getState().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue.getError() != null) {
+                getPrincipalController().sacarAlertError(newValue.getError());
+            }
+            if (newValue.getListaProductos() != null) {
+
+                tablaProductos.getItems().clear();
+                tablaProductos.getItems().addAll(newValue.getListaProductos());
+                tablaUsuarios.setVisible(false);
+                tablaProductos.setVisible(true);
+            } else if (newValue.getListaUsuarios() != null) {
+                tablaUsuarios.getItems().clear();
+                tablaUsuarios.getItems().addAll(newValue.getListaUsuarios());
+                tablaProductos.setVisible(false);
+                tablaUsuarios.setVisible(true);
+            }
+        });
     }
 
 
     public void listClientes(ActionEvent actionEvent) {
         tablaProductos.setVisible(false);
         tablaUsuarios.setVisible(true);
+        mainAdminViewModel.getUsuarios();
     }
 
     public void listProductos(ActionEvent actionEvent) {
         tablaUsuarios.setVisible(false);
         tablaProductos.setVisible(true);
+        mainAdminViewModel.getProductos();
+    }
+
+    public void editar(ActionEvent actionEvent) {
+        if (tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
+            Producto producto = tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+            getPrincipalController().editarProdOCliente((producto));
+        }
+        else if (tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
+            Usuario usuario = tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+            getPrincipalController().editarProdOCliente((usuario));
+        }
     }
 }

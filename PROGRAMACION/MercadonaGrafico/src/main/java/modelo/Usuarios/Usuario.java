@@ -42,6 +42,9 @@ public class Usuario implements Clonable<Usuario> {
         this.admin = esAdmin;
     }
 
+    public String getType() {
+        return type;
+    }
 
     public boolean isAdmin() {
         return admin;
@@ -55,7 +58,6 @@ public class Usuario implements Clonable<Usuario> {
     public String getNombre() {
         return nombre;
     }
-
 
     public Set<Tarjeta> getListaTarjetas() {
         return listaTarjetas;
@@ -117,4 +119,6 @@ public class Usuario implements Clonable<Usuario> {
     public Usuario clonar() {
         return new UsuarioNormal(this.dni, this.nombre, this.ingredienteList);
     }
-}
+
+    }
+
