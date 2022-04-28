@@ -191,6 +191,11 @@ public class PrincipalController {
         cargarPantalla(Pantallas.EDITARUSUARIO);
     }
 
+    public void nuevaCompra() {
+        cargarPantalla(Pantallas.COMPRA);
+    }
+
+
 }
 
 

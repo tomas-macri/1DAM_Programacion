@@ -89,6 +89,7 @@ public class MainClienteController extends BasePantallaController implements Ini
     }
 
     public void nuevaCompra(ActionEvent actionEvent) {
+        getPrincipalController().nuevaCompra();
     }
 
     public void nuevaTarjeta(ActionEvent actionEvent) {

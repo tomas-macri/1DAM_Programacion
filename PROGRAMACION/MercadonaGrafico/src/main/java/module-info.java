@@ -16,6 +16,7 @@ module Mercadona.Grafico{
         requires com.google.gson;
         //requires jakarta.jakartaee.web.api;
 
+        exports ui.pantallas.compras;
         exports ui.pantallas.editarUsuario;
         exports ui.pantallas.editarProducto;
         exports ui.pantallas.principal;

@@ -9,6 +9,7 @@ public enum Pantallas {
     EDITARPRODUCTO(ConstantesPantallas.FXML_EDITAR_PRODUCTO_FXML),
     EDITARUSUARIO(ConstantesPantallas.FXML_EDITAR_USUARIO_FXML),
     MAINCLIENTE(ConstantesPantallas.FXML_MAIN_CLIENTE_FXML),
+    COMPRA(ConstantesPantallas.FXML_COMPRAS_FXML),
     LISTADO ("/fxml/listado.fxml"),
     DETALLE ("/fxml/detalle.fxml"),
     PANTALLA1 ("/fxml/pantalla1.fxml"),
