@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class SeviciosEstadisticasImpl implements SeviciosEstadisticas {
+public class ServiciosEstadisticasImpl implements SeviciosEstadisticas {
 
     private DaoEstadisticas daoEstadisticasImpl;
 
     @Inject
-    public SeviciosEstadisticasImpl(DaoEstadisticas daoEstadisticasImpl) {
+    public ServiciosEstadisticasImpl(DaoEstadisticas daoEstadisticasImpl) {
         this.daoEstadisticasImpl = daoEstadisticasImpl;
     }
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="479.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.mainCliente.MainClienteController">
+   <children>
+      <Text fill="RED" layoutX="526.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mis Tarjetas" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="164.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU" textAlignment="CENTER" wrappingWidth="479.13671875">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <MFXTableView fx:id="tblIngredientes" layoutX="65.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="212.0" prefWidth="160.0" />
+      <Text fx:id="txtDescuento" layoutX="245.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <MFXButton fx:id="btnComprar" layoutX="336.0" layoutY="168.0" mnemonicParsing="false" onAction="#nuevaCompra" prefHeight="48.0" prefWidth="136.0" text="Comprar" />
+      <MFXTableView fx:id="tblTarjetas" layoutX="546.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="212.0" prefWidth="160.0" />
+      <Text fill="RED" layoutX="45.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mis Alergias" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </Text>
+      <MFXButton fx:id="btnSalir" layoutX="31.0" layoutY="421.0" mnemonicParsing="false" onAction="#logout" prefHeight="36.0" prefWidth="81.0" text="Salir" />
+      <MFXTextField fx:id="txtNombre" floatingText="Nombre" layoutX="519.0" layoutY="345.0" prefHeight="49.0" prefWidth="107.0" />
+      <MFXTextField fx:id="txtSaldo" floatingText="Saldo" layoutX="643.0" layoutY="345.0" prefHeight="49.0" prefWidth="67.0" />
+      <MFXButton fx:id="btnAgregarTarjeta" layoutX="558.0" layoutY="409.0" mnemonicParsing="false" onAction="#nuevaTarjeta" prefHeight="48.0" prefWidth="136.0" text="Agregar" />
+   </children>
+</AnchorPane>

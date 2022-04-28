@@ -2,34 +2,20 @@ package ui.pantallas.principal;
 
 
 import jakarta.enterprise.inject.Instance;
-import jakarta.faces.event.PostAddToViewEvent;
 import jakarta.inject.Inject;
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.PointLight;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import javafx.util.Duration;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import modelo.Productos.Producto;
-import modelo.Productos.ProductoCaducable;
-import modelo.Productos.ProductoNormal;
 import modelo.Usuarios.Usuario;
-import modelo.Usuarios.UsuarioEspecial;
-import modelo.Usuarios.UsuarioNormal;
 import ui.pantallas.commonPantallas.BasePantallaController;
-import ui.pantallas.commonPantallas.ConstantesPantallas;
 import ui.pantallas.commonPantallas.Pantallas;
 
 import java.io.IOException;
@@ -48,6 +34,7 @@ public class PrincipalController {
 
     private Usuario userEditar;
     private Producto prodEditar;
+    private Usuario usuarioLogueado;
 
 
     @FXML
@@ -57,6 +44,7 @@ public class PrincipalController {
     private Alert alert;
 
     private Pane pantallaBienvenida;
+    private String idBTN;
 
 
     @Inject
@@ -110,7 +98,7 @@ public class PrincipalController {
 
 
     public void logout() {
-        //actualUser = null;
+        usuarioLogueado = null;
         cargarPantalla(Pantallas.LOGIN);
     }
 
@@ -186,11 +174,10 @@ public class PrincipalController {
 
     //evento de otra pantalla
     public void onLoginHecho(Usuario usuario) {
-        //actualUser = usuario;
-        Pantallas pantalla = Pantallas.PANTALLA1;
+        usuarioLogueado = usuario;
+        Pantallas pantalla = Pantallas.MAINCLIENTE;
         if (usuario.isAdmin()) {
             pantalla = Pantallas.MAINADMIN;
-
         }
         cargarPantalla(pantalla);
     }
@@ -212,10 +199,17 @@ public class PrincipalController {
 
     }
 
-    public void editarProd(Producto producto) {
+    public void editarProd(Producto producto, String idBTNEditarNuevo) {
+            idBTN = idBTNEditarNuevo;
             prodEditar = producto;
-            cargarPantalla(Pantallas.EDITAR);
+            cargarPantalla(Pantallas.EDITARPRODUCTO);
         }
+
+    public void editarUser(Usuario usuario, String id) {
+        idBTN = id;
+        userEditar = usuario;
+        cargarPantalla(Pantallas.EDITARUSUARIO);
     }
+}
 
 

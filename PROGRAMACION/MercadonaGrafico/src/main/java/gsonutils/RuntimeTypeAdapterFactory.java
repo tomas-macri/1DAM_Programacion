@@ -20,6 +20,7 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import jakarta.ws.rs.Produces;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

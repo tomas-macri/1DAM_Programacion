@@ -1,0 +1,5 @@
+// creo metodo agregar ingrediente (ver editarProducto)
+
+// error al guardar producto modificado (runtype)
+
+// alert de error se muestra solo la primera vez (ver agregar tarjeta)

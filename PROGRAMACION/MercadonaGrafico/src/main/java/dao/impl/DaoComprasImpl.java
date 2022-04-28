@@ -82,6 +82,7 @@ public class DaoComprasImpl implements DaoCompras {
                         producto.getListaIngredientes().stream()
                                 .noneMatch(ingrediente -> userLogueado.getIngredienteList().contains(ingrediente))
                 )
+                .filter(producto -> producto.getStock() > 0)
                 .collect(Collectors.toUnmodifiableList());
     }
 

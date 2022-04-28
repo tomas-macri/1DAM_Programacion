@@ -19,7 +19,7 @@ public class DaoTarjetasImpl implements DaoTarjetas {
         this.dataBase = dataBase;
     }
 
-    @Override public void agregarusuario(Tarjeta tarjNueva, Usuario cliente) {
+    @Override public void agregarTarjeta(Tarjeta tarjNueva, Usuario cliente) {
         String nombreTarj = tarjNueva.getNombre();
         if (!laTarjetaExiste(nombreTarj, cliente) && !(nombreTarj.equals("") || tarjNueva.getSaldo()<0)) {
             LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();

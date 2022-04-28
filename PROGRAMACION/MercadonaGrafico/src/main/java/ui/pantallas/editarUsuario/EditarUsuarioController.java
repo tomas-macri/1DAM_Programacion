@@ -1,7 +1,7 @@
-package ui.pantallas.editarProducto;
+package ui.pantallas.editarUsuario;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXDatePicker;
+import io.github.palexdev.materialfx.controls.MFXSlider;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
@@ -12,20 +12,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import modelo.Ingrediente;
-import modelo.Productos.Producto;
-import modelo.Productos.ProductoCaducable;
+import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioEspecial;
 import ui.pantallas.commonPantallas.BasePantallaController;
 import ui.pantallas.commonPantallas.Pantallas;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
-public class EditarProductoController extends BasePantallaController implements Initializable {
+public class EditarUsuarioController extends BasePantallaController implements Initializable {
 
     @FXML
-    private MFXDatePicker fecha;
+    private MFXSlider descuento;
 
     @FXML
     private Text txtCaduca;
@@ -40,23 +39,22 @@ public class EditarProductoController extends BasePantallaController implements 
     private MFXButton btnEditar;
 
     @FXML
-    private TextField txtNombre;
+    private TextField txtDNI;
 
     @FXML
-    private TextField txtPrecio;
+    private TextField txtNombre;
 
     @FXML
     private TextField txtStock;
 
 
 
-
-
-    private EditarProductoViewModel editarProductoViewModel;
+    @FXML
+    private EditarUsuarioViewModel editarUsuarioViewModel;
 
     @Inject
-    public EditarProductoController(EditarProductoViewModel editarProductoViewModel) {
-        this.editarProductoViewModel = editarProductoViewModel;
+    public EditarUsuarioController(EditarUsuarioViewModel editarUsuarioViewModel) {
+        this.editarUsuarioViewModel = editarUsuarioViewModel;
     }
 
     @Override
@@ -66,7 +64,7 @@ public class EditarProductoController extends BasePantallaController implements 
 
     @Override
     public void principalCargado() {
-        Producto prod = getPrincipalController().getProdEditar();
+        Usuario userEditar = getPrincipalController().getUserEditar();
         Boolean editar = getPrincipalController().getIdBTN().equals("btnEditar")? true : false;
         if (editar) {
             btnAgregar.setVisible(false);
@@ -76,19 +74,16 @@ public class EditarProductoController extends BasePantallaController implements 
             btnAgregar.setVisible(true);
             btnEditar.setVisible(false);
         }
-        if (prod instanceof ProductoCaducable || !editar) {
-            fecha.setValue(LocalDate.now());
+        if (userEditar instanceof UsuarioEspecial || !editar) {
+            descuento.setDisable(false);
         }
-        if (prod != null){
-        txtNombre.setText(prod.getNombre());
-        txtPrecio.setText(prod.getPrecio() + "");
-        txtStock.setText(prod.getStock() + "");
-        }
+        txtDNI.setText(userEditar.getDni());
+        txtNombre.setText(userEditar.getNombre() + "");
         MFXTableColumn<Ingrediente> ingredienteMFXTableColumn = new MFXTableColumn<>("Ingrediente", true, Comparator.comparing(Ingrediente::getNombre));
         ingredienteMFXTableColumn.setRowCellFactory(ingrediente -> new MFXTableRowCell<>(Ingrediente::getNombre));
         tblIngredientes.getTableColumns().addAll(ingredienteMFXTableColumn);
 
-        editarProductoViewModel.getState().addListener((observableValue, listadoState, listadoStateNew) -> {
+        editarUsuarioViewModel.getState().addListener((observableValue, listadoState, listadoStateNew) -> {
             if (listadoStateNew.getError()!=null){
                 getPrincipalController().sacarAlertError(listadoStateNew.getError());
             }
@@ -97,13 +92,17 @@ public class EditarProductoController extends BasePantallaController implements 
                 tblIngredientes.getItems().clear();
                 tblIngredientes.getItems().addAll(listadoStateNew.getIngredienteList());
             }
-            if (listadoStateNew.getCaducidad() != null){
-                fecha.setValue(listadoStateNew.getCaducidad());
+            descuento.setValue(0);
+            descuento.setDisable(true);
+            if (listadoStateNew.getDescuento() != 0){
+                descuento.setDisable(false);
+                descuento.setMax(100);
             }
 
 
+
         });
-        editarProductoViewModel.loadIngredientes(prod);
+        editarUsuarioViewModel.loadIngredientes(userEditar);
     }
 
 

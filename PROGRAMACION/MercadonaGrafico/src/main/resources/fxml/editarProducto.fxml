@@ -13,13 +13,17 @@
       <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock:" />
       <TextField fx:id="txtNombre" layoutX="102.0" layoutY="93.0" />
       <TextField fx:id="txtStock" layoutX="102.0" layoutY="196.0" />
-      <MFXButton fx:id="btnFin" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="235.0" text="Finalizar" onAction="#volver"/>
-      <MFXTableView fx:id="aaa" layoutX="428.0" layoutY="88.0" prefHeight="290.0" prefWidth="185.0" />
+      <MFXButton fx:id="btnEditar" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" onAction="#editar" prefHeight="35.0" prefWidth="235.0" text="Editar" />
+      <MFXButton fx:id="btnAgregar" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="235.0" text="Agregar" />
+      <MFXButton fx:id="btnFin" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="235.0" text="Finalizar" />
+      <MFXTableView fx:id="tblIngredientes" layoutX="428.0" layoutY="88.0" prefHeight="290.0" prefWidth="185.0" />
       <Text layoutX="185.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Producto" wrappingWidth="360.13671875">
          <font>
             <Font size="51.0" />
          </font>
       </Text>
+      <Text fx:id="txtCaduca" disable="true" layoutX="27.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caduca:" />
+      <MFXDatePicker fx:id="fecha" disable="true" layoutX="102.0" layoutY="242.0" prefHeight="17.0" prefWidth="149.0" />
 
 
    </children>

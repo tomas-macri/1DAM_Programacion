@@ -1,5 +1,6 @@
 package ui.pantallas.mainAdmin;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
@@ -17,6 +18,7 @@ import modelo.Usuarios.Usuario;
 import ui.pantallas.commonPantallas.BasePantallaController;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
@@ -103,11 +105,28 @@ public class MainAdminController extends BasePantallaController implements Initi
     public void editar(ActionEvent actionEvent) {
         if (tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
             Producto producto = tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
-            getPrincipalController().editarProd((producto));
+            if (producto != null) {
+                getPrincipalController().editarProd(producto, ((MFXButton) actionEvent.getSource()).getId());
+            }
         }
         else if (tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
             Usuario usuario = tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
-            //getPrincipalController().editarProdOCliente((usuario));
+            getPrincipalController().editarUser((usuario), ((MFXButton) actionEvent.getSource()).getId());
+        }
+        else {
+            getPrincipalController().sacarAlertError("No se ha seleccionado ninguna fila");
+        }
+    }
+
+    public void crear(ActionEvent actionEvent) {
+        if (tablaProductos.isVisible()){
+            getPrincipalController().editarProd(new Producto("",0,0, new ArrayList<>()), ((MFXButton)actionEvent.getSource()).getId());
+        }
+        else if (tablaUsuarios.isVisible()){
+            getPrincipalController().editarUser(new Usuario("","", new ArrayList<>()), ((MFXButton)actionEvent.getSource()).getId());
+        }
+        else {
+            getPrincipalController().sacarAlertError("Seleccione una tabla");
         }
     }
 }

@@ -16,11 +16,13 @@ module Mercadona.Grafico{
         requires com.google.gson;
         //requires jakarta.jakartaee.web.api;
 
+        exports ui.pantallas.editarUsuario;
         exports ui.pantallas.editarProducto;
         exports ui.pantallas.principal;
         exports ui.pantallas.registro;
         exports ui.pantallas.login;
         exports ui.pantallas.mainAdmin;
+        exports ui.pantallas.mainCliente;
         exports ui.main to javafx.graphics;
         exports common.config;
         exports common;
@@ -29,9 +31,11 @@ module Mercadona.Grafico{
         exports modelo;
         exports modelo.Productos;
 
+        opens ui.pantallas.editarUsuario to javafx.fxml;
     opens ui.pantallas.editarProducto to javafx.fxml;
     opens ui.pantallas.registro to javafx.fxml;
     opens ui.pantallas.principal to javafx.fxml;
+    opens ui.pantallas.mainCliente to javafx.fxml;
 //    opens ui.pantallas.pantalla1 to javafx.fxml;
 //    opens ui.pantallas.pantallaNueva to javafx.fxml;
 //    opens ui.pantallas.listado to javafx.fxml;
