@@ -50,8 +50,12 @@ public class EditarProductoViewModel {
     public void updateProduct(Producto prod, String nomProdActual) {
         EditarProductoState editarProductoState = null;
         try {
-            serviciosProductos.modificarProducto(prod, nomProdActual);
-            editarProductoState = new EditarProductoState(null, null, "Producto actualizado");
+            if (serviciosProductos.modificarProducto(prod, nomProdActual)){
+                editarProductoState = new EditarProductoState(prod.getListaIngredientes(), prod instanceof ProductoCaducable ? ((ProductoCaducable)prod).getCaducidad().toLocalDate() : null , null);
+            }
+            else {
+                editarProductoState = new EditarProductoState(null, null, "Producto actualizado");
+            }
         } catch (Exception e) {
             editarProductoState = new EditarProductoState(null, null, e.getMessage());
         }

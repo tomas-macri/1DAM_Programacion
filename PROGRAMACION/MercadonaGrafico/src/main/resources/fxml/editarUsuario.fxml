@@ -16,7 +16,7 @@
       <MFXButton fx:id="btnAgregar" layoutX="59.0" layoutY="264.0" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="235.0" text="Agregar" />
       <MFXButton fx:id="btnFin" layoutX="59.0" layoutY="377.0" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="235.0" text="Finalizar" />
       <MFXTableView fx:id="tblIngredientes" layoutX="428.0" layoutY="88.0" prefHeight="290.0" prefWidth="185.0" />
-      <Text layoutX="185.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Producto" wrappingWidth="360.13671875">
+      <Text layoutX="102.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" textAlignment="CENTER" wrappingWidth="519.13671875">
          <font>
             <Font size="51.0" />
          </font>

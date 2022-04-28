@@ -17,9 +17,9 @@ public class MainAdminState {
     private String error;
 
 
-    public MainAdminState(List<Usuario> usuarios, List<Producto> productos, String nomCliente) {
+    public MainAdminState(List<Usuario> usuarios, List<Producto> productos, String error) {
         this.listaUsuarios = usuarios;
         this.listaProductos = productos;
-        this.error = nomCliente;
+        this.error = error;
     }
 }

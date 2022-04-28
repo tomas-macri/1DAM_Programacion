@@ -14,12 +14,15 @@ import javafx.scene.text.Text;
 import modelo.Ingrediente;
 import modelo.Usuarios.Usuario;
 import modelo.Usuarios.UsuarioEspecial;
+import modelo.Usuarios.UsuarioNormal;
 import ui.pantallas.commonPantallas.BasePantallaController;
 import ui.pantallas.commonPantallas.Pantallas;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class EditarUsuarioController extends BasePantallaController implements Initializable {
 
@@ -33,7 +36,7 @@ public class EditarUsuarioController extends BasePantallaController implements I
     private MFXButton btnAgregar;
 
     @FXML
-    private MFXTableView tblIngredientes;
+    private MFXTableView<Ingrediente> tblIngredientes;
 
     @FXML
     private MFXButton btnEditar;
@@ -107,7 +110,7 @@ public class EditarUsuarioController extends BasePantallaController implements I
 
 
     public void editar(ActionEvent actionEvent) {
-        //editarProductoViewModel.updateProduct(new Producto(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), getPrincipalController().getProdEditar().getListaIngredientes()), getPrincipalController().getProdEditar().getNombre());
+        editarUsuarioViewModel.updateUser(new UsuarioNormal(txtDNI.getText(), txtNombre.getText(), new ArrayList<>(tblIngredientes.getItems())), getPrincipalController().getUserEditar().getDni());
         getPrincipalController().finEditar(Pantallas.MAINADMIN);
     }
 
@@ -116,7 +119,7 @@ public class EditarUsuarioController extends BasePantallaController implements I
     }
 
     public void agregar(ActionEvent actionEvent) {
-        //editarProductoViewModel.agregarProducto(new Producto(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), tblIngredientes.getItems()));
+        editarUsuarioViewModel.agregarUsuario(new UsuarioNormal(txtDNI.getText(), txtNombre.getText(), tblIngredientes.getItems()));
         getPrincipalController().finEditar(Pantallas.MAINADMIN);
     }
 }

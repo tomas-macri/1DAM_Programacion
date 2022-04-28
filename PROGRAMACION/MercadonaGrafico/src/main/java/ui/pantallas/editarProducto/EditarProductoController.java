@@ -14,12 +14,16 @@ import javafx.scene.text.Text;
 import modelo.Ingrediente;
 import modelo.Productos.Producto;
 import modelo.Productos.ProductoCaducable;
+import modelo.Productos.ProductoNormal;
 import ui.pantallas.commonPantallas.BasePantallaController;
 import ui.pantallas.commonPantallas.Pantallas;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class EditarProductoController extends BasePantallaController implements Initializable {
@@ -67,8 +71,9 @@ public class EditarProductoController extends BasePantallaController implements 
     @Override
     public void principalCargado() {
         Producto prod = getPrincipalController().getProdEditar();
-        Boolean editar = getPrincipalController().getIdBTN().equals("btnEditar")? true : false;
+        boolean editar = getPrincipalController().getIdBTN().equals("btnEditar");
         if (editar) {
+
             btnAgregar.setVisible(false);
             btnEditar.setVisible(true);
         }
@@ -77,7 +82,14 @@ public class EditarProductoController extends BasePantallaController implements 
             btnEditar.setVisible(false);
         }
         if (prod instanceof ProductoCaducable || !editar) {
+            fecha.setDisable(false);
+            txtCaduca.setVisible(true);
+            fecha.setVisible(true);
             fecha.setValue(LocalDate.now());
+        }
+        else{
+            fecha.setVisible(false);
+            txtCaduca.setVisible(false);
         }
         if (prod != null){
         txtNombre.setText(prod.getNombre());
@@ -98,9 +110,9 @@ public class EditarProductoController extends BasePantallaController implements 
                 tblIngredientes.getItems().addAll(listadoStateNew.getIngredienteList());
             }
             if (listadoStateNew.getCaducidad() != null){
+                fecha.setDisable(false);
                 fecha.setValue(listadoStateNew.getCaducidad());
             }
-
 
         });
         editarProductoViewModel.loadIngredientes(prod);
@@ -108,7 +120,7 @@ public class EditarProductoController extends BasePantallaController implements 
 
 
     public void editar(ActionEvent actionEvent) {
-        //editarProductoViewModel.updateProduct(new Producto(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), getPrincipalController().getProdEditar().getListaIngredientes()), getPrincipalController().getProdEditar().getNombre());
+        editarProductoViewModel.updateProduct(new ProductoNormal(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), getPrincipalController().getProdEditar().getListaIngredientes()), getPrincipalController().getProdEditar().getNombre());
         getPrincipalController().finEditar(Pantallas.MAINADMIN);
     }
 
@@ -117,7 +129,11 @@ public class EditarProductoController extends BasePantallaController implements 
     }
 
     public void agregar(ActionEvent actionEvent) {
-        //editarProductoViewModel.agregarProducto(new Producto(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), tblIngredientes.getItems()));
+//        ERROR
+//        if (!Objects.equals(fecha.getValue(), LocalDate.now().atStartOfDay())){
+//            editarProductoViewModel.agregarProducto(new ProductoCaducable(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), new ArrayList<>(tblIngredientes.getItems()), fecha.getValue().atStartOfDay()));
+//        }
+        editarProductoViewModel.agregarProducto(new ProductoNormal(txtNombre.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtStock.getText()), new ArrayList<>(tblIngredientes.getItems())));
         getPrincipalController().finEditar(Pantallas.MAINADMIN);
     }
 }

@@ -129,4 +129,29 @@ public class MainAdminController extends BasePantallaController implements Initi
             getPrincipalController().sacarAlertError("Seleccione una tabla");
         }
     }
+
+
+    public void eliminar(ActionEvent actionEvent) {
+
+        if (tablaProductos.isVisible() || tablaUsuarios.isVisible()){
+            if (tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
+                Producto producto = tablaProductos.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+                if (producto != null) {
+                    mainAdminViewModel.eliminarProducto(producto);
+                }
+            }
+            else if (tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null) != null) {
+                Usuario usuario = tablaUsuarios.getSelectionModel().getSelection().values().stream().findFirst().orElse(null);
+                if (usuario != null) {
+                    mainAdminViewModel.eliminarUsuario(usuario);
+                }
+            }
+            else {
+                getPrincipalController().sacarAlertError("No se ha seleccionado ninguna fila");
+            }
+        }
+        else {
+            getPrincipalController().sacarAlertError("Seleccione una tabla");
+        }
+    }
 }

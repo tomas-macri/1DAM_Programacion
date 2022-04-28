@@ -27,7 +27,7 @@ public class MainFX {
 
             stage.setScene(new Scene(fxmlParent));
 //            stage.getScene().getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-            stage.setTitle("HOLA");
+            stage.setTitle("MERCADOOONA, MERCADONA");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

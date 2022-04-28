@@ -47,22 +47,30 @@ public class EditarUsuarioViewModel {
             state.setValue(editarUsuarioState);
     }
 
-    public void updateProduct(Usuario user, String nomProdActual) {
+    public void updateUser(Usuario usuario, String nomProdActual) {
         EditarUsuarioState editarUsuarioState = null;
         try {
-            serviciosUsuarios.modificarUsuario(user, nomProdActual);
-            editarUsuarioState = new EditarUsuarioState(null, 0, "Producto actualizado");
+            if (serviciosUsuarios.modificarUsuario(usuario, nomProdActual)){
+                editarUsuarioState = new EditarUsuarioState(usuario.getIngredienteList(), usuario instanceof UsuarioEspecial ? ((UsuarioEspecial) usuario).getPorcentajeDescuento() : 0, null);
+            }
+            else {
+                editarUsuarioState = new EditarUsuarioState(null, 0, "Producto actualizado");
+            }
         } catch (Exception e) {
             editarUsuarioState = new EditarUsuarioState(null, 0, e.getMessage());
         }
         state.setValue(editarUsuarioState);
     }
 
-    public void agregarProducto(Usuario usuario) {
-        EditarUsuarioState editarUsuarioState = null;
+    public void agregarUsuario(Usuario usuario) {
+        EditarUsuarioState editarUsuarioState;
         try {
-            serviciosUsuarios.agregarUsuario(usuario);
-            editarUsuarioState = new EditarUsuarioState(null, 0, "Producto agregado");
+            if (serviciosUsuarios.agregarUsuario(usuario)){
+                editarUsuarioState = new EditarUsuarioState(usuario.getIngredienteList(), usuario instanceof UsuarioEspecial ? ((UsuarioEspecial) usuario).getPorcentajeDescuento() : 0, null);
+            }
+            else {
+                editarUsuarioState = new EditarUsuarioState(null, 0, "Los datos ingresados no son correctos");
+            }
         } catch (Exception e) {
             editarUsuarioState = new EditarUsuarioState(null, 0, e.getMessage());
         }

@@ -25,6 +25,9 @@ import java.util.Optional;
 @Data
 public class PrincipalController {
 
+    public MenuItem menuItemExit;
+    @FXML
+    private MenuBar menuPrincipal;
     @FXML
     // objeto especial para DI
     Instance<Object> instance;
@@ -61,6 +64,7 @@ public class PrincipalController {
                 cargarPantalla(pantalla.getRuta());
                 break;
             case LOGIN:
+                menuPrincipal.setVisible(false);
                 cargarPantalla(pantalla.getRuta());
                 break;
             default:
@@ -104,6 +108,7 @@ public class PrincipalController {
 
 
     public void initialize() {
+        menuPrincipal.setVisible(false);
         cargarPantalla(Pantallas.LOGIN);
 
     }
@@ -134,39 +139,11 @@ public class PrincipalController {
         alert.showAndWait();
     }
 
-    public void exit(ActionEvent actionEvent) {
-//        primaryStage.close();
-//        Platform.exit();
-        primaryStage.fireEvent(new WindowEvent(primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));
-    }
 
     public void setStage(Stage stage) {
         primaryStage = stage;
         primaryStage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::closeWindowEvent);
     }
-
-    @FXML
-    private void cambiarcss(ActionEvent actionEvent) {
-        System.out.println(primaryStage.getScene().getRoot().getStylesheets().stream().findFirst().get());
-
-
-        primaryStage.getScene().getRoot().getStylesheets().clear();
-
-
-        primaryStage.getScene().getRoot().getStylesheets().add(getClass().getResource("/css/darkmode.css").toExternalForm());
-
-    }
-
-
-    public double getHeight() {
-        return root.getScene().getWindow().getHeight();
-    }
-
-    public double getWidth() {
-//        return 600;
-        return root.getScene().getWindow().getWidth();
-    }
-
 
     public void irAlLogin(ActionEvent actionEvent) {
         cargarPantalla(Pantallas.LOGIN);
@@ -175,8 +152,11 @@ public class PrincipalController {
     //evento de otra pantalla
     public void onLoginHecho(Usuario usuario) {
         usuarioLogueado = usuario;
+        menuPrincipal.setVisible(true);
         Pantallas pantalla = Pantallas.MAINCLIENTE;
         if (usuario.isAdmin()) {
+            menuItemExit.setVisible(true);
+            menuItemExit.setDisable(false);
             pantalla = Pantallas.MAINADMIN;
         }
         cargarPantalla(pantalla);
@@ -210,6 +190,7 @@ public class PrincipalController {
         userEditar = usuario;
         cargarPantalla(Pantallas.EDITARUSUARIO);
     }
+
 }
 
 

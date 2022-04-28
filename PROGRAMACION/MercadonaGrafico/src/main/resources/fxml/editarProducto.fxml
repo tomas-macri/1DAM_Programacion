@@ -9,15 +9,15 @@
    <children>
       <Text layoutX="25.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" />
       <Text layoutX="25.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio:" />
-      <TextField fx:id="txtPrecio" layoutX="102.0" layoutY="145.0" />
       <Text layoutX="27.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock:" />
       <TextField fx:id="txtNombre" layoutX="102.0" layoutY="93.0" />
+      <TextField fx:id="txtPrecio" layoutX="102.0" layoutY="145.0" />
       <TextField fx:id="txtStock" layoutX="102.0" layoutY="196.0" />
       <MFXButton fx:id="btnEditar" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" onAction="#editar" prefHeight="35.0" prefWidth="235.0" text="Editar" />
       <MFXButton fx:id="btnAgregar" layoutX="14.0" layoutY="327.0" mnemonicParsing="false" onAction="#agregar" prefHeight="35.0" prefWidth="235.0" text="Agregar" />
       <MFXButton fx:id="btnFin" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="235.0" text="Finalizar" />
       <MFXTableView fx:id="tblIngredientes" layoutX="428.0" layoutY="88.0" prefHeight="290.0" prefWidth="185.0" />
-      <Text layoutX="185.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Producto" wrappingWidth="360.13671875">
+      <Text layoutX="185.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto"  textAlignment="CENTER" wrappingWidth="360.13671875">
          <font>
             <Font size="51.0" />
          </font>
