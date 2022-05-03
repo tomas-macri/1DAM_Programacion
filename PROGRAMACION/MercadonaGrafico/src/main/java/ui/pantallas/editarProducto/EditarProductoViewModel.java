@@ -40,11 +40,10 @@ public class EditarProductoViewModel {
                 }
                 ingredienteList = serviciosProductos.getProducto(prod.getNombre()).getListaIngredientes();
             }
-            if (ingredienteList==null)
-                editarProductoState = new EditarProductoState(null, fecha, "no se han podido cargar cromos");
-            else
-                editarProductoState = new EditarProductoState(ingredienteList,fecha, null);
-            state.setValue(editarProductoState);
+            if (ingredienteList != null) {
+                editarProductoState = new EditarProductoState(ingredienteList, fecha, null);
+                state.setValue(editarProductoState);
+            }
     }
 
     public void updateProduct(Producto prod, String nomProdActual) {

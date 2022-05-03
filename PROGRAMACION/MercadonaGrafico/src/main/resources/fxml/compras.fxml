@@ -23,10 +23,10 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <MFXButton fx:id="btnPagar" layoutX="877.0" layoutY="409.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Comprar" />
+      <MFXButton fx:id="btnPagar" layoutX="977.0" layoutY="409.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Comprar" />
       <MFXButton fx:id="btnEliminar" layoutX="351.0" layoutY="515.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="144.0" text="Eliminar Articulo" />
-      <MFXButton fx:id="btnVaciar" layoutX="877.0" layoutY="276.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Vaciar" />
-      <MFXTextField fx:id="txtProducto" floatingText="Producto" layoutX="351.0" layoutY="255.0" prefHeight="52.0" prefWidth="144.0" />
+      <MFXButton fx:id="btnVaciar" layoutX="977.0" layoutY="276.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Vaciar" />
+      <MFXTextField fx:id="txtProducto" allowEdit="false" floatingText="Producto" layoutX="351.0" layoutY="255.0" prefHeight="52.0" prefWidth="144.0" />
       <MFXTextField fx:id="txtCantidad" floatingText="Cantidad" layoutX="351.0" layoutY="350.0" prefHeight="52.0" prefWidth="144.0" />
       <MFXButton fx:id="btnAgregar" layoutX="351.0" layoutY="451.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="144.0" text="Agregar Articulo" />
    </children>

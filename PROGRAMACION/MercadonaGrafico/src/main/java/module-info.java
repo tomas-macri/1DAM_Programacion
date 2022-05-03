@@ -32,16 +32,17 @@ module Mercadona.Grafico{
         exports modelo;
         exports modelo.Productos;
 
+        opens ui.pantallas.compras to javafx.fxml;
         opens ui.pantallas.editarUsuario to javafx.fxml;
-    opens ui.pantallas.editarProducto to javafx.fxml;
-    opens ui.pantallas.registro to javafx.fxml;
-    opens ui.pantallas.principal to javafx.fxml;
-    opens ui.pantallas.mainCliente to javafx.fxml;
-//    opens ui.pantallas.pantalla1 to javafx.fxml;
-//    opens ui.pantallas.pantallaNueva to javafx.fxml;
-//    opens ui.pantallas.listado to javafx.fxml;
-    opens ui.pantallas.login to  javafx.fxml;
-//    opens ui.pantallas.detalle to  javafx.fxml;
+        opens ui.pantallas.editarProducto to javafx.fxml;
+        opens ui.pantallas.registro to javafx.fxml;
+        opens ui.pantallas.principal to javafx.fxml;
+        opens ui.pantallas.mainCliente to javafx.fxml;
+    //    opens ui.pantallas.pantalla1 to javafx.fxml;
+    //    opens ui.pantallas.pantallaNueva to javafx.fxml;
+    //    opens ui.pantallas.listado to javafx.fxml;
+        opens ui.pantallas.login to  javafx.fxml;
+    //    opens ui.pantallas.detalle to  javafx.fxml;
 //        opens ui.pantallas.login;
         opens modelo to com.google.gson;
         opens modelo.Productos to com.google.gson;

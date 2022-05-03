@@ -5,78 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04981372-5c95-4bde-8223-9ee46d32dff3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/listProductos.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/listUsuarios.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Constantes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/config/Configuracion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/BDold.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoCompras.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoEstadisticas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoProductos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoTarjetas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DaoUsuarios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DaoComprasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DaoEstadisticasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DaoProductosImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DaoTarjetasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DaoUsuariosImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/DataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/di/GsonProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gsonutils/RuntimeTypeAdapterFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Clonable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Ingrediente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/ProductoComprado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Productos/Producto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Productos/ProductoCaducable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Productos/ProductoNormal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Tarjeta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Usuarios/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Usuarios/UsuarioEspecial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modelo/Usuarios/UsuarioNormal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosCompras.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosProductos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosTarjetas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/ServiciosUsuarios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/SeviciosEstadisticas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/impl/ServiciosComprasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/impl/ServiciosProductosImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/impl/ServiciosTarjetasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/impl/ServiciosUsuariosImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servicios/impl/SeviciosEstadisticasImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/main/DIJavafx.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/main/FXMLLoaderProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/main/MainFX.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/main/Producers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/main/StartupScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/BasePantallaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/BaseViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/ConstantesPantallas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/pantallas/common/Pantallas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/pantallas/principal/PrincipalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/MainAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/MainClientes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/MainEstadisticas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/MainLogin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/MainRegistrarse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/UIAdminProductos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/UIAdminUsuarios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/UIClienteCompras.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uiGRAFICO/UIClienteTarjetas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/principal.fxml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 12 - Mercadona con ficheros DI/src/test/java/servicios/ServiciosClientesImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +34,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="270dha3tKTHnoiTygeoldGVmaOP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -190,6 +120,7 @@
       <workItem from="1650874046372" duration="348000" />
       <workItem from="1650877634552" duration="100000" />
       <workItem from="1650918008978" duration="4438000" />
+      <workItem from="1651574591383" duration="39000" />
     </task>
     <servers />
   </component>

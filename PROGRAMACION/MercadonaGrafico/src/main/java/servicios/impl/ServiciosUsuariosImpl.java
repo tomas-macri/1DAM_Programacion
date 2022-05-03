@@ -45,7 +45,7 @@ public class ServiciosUsuariosImpl implements ServiciosUsuarios {
     @Override public boolean modificarUsuario(Usuario usuarioNuevo, String dniOriginal) {
         boolean exito = false;
         Usuario usuarioViejo = daoUsuariosImpl.getUsuario(dniOriginal);
-        if (usuarioViejo != null && !elUsuarioExiste(usuarioNuevo.getDni()) && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
+        if (usuarioViejo != null && !(usuarioNuevo.getDni().equals("") || usuarioNuevo.getNombre().equals(""))) {
             daoUsuariosImpl.eliminarUsuario(dniOriginal);
             daoUsuariosImpl.agregarUsuario(usuarioNuevo);
             exito = true;
