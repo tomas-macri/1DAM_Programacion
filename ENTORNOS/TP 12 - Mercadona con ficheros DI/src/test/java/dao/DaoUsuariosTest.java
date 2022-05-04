@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -19,9 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 @ExtendWith(SystemStubsExtension.class)
 @ExtendWith(MockitoExtension.class)
@@ -34,7 +33,7 @@ class DaoUsuariosTest {
     DataBase bd;
 
     @Captor
-    private LinkedHashMap<String, Usuario> captor;
+    ArgumentCaptor<LinkedHashMap<String, Usuario>> captor;
 
     @Nested
     @DisplayName("Agregar Usuario")
@@ -44,23 +43,30 @@ class DaoUsuariosTest {
         void addUsuarioValidoTest() {
 
             //Given
-            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
-            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
-            base.put(baseCliente.getDni(), baseCliente);
+            Usuario nuevoUser = new UsuarioNormal("456", "user4", new ArrayList<>());
 
             //When
 
-            when(bd.loadUsuarios()).thenReturn(base);
+            when(bd.loadUsuarios()).thenReturn(new LinkedHashMap<>());
+            /*doAnswer(invocation -> {
+                map.putAll(invocation.getArgument(0));
+                return null;
+            }).when(bd).saveUsuarios(map);*/
 
-            Usuario nuevoUser = new UsuarioNormal("456", "user4", new ArrayList<>());
+
             boolean seAgrego = daoUsuarios.agregarUsuario(nuevoUser);
 
             //Then
-            assertAll(
-                    () -> verify(bd).saveUsuarios(captor.capture()),
-                    () -> assertTrue(base.containsValue(nuevoUser)),
-                    () -> assertTrue(seAgrego)
+            assertAll(//() -> Assertions.assertThat(map).containsEntry("dni", nuevoUser),
+                    () -> assertTrue(seAgrego),
+                    () -> {
+                        verify(bd).saveUsuarios(captor.capture());
+                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
+                        Assertions.assertThat(clientes).containsEntry("456", nuevoUser);
+                    }
+
             );
+
         }
 
         @Test
@@ -81,162 +87,110 @@ class DaoUsuariosTest {
 
             //Then
             assertAll(() -> verify(bd, times(0)).saveUsuarios(base),
-                      () -> assertFalse(seAgrego)
-                    );
+                    () -> assertFalse(seAgrego)
+
+            );
         }
     }
-    /*    @Test
-    @DisplayName("SE AGREGO CORRECTAMENTE")
-    void addUsuarioValidoTest(){
 
+    @Nested
+    @DisplayName("ELIMINAR USUARIOS")
+    class eliminarUsuarios {
+        @Test
+        @DisplayName("SE ELIMINA USER CORRECTAMENTE")
+        void deleteUsuarioValidoTest() {
 
-        LinkedHashMap<String, UsuarioNormal> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
+            //When
 
+            when(bd.loadUsuarios()).thenReturn(base);
 
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
+            Usuario eliminado = daoUsuarios.eliminarUsuario("123");
 
+            //Then
+            assertAll(() -> verify(bd).saveUsuarios(base),
+                    () -> assertEquals(baseCliente, eliminado),
+                    () -> {
+                        verify(bd).saveUsuarios(captor.capture());
+                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
+                        Assertions.assertThat(clientes).doesNotContainKey("123");
+                    }
 
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBD;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
+            );
+        }
 
-        Usuario nuevoUser = new UsuarioNormal("dni4", "user4", new ArrayList<>());
-        boolean seAgrego = daoUsuariosImpl.agregarusuario(nuevoUser);
+        @Test
+        @DisplayName("NO SE EXISTE USER A ELIMINAR")
+        void deleteUsuarioNoValidoTest() {
 
-        assertEquals(nuevoUser, listaBDold.get(nuevoUser.getDni()));
-        assertTrue(seAgrego);
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
-        UsuarioNormal nuevoUser = new UsuarioNormal("dni", "nombre", new ArrayList<>());
+            //When
 
-        when()
+            when(bd.loadUsuarios()).thenReturn(base);
 
-        assertThat()
+            Usuario eliminado = daoUsuarios.getUsuario("456");
+
+            //Then
+            assertAll(() -> verify(bd).saveUsuarios(base),
+                    () -> {
+                        verify(bd).saveUsuarios(captor.capture());
+                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
+                        Assertions.assertThat(clientes).containsValue(baseCliente);
+                        assertNull(eliminado);
+                    }
+
+            );
+        }
     }
 
-    @Test
-    @DisplayName("NO SE AGREGA USUARIO")
-    void addUsuarioNoValidoTest(){
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
+    @Nested
+    @DisplayName("DEVOLVER USUARIO")
+    class devolverUser{
+        @Test
+        @DisplayName("SE DEVUELVE EL USUARIO")
+        void getUsuarioValidoTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
+            //When
 
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
+            when(bd.loadUsuarios()).thenReturn(base);
 
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
+            Usuario eliminado = daoUsuarios.getUsuario("123");
 
-        Usuario nuevoUser = new UsuarioNormal("dni1", "user4", new ArrayList<>());
-        boolean seAgrego = daoUsuariosImpl.agregarusuario(nuevoUser);
+            //Then
+            assertEquals(baseCliente, eliminado);
+        }
 
-        assertEquals(nuevoUser, listaBDold.get(nuevoUser.getDni()));
-        assertFalse(seAgrego);
+        @Test
+        @DisplayName("NO EXISTE EL USUARIO A DEVOLVER")
+        void getUsuarioNoValidoTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
+
+            //When
+
+            when(bd.loadUsuarios()).thenReturn(base);
+
+            Usuario eliminado = daoUsuarios.getUsuario("456");
+
+            //Then
+            assertNull(eliminado);
+        }
     }
-
-    @Test
-    @DisplayName("SE ELIMINO CORRECTAMENTE")
-    void deleteUsuarioValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
-
-
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
-
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
-
-        Usuario userEliminado = daoUsuariosImpl.eliminarUsuario("dni1");
-
-        assertNotEquals(userEliminado, listaBDold.get(userEliminado.getDni()));
-        assertEquals("user1", userEliminado.getNombre());
-    }
-
-    @Test
-    @DisplayName("NO SE ELIMINA USUARIO")
-    void deleteUsuarioNoValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
-
-
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
-
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
-
-        Usuario userEliminado = daoUsuariosImpl.eliminarUsuario("dni4");
-
-        assertNull(userEliminado);
-    }
-
-    @Test
-    @DisplayName("SE DEVUELVE EL USUARIO")
-    void getUsuarioValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
-
-
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
-
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
-
-        Usuario usuario = daoUsuariosImpl.getUsuario("dni1");
-
-        assertEquals(new UsuarioNormal("dni1", "user1", ingredienteArrayList), usuario);
-    }
-
-    @Test
-    @DisplayName("NO SE DEVUELVE EL USUARIO")
-   void getUsuarioNoValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
-
-
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
-
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
-
-        Usuario usuario = daoUsuariosImpl.getUsuario("dni4");
-
-        assertNull(usuario);
-    }
+    /*
 
     @Test
     @DisplayName("SE MODIFICA EL USUARIO")
@@ -285,45 +239,49 @@ class DaoUsuariosTest {
     }
 
  */
-    @Test
-    @DisplayName("EXISTE EL USUARIO")
-    void existeUsuarioTest() {
-        //Given
-        UsuarioNormal baseCliente = new UsuarioNormal("123","juan", new ArrayList<>());
-        LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
-        base.put(baseCliente.getDni(), baseCliente);
+    @Nested
+    @DisplayName("EXISTE USUARIO")
+    class existeUser {
+        @Test
+        @DisplayName("EXISTE EL USUARIO")
+        void existeUsuarioTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
-        when(bd.loadUsuarios()).thenReturn(base);
+            when(bd.loadUsuarios()).thenReturn(base);
 
-        //When
-        Usuario respuesta = daoUsuarios.getUsuario("123");
-
-
-        //Then
-        assertAll(
-                () -> Assertions.assertThat(respuesta.getDni()).isEqualTo(baseCliente.getDni()),
-                () -> Assertions.assertThat(respuesta.getNombre()).isEqualTo(baseCliente.getNombre())
-        );
-
-    }
-
-    @Test
-    @DisplayName("NO EXISTE EL USUARIO")
-    void noExisteUsuarioTest() {
-        //Given
-        UsuarioNormal baseCliente = new UsuarioNormal("123","juan", new ArrayList<>());
-        LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
-        base.put(baseCliente.getDni(), baseCliente);
-
-        when(bd.loadUsuarios()).thenReturn(base);
-
-        //When
-        Usuario respuesta = daoUsuarios.getUsuario("456");
+            //When
+            Usuario respuesta = daoUsuarios.getUsuario("123");
 
 
-        //Then
-        assertNull(respuesta);
+            //Then
+            assertAll(
+                    () -> Assertions.assertThat(respuesta.getDni()).isEqualTo(baseCliente.getDni()),
+                    () -> Assertions.assertThat(respuesta.getNombre()).isEqualTo(baseCliente.getNombre())
+            );
 
+        }
+
+        @Test
+        @DisplayName("NO EXISTE EL USUARIO")
+        void noExisteUsuarioTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
+
+            when(bd.loadUsuarios()).thenReturn(base);
+
+            //When
+            Usuario respuesta = daoUsuarios.getUsuario("456");
+
+
+            //Then
+            assertNull(respuesta);
+
+        }
     }
 
     @Test
