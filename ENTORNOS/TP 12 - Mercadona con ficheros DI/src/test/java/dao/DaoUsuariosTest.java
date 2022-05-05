@@ -153,7 +153,7 @@ class DaoUsuariosTest {
 
     @Nested
     @DisplayName("DEVOLVER USUARIO")
-    class devolverUser{
+    class devolverUser {
         @Test
         @DisplayName("SE DEVUELVE EL USUARIO")
         void getUsuarioValidoTest() {
@@ -190,55 +190,62 @@ class DaoUsuariosTest {
             assertNull(eliminado);
         }
     }
-    /*
+    @Nested
+    @DisplayName("MODIFICAR USUARIO")
+    class modificarUser {
+        @Test
+        @DisplayName("SE MODIFICA EL USUARIO")
+        void modificarUsuarioValidoTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
-    @Test
-    @DisplayName("SE MODIFICA EL USUARIO")
-    void modificarUsuarioValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
+            //When
+            when(bd.loadUsuarios()).thenReturn(base);
+            UsuarioNormal modificado = new UsuarioNormal("123", "pedro", new ArrayList<>());
 
+            boolean seCambia = daoUsuarios.modificarUsuarioNombre("123", baseCliente, modificado);
 
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
+            //Then
+            assertAll(
+                    () -> assertTrue(seCambia),
+                    () -> {
+                        verify(bd).saveUsuarios(captor.capture());
+                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
+                        Assertions.assertThat(clientes).containsValue(modificado);
+                    }
+            );
 
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
+        }
+        @Test
+        @DisplayName("NO SE MODIFICA EL USUARIO")
+        void modificarUsuarioNoValidoTest() {
+            //Given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
 
-        boolean seCambio = daoUsuariosImpl.modificarUsuarioNombre("dni1", listaBDold.get("dni1"), new UsuarioNormal("dni1", "nuevoUser1", ingredienteArrayList));
+            //When
+            when(bd.loadUsuarios()).thenReturn(base);
+            UsuarioNormal modificado = new UsuarioNormal("555", "pedro", new ArrayList<>());
 
-        assertTrue(seCambio);
+            boolean seCambia = daoUsuarios.modificarUsuarioNombre("555", baseCliente, modificado);
+
+            //Then
+            assertAll(
+                    () -> assertFalse(seCambia),
+                    () -> {
+                        verify(bd).saveUsuarios(captor.capture());
+                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
+                        Assertions.assertThat(clientes).containsValue(baseCliente);
+                        Assertions.assertThat(clientes).doesNotContainValue(modificado);
+                    }
+            );
+
+        }
     }
 
-    @Test
-    @DisplayName("NO SE MODIFICA EL USUARIO")
-    void moodificarUsuarioNoValidoTest() {
-        LinkedHashMap<String, Usuario> listaBDold = new LinkedHashMap<>();
-        ArrayList<Ingrediente> ingredienteArrayList = new ArrayList<>();
-        ingredienteArrayList.add(new Ingrediente("ing1"));
-        ingredienteArrayList.add(new Ingrediente("ing2"));
-        ingredienteArrayList.add(new Ingrediente("ing3"));
-
-
-        listaBDold.put("dni1", new UsuarioNormal("dni1", "user1", ingredienteArrayList));
-        listaBDold.put("dni2", new UsuarioNormal("dni2", "user2", ingredienteArrayList));
-        listaBDold.put("dni3", new UsuarioNormal("dni3", "user3", ingredienteArrayList));
-
-        BDold BDold = new BDold();
-        BDold.listaUsuarios = listaBDold;
-        DaoUsuariosImpl daoUsuariosImpl = new DaoUsuariosImpl(BDold);
-
-        boolean seCambio = daoUsuariosImpl.modificarUsuarioNombre("dni4", listaBDold.get("dni4"), new UsuarioNormal("dni5", "pepe", new ArrayList<>()));
-
-        assertFalse(seCambio);
-    }
-
- */
     @Nested
     @DisplayName("EXISTE USUARIO")
     class existeUser {

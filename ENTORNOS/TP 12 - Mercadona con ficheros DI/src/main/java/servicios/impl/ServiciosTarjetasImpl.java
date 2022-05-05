@@ -21,7 +21,7 @@ public class ServiciosTarjetasImpl implements ServiciosTarjetas {
     @Override public boolean agregarTarjeta(Tarjeta tarjNueva, Usuario user) {
         String nombre = tarjNueva.getNombre();
         if (!laTarjetaExiste(nombre, user) && !(nombre.equals("") || tarjNueva.getSaldo()<0)) {
-            daoTarjetasImpl.agregarusuario(tarjNueva, user);
+            daoTarjetasImpl.agregarTarjeta(tarjNueva, user);
             return true;
         }
         return false;

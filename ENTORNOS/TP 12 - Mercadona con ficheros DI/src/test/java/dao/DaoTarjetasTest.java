@@ -1,16 +1,81 @@
-//package dao;
-//
-//import dao.impl.DaoTarjetasImpl;
-//import modelo.Ingrediente;
-//import modelo.Tarjeta;
-//import modelo.Usuario;
-//import org.junit.jupiter.api.DisplayName;
-//import org.junit.jupiter.api.Test;
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//import java.util.*;
-//
-//public class DaoTarjetasTest {
+package dao;
+
+import dao.impl.DaoTarjetasImpl;
+import dao.impl.DataBase;
+import modelo.Ingrediente;
+import modelo.Tarjeta;
+import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioNormal;
+import org.apache.logging.log4j.core.util.Assert;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.*;
+
+@ExtendWith(SystemStubsExtension.class)
+@ExtendWith(MockitoExtension.class)
+public class DaoTarjetasTest {
+
+    @InjectMocks
+    private DaoTarjetasImpl daoTarjetas;
+
+    @Mock
+    private DataBase bd;
+
+    @Captor
+    private ArgumentCaptor<LinkedHashMap<String , Usuario>> captor;
+
+
+    @Nested
+    @DisplayName("AGREGAR TARJETAS")
+    class AgregarTarjetas {
+        @Test
+        @DisplayName("SE AGREGA TARJETA")
+        void agregarTarjeta() {
+            //given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
+
+            //When
+
+            when(bd.loadUsuarios()).thenReturn(base);
+            when(daoTarjetas.laTarjetaExiste(any(), any())).thenReturn(false);
+            Tarjeta tarjeta = new Tarjeta("t1", 150);
+            daoTarjetas.agregarTarjeta(tarjeta, base.get(0));
+
+            assertAll(
+            () -> {
+                verify(bd).saveUsuarios(captor.capture());
+                LinkedHashMap<String, Usuario> usuarios = captor.getValue();
+                Set<Tarjeta> tarjetaList = usuarios.get(baseCliente.getDni()).getListaTarjetas();
+                assertEquals(1, tarjetaList.size());
+                Assertions.assertThat(tarjetaList).contains(tarjeta);
+            }
+            );
+
+        }
+    }
+
+
+
+}
+
+
 //    @Test
 //    @DisplayName("SE AGREGO TARJETA CORRECTAMENTE")
 //    void addTarjetaValidaTest() {

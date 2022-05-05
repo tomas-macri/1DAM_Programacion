@@ -12,12 +12,15 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.quality.Strictness;
 import servicios.impl.ServiciosUsuariosImpl;
+import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(SystemStubsExtension.class)
 @ExtendWith(MockitoExtension.class)
 class ServiciosClientesImplTest {
     // a testear
@@ -45,9 +48,32 @@ class ServiciosClientesImplTest {
 
 
     @Test
-    @DisplayName("No se agrega un cliente")
-    void addClienteNoValido() {
+    @DisplayName("Nombre no valido")
+    void addClienteNoValidoNombre() {
+        //given
+        UsuarioNormal c = new UsuarioNormal("125", "", new ArrayList<>());
+        //when(daoClientes.agregarUsuario(any())).thenReturn(true);
 
+
+        //when
+        boolean respuesta = serviciosClientes.agregarUsuario(c);
+
+        //then
+        assertThat(respuesta).isFalse();
+    }
+    @Test
+    @DisplayName("DNI no valido")
+    void addClienteNoValidoDNI() {
+        //given
+        UsuarioNormal c = new UsuarioNormal("", "pedro", new ArrayList<>());
+        //when(daoClientes.agregarUsuario(any())).thenReturn(true);
+
+
+        //when
+        boolean respuesta = serviciosClientes.agregarUsuario(c);
+
+        //then
+        assertThat(respuesta).isFalse();
     }
 
 

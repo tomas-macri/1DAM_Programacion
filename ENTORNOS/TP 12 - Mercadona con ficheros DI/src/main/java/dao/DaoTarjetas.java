@@ -6,7 +6,7 @@ import modelo.Usuarios.Usuario;
 import java.util.List;
 
 public interface DaoTarjetas {
-    void agregarusuario(Tarjeta tarjNueva, Usuario cliente);
+    void agregarTarjeta(Tarjeta tarjNueva, Usuario cliente);
 
     boolean laTarjetaExiste(String nombTarjetaValidar, Usuario c);
 

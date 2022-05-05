@@ -7,6 +7,7 @@ import modelo.Usuarios.Usuario;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
@@ -19,7 +20,7 @@ public class DaoTarjetasImpl implements DaoTarjetas {
         this.dataBase = dataBase;
     }
 
-    @Override public void agregarusuario(Tarjeta tarjNueva, Usuario cliente) {
+    @Override public void agregarTarjeta(Tarjeta tarjNueva, Usuario cliente) {
         String nombreTarj = tarjNueva.getNombre();
         if (!laTarjetaExiste(nombreTarj, cliente) && !(nombreTarj.equals("") || tarjNueva.getSaldo()<0)) {
             LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
@@ -30,11 +31,14 @@ public class DaoTarjetasImpl implements DaoTarjetas {
 
     @Override public boolean laTarjetaExiste(String nombTarjetaValidar, Usuario c) {
         AtomicBoolean existe = new AtomicBoolean(false);
-        c.getListaTarjetas().forEach(tarjeta -> {
-            if (tarjeta.getNombre().equalsIgnoreCase(nombTarjetaValidar)) {
-                existe.set(true);
-            }
-        });
+        Set<Tarjeta> tarjetaList = c.getListaTarjetas();
+        if (tarjetaList != null) {
+            tarjetaList.forEach(tarjeta -> {
+                if (tarjeta.getNombre().equalsIgnoreCase(nombTarjetaValidar)) {
+                    existe.set(true);
+                }
+            });
+        }
         return existe.get();
     }
 
