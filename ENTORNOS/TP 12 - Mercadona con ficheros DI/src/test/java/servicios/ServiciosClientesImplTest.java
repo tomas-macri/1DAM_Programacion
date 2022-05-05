@@ -17,8 +17,9 @@ import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(SystemStubsExtension.class)
 @ExtendWith(MockitoExtension.class)
@@ -52,14 +53,17 @@ class ServiciosClientesImplTest {
     void addClienteNoValidoNombre() {
         //given
         UsuarioNormal c = new UsuarioNormal("125", "", new ArrayList<>());
-        //when(daoClientes.agregarUsuario(any())).thenReturn(true);
-
 
         //when
         boolean respuesta = serviciosClientes.agregarUsuario(c);
 
         //then
         assertThat(respuesta).isFalse();
+        assertAll(
+                () -> {
+                    verify(daoClientes, times(0)).agregarUsuario(any());
+                }
+        );
     }
     @Test
     @DisplayName("DNI no valido")

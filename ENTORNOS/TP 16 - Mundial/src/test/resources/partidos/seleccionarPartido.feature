@@ -1,4 +1,4 @@
-Feature: Como usuario quiero seleccionar un partido de la lista de partidos para modificar el resultado
+0Feature: Como usuario quiero seleccionar un partido de la lista de partidos para modificar el resultado
   Background:
     Given una lista de Equipos=[Equipo={nombre: "Argentina", goles:2, invictos:2}, Equipo={nombre: "Arabia Saudí", goles:1, invictos:0}, Equipo={nombre: "Brasil", goles:2, invictos:2}, Equipo={nombre: "Alemania", goles:2, invictos:2}]
     And una lista de partidos=[Partido={Equipo equipo1{nombre: "Argentina", goles:2, invictos:2}, golesEq1=1, Equipo equipo2={nombre: "Arabia Saudí", goles:1, invictos:0}, golesEq2:1}, Partido={Equipo equipo1{nombre: "Brasil", goles:2, invictos:2}, golesEq1=1, Equipo equipo2={nombre: "Alemania", goles:8, invictos:5}, golesEq2:7}]
