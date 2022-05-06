@@ -4,6 +4,7 @@ import dao.impl.DaoUsuariosImpl;
 import modelo.Usuarios.Usuario;
 import modelo.Usuarios.UsuarioNormal;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -81,14 +82,40 @@ class ServiciosClientesImplTest {
     }
 
 
-    @Test
-    void updateCliente() {
-        UsuarioNormal nuevo = new UsuarioNormal("dni", "nombre", new ArrayList<>());
+    @Nested
+    @DisplayName("Update cliente")
+    class BuscarCliente {
+        @Test
+        @DisplayName("Se actualiza el user")
+        void updateCliente() {
+            //given
+            UsuarioNormal nuevo = new UsuarioNormal("dni", "nombre", new ArrayList<>());
 
+            //when
+            when(daoClientes.getUsuario(any())).thenReturn(new UsuarioNormal("1", "n", new ArrayList<>()));
+            serviciosClientes.modificarUsuario(nuevo, daoClientes.getUsuario("1").getDni());
 
+            //then
+            verify(daoClientes, times(1)).eliminarUsuario("1");
+            verify(daoClientes, times(1)).agregarUsuario(nuevo);
+        }
 
+        @Test
+        @DisplayName("No se actualiza porque no se encuentra el user a reemplazar")
+        void updateClienteNoValidoUserNull() {
+            //given
+            UsuarioNormal nuevo = new UsuarioNormal("dni", "nombre", new ArrayList<>());
+
+            //when
+            when(daoClientes.getUsuario(any())).thenReturn(null);
+            serviciosClientes.modificarUsuario(nuevo, any());
+
+            //then
+            verify(daoClientes, times(1)).getUsuario(any());
+            verify(daoClientes, times(0)).eliminarUsuario(any());
+            verify(daoClientes, times(0)).agregarUsuario(any());
+        }
     }
-
     @Test
     void getClientes() {
     }

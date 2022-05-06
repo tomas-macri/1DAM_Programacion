@@ -3,7 +3,8 @@ package config;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import jakarta.ejb.Singleton;
+
+import jakarta.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
@@ -24,7 +25,7 @@ public class Configuracion {
 
         try {
             JsonNode node = mapper.readTree(
-                    Configuracion.class.getClassLoader().getResourceAsStream("config.yml"));
+                    Configuracion.class.getClassLoader().getResourceAsStream("config/config.yml"));
             this.pathPartidos = node.get("pathPartidos").asText();
             this.pathEquipos = node.get("pathEquipos").asText();
         } catch (IOException e) {

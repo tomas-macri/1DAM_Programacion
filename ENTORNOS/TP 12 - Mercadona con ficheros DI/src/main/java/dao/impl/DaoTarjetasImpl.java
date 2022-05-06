@@ -4,6 +4,7 @@ import dao.DaoTarjetas;
 import jakarta.inject.Inject;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioNormal;
 
 import java.util.LinkedHashMap;
 import java.util.List;

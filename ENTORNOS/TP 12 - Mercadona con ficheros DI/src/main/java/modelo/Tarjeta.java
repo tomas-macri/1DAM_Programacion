@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Objects;
+
 public class Tarjeta implements Clonable<Tarjeta> {
 
     String nombre;
@@ -33,6 +35,19 @@ public class Tarjeta implements Clonable<Tarjeta> {
                 "nombre='" + nombre + '\'' +
                 ", saldo=" + saldo +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tarjeta tarjeta = (Tarjeta) o;
+        return nombre.equals(tarjeta.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 
     @Override
