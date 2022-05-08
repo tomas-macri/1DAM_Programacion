@@ -33,14 +33,14 @@ public class ServiciosComprasImpl implements ServiciosCompras {
 
     @Override public Usuario agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
 
-        if (prodComp != null && userLogueado != null) {
+        if (prodComp != null && userLogueado != null && prodComp.getCantidad() > 0) {
             return daoComprasImpl.agregarALaCompra(prodComp, userLogueado);
         }
         return userLogueado;
     }
 
     @Override public boolean eliminarDeLaCompra(Producto prod, Usuario user) {
-        if (prod != null) {
+        if (prod != null && user != null) {
             return daoComprasImpl.eliminarDeLaCompra(prod, user);
         } else {
             return false;
@@ -67,7 +67,7 @@ public class ServiciosComprasImpl implements ServiciosCompras {
                 }
 
                 daoComprasImpl.pagar(tarjeta, valorFinalCompra.get(), user, porcentajeACobrar);
-                return true;
+                pudoPagar = true;
             } else {
                 pudoPagar = false;
             }

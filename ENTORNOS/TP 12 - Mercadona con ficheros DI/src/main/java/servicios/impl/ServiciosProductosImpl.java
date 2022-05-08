@@ -23,7 +23,7 @@ public class ServiciosProductosImpl implements ServiciosProductos {
 
 
     @Override public boolean agregarProducto(Producto productoNuevo) {
-        if (!daoProductosImpl.elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() < 0 || productoNuevo.getStock() < 0))) {
+        if (!daoProductosImpl.elProductoExiste(productoNuevo) && (!(productoNuevo.getNombre().equals("") || productoNuevo.getPrecio() <=  0 || productoNuevo.getStock() < 0))) {
             return daoProductosImpl.agregarProducto(productoNuevo);
         }
         return false;
@@ -59,7 +59,7 @@ public class ServiciosProductosImpl implements ServiciosProductos {
     @Override public boolean modificarProductoPrecio(String nombOriginal, double precioNuevo) {
         boolean exito = false;
         int indexProdViejo = daoProductosImpl.obtenerIndexProducto(new ProductoNormal(nombOriginal));
-        if (indexProdViejo >= 0 && precioNuevo >= 0) {
+        if (indexProdViejo >= 0 && precioNuevo > 0) {
             daoProductosImpl.modificarProductoPrecio(indexProdViejo, precioNuevo);
             exito = true;
         }

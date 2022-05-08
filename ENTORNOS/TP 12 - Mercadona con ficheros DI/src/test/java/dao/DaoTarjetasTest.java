@@ -30,7 +30,7 @@ import java.util.*;
 
 @ExtendWith(SystemStubsExtension.class)
 @ExtendWith(MockitoExtension.class)
-public class DaoTarjetasTest {
+class DaoTarjetasTest {
 
     @InjectMocks
     private DaoTarjetasImpl daoTarjetas;
@@ -111,6 +111,28 @@ public class DaoTarjetasTest {
 
             //When
             Tarjeta tarjeta = new Tarjeta("t1", -200);
+            daoTarjetas.agregarTarjeta(tarjeta, base.get("123"));
+
+            assertAll(
+                    () -> {
+                        verify(bd, times(0)).saveUsuarios(base);
+
+                        Set<Tarjeta> tarjetaList = base.get(baseCliente.getDni()).getListaTarjetas();
+                        assertEquals(0, tarjetaList.size());
+                    }
+            );
+        }
+
+        @Test
+        @DisplayName("NO SE AGREGA TARJETA POR NOMBRE VACIO")
+        void noSeAgregaTarjetaPorNombreNoValido() {
+            //given
+            UsuarioNormal baseCliente = new UsuarioNormal("123", "juan", new ArrayList<>());
+            LinkedHashMap<String, Usuario> base = new LinkedHashMap<>();
+            base.put(baseCliente.getDni(), baseCliente);
+
+            //When
+            Tarjeta tarjeta = new Tarjeta("", 200);
             daoTarjetas.agregarTarjeta(tarjeta, base.get("123"));
 
             assertAll(

@@ -17,7 +17,9 @@ public class DaoProductosImpl implements DaoProductos {
     public DaoProductosImpl(DataBase dataBase) {
         this.dataBase = dataBase;
     }
-    @Override public boolean agregarProducto(Producto productoNuevo) {
+
+    @Override
+    public boolean agregarProducto(Producto productoNuevo) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             boolean seAgrego = listaProductos.add(productoNuevo);
@@ -27,7 +29,8 @@ public class DaoProductosImpl implements DaoProductos {
         return false;
     }
 
-    @Override public boolean eliminarProducto(String nombProd) {
+    @Override
+    public boolean eliminarProducto(String nombProd) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             boolean seElimino = listaProductos.remove(new ProductoNormal(nombProd));
@@ -37,7 +40,8 @@ public class DaoProductosImpl implements DaoProductos {
         return false;
     }
 
-    @Override public boolean elProductoExiste(Producto prod) {
+    @Override
+    public boolean elProductoExiste(Producto prod) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             return listaProductos.contains(prod);
@@ -45,7 +49,8 @@ public class DaoProductosImpl implements DaoProductos {
         return false;
     }
 
-    @Override public void modificarProducto(int indexProdViejo, Producto prodNuevo) {
+    @Override
+    public void modificarProducto(int indexProdViejo, Producto prodNuevo) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             listaProductos.set(indexProdViejo, prodNuevo);
@@ -53,46 +58,54 @@ public class DaoProductosImpl implements DaoProductos {
         }
     }
 
-    @Override public void modificarProductoNombre(int indexProdViejo, String nombNuevo) {
+    @Override
+    public void modificarProductoNombre(int indexProdViejo, String nombNuevo) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             listaProductos.get(indexProdViejo).setNombre(nombNuevo);
+            dataBase.saveProductos(listaProductos);
         }
     }
 
-    @Override public void modificarProductoPrecio(int indexProdViejo, double precioNuevo) {
+    @Override
+    public void modificarProductoPrecio(int indexProdViejo, double precioNuevo) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             listaProductos.get(indexProdViejo).setPrecio(precioNuevo);
+            dataBase.saveProductos(listaProductos);
         }
     }
 
-    @Override public void modificarProductoStock(int indexProdViejo, int stockNuevo) {
+    @Override
+    public void modificarProductoStock(int indexProdViejo, int stockNuevo) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             listaProductos.get(indexProdViejo).setStock(stockNuevo);
+            dataBase.saveProductos(listaProductos);
         }
     }
 
-    @Override public Producto getProducto(int indexProd) {
+    @Override
+    public Producto getProducto(int indexProd) {
         List<Producto> listaProductos = dataBase.loadProductos();
-        if (listaProductos != null) {
+        if (listaProductos != null && indexProd != -1) {
             return listaProductos.get(indexProd);
         }
         return null;
     }
 
 
-    @Override public int obtenerIndexProducto(Producto prod) {
+    @Override
+    public int obtenerIndexProducto(Producto prod) {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             return listaProductos.indexOf(prod);
-
         }
         return -1;
     }
 
-    @Override public List<Producto> devolverLista() {
+    @Override
+    public List<Producto> devolverLista() {
         List<Producto> listaProductos = dataBase.loadProductos();
         if (listaProductos != null) {
             return listaProductos.stream()

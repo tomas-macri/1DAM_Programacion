@@ -5,19 +5,19 @@ import jakarta.inject.Inject;
 import modelo.Ingrediente;
 import modelo.Productos.Producto;
 import modelo.Usuarios.Usuario;
-import servicios.SeviciosEstadisticas;
+import servicios.ServiciosEstadisticas;
 import ui.common.Constantes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class SeviciosEstadisticasImpl implements SeviciosEstadisticas {
+public class ServiciosEstadisticasImpl implements ServiciosEstadisticas {
 
     private DaoEstadisticas daoEstadisticasImpl;
 
     @Inject
-    public SeviciosEstadisticasImpl(DaoEstadisticas daoEstadisticasImpl) {
+    public ServiciosEstadisticasImpl(DaoEstadisticas daoEstadisticasImpl) {
         this.daoEstadisticasImpl = daoEstadisticasImpl;
     }
 

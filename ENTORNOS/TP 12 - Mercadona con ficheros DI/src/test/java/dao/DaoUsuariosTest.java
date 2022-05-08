@@ -139,13 +139,9 @@ class DaoUsuariosTest {
             Usuario eliminado = daoUsuarios.getUsuario("456");
 
             //Then
-            assertAll(() -> verify(bd).saveUsuarios(base),
-                    () -> {
-                        verify(bd).saveUsuarios(captor.capture());
-                        LinkedHashMap<String, Usuario> clientes = captor.getValue();
-                        Assertions.assertThat(clientes).containsValue(baseCliente);
-                        assertNull(eliminado);
-                    }
+            assertAll(
+                        () -> assertTrue(base.containsValue(baseCliente)),
+                        () -> assertNull(eliminado)
 
             );
         }

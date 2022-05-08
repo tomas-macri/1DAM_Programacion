@@ -2,17 +2,17 @@ package ui;
 
 import jakarta.inject.Inject;
 import modelo.Ingrediente;
-import servicios.SeviciosEstadisticas;
+import servicios.ServiciosEstadisticas;
 import ui.common.Constantes;
 
 import java.util.Scanner;
 
 public class MainEstadisticas {
 
-    private SeviciosEstadisticas serviciosEstadisticasImpl;
+    private ServiciosEstadisticas serviciosEstadisticasImpl;
 
     @Inject
-    public MainEstadisticas(SeviciosEstadisticas serviciosEstadisticasImpl){
+    public MainEstadisticas(ServiciosEstadisticas serviciosEstadisticasImpl){
         this.serviciosEstadisticasImpl = serviciosEstadisticasImpl;
     }
 

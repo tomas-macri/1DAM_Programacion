@@ -6,6 +6,7 @@ import modelo.Productos.Producto;
 import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioNormal;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,12 +24,16 @@ public class DaoComprasImpl implements DaoCompras {
     }
 
     @Override public void quitarStock(int cant, Producto prod) {
-        prod.setStock(prod.getStock() - cant);
+        List<Producto> productos = dataBase.loadProductos();
+        if (productos != null && productos.contains(prod)) {
+            prod.setStock(prod.getStock() - cant);
+            dataBase.saveProductos(productos);
+        }
     }
 
     @Override public Usuario agregarALaCompra(ProductoComprado prodComp, Usuario userLogueado) {
         LinkedHashMap<String, Usuario> usuarios = dataBase.loadUsuarios();
-        if (usuarios != null) {
+        if (usuarios != null ) {
             Usuario userLogueadoBD = usuarios.get(userLogueado.getDni());
             userLogueadoBD.getCarrito().add(prodComp);
             dataBase.saveUsuarios(usuarios);
