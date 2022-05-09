@@ -56,19 +56,16 @@ public class PrincipalController {
         alert = new Alert(Alert.AlertType.NONE);
     }
 
-    private void cargarPantalla(Pantallas pantalla) {
+    private void cargarPanePantalla(Pantallas pantalla) {
 
         switch (pantalla) {
-            case MAINADMIN:
 
-                cargarPantalla(pantalla.getRuta());
-                break;
             case LOGIN:
                 menuPrincipal.setVisible(false);
-                cargarPantalla(pantalla.getRuta());
+                cargarPanePantalla(pantalla.getRuta());
                 break;
             default:
-                cargarPantalla(pantalla.getRuta());
+                cargarPanePantalla(pantalla.getRuta());
                 break;
         }
     }
@@ -81,7 +78,7 @@ public class PrincipalController {
     }
 
 
-    private Pane cargarPantalla(String ruta) {
+    private Pane cargarPanePantalla(String ruta) {
         Pane panePantalla = null;
         try {
 
@@ -103,14 +100,13 @@ public class PrincipalController {
 
     public void logout() {
         usuarioLogueado = null;
-        cargarPantalla(Pantallas.LOGIN);
+        cargarPanePantalla(Pantallas.LOGIN);
     }
 
 
     public void initialize() {
         menuPrincipal.setVisible(false);
-        cargarPantalla(Pantallas.LOGIN);
-
+        cargarPanePantalla(Pantallas.LOGIN);
     }
 
     private void closeWindowEvent(WindowEvent event) {
@@ -146,7 +142,7 @@ public class PrincipalController {
     }
 
     public void irAlLogin(ActionEvent actionEvent) {
-        cargarPantalla(Pantallas.LOGIN);
+        cargarPanePantalla(Pantallas.LOGIN);
     }
 
     //evento de otra pantalla
@@ -159,15 +155,15 @@ public class PrincipalController {
             menuItemExit.setDisable(false);
             pantalla = Pantallas.MAINADMIN;
         }
-        cargarPantalla(pantalla);
+        cargarPanePantalla(pantalla);
     }
 
     public void doRegistro(Pantallas pantalla) {
-        cargarPantalla(pantalla);
+        cargarPanePantalla(pantalla);
     }
 
     public void finEditar(Pantallas pantalla) {
-        cargarPantalla(pantalla);
+        cargarPanePantalla(pantalla);
     }
 
 
@@ -182,17 +178,17 @@ public class PrincipalController {
     public void editarProd(Producto producto, String idBTNEditarNuevo) {
             idBTN = idBTNEditarNuevo;
             prodEditar = producto;
-            cargarPantalla(Pantallas.EDITARPRODUCTO);
+            cargarPanePantalla(Pantallas.EDITARPRODUCTO);
         }
 
     public void editarUser(Usuario usuario, String id) {
         idBTN = id;
         userEditar = usuario;
-        cargarPantalla(Pantallas.EDITARUSUARIO);
+        cargarPanePantalla(Pantallas.EDITARUSUARIO);
     }
 
     public void nuevaCompra() {
-        cargarPantalla(Pantallas.COMPRA);
+        cargarPanePantalla(Pantallas.COMPRA);
     }
 
 

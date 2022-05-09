@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04981372-5c95-4bde-8223-9ee46d32dff3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 12 - Mercadona con ficheros DI/src/test/java/servicios/ServiciosClientesImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/serivcios/ServiciosEquipos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/homeGrupos/HomeGruposController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/homeGrupos/HomeGruposState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/homeGrupos/HomeGruposViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/resources/fxml/homeGrupos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/common/ConstantesPantallas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/common/ConstantesPantallas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/common/Pantallas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/common/Pantallas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/principal/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/java/ui/pantallas/principal/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/resources/fxml/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ENTORNOS/TP 16 - Mundial/src/main/resources/fxml/principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +131,7 @@
       <workItem from="1650877634552" duration="100000" />
       <workItem from="1650918008978" duration="4438000" />
       <workItem from="1651574591383" duration="39000" />
+      <workItem from="1652087325072" duration="18000" />
     </task>
     <servers />
   </component>

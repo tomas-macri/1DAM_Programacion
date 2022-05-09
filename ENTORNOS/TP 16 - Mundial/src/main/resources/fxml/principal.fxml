@@ -11,7 +11,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
                 <children>
                     <MFXTextField fx:id="txtField" layoutX="274.0" layoutY="71.0" />
-                    <MFXButton fx:id="button" layoutX="289.0" layoutY="157.0" mnemonicParsing="false" onAction="#cambiarcss" text="Button">
+                    <MFXButton fx:id="button" layoutX="289.0" layoutY="157.0" mnemonicParsing="false" text="Button">
                         <font>
                             <Font name="Alef Regular" size="12.0" />
                         </font>
@@ -37,7 +37,7 @@
                 </Menu>
                 <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="menuItemUndo" mnemonicParsing="false" onAction="#cambiarcss" text="Undo" />
+                        <MenuItem fx:id="menuItemUndo" mnemonicParsing="false" text="Undo" />
                         <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo" />
                         <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut" />
                         <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy" />

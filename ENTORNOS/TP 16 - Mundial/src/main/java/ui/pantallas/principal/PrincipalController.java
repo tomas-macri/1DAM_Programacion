@@ -55,24 +55,7 @@ public class PrincipalController extends BasePantallaController {
        alert= new Alert(Alert.AlertType.NONE);
     }
 
-    private void cargarPantalla(Pantallas pantalla) {
 
-        switch (pantalla) {
-//            case LISTADO:
-//                cambioPantalla(cargarPantalla(pantalla.getRuta()));
-//                break;
-//            case PANTALLA1:
-//                if (pantallaBienvenida == null){
-//                    pantallaBienvenida = cargarPantalla(pantalla.getRuta());
-//                }
-//
-//                cambioPantalla(pantallaBienvenida);
-//                break;
-            default:
-                cambioPantalla(cargarPantalla(pantalla.getRuta()));
-                break;
-        }
-    }
 
 
     public void sacarAlertError(String mensaje)
@@ -99,6 +82,7 @@ public class PrincipalController extends BasePantallaController {
         } catch (IOException e) {
             log.error(e.getMessage(),e);
         }
+        cambioPantalla(panePantalla);
         return panePantalla;
     }
 
@@ -107,66 +91,37 @@ public class PrincipalController extends BasePantallaController {
 
 
     public void logout() {
-        //actualUser = null;
         menuPrincipal.setVisible(false);
         cargarPantalla(Pantallas.LOGIN);
     }
 
     private void cambioPantalla(Pane pantallaNueva) {
-
-        //            FadeTransition fade = new FadeTransition();
-//            fade.setNode(root.getCenter());
-//            fade.setDuration(Duration.millis(2000));
-//            fade.setCycleCount(1);
-//            fade.setInterpolator(Interpolator.LINEAR);
-//            fade.setFromValue(1);
-//            fade.setToValue(0);
-//            fade.play();
-//            fade.setOnFinished(event -> {
-//                root.setCenter(panePantalla);
-//            });
-        //            TranslateTransition translate = new TranslateTransition();
-//            translate.setNode(stackPane.getChildren().get(1));
-//            translate.setDuration(Duration.millis(1000));
-//            translate.setCycleCount(1);
-//            translate.setInterpolator(Interpolator.LINEAR);
-//            translate.setFromX(0);
-//            translate.setToX(root.getWidth());
-//            translate.play();
-//            translate.setOnFinished(event -> {
-//                stackPane.getChildren().remove(1);
-//            });
-
-//        StackPane stackPane = (StackPane) root.getCenter();
-//
-//        if (stackPane.getChildren().get(0) != pantallaNueva) {
-//
-//            stackPane.getChildren().add(0, pantallaNueva);
-//
-//            ScaleTransition scaleTransition = new ScaleTransition();
-//            scaleTransition.setNode(stackPane.getChildren().get(1));
-//            scaleTransition.setDuration(Duration.millis(500));
-//            scaleTransition.setFromX(stackPane.getChildren().get(1).getScaleX());
-//            scaleTransition.setFromY(stackPane.getChildren().get(1).getScaleY());
-//            scaleTransition.setToX(0);
-//            scaleTransition.setToY(0);
-//            scaleTransition.setInterpolator(Interpolator.EASE_OUT);
-//            scaleTransition.play();
-//            scaleTransition.setOnFinished(event -> {
-//                Node node = stackPane.getChildren().remove(1);
-//                node.setScaleX(1);
-//                node.setScaleY(1);
-//            });
-//        }
-
         root.setCenter(pantallaNueva);
     }
 
 
     public void initialize() {
         menuPrincipal.setVisible(false);
-        cargarPantalla("/fxml/principal.fxml");
+       cargarPantalla(Pantallas.HOMEGRUPOS);
+    }
 
+    private void cargarPantalla(Pantallas pantalla) {
+
+        switch (pantalla) {
+//            case LISTADO:
+//                cambioPantalla(cargarPantalla(pantalla.getRuta()));
+//                break;
+//            case PANTALLA1:
+//                if (pantallaBienvenida == null){
+//                    pantallaBienvenida = cargarPantalla(pantalla.getRuta());
+//                }
+//
+//                cambioPantalla(pantallaBienvenida);
+//                break;
+            default:
+                cambioPantalla(cargarPantalla(pantalla.getRuta()));
+                break;
+        }
     }
 
     private void closeWindowEvent(WindowEvent event) {
@@ -196,8 +151,6 @@ public class PrincipalController extends BasePantallaController {
     }
 
     public void exit(ActionEvent actionEvent) {
-//        primaryStage.close();
-//        Platform.exit();
         primaryStage.fireEvent(new WindowEvent(primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 
@@ -206,18 +159,6 @@ public class PrincipalController extends BasePantallaController {
         primaryStage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::closeWindowEvent);
     }
 
-    @FXML
-    private void cambiarcss(ActionEvent actionEvent) {
-        System.out.println(primaryStage.getScene().getRoot().getStylesheets().stream().findFirst().get());
-
-
-        primaryStage.getScene().getRoot().getStylesheets().clear();
-
-
-
-        primaryStage.getScene().getRoot().getStylesheets().add(getClass().getResource("/css/darkmode.css").toExternalForm());
-
-    }
 
 
 

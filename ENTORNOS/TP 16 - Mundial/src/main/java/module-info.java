@@ -17,15 +17,19 @@ module Mundial {
     //requires jakarta.jakartaee.web.api;
 
     exports ui.main to javafx.graphics;
+    exports ui.pantallas.homeGrupos;
     exports modelo;
     exports dao;
+    exports serivcios;
     exports di;
 
     opens ui.pantallas.common;
     opens ui.pantallas.principal;
+    opens ui.pantallas.homeGrupos;
     opens ui.main;
     opens config;
     opens fxml;
+    opens modelo to com.google.gson;
 
 //    exports ui;
 //    opens domain.modelo to javafx.base;
