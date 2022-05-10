@@ -1,5 +1,53 @@
 [
   {
+    "nombre": "Qatar",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Ecuador",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Senegal",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Holanda",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Inglaterra",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Irán",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "EE.UU",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Gales",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
     "nombre": "Argentina",
     "golesFavor": 0,
     "vallasInvictas": 0,
@@ -19,6 +67,127 @@
   },
   {
     "nombre": "Polonia",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Francia",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Perú",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Dinamarca",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Túnez",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+
+  {
+    "nombre": "España",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Costa Rica",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Alemania",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Japón",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Bélgica",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Canadá",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Marruecos",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Croacia",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Brasil",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Serbia",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Suiza",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Camerún",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Portugal",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Ghana",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Uruguay",
+    "golesFavor": 0,
+    "vallasInvictas": 0,
+    "puntos": 0
+  },
+  {
+    "nombre": "Corea",
     "golesFavor": 0,
     "vallasInvictas": 0,
     "puntos": 0

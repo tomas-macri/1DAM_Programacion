@@ -4,10 +4,17 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="637.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.homeGrupos.HomeGruposController">
+<AnchorPane prefHeight="637.0" prefWidth="1383.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.homeGrupos.HomeGruposController">
    <children>
       <Group layoutX="212.0" layoutY="208.0" />
       <Group layoutX="152.0" layoutY="107.0" />
-      <MFXTableView fx:id="mfxGrupo1" layoutX="51.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo1" layoutX="50.0" layoutY="42.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo2" layoutX="450.0" layoutY="42.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo3" layoutX="850.0" layoutY="42.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo4" layoutX="1250.0" layoutY="42.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo5" layoutX="50.0" layoutY="356.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo6" layoutX="450.0" layoutY="356.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo7" layoutX="850.0" layoutY="356.0" prefHeight="235.0" prefWidth="200.0" />
+      <MFXTableView fx:id="mfxGrupo8" layoutX="1250.0" layoutY="356.0" prefHeight="235.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

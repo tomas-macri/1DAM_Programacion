@@ -8,7 +8,7 @@
 <BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
     <center>
         <StackPane prefHeight="150.0" prefWidth="200.0">
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <children>
                     <MFXTextField fx:id="txtField" layoutX="274.0" layoutY="71.0" />
                     <MFXButton fx:id="button" layoutX="289.0" layoutY="157.0" mnemonicParsing="false" text="Button">
@@ -28,7 +28,7 @@
                 <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem fx:id="menuItemNew" mnemonicParsing="false" text="New" />
-                        <MenuItem fx:id="menuItemPantalla1" mnemonicParsing="false" onAction="#menuClick" text="Pantalla1" />
+                        <MenuItem fx:id="menuItemPartidos" mnemonicParsing="false" onAction="#menuClick" text="Partidos" />
                         <MenuItem fx:id="menuItemListado" mnemonicParsing="false" onAction="#menuClick" text="listado" />
                         <MenuItem fx:id="menuItemPantallaNueva" mnemonicParsing="false"  onAction="#menuClick" text="pantallaNueva" />
                         <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#menuClick" text="Logout" />

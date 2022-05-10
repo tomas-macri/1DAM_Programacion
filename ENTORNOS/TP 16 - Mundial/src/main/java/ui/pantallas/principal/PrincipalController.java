@@ -101,7 +101,7 @@ public class PrincipalController extends BasePantallaController {
 
 
     public void initialize() {
-        menuPrincipal.setVisible(false);
+        //menuPrincipal.setVisible(false);
        cargarPantalla(Pantallas.HOMEGRUPOS);
     }
 
@@ -177,8 +177,8 @@ public class PrincipalController extends BasePantallaController {
     private void menuClick(ActionEvent actionEvent) {
         switch (((MenuItem)actionEvent.getSource()).getId())
         {
-            case "menuItemPantalla1":
-                cargarPantalla(Pantallas.PANTALLA1);
+            case "menuItemPartidos":
+                cargarPantalla(Pantallas.JORNADA_GRUPOS);
                 break;
             case "menuItemListado":
                 cargarPantalla(Pantallas.LISTADO);
