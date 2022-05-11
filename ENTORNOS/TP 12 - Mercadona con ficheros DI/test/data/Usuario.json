@@ -1,0 +1,23 @@
+{
+  "123": {
+    "type": "UsuarioNormal",
+    "dni": "123",
+    "nombre": "Juan",
+    "admin": false,
+    "listaTarjetas": [],
+    "carrito": [],
+    "comprasPrevias": [],
+    "ingredienteList": []
+  },
+  "456": {
+    "porcentajeDescuento": 30,
+    "type": "UsuarioEspecial",
+    "dni": "456",
+    "nombre": "Juan",
+    "admin": false,
+    "listaTarjetas": [],
+    "carrito": [],
+    "comprasPrevias": [],
+    "ingredienteList": []
+  }
+}

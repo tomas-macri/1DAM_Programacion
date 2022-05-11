@@ -11,7 +11,10 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Link;
 import lombok.extern.log4j.Log4j2;
 
+import modelo.Productos.ProductoCaducable;
+import modelo.Productos.ProductoNormal;
 import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioEspecial;
 import modelo.Usuarios.UsuarioNormal;
 import nl.altindag.log.LogCaptor;
 import nl.altindag.log.model.LogEvent;
@@ -44,7 +47,6 @@ class DataBaseTest {
 
 
     //clase a probar
-    @Inject
     private DataBase database;
 
 
@@ -52,8 +54,8 @@ class DataBaseTest {
 
     @BeforeAll
     static void beforeAll() {
-//        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
-//        container = initializer.initialize();
+        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+        container = initializer.initialize();
 
 
     }
@@ -66,12 +68,12 @@ class DataBaseTest {
             e.printStackTrace();
         }
 
-        //database = container.select(DataBase.class).get();
+        database = container.select(DataBase.class).get();
     }
 
     @AfterAll
     static void afterAll() {
-        //container.close();
+        container.close();
     }
 
     @Test
@@ -86,16 +88,9 @@ class DataBaseTest {
         //then
         List<LogEvent> logEvents = logCaptor.getLogEvents();
         assertThat(logEvents).hasSize(1);
-
         LogEvent logEvent = logEvents.get(0);
-        //assertThat(logEvent.getMessage()).isEqualTo("Caught unexpected exception");
         assertThat(logEvent.getLevel()).isEqualTo("ERROR");
         assertThat(logEvent.getThrowable()).isPresent();
-
-        assertThat(logEvent.getThrowable().get())
-                // .hasMessage("KABOOM!")
-                .isInstanceOf(IOException.class);
-
 
         assertThat(resultado).isEmpty();
     }
@@ -106,7 +101,7 @@ class DataBaseTest {
         //given
         LinkedHashMap<String, Usuario> resultado;
         try {
-            Files.copy(Paths.get("test/data/UsuarioLoadTest.json"), Paths.get("test/data/Usuario.json"));
+            Files.copy(Paths.get("test/data/usuarioLoadTest.json"), Paths.get("test/data/Usuario.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -116,9 +111,11 @@ class DataBaseTest {
         resultado = database.loadUsuarios();
 
         //then
-        assertThat(resultado).hasSize(1);
-
-
+        assertThat(resultado).hasSize(3);
+        assertThat(resultado.get("u1")).isInstanceOf(UsuarioNormal.class);
+        assertThat(resultado.get("e1")).isInstanceOf(UsuarioEspecial.class);
+        assertThat(resultado.get("u1").getComprasPrevias().get(0).get(0).getProducto()).isInstanceOf(ProductoCaducable.class);
+        assertThat(resultado.get("u1").getComprasPrevias().get(0).get(1).getProducto()).isInstanceOf(ProductoNormal.class);
     }
 
     @Test
@@ -139,14 +136,14 @@ class DataBaseTest {
         //then
         assertAll(() ->assertThat(new File("test/data/Usuario.json")).doesNotExist(),
                 () -> assertThat(retorno).isFalse());
-
-
     }
     @Test
+    @Disabled
     void saveUsuarios() {
         //given
         LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
         usuarios.put("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
+        usuarios.put("456", new UsuarioEspecial("456", "Juan", new ArrayList<>(), 30));
         LinkedHashMap<String, Usuario> resultado = new LinkedHashMap<>();
 
         //when
@@ -168,14 +165,11 @@ class DataBaseTest {
         } catch (IOException e) {
             log.error(e.getMessage(), e);
         }
-        assertThat(new File("test/data/Usuario.json"))
-                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
+//        assertThat(new File("test/data/Usuario.json"))
+//                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
         assertThat(resultado).hasSize(1);
-        assertThat(resultado.get(0).getNombre()).isEqualTo("Juan");
-        assertThat(resultado.get(0)).isEqualTo(new UsuarioNormal("123", "Juan", new ArrayList<>()));
-
-
-
+        assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
+        assertThat(resultado).containsEntry("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
     }
 }
 
