@@ -27,6 +27,7 @@ module Mundial {
     opens ui.pantallas.common;
     opens ui.pantallas.principal;
     opens ui.pantallas.homeGrupos;
+    opens ui.pantallas.jornadaGrupos;
     opens ui.main;
     opens config;
     opens fxml;

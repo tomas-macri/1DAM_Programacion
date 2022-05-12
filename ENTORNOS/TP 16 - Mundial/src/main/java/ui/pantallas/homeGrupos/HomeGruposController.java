@@ -1,5 +1,9 @@
 package ui.pantallas.homeGrupos;
 
+import config.Configuracion;
+import dao.DaoPartidos;
+import dao.DataBase;
+import di.GsonProducer;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
@@ -7,6 +11,7 @@ import jakarta.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import modelo.Equipo;
+import modelo.Grupo;
 import ui.pantallas.common.BasePantallaController;
 
 import java.net.URL;
@@ -45,25 +50,25 @@ public class HomeGruposController extends BasePantallaController implements Init
     private MFXTableView mfxGrupo8;
 
 
-    private List<MFXTableView> listGrupos;
+    private List<MFXTableView> listTablasGrupos;
 
     @Inject
     public HomeGruposController(HomeGruposViewModel gruposViewModel) {this.gruposViewModel = gruposViewModel;}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        listGrupos = new ArrayList<>();
-        listGrupos.add(mfxGrupo1);
-        listGrupos.add(mfxGrupo2);
-        listGrupos.add(mfxGrupo3);
-        listGrupos.add(mfxGrupo4);
-        listGrupos.add(mfxGrupo5);
-        listGrupos.add(mfxGrupo6);
-        listGrupos.add(mfxGrupo7);
-        listGrupos.add(mfxGrupo8);
+        listTablasGrupos = new ArrayList<>();
+        listTablasGrupos.add(mfxGrupo1);
+        listTablasGrupos.add(mfxGrupo2);
+        listTablasGrupos.add(mfxGrupo3);
+        listTablasGrupos.add(mfxGrupo4);
+        listTablasGrupos.add(mfxGrupo5);
+        listTablasGrupos.add(mfxGrupo6);
+        listTablasGrupos.add(mfxGrupo7);
+        listTablasGrupos.add(mfxGrupo8);
 
 
-        for (int i = 0; i <listGrupos.size(); i++){
+        for (int i = 0; i < listTablasGrupos.size(); i++){
             MFXTableColumn<Equipo> paisColumn = new MFXTableColumn<>("Equipo", true, Comparator.comparing(Equipo::getNombre));
             MFXTableColumn<Equipo> puntosColumns = new MFXTableColumn<>("Puntos", true, Comparator.comparing(Equipo::getPuntos));
             MFXTableColumn<Equipo> golesColumn = new MFXTableColumn<>("GF", true, Comparator.comparing(Equipo::getGolesFavor));
@@ -73,7 +78,7 @@ public class HomeGruposController extends BasePantallaController implements Init
             golesColumn.setRowCellFactory(equipo -> new MFXTableRowCell<>(Equipo::getGolesFavor));
 
 
-            listGrupos.get(i).getTableColumns().addAll(paisColumn, puntosColumns, golesColumn);
+            listTablasGrupos.get(i).getTableColumns().addAll(paisColumn, puntosColumns, golesColumn);
 
         }
 
@@ -84,6 +89,7 @@ public class HomeGruposController extends BasePantallaController implements Init
 
     private void cambiosEstado() {
         gruposViewModel.getState().addListener((observableValue, listadoState, listadoStateNew) -> {
+            List<Grupo> todosLosGrupos = new ArrayList<>();
             if (listadoStateNew.getError()!=null){
                 getPrincipalController().sacarAlertError(listadoStateNew.getError());
             }
@@ -91,15 +97,22 @@ public class HomeGruposController extends BasePantallaController implements Init
             {
                 List<Equipo> equipoList = listadoStateNew.getEquipos();
 
-                for (int i = 0; i < listGrupos.size(); i++){
-                    listGrupos.get(i).getItems().clear();
+                for (int i = 0; i < listTablasGrupos.size(); i++){
+                    listTablasGrupos.get(i).getItems().clear();
+                    List<Equipo> equiposGrupos = new ArrayList<>();
                     for (int j = 0; j < 4; j++) {
-                        listGrupos.get(i).getItems().add(equipoList.get((i*4)+j));
+                        equiposGrupos.add(equipoList.get((i*4)+j));
+                        listTablasGrupos.get(i).getItems().add(equipoList.get((i*4)+j));
                     }
+                    todosLosGrupos.add(new Grupo(equiposGrupos));
                 }
 
 
             }
+
+            DaoPartidos daoPartidos = new DaoPartidos(new DataBase(new GsonProducer().getGson(), new Configuracion()));
+
+
 
 
         });

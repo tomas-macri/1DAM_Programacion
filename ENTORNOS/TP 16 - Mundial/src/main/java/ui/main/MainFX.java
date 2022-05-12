@@ -26,7 +26,7 @@ public class MainFX {
             PrincipalController controller = fxmlLoader.getController();
             controller.setStage(stage);
 
-            stage.setScene(new Scene(fxmlParent, 2000, 2000));
+            stage.setScene(new Scene(fxmlParent, 1800, 1000));
 //            stage.getScene().getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             stage.setTitle("Qatar 2022");
             stage.show();

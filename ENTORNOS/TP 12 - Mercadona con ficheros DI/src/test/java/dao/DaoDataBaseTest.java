@@ -38,6 +38,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.clearAllCaches;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -138,8 +139,12 @@ class DataBaseTest {
                 () -> assertThat(retorno).isFalse());
     }
     @Test
-    @Disabled
     void saveUsuarios() {
+        try {
+            Files.copy(Paths.get("test/data/usuarioLoadTest.json"), Paths.get("test/data/Usuario.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //given
         LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
         usuarios.put("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
@@ -154,7 +159,7 @@ class DataBaseTest {
 
 
         Gson gson = dp.getGson();
-        Type userListType = new TypeToken<ArrayList<Usuario>>() {
+        Type userListType = new TypeToken<LinkedHashMap<String, Usuario>>() {
         }.getType();
 
 
@@ -167,9 +172,10 @@ class DataBaseTest {
         }
 //        assertThat(new File("test/data/Usuario.json"))
 //                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
-        assertThat(resultado).hasSize(1);
+        assertThat(resultado).hasSize(2);
+        System.out.println(resultado);
         assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
-        assertThat(resultado).containsEntry("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
+        //assertThat(resultado).containsEntry("", new UsuarioNormal("e1", "especial", new ArrayList<>()));
     }
 }
 

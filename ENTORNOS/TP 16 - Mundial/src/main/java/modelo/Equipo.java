@@ -15,4 +15,7 @@ public class Equipo {
         this.vallasInvictas = vallasInvictas;
         this.puntos = puntos;
     }
+
+
+
 }
