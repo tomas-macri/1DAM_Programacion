@@ -94,9 +94,11 @@ public class DataBase {
 
         try (FileWriter w = new FileWriter(configuracion.getPathUsuarios())) {
             gson.toJson(clientes, w);
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
             log.error(e.getMessage(), e);
             return false;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return true;
     }
