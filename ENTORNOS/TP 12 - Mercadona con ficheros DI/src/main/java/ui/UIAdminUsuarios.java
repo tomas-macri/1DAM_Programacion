@@ -14,10 +14,13 @@ import java.util.Scanner;
 
 public class UIAdminUsuarios {
     private ServiciosUsuarios serviciosUsuariosImpl;
+    private Scanner sc;
+
 
     @Inject
-    public UIAdminUsuarios(ServiciosUsuarios serviciosUsuariosImpl){
+    public UIAdminUsuarios(ServiciosUsuarios serviciosUsuariosImpl, Scanner sc){
         this.serviciosUsuariosImpl = serviciosUsuariosImpl;
+        this.sc = sc;
     }
 
     public void inicioUIUsuarios() {

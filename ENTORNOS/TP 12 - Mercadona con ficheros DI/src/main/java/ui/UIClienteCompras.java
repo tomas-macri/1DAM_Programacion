@@ -6,11 +6,13 @@ import modelo.Productos.Producto;
 import modelo.ProductoComprado;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
+import modelo.Usuarios.UsuarioNormal;
 import servicios.ServiciosCompras;
 import servicios.ServiciosProductos;
 import servicios.ServiciosTarjetas;
 import ui.common.Constantes;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIClienteCompras {
@@ -18,18 +20,20 @@ public class UIClienteCompras {
     private ServiciosTarjetas serviciosTarjetasImpl;
     private ServiciosCompras serviciosComprasImpl;
     private ServiciosProductos serviciosProductosImpl;
+    private Scanner sc;
+
 
     @Inject
-    public UIClienteCompras(ServiciosTarjetas serviciosTarjetasImpl, ServiciosCompras serviciosComprasImpl, ServiciosProductos serviciosProductosImpl){
+    public UIClienteCompras(ServiciosTarjetas serviciosTarjetasImpl, ServiciosCompras serviciosComprasImpl, ServiciosProductos serviciosProductosImpl, Scanner sc){
         this.serviciosTarjetasImpl = serviciosTarjetasImpl;
         this.serviciosComprasImpl = serviciosComprasImpl;
         this.serviciosProductosImpl = serviciosProductosImpl;
-
+        this.sc = sc;
     }
 
 
     public void inicioUICompras(Usuario userLogueado) {
-        Scanner sc = new Scanner(System.in);
+        //Usuario userLogueado = new UsuarioNormal("u1", "user1", new ArrayList<>());
         int opcion;
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_COMPRAS);
         System.out.println();

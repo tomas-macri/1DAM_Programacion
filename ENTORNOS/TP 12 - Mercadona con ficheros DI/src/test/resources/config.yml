@@ -1,3 +1,3 @@
 
 pathUsuarios: test/data/Usuario.json
-pathProductos: test/data/Productos.json
+pathProductos: test/data/Producto.json

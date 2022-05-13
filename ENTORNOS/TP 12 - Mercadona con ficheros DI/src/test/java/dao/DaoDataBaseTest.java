@@ -111,9 +111,9 @@ class DataBaseTest {
     }
 
 
-
     @Test
-    void loadProductosFicheroNoExiste() {
+    @DisplayName("LOAD USUARIOS FICHERO EXISTE")
+    void loadUsuariosFicheroNoExiste() {
         //given
         LinkedHashMap<String, Usuario> resultado;
         LogCaptor logCaptor = LogCaptor.forClass(DataBase.class);
@@ -130,8 +130,6 @@ class DataBaseTest {
 
         assertThat(resultado).isEmpty();
     }
-
-
 
 
     @Nested
@@ -173,7 +171,6 @@ class DataBaseTest {
             //        assertThat(new File("test/data/Usuario.json"))
             //                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
             assertThat(resultado).hasSize(1);
-            System.out.println(resultado);
             assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
             assertThat(retorno).isTrue();
             //assertThat(resultado).containsEntry("", new UsuarioNormal("e1", "especial", new ArrayList<>()));
@@ -219,7 +216,6 @@ class DataBaseTest {
             //        assertThat(new File("test/data/Usuario.json"))
             //                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
             assertThat(resultado).hasSize(1);
-            System.out.println(resultado);
             assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
             assertThat(resultado.get("123").getComprasPrevias().get(0).get(0).getProducto()).isInstanceOf(ProductoCaducable.class);
             assertThat(resultado.get("123")).isInstanceOf(UsuarioEspecial.class);
@@ -228,37 +224,17 @@ class DataBaseTest {
         }
     }
 
-    @Test
-    @DisplayName("FICHERO PRODUCTOS NO EXISTE")
-    @Disabled
-    void saveProductosMalFichero()  {
-        //given
-        LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
-        usuarios.put("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
-        try {
-            Files.delete(Paths.get("test/data/Usuario.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        //when
-        boolean retorno = database.saveUsuarios(usuarios);
-
-        //then
-        assertAll(() ->assertThat(new File("test/data/Usuario.json")).doesNotExist(),
-                () -> assertThat(retorno).isFalse());
-    }
-
-
+    // PRODUCTOS
 
     @Test
-    void loadUsuariosFicheroNoExiste() {
+    void loadProductosFicheroNoExiste() {
         //given
-        LinkedHashMap<String, Usuario> resultado;
+        List<Producto> resultado;
         LogCaptor logCaptor = LogCaptor.forClass(DataBase.class);
 
         //when
-        resultado = database.loadUsuarios();
+        resultado = database.loadProductos();
 
         //then
         List<LogEvent> logEvents = logCaptor.getLogEvents();
@@ -269,10 +245,6 @@ class DataBaseTest {
 
         assertThat(resultado).isEmpty();
     }
-
-
-    // PRODUCTOS
-
 
 
     @Test
@@ -300,125 +272,96 @@ class DataBaseTest {
 
 
     @Nested
-    @Disabled
     @DisplayName("SAVE PRODUCTOS")
     class SaveProductos {
         @Test
-        @DisplayName("SAVE USUARIO NORMAL")
-        void saveUsuarios() {
+        @DisplayName("SAVE PRODUCTO NORMAL")
+        void saveProductos() {
             try {
                 Files.copy(Paths.get("test/data/usuarioLoadTest.json"), Paths.get("test/data/Usuario.json"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
             //given
-            LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
-            usuarios.put("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
+            List<Producto> productos = new ArrayList<>();
+            productos.add(new ProductoNormal("p1", 15, 100, new ArrayList<>()));
+            productos.add(new ProductoNormal("p2", 2, 10, new ArrayList<>()));
 
-            LinkedHashMap<String, Usuario> resultado = new LinkedHashMap<>();
+            List<Producto> resultado = new ArrayList<>();
 
             //when
-            boolean retorno = database.saveUsuarios(usuarios);
+            boolean retorno = database.saveProductos(productos);
 
             //then
             GsonProducer dp = new GsonProducer();
 
 
             Gson gson = dp.getGson();
-            Type userListType = new TypeToken<LinkedHashMap<String, Usuario>>() {
+            Type productListType = new TypeToken<List<Producto>>() {
             }.getType();
 
 
-            try (FileReader r = new FileReader("test/data/Usuario.json")) {
+            try (FileReader r = new FileReader("test/data/Producto.json")) {
                 resultado = gson.fromJson(
                         r,
-                        userListType);
+                        productListType);
             } catch (IOException e) {
                 log.error(e.getMessage(), e);
             }
             //        assertThat(new File("test/data/Usuario.json"))
             //                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
-            assertThat(resultado).hasSize(1);
-            System.out.println(resultado);
-            assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
+            assertThat(resultado).hasSize(2);
+            assertThat(resultado.get(0).getNombre()).isEqualTo("p1");
+            assertThat(resultado.get(1).getNombre()).isEqualTo("p2");
             assertThat(retorno).isTrue();
             //assertThat(resultado).containsEntry("", new UsuarioNormal("e1", "especial", new ArrayList<>()));
         }
 
         @Test
-        @DisplayName("SAVE USUARIO ESPECIAL CON PRODUCTOS CADUCABLES COMPRADOS")
-        void saveUsuarioEspecial() {
+        @DisplayName("SAVE PRODUCTOS CADUCABLES")
+        void saveProductoEspecial() {
             try {
                 Files.copy(Paths.get("test/data/usuarioLoadTest.json"), Paths.get("test/data/Usuario.json"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
             //given
-            LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
-            Usuario userEspecial = new UsuarioEspecial("123", "Juan", new ArrayList<>(), 30);
-            List<ProductoComprado> productos = new ArrayList<>();
-            productos.add(new ProductoComprado(new ProductoCaducable("pcad1", 150, 10, new ArrayList<>(), LocalDateTime.now().plusDays(10)), 5));
-            productos.add(new ProductoComprado(new ProductoNormal("p2", 150, 10, new ArrayList<>()), 5));
-            userEspecial.getComprasPrevias().add(productos);
-            usuarios.put("123", userEspecial);
-            LinkedHashMap<String, Usuario> resultado = new LinkedHashMap<>();
+            List<Producto> productos = new ArrayList<>();
+            productos.add(new ProductoCaducable("p1", 15, 100, new ArrayList<>(), LocalDateTime.now().plusDays(5)));
+            productos.add(new ProductoCaducable("p2", 2, 10, new ArrayList<>(), LocalDateTime.now().plusMinutes(5555)));
+
+            List<Producto> resultado = new ArrayList<>();
 
             //when
-            boolean retorno = database.saveUsuarios(usuarios);
+            boolean retorno = database.saveProductos(productos);
 
             //then
             GsonProducer dp = new GsonProducer();
 
 
             Gson gson = dp.getGson();
-            Type userListType = new TypeToken<LinkedHashMap<String, Usuario>>() {
+            Type productListType = new TypeToken<List<Producto>>() {
             }.getType();
 
 
-            try (FileReader r = new FileReader("test/data/Usuario.json")) {
+            try (FileReader r = new FileReader("test/data/Producto.json")) {
                 resultado = gson.fromJson(
                         r,
-                        userListType);
+                        productListType);
             } catch (IOException e) {
                 log.error(e.getMessage(), e);
             }
             //        assertThat(new File("test/data/Usuario.json"))
             //                .hasContent("[{\"dni\":\"123\",\"nombre\":\"Juan\"}]");
-            assertThat(resultado).hasSize(1);
-            System.out.println(resultado);
-            assertThat(resultado.get("123").getNombre()).isEqualTo("Juan");
-            assertThat(resultado.get("123").getComprasPrevias().get(0).get(0).getProducto()).isInstanceOf(ProductoCaducable.class);
-            assertThat(resultado.get("123")).isInstanceOf(UsuarioEspecial.class);
+            assertThat(resultado).hasSize(2);
+            assertThat(resultado.get(0).getNombre()).isEqualTo("p1");
+            assertThat(resultado.get(0)).isInstanceOf(ProductoCaducable.class);
+            assertThat(resultado.get(1).getNombre()).isEqualTo("p2");
+            assertThat(resultado.get(1)).isInstanceOf(ProductoCaducable.class);
             assertThat(retorno).isTrue();
             //assertThat(resultado).containsEntry("", new UsuarioNormal("e1", "especial", new ArrayList<>()));
         }
     }
-
-    @Test
-    @DisplayName("FICHERO NO EXISTE")
-    @Disabled
-    void saveUsuariosMalFichero()  {
-        //given
-        LinkedHashMap<String, Usuario> usuarios = new LinkedHashMap<>();
-        usuarios.put("123", new UsuarioNormal("123", "Juan", new ArrayList<>()));
-        try {
-            Files.delete(Paths.get("test/data/Usuario.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //when
-        boolean retorno = database.saveUsuarios(usuarios);
-
-        //then
-        assertAll(() ->assertThat(new File("test/data/Usuario.json")).doesNotExist(),
-                () -> assertThat(retorno).isFalse());
-    }
 }
-
-
-
-
-
 
 

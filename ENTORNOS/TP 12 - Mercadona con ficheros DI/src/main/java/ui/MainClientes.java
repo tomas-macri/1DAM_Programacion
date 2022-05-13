@@ -12,17 +12,18 @@ public class MainClientes {
     private ServiciosCompras serviciosComprasImpl;
     private UIClienteCompras uiClienteCompras;
     private UIClienteTarjetas uiClienteTarjetas;
+    private Scanner sc;
 
     @Inject
-    public MainClientes(ServiciosCompras serviciosComprasImpl, UIClienteCompras uiClienteCompras, UIClienteTarjetas uiClienteTarjetas) {
+    public MainClientes(ServiciosCompras serviciosComprasImpl, UIClienteCompras uiClienteCompras, UIClienteTarjetas uiClienteTarjetas, Scanner sc) {
         this.serviciosComprasImpl = serviciosComprasImpl;
         this.uiClienteCompras = uiClienteCompras;
         this.uiClienteTarjetas = uiClienteTarjetas;
+        this.sc = sc;
     }
 
     public void inicioMenuClientes(Usuario userLogueado){
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_LOS_CLIENTES);
-        Scanner sc = new Scanner(System.in);
         int opcion;
 
 

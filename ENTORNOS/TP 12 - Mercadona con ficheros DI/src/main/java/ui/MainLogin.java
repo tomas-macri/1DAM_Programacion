@@ -15,16 +15,19 @@ public class MainLogin {
     private ServiciosUsuarios serviciosUsuariosImpl;
     private MainAdmin mainAdmin;
     private MainClientes mainClientes;
+    private Scanner sc;
+
+
 
     @Inject
-    public MainLogin(ServiciosUsuarios serviciosUsuariosImpl, MainAdmin mainAdmin, MainClientes mainClientes){
+    public MainLogin(ServiciosUsuarios serviciosUsuariosImpl, MainAdmin mainAdmin, MainClientes mainClientes, Scanner sc){
         this.serviciosUsuariosImpl = serviciosUsuariosImpl;
         this.mainAdmin = mainAdmin;
         this.mainClientes = mainClientes;
+        this.sc = sc;
     }
 
     public void inicioLogin() {
-        Scanner sc = new Scanner(System.in);
 
         String dniIngresado;
         do {

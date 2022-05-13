@@ -15,15 +15,17 @@ public class MainRegistrarse {
 
     private ServiciosUsuarios serviciosUsuariosImpl;
     private MainClientes mainClientes;
+    private Scanner sc;
+
 
     @Inject
-    public MainRegistrarse(ServiciosUsuarios serviciosUsuariosImpl, MainClientes mainClientes){
+    public MainRegistrarse(ServiciosUsuarios serviciosUsuariosImpl, MainClientes mainClientes, Scanner sc){
         this.serviciosUsuariosImpl = serviciosUsuariosImpl;
         this.mainClientes = mainClientes;
+        this.sc = sc;
     }
 
     public void inicioRegistrarse() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("CREAR UN USUARIO");
         System.out.println();
         String nomCliente;

@@ -10,17 +10,20 @@ import java.util.Scanner;
 public class MainEstadisticas {
 
     private ServiciosEstadisticas serviciosEstadisticasImpl;
+    private Scanner sc;
+
 
     @Inject
-    public MainEstadisticas(ServiciosEstadisticas serviciosEstadisticasImpl){
+    public MainEstadisticas(ServiciosEstadisticas serviciosEstadisticasImpl, Scanner sc){
         this.serviciosEstadisticasImpl = serviciosEstadisticasImpl;
+        this.sc = sc;
+
     }
 
 
     public void mainEstadisticas() {
         System.out.println(Constantes.BIENVENIDO_AL_MENU_DE_ESTADISTICAS);
 
-        Scanner sc = new Scanner(System.in);
         int opcion;
         do {
             do {

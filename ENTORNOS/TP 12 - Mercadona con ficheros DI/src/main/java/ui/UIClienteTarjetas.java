@@ -11,10 +11,13 @@ import java.util.Scanner;
 public class UIClienteTarjetas {
 
     private ServiciosTarjetas serviciosTarjetasImpl;
+    private Scanner sc;
+
 
     @Inject
-    public UIClienteTarjetas(ServiciosTarjetas serviciosTarjetasImpl){
+    public UIClienteTarjetas(ServiciosTarjetas serviciosTarjetasImpl, Scanner sc){
         this.serviciosTarjetasImpl = serviciosTarjetasImpl;
+        this.sc = sc;
     }
 
     public void inicioUITarjetas(Usuario usuarioLogueado){

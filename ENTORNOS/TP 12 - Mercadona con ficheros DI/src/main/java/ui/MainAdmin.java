@@ -10,16 +10,18 @@ public class MainAdmin {
     private UIAdminProductos uiAdminProductos;
     private UIAdminUsuarios uiAdminUsuarios;
     private MainEstadisticas mainEstadisticas;
+    private Scanner sc;
 
     @Inject
-    public MainAdmin(UIAdminProductos uiAdminProductos, UIAdminUsuarios uiAdminUsuarios, MainEstadisticas mainEstadisticas) {
+    public MainAdmin(UIAdminProductos uiAdminProductos, UIAdminUsuarios uiAdminUsuarios, MainEstadisticas mainEstadisticas, Scanner sc) {
         this.uiAdminProductos = uiAdminProductos;
         this.uiAdminUsuarios = uiAdminUsuarios;
         this.mainEstadisticas = mainEstadisticas;
+        this.sc = sc;
     }
 
     public void inicioMenuAdmin() {
-        Scanner sc = new Scanner(System.in);
+
         int opcion;
 
 

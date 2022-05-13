@@ -14,10 +14,14 @@ import java.util.*;
 public class UIAdminProductos {
 
     private ServiciosProductos serviciosProductosImpl;
+    private Scanner sc;
+
 
     @Inject
-    public UIAdminProductos(ServiciosProductos serviciosProductosImpl){
+    public UIAdminProductos(ServiciosProductos serviciosProductosImpl, Scanner sc){
         this.serviciosProductosImpl = serviciosProductosImpl;
+        this.sc = sc;
+
     }
 
     public void inicioUIProductos() {
