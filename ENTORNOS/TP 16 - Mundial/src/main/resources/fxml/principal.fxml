@@ -25,28 +25,15 @@
     <top>
         <MenuBar fx:id="menuPrincipal">
             <menus>
-                <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+                <Menu fx:id="menuFile" mnemonicParsing="false" text="Menu">
                     <items>
-                        <MenuItem fx:id="menuItemNew" mnemonicParsing="false" text="New" />
+                        <MenuItem fx:id="menuItemGrupos" mnemonicParsing="false" onAction="#menuClick" text="Grupos" />
                         <MenuItem fx:id="menuItemPartidos" mnemonicParsing="false" onAction="#menuClick" text="Partidos" />
-                        <MenuItem fx:id="menuItemListado" mnemonicParsing="false" onAction="#menuClick" text="listado" />
+                        <MenuItem fx:id="menuItemEstadisticas" mnemonicParsing="false" onAction="#menuClick" text="Estadisticas" />
                         <MenuItem fx:id="menuItemPantallaNueva" mnemonicParsing="false"  onAction="#menuClick" text="pantallaNueva" />
                         <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#menuClick" text="Logout" />
                         <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exit" text="Exit" />
                     </items>
-                </Menu>
-                <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem fx:id="menuItemUndo" mnemonicParsing="false" text="Undo" />
-                        <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" text="Redo" />
-                        <MenuItem fx:id="menuItemCut" mnemonicParsing="false" text="Cut" />
-                        <MenuItem fx:id="menuItemCopy" mnemonicParsing="false" text="Copy" />
-                        <MenuItem fx:id="menuItemPaste" mnemonicParsing="false" text="Paste" />
-                        <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" text="Delete" />
-                        <MenuItem fx:id="menuItemSelectAll" mnemonicParsing="false" text="Select All" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuHelp" mnemonicParsing="false" onAction="#help" onShowing="#help" text="Help">
                 </Menu>
             </menus>
         </MenuBar>

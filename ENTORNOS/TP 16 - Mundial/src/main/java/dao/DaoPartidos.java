@@ -18,13 +18,13 @@ public class DaoPartidos {
         this.dataBase = dataBase;
     }
 
-    public boolean crearPartidos(List<Grupo> gruposList){
+    public boolean crearPartidos(List<Grupo> gruposList) {
         List<Partido> partidos = new ArrayList<>();
-        for (int i = 0; i < gruposList.size(); i++){
+        for (int i = 0; i < gruposList.size(); i++) {
             List<Equipo> equiposGrupo = gruposList.get(i).getEquipos();
             for (int j = 0; j < equiposGrupo.size(); j++) {
 
-                for (int k = j+1; k < 4; k++){
+                for (int k = j + 1; k < 4; k++) {
                     Equipo[] equiposPartido = new Equipo[2];
                     equiposPartido[0] = equiposGrupo.get(j);
                     equiposPartido[1] = equiposGrupo.get(k);
@@ -40,13 +40,32 @@ public class DaoPartidos {
         return dataBase.savePartidos(partidos);
     }
 
-    public List<Partido> getTodosLosPartidos(){
+    public List<Partido> getTodosLosPartidos() {
         return dataBase.loadPartidos();
     }
 
-    public List<Partido> getTodosLosPartidosDeUnGrupo(int grupo){
-        return dataBase.loadPartidos().stream().filter(partido -> partido.getGrupo() == grupo).collect(Collectors.toList());
+    public List<Partido> getTodosLosPartidosDeUnGrupo(int grupo) {
+        List<Partido> partidos = dataBase.loadPartidos();
+        if (partidos == null) {
+            return new ArrayList<>();
+        }
+        return partidos.stream().filter(partido -> partido.getGrupo() == grupo).collect(Collectors.toList());
+    }
+
+    public Partido getPartido(Equipo[] equipos) {
+        List<Partido> partidos = dataBase.loadPartidos();
+        if (partidos != null)
+            return partidos.get(partidos.indexOf(new Partido(equipos)));
+        return null;
     }
 
 
+    public boolean guardarPartido(Partido partido) {
+        List<Partido> partidos = dataBase.loadPartidos();
+        if (partidos != null) {
+            partidos.set(partidos.indexOf(partido), partido);
+            return dataBase.savePartidos(partidos);
+        }
+        return false;
+    }
 }

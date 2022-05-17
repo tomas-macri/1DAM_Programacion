@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="794.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.jornadaGrupos.JornadaGruposController">
    <children>
-      <ComboBox fx:id="cmbGrupos" layoutX="179.0" layoutY="80.0" prefHeight="36.0" prefWidth="177.0" />
+      <ComboBox fx:id="cmbGrupos" layoutX="179.0" layoutY="80.0" onAction="#grupoSelected" prefHeight="36.0" prefWidth="177.0" />
       <MFXTableView fx:id="tblPosiciones" layoutX="53.0" layoutY="174.0" prefHeight="288.0" prefWidth="429.0" />
       <MFXTableView fx:id="tblPartido" layoutX="541.0" layoutY="174.0" prefHeight="288.0" prefWidth="498.0" />
       <Text fx:id="txtEquipo1" layoutX="6.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipo 1" textAlignment="CENTER" wrappingWidth="522.13671875">
@@ -22,5 +22,7 @@
       </Text>
       <MFXTextField fx:id="txtGoles1" floatingText="GOLES" layoutX="499.0" layoutY="559.0" />
       <MFXTextField fx:id="txtGoles2" floatingText="GOLES" layoutX="633.0" layoutY="559.0" />
+      <MFXButton fx:id="btnEditar" layoutX="1112.0" layoutY="229.0" mnemonicParsing="false" onAction="#verDetallePartido" prefHeight="49.0" prefWidth="109.0" text="Editar" />
+      <MFXButton fx:id="btnGuardar" disable="true" layoutX="560.0" layoutY="686.0" mnemonicParsing="false" onAction="#guardarPartido" prefHeight="58.0" prefWidth="115.0" text="Button" />
    </children>
 </AnchorPane>

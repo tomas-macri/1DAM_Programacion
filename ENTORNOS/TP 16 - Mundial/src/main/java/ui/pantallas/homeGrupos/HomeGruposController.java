@@ -7,6 +7,7 @@ import di.GsonProducer;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
+import io.github.palexdev.materialfx.enums.SortState;
 import jakarta.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -73,6 +74,7 @@ public class HomeGruposController extends BasePantallaController implements Init
             MFXTableColumn<Equipo> puntosColumns = new MFXTableColumn<>("Puntos", true, Comparator.comparing(Equipo::getPuntos));
             MFXTableColumn<Equipo> golesColumn = new MFXTableColumn<>("GF", true, Comparator.comparing(Equipo::getGolesFavor));
             paisColumn.setRowCellFactory(equipo -> new MFXTableRowCell<>(Equipo::getNombre));
+            puntosColumns.setSortState(SortState.DESCENDING);
             paisColumn.setPrefWidth(paisColumn.getPrefWidth()*2);
             puntosColumns.setRowCellFactory(equipo -> new MFXTableRowCell<>(Equipo::getPuntos));
             golesColumn.setRowCellFactory(equipo -> new MFXTableRowCell<>(Equipo::getGolesFavor));
@@ -98,6 +100,7 @@ public class HomeGruposController extends BasePantallaController implements Init
                 List<Equipo> equipoList = listadoStateNew.getEquipos();
 
                 for (int i = 0; i < listTablasGrupos.size(); i++){
+                    listTablasGrupos.get(i).setFooterVisible(false);
                     listTablasGrupos.get(i).getItems().clear();
                     List<Equipo> equiposGrupos = new ArrayList<>();
                     for (int j = 0; j < 4; j++) {
@@ -109,11 +112,6 @@ public class HomeGruposController extends BasePantallaController implements Init
 
 
             }
-
-            DaoPartidos daoPartidos = new DaoPartidos(new DataBase(new GsonProducer().getGson(), new Configuracion()));
-
-
-
 
         });
     }

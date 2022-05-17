@@ -66,6 +66,13 @@ public class PrincipalController extends BasePantallaController {
         alert.showAndWait();
     }
 
+    public void sacarAlertConfirmation(String mensaje)
+    {
+        alert.setAlertType(Alert.AlertType.INFORMATION);
+        alert.setContentText(mensaje);
+        alert.getDialogPane().lookupButton(ButtonType.OK).setId("btn-ok");
+        alert.showAndWait();
+    }
 
     private Pane cargarPantalla(String ruta) {
         Pane panePantalla = null;
@@ -180,14 +187,14 @@ public class PrincipalController extends BasePantallaController {
             case "menuItemPartidos":
                 cargarPantalla(Pantallas.JORNADA_GRUPOS);
                 break;
-            case "menuItemListado":
-                cargarPantalla(Pantallas.LISTADO);
+            case "menuItemGrupos":
+                cargarPantalla(Pantallas.HOMEGRUPOS);
                 break;
             case "menuItemPantallaNueva":
                 cargarPantalla(Pantallas.PANTALLANUEVA);
                 break;
-            case "menuItemLogout":
-                logout();
+            case "menuItemEstadisticas":
+
                 break;
         }
 
