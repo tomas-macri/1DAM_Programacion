@@ -48,6 +48,9 @@ public abstract class Usuario implements Clonable<Usuario> {
         return admin;
     }
 
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 
     public String getDni() {
         return dni;

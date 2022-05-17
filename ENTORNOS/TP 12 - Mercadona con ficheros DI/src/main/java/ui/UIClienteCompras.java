@@ -1,6 +1,5 @@
 package ui;
 
-import dao.DaoTarjetas;
 import jakarta.inject.Inject;
 import modelo.Productos.Producto;
 import modelo.ProductoComprado;
@@ -21,6 +20,7 @@ public class UIClienteCompras {
     private ServiciosCompras serviciosComprasImpl;
     private ServiciosProductos serviciosProductosImpl;
     private Scanner sc;
+    //private Usuario userLogueado;
 
 
     @Inject
@@ -29,6 +29,7 @@ public class UIClienteCompras {
         this.serviciosComprasImpl = serviciosComprasImpl;
         this.serviciosProductosImpl = serviciosProductosImpl;
         this.sc = sc;
+        //this.userLogueado = new UsuarioNormal("u1", "user1", new ArrayList<>());
     }
 
 

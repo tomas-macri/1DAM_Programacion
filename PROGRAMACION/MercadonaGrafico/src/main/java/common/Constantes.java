@@ -59,6 +59,7 @@ public class Constantes {
     public static final String BIENVENIDO_AL_MENU_DE_ESTADISTICAS = "Bienvenido al Menu de Estadisticas: ";
     public static final String INGRESE_EL_NOMBRE_DEL_INGREDIENTE_QUE_QUIERE_BUSCAR_EN_LOS_PRODUCTOS_O_FIN_PARA_SALIR = "Ingrese el nombre del ingrediente que quiere buscar en los productos o fin para salir";
     public static final String DNI_INEXISTENTE = "DNI Inexistente";
+    public static final String NO_SE_HA_PODIDO_AGREGAR_LA_TARJETA = "no se ha podido agregar la tarjeta";
 
     private Constantes() {
     }

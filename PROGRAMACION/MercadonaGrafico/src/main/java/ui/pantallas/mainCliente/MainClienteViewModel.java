@@ -1,5 +1,6 @@
 package ui.pantallas.mainCliente;
 
+import common.Constantes;
 import jakarta.inject.Inject;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -8,7 +9,6 @@ import modelo.Ingrediente;
 import modelo.Tarjeta;
 import modelo.Usuarios.Usuario;
 import modelo.Usuarios.UsuarioEspecial;
-import servicios.impl.ServiciosEstadisticasImpl;
 import servicios.impl.ServiciosTarjetasImpl;
 import servicios.impl.ServiciosUsuariosImpl;
 
@@ -56,7 +56,7 @@ public class MainClienteViewModel {
             loadTablas(usuarioLogueado);
         }
         else{
-            state.setValue(new MainClienteState(null, null, 0, "no se ha podido agregar la tarjeta"));
+            state.setValue(new MainClienteState(null, null, 0, Constantes.NO_SE_HA_PODIDO_AGREGAR_LA_TARJETA));
         }
 
     }

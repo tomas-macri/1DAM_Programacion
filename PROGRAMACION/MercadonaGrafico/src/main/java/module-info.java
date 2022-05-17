@@ -31,6 +31,8 @@ module Mercadona.Grafico{
         exports servicios.impl;
         exports modelo;
         exports modelo.Productos;
+        //tests
+
 
         opens ui.pantallas.compras to javafx.fxml;
         opens ui.pantallas.editarUsuario to javafx.fxml;

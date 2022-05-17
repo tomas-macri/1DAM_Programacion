@@ -1,9 +1,8 @@
 package ui;
 
 
-import jakarta.enterprise.inject.se.SeContainer;
-import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
+import ui.common.Constantes;
 
 import java.util.Scanner;
 
@@ -27,10 +26,7 @@ public class MainInyeccion {
 
 
         do {
-            System.out.println("SELECCIONE UNA OPCION: \n" +
-                    "1 - LOGIN \n" +
-                    "2 - REGISTRARME \n" +
-                    "3 - SALIR");
+            System.out.println(Constantes.MENU_MAIN);
             opcion = sc.nextInt();
             sc.nextLine();
 
