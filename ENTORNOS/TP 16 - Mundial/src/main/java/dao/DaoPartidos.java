@@ -18,26 +18,18 @@ public class DaoPartidos {
         this.dataBase = dataBase;
     }
 
-    public boolean crearPartidos(List<Grupo> gruposList) {
-        List<Partido> partidos = new ArrayList<>();
-        for (int i = 0; i < gruposList.size(); i++) {
-            List<Equipo> equiposGrupo = gruposList.get(i).getEquipos();
-            for (int j = 0; j < equiposGrupo.size(); j++) {
-
-                for (int k = j + 1; k < 4; k++) {
-                    Equipo[] equiposPartido = new Equipo[2];
-                    equiposPartido[0] = equiposGrupo.get(j);
-                    equiposPartido[1] = equiposGrupo.get(k);
-
-                    int[] goles = new int[2];
-                    goles[0] = -1;
-                    goles[1] = -1;
-                    Partido partido = new Partido(equiposPartido, goles, i);
-                    partidos.add(partido);
-                }
+    public boolean resetPartidos() {
+        List<Partido> partidos = dataBase.loadPartidos();
+        if (partidos != null){
+            for (Partido p: partidos) {
+                int[] goles = new int[2];
+                goles[0] = -1;
+                goles[1] = -1;
+                p.setGoles(goles);
             }
+            return dataBase.savePartidos(partidos);
         }
-        return dataBase.savePartidos(partidos);
+        return false;
     }
 
     public List<Partido> getTodosLosPartidos() {
@@ -69,3 +61,40 @@ public class DaoPartidos {
         return false;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+codigo utilizado para crear todos los partidos desde 0 en el json
+
+for (int i = 0; i < gruposList.size(); i++) {
+            List<Equipo> equiposGrupo = gruposList.get(i).getEquipos();
+            for (int j = 0; j < equiposGrupo.size(); j++) {
+
+                for (int k = j + 1; k < 4; k++) {
+                    Equipo[] equiposPartido = new Equipo[2];
+                    equiposPartido[0] = equiposGrupo.get(j);
+                    equiposPartido[1] = equiposGrupo.get(k);
+
+                    int[] goles = new int[2];
+                    goles[0] = -1;
+                    goles[1] = -1;
+                    Partido partido = new Partido(equiposPartido, goles, i);
+                    partidos.add(partido);
+                }
+            }
+        }
+ */

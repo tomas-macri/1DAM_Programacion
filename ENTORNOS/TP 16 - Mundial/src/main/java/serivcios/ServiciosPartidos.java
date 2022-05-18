@@ -19,6 +19,10 @@ public class ServiciosPartidos {
         return daoPartidos.getTodosLosPartidos();
     }
 
+    public boolean resetPartidos(){
+        return daoPartidos.resetPartidos();
+    }
+
     public List<Partido> getTodosLosPartidosDeUnGrupo(int grupo){
 
         if (grupo > -1 && grupo < 8){

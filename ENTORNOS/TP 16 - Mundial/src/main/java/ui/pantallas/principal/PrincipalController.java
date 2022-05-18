@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lombok.extern.log4j.Log4j2;
 
+import serivcios.ServiciosPartidos;
 import ui.pantallas.common.BasePantallaController;
 import ui.pantallas.common.Pantallas;
 //import ui.pantallas.login.LoginController;
@@ -32,6 +33,8 @@ public class PrincipalController extends BasePantallaController {
     private MenuBar menuPrincipal;
     private Stage primaryStage;
 
+    private PrincipalViewModel principalViewModel;
+
 //    private Usuario actualUser;
 //    private Cromo cromoSeleccionado;
 //
@@ -50,8 +53,9 @@ public class PrincipalController extends BasePantallaController {
 
 
     @Inject
-    public PrincipalController(Instance<Object> instance) {
+    public PrincipalController(Instance<Object> instance, PrincipalViewModel principalViewModel) {
        this.instance = instance;
+       this.principalViewModel = principalViewModel;
        alert= new Alert(Alert.AlertType.NONE);
     }
 
@@ -194,11 +198,19 @@ public class PrincipalController extends BasePantallaController {
                 cargarPantalla(Pantallas.PANTALLANUEVA);
                 break;
             case "menuItemEstadisticas":
-
+                cargarPantalla(Pantallas.ESTADISTICAS);
                 break;
+            case "menuItemReiniciar":
+                if (principalViewModel.reiniciarTodo()){
+                    sacarAlertConfirmation("SE HAN REINICIADO LOS DATOS");
+                    cargarPantalla(Pantallas.HOMEGRUPOS);
+                }
+                else {
+                    sacarAlertError("SE PRODUJO UN ERROR");
+                }
+                break;
+
         }
-
-
     }
 
     //evento de otra pantalla

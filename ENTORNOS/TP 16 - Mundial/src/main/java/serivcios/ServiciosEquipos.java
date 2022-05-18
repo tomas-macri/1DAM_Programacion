@@ -37,4 +37,8 @@ public class ServiciosEquipos {
         }
         return false;
     }
+
+    public boolean resetEstadisticas(){
+        return daoEquipos.resetEstadisticas();
+    }
 }

@@ -152,11 +152,9 @@ public class JornadaGruposController extends BasePantallaController implements I
     }
 
     public void guardarPartido(ActionEvent actionEvent) {
-        getPrincipalController().sacarAlertError("LLEGO");
         int goles1 = Integer.parseInt(txtGoles1.getText());
         int goles2 = Integer.parseInt(txtGoles2.getText());
         if (goles1 >= 0 && goles1 < 10 && goles2 >= 0 && goles2 < 10) {
-            getPrincipalController().sacarAlertError("GOLES VALUDOA");
             String opcion = cmbGrupos.getSelectionModel().getSelectedItem().toString().toLowerCase();
             char cara = opcion.charAt(opcion.length() - 1);
             jornadaGruposViewModel.guardarPartido(txtEquipo1.getText(), goles1, txtEquipo2.getText(), goles2, cara - 97);

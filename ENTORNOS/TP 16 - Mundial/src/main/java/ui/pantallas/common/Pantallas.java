@@ -4,8 +4,8 @@ public enum Pantallas {
 
     HOMEGRUPOS(ConstantesPantallas.FXML_HOME_GRUPOS_FXML),
     JORNADA_GRUPOS("/fxml/jornada_grupos.fxml"),
-    PANTALLA1 ("/fxml/pantalla1.fxml"),
     LOGIN ("/fxml/login.fxml"),
+    ESTADISTICAS("/fxml/estadisticas.fxml"),
     LISTADO ("/fxml/listado.fxml"),
     DETALLE ("/fxml/detalle.fxml"),
 

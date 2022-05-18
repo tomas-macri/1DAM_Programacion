@@ -19,6 +19,7 @@ module Mundial {
     exports ui.main to javafx.graphics;
     exports ui.pantallas.homeGrupos;
     exports ui.pantallas.jornadaGrupos;
+    exports ui.pantallas.estadisticas;
     exports modelo;
     exports dao;
     exports serivcios;
@@ -28,6 +29,7 @@ module Mundial {
     opens ui.pantallas.principal;
     opens ui.pantallas.homeGrupos;
     opens ui.pantallas.jornadaGrupos;
+    opens ui.pantallas.estadisticas;
     opens ui.main;
     opens config;
     opens fxml;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.estadisticas.EstadisticasController" >
+    <MFXTableView fx:id="tblEquiposGoleadores" layoutX="53.0" layoutY="174.0" prefHeight="588.0" prefWidth="329.0" />
+    <MFXTableView fx:id="tblEquiposInvictos" layoutX="541.0" layoutY="174.0" prefHeight="588.0" prefWidth="329.0" />
+</AnchorPane>
