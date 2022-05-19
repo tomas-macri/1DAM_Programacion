@@ -1,0 +1,12 @@
+{
+  "a1": {
+    "dni": "a1",
+    "nombre": "admin",
+    "admin": true
+  },
+  "u1": {
+    "dni": "u1",
+    "nombre": "user1",
+    "admin": false
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "nombre": "peli1",
+    "actores": [
+      {
+        "nombre": "juan"
+      },
+      {
+        "nombre": "pepe"
+      }
+    ]
+  },
+  {
+    "nombre": "peli2",
+    "actores": [
+      {
+        "nombre": "lucia"
+      }
+    ]
+  },
+  {
+    "nombre": "peli3",
+    "actores": [
+      {
+        "nombre": "mercedes"
+      }
+    ]
+  },
+  {
+    "nombre": "peli4",
+    "actores": [
+      {
+        "nombre": "mario"
+      }
+    ]
+  },
+  {
+    "nombre": "peli55",
+    "actores": [
+      {
+        "nombre": "oscar"
+      }
+    ]
+  },
+  {
+    "nombre": "pelifin",
+    "actores": [
+      {
+        "nombre": "dani"
+      }
+    ]
+  }
+]

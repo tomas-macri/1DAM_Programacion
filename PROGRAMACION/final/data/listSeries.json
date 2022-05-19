@@ -1,0 +1,44 @@
+[
+  {
+    "nombre": "ser1",
+    "episodios": [
+      {
+        "nombre": "ep1",
+        "actores": [
+          {
+            "nombre": "ac1"
+          },
+          {
+            "nombre": "ac2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "serie2",
+    "episodios": [
+      {
+        "nombre": "ep1s2",
+        "actores": [
+          {
+            "nombre": "carlos"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nombre": "fin",
+    "episodios": [
+      {
+        "nombre": "fin1",
+        "actores": [
+          {
+            "nombre": "finac1"
+          }
+        ]
+      }
+    ]
+  }
+]

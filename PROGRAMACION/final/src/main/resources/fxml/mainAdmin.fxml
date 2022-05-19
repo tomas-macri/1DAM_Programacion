@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.mainAdmin.MainAdminController">
+    <children>
+      <Text fx:id="txtText" layoutX="68.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMINISTRADOR" textAlignment="CENTER" wrappingWidth="464.91168212890625">
+         <font>
+            <Font size="28.0" />
+         </font></Text>
+      <Text fx:id="txtText1" layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione una opción del menu:" textAlignment="CENTER" wrappingWidth="164.91168212890625">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
