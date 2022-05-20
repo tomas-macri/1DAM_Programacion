@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.login.LoginController">
+    <Label id="tituloLogin" layoutX="371.0" layoutY="388.0" text="%IniciarSesion"/>
+    <ImageView fx:id="logo" fitHeight="304.0" fitWidth="442.0" layoutX="317.0" layoutY="14.0" pickOnBounds="true"
+               preserveRatio="true"/>
+    <MFXTextField fx:id="txtDNI" floatMode="BORDER" layoutX="256.0" layoutY="534.0" prefHeight="34.0" prefWidth="174.0"
+                  promptText="%DNI"/>
+    <MFXTextField fx:id="txtCodigo" floatMode="BORDER" layoutX="257.0" layoutY="461.0" prefHeight="34.0"
+                  prefWidth="174.0" promptText="%Codigo"/>
+    <MFXButton fx:id="btnIniciarCodigo" layoutX="460.0" layoutY="463.0" mnemonicParsing="false" onAction="#doLoginCode" prefHeight="34.0"
+               prefWidth="211.0" text="%IniciarSesionCodigo"/>
+    <MFXButton fx:id="btnIniciarDNI" layoutX="460.0" layoutY="536.0" mnemonicParsing="false" onAction="#doLoginDNI" prefHeight="34.0"
+               prefWidth="211.0" text="%IniciarSesionDNI"/>
+    <Label fx:id="reloj" styleClass="bigLabel" layoutX="309.0" layoutY="315.0" prefHeight="70.0" prefWidth="390.0"
+           text="reloj"/>
+</AnchorPane>

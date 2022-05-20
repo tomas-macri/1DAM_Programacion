@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.adm_registros.AdmRegistrosController">
+    <MFXTableView fx:id="tablaRegistros" layoutX="12.0" layoutY="27.0" prefHeight="482.0" prefWidth="954.0">
+        <tableColumns>
+            <MFXTableColumn fx:id="columnId" minWidth="79.0" prefHeight="42.0" prefWidth="79.0" text="%Id"/>
+            <MFXTableColumn fx:id="columnDni" prefHeight="42.0" prefWidth="126.0" text="%DNI"/>
+            <MFXTableColumn fx:id="columnFranquicia" prefHeight="42.0" prefWidth="134.0" text="%Franquicia"/>
+            <MFXTableColumn fx:id="columnHoraEntrada" prefHeight="42.0" prefWidth="202.0" text="%HoraEntrada"/>
+            <MFXTableColumn fx:id="columnHoraSalida" prefHeight="42.0" prefWidth="203.0" text="%HoraSalida"/>
+            <MFXTableColumn fx:id="columnComputoTiempo" prefHeight="42.0" prefWidth="114.0" text="%ComputoTiempo"/>
+            <MFXTableColumn fx:id="columnValidado" minWidth="90.0" prefHeight="42.0" prefWidth="90.0" text="%Valido"/>
+        </tableColumns>
+    </MFXTableView>
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="29.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" text="%AnularSeleccion"/>
+    <MFXButton fx:id="validarRegistro" buttonType="RAISED" layoutX="275.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnValidarRegistroClicked" prefHeight="54.0" prefWidth="216.0" text="%ValidarRegistro"/>
+</AnchorPane>

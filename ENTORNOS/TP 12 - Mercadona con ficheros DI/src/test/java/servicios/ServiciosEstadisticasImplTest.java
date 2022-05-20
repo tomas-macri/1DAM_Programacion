@@ -27,7 +27,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(SystemStubsExtension.class)
 @ExtendWith(MockitoExtension.class)
 class ServiciosEstadisticasImplTest {
 

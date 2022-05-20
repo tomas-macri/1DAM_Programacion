@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.adm_nominas.AdmNominasController">
+    <MFXTableView fx:id="tablaNominas" layoutX="12.0" layoutY="27.0" prefHeight="482.0" prefWidth="954.0">
+        <tableColumns>
+            <MFXTableColumn fx:id="columnId" minWidth="50.0" prefHeight="42.0" prefWidth="50.0" text="%Id"/>
+            <MFXTableColumn fx:id="columnDni" prefHeight="42.0" prefWidth="147.0" text="%DNI"/>
+            <MFXTableColumn fx:id="columnSueldoHora" prefHeight="42.0" prefWidth="154.0" text="%SueldoHora"/>
+            <MFXTableColumn fx:id="columnFechaInicio" prefHeight="42.0" prefWidth="165.0" text="%FechaInicio"/>
+            <MFXTableColumn fx:id="columnFechaFin" prefHeight="42.0" prefWidth="162.0" text="%FechaFin"/>
+            <MFXTableColumn fx:id="columnDias" prefHeight="42.0" prefWidth="114.0" text="%Dias"/>
+            <MFXTableColumn fx:id="columnTiempo" minWidth="90.0" prefHeight="42.0" prefWidth="90.0" text="%Tiempo"/>
+            <MFXTableColumn fx:id="columnSueldo" minWidth="79.0" prefHeight="42.0" prefWidth="79.0" text="%Sueldo"/>
+            <MFXTableColumn fx:id="columnPendiente" minWidth="81.0" prefHeight="42.0" prefWidth="138.0"
+                            text="%Pendiente"/>
+        </tableColumns>
+    </MFXTableView>
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="29.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" text="%AnularSeleccion"/>
+    <MFXButton fx:id="pagarNomina" buttonType="RAISED" layoutX="261.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnPagarNominaClicked" prefHeight="54.0" prefWidth="223.0" text="%PagarNomina"/>
+    <MFXButton fx:id="pagarTodasNominas" buttonType="RAISED" layoutX="570.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnPagarTodasNominasClicked" prefHeight="54.0" prefWidth="295.0" text="%PagarTodasNominas"/>
+    <MFXButton fx:id="crearTodasNominas" buttonType="RAISED" layoutX="261.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnCrearTodasNominasClicked" prefHeight="54.0" prefWidth="295.0" text="%CrearTodasNominas"/>
+</AnchorPane>

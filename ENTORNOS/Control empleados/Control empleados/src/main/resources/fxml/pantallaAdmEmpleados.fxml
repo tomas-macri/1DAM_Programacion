@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.adm_empleados.AdmEmpleadosController">
+    <MFXTableView fx:id="tablaEmpleados" layoutX="29.0" layoutY="27.0" prefHeight="302.0" prefWidth="898.0">
+        <tableColumns>
+            <MFXTableColumn fx:id="columnDNI" prefHeight="42.0" prefWidth="220.0" text="%DNI"/>
+            <MFXTableColumn fx:id="columnNombre" prefHeight="42.0" prefWidth="184.0" text="%Nombre"/>
+            <MFXTableColumn fx:id="columnApellido" prefHeight="42.0" prefWidth="148.0" text="%Apellido"/>
+            <MFXTableColumn fx:id="columnCodAcceso" prefHeight="42.0" prefWidth="134.0" text="%CodAcceso"/>
+            <MFXTableColumn fx:id="columnSueldoHora" prefHeight="42.0" prefWidth="147.0" text="%SueldoHora"/>
+            <MFXTableColumn fx:id="columnFranquicia" prefHeight="42.0" prefWidth="157.0" text="%Franquicia"/>
+        </tableColumns>
+    </MFXTableView>
+    <MFXButton fx:id="addEmpleado" buttonType="RAISED" layoutX="711.0" layoutY="366.0" mnemonicParsing="false"
+               onAction="#onBtnAgregarEmpleadoClicked" prefHeight="54.0" prefWidth="216.0" text="%AñadirEmpleado"/>
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="711.0" layoutY="366.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" text="%AnularSeleccion"/>
+    <MFXButton fx:id="updateEmpleado" buttonType="RAISED" layoutX="711.0" layoutY="431.0" mnemonicParsing="false"
+               onAction="#onBtnActualizarEmpleadoClicked" prefHeight="54.0" prefWidth="216.0"
+               text="%ActualizarEmpleado"/>
+    <MFXButton fx:id="deleteEmpleado" buttonType="RAISED" layoutX="711.0" layoutY="496.0" mnemonicParsing="false"
+               onAction="#onBtnEliminarEmpleadoClicked" prefHeight="54.0" prefWidth="216.0" text="%BorrarEmpleado"/>
+
+    <Label layoutX="29.0" layoutY="348.0" text="%DNI"/>
+    <MFXTextField fx:id="txtDNI" floatMode="BORDER" layoutX="30.0" layoutY="377.0" prefHeight="18.0" prefWidth="227.0"/>
+    <Label layoutX="29.0" layoutY="429.0" text="%Nombre"/>
+    <MFXTextField fx:id="txtNombre" floatMode="BORDER" layoutX="29.0" layoutY="452.0" prefHeight="18.0"
+                  prefWidth="227.0"/>
+    <Label layoutX="270.0" layoutY="431.0" text="%Apellido"/>
+    <MFXTextField fx:id="txtApellido" floatMode="BORDER" layoutX="269.0" layoutY="451.0" prefHeight="18.0"
+                  prefWidth="227.0"/>
+    <Label layoutX="514.0" layoutY="431.0" text="%SueldoHora"/>
+    <MFXTextField fx:id="txtSueldoHora" floatMode="BORDER" layoutX="514.0" layoutY="451.0" prefHeight="18.0"
+                  prefWidth="151.0"/>
+    <Label layoutX="30.0" layoutY="513.0" text="%Franquicia"/>
+    <MFXTextField fx:id="txtFranquicia" floatMode="BORDER" layoutX="30.0" layoutY="532.0" prefHeight="18.0"
+                  prefWidth="246.0"/>
+    <MFXButton fx:id="updateFranquicia" buttonType="RAISED" layoutX="32.0" layoutY="586.0" mnemonicParsing="false"
+               onAction="#onBtnActualizarFranquiciaClicked" prefHeight="54.0" prefWidth="216.0"
+               text="%CambiarFranquicia"/>
+    <MFXButton fx:id="deleteFranquicia" buttonType="RAISED" layoutX="266.0" layoutY="586.0" mnemonicParsing="false"
+               onAction="#onBtnQuitarFranquiciaClicked" prefHeight="54.0" prefWidth="216.0" text="%EliminarFranquicia"/>
+</AnchorPane>
