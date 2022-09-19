@@ -1,0 +1,1 @@
+[{"caducidad":"2127-11-10T16:17:00.069379200","type":"ProductoCaducable","nombre":"p1","precio":10.0,"stock":100,"listaIngredientes":[{"nombre":"ing1"},{"nombre":"ing2"}]},{"type":"ProductoNormal","nombre":"p2","precio":20.0,"stock":200,"listaIngredientes":[{"nombre":"ing1"},{"nombre":"ing2"},{"nombre":"ing3"}]}]

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.adm_franquicias.AdmFranquiciasController">
+    <MFXTableView fx:id="tablaFranquicias" layoutX="29.0" layoutY="27.0" prefHeight="366.0" prefWidth="898.0">
+        <tableColumns>
+            <MFXTableColumn fx:id="columnNombre" prefHeight="42.0" prefWidth="220.0" text="%Nombre"/>
+            <MFXTableColumn fx:id="columnUbicacion" prefHeight="42.0" prefWidth="184.0" text="%Ubicacion"/>
+            <MFXTableColumn fx:id="columnNumeroEmpleados" prefHeight="42.0" prefWidth="148.0" text="%NumeroEmpleados"/>
+        </tableColumns>
+    </MFXTableView>
+    <MFXButton fx:id="addFranquicia" buttonType="RAISED" layoutX="29.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnAgregarFranquiciaClicked" prefHeight="54.0" prefWidth="216.0" text="%AñadirFranquicia"/>
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="29.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" text="%AnularSeleccion"/>
+    <MFXButton fx:id="updateFranquicia" buttonType="RAISED" layoutX="275.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnActualizarFranquiciaClicked" prefHeight="54.0" prefWidth="216.0"
+               text="%ActualizarFranquicia"/>
+    <MFXButton fx:id="deleteFranquicia" buttonType="RAISED" layoutX="524.0" layoutY="538.0" mnemonicParsing="false"
+               onAction="#onBtnEliminarFranquiciaClicked" prefHeight="54.0" prefWidth="216.0" text="%BorrarFranquicia"/>
+
+    <Label layoutX="29.0" layoutY="429.0" text="%Nombre"/>
+    <MFXTextField fx:id="txtNombre" floatMode="BORDER" layoutX="29.0" layoutY="452.0" prefHeight="18.0"
+                  prefWidth="227.0"/>
+    <Label layoutX="270.0" layoutY="431.0" text="%Ubicacion"/>
+    <MFXTextField fx:id="txtUbicacion" floatMode="BORDER" layoutX="269.0" layoutY="451.0" prefHeight="18.0"
+                  prefWidth="342.0"/>
+</AnchorPane>

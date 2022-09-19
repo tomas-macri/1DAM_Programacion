@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="24acfb61-2175-4d7a-acc1-fd2c855b0aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/registro/RegistroViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/registro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/commonPantallas/BasePantallaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/commonPantallas/BasePantallaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/login/LoginViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/mainAdmin/mainAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/mainAdmin/MainAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/principal/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/java/ui/pantallas/principal/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/mainAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/mainAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MercadonaGrafico/src/main/resources/fxml/principal.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="27N695jpWNVFOmU8YQ4dymFpBR0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TP 14 - javaFXChispas" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24acfb61-2175-4d7a-acc1-fd2c855b0aa9" name="Changes" comment="" />
+      <created>1649148045919</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649148045919</updated>
+      <workItem from="1649148047215" duration="52000" />
+      <workItem from="1650973506306" duration="28000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

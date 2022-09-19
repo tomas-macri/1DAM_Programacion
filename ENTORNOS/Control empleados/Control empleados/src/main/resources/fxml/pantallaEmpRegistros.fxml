@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ctrempleados.gui.pantallas.emp_registros.EmpRegistrosController">
+    <MFXTableView fx:id="tablaRegistros" layoutX="12.0" layoutY="27.0" prefHeight="409.0" prefWidth="954.0">
+        <tableColumns>
+            <MFXTableColumn fx:id="columnId" minWidth="79.0" prefHeight="42.0" prefWidth="79.0" text="%Id"/>
+            <MFXTableColumn fx:id="columnDni" prefHeight="42.0" prefWidth="126.0" text="%DNI"/>
+            <MFXTableColumn fx:id="columnFranquicia" prefHeight="42.0" prefWidth="134.0" text="%Franquicia"/>
+            <MFXTableColumn fx:id="columnHoraEntrada" prefHeight="42.0" prefWidth="202.0" text="%HoraEntrada"/>
+            <MFXTableColumn fx:id="columnHoraSalida" prefHeight="42.0" prefWidth="203.0" text="%HoraSalida"/>
+            <MFXTableColumn fx:id="columnComputoTiempo" prefHeight="42.0" prefWidth="114.0" text="%ComputoTiempo"/>
+            <MFXTableColumn fx:id="columnValidado" minWidth="90.0" prefHeight="42.0" prefWidth="90.0" text="%Valido"/>
+        </tableColumns>
+    </MFXTableView>
+
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="29.0" layoutY="569.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" text="%AnularSeleccion"/>
+    <MFXButton fx:id="modificarRegistro" buttonType="RAISED" layoutX="275.0" layoutY="569.0" mnemonicParsing="false"
+               onAction="#onBtnModificarRegistroClicked" prefHeight="54.0" prefWidth="216.0" text="%ModificarRegistro"/>
+    <MFXTextField fx:id="txtHoraInicio" layoutX="29.0" layoutY="490.0" prefHeight="18.0" prefWidth="216.0"/>
+    <MFXTextField fx:id="txtHoraFin" layoutX="263.0" layoutY="490.0" prefHeight="18.0" prefWidth="216.0"/>
+    <Label layoutX="29.0" layoutY="467.0" text="%HoraInicio"/>
+    <Label layoutX="263.0" layoutY="467.0" text="%HoraFin"/>
+    <Label layoutX="528.0" layoutY="513.0" text="%Formato"/>
+</AnchorPane>

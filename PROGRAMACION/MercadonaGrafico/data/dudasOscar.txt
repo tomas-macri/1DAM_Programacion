@@ -1,0 +1,3 @@
+// creo metodo agregar ingrediente (ver editarProducto) --> no se hace
+
+// error al guardar producto modificado (runtype) --> solucionado

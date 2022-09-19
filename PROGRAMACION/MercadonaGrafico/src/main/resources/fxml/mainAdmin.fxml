@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.mainAdmin.MainAdminController">
+    <children>
+      <Text fx:id="txtText" layoutX="68.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMINISTRADOR" textAlignment="CENTER" wrappingWidth="464.91168212890625">
+         <font>
+            <Font size="28.0" />
+         </font></Text>
+      <MFXButton fx:id="btnClientes" layoutX="41.0" layoutY="121.0" onAction="#listClientes" prefHeight="37.0" prefWidth="102.0" text="Clientes" />
+      <MFXButton fx:id="btnVerProds" layoutX="41.0" layoutY="200.0" onAction="#listProductos" prefHeight="37.0" prefWidth="102.0" text="Productos" />
+        <MFXTableView fx:id="tablaUsuarios" layoutX="203.0" layoutY="114.0" prefHeight="400.0" prefWidth="508.0" />
+        <MFXTableView fx:id="tablaProductos" layoutX="203.0" layoutY="114.0" prefHeight="400.0" prefWidth="508.0" />
+      <MFXButton fx:id="btnNuevo" layoutX="41.0" layoutY="330.0" mnemonicParsing="false" onAction="#crear" prefHeight="38.0" prefWidth="102.0" text="Nuevo" />
+      <MFXButton fx:id="btnEditar" layoutX="41.0" layoutY="388.0" mnemonicParsing="false" onAction="#editar" prefHeight="38.0" prefWidth="102.0" text="Editar" />
+      <MFXButton fx:id="btnEliminar" layoutX="41.0" layoutY="446.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="35.0" prefWidth="102.0" text="Eliminar" />
+
+      <Text fx:id="txtText1" layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione una tabla:" textAlignment="CENTER" wrappingWidth="164.91168212890625">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

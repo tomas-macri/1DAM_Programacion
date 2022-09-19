@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTableColumn?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+   <children>
+      <MFXTableView fx:id="mfxTable" layoutX="423.0" layoutY="14.0" prefHeight="536.0" prefWidth="308.0" />
+      <MFXTextField fx:id="txtNombre" layoutX="61.0" layoutY="198.0" prefHeight="38.0" prefWidth="223.0">
+         <textFill>
+            <Color blue="1.0" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </MFXTextField>
+      <MFXTextField fx:id="txtChampions" layoutX="61.0" layoutY="285.0" prefHeight="38.0" prefWidth="223.0">
+         <textFill>
+            <Color blue="1.0" opacity="0.8700000047683716" />
+         </textFill>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </MFXTextField>
+      <MFXButton id="btnAgregar" layoutX="32.0" layoutY="459.0" onMouseClicked="#clickAgregar" prefHeight="24.0" prefWidth="87.0" text="AÑADIR" />
+      <MFXButton id="btnEditar" fx:id="btnEditar" layoutX="129.0" layoutY="459.0" onMouseClicked="#clickUpdatear" prefHeight="24.0" prefWidth="87.0" text="UPDATE" />
+      <MFXButton id="btnEliminar" fx:id="btnEliminar" layoutX="229.0" layoutY="459.0" onMouseClicked="#clickEliminar" prefHeight="24.0" prefWidth="87.0" text="ELIMINAR" />
+   </children>
+</AnchorPane>

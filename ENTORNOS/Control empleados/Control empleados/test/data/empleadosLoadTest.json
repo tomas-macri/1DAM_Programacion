@@ -1,0 +1,26 @@
+[
+  {
+    "dni": "999",
+    "nombre": "Administrador",
+    "apellido": "Administrador",
+    "codigoAcceso": 999,
+    "sueldoHora": 0.0,
+    "nombreFranquicia": ""
+  },
+  {
+    "dni": "23456789B",
+    "nombre": "Empleado 2",
+    "apellido": "Apellido2",
+    "codigoAcceso": 1001,
+    "sueldoHora": 11.0,
+    "nombreFranquicia": "Franquicia 2"
+  },
+  {
+    "dni": "12345678A",
+    "nombre": "Empleado 1",
+    "apellido": "Apellido2",
+    "codigoAcceso": 1000,
+    "sueldoHora": 11.0,
+    "nombreFranquicia": "Franquicia 1"
+  }
+]

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+    <center>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <children>
+                    <MFXTextField fx:id="txtField" layoutX="274.0" layoutY="71.0" />
+                    <MFXButton fx:id="button" layoutX="289.0" layoutY="157.0" mnemonicParsing="false" text="Button">
+                        <font>
+                            <Font name="Alef Regular" size="12.0" />
+                        </font>
+                    </MFXButton>
+                    <TextField fx:id="txtNormal" layoutX="242.0" layoutY="120.0" />
+                    <StackPane prefHeight="150.0" prefWidth="200.0" />
+                </children>
+            </AnchorPane>
+        </StackPane>
+    </center>
+    <top>
+        <MenuBar fx:id="menuPrincipal">
+            <menus>
+                <Menu fx:id="menuFile" mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem fx:id="menuItemGrupos" mnemonicParsing="false" onAction="#menuClick" text="Grupos" />
+                        <MenuItem fx:id="menuItemPartidos" mnemonicParsing="false" onAction="#menuClick" text="Partidos" />
+                        <MenuItem fx:id="menuItemEstadisticas" mnemonicParsing="false" onAction="#menuClick" text="Estadisticas" />
+                        <MenuItem fx:id="menuItemReiniciar" mnemonicParsing="false"  onAction="#menuClick" text="REINICIAR GRUPOS" />
+                        <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+</BorderPane>

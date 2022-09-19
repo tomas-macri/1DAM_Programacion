@@ -1,0 +1,110 @@
+.root {
+    -fx-background-color: #B7E9EB;
+    -fx-background-radius: 10;
+    -fx-border-color: #ebebeb;
+    -fx-border-radius: 10;
+}
+
+/*Barra de navegacion*/
+.windowBar {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #ebebeb;
+    -fx-border-radius: 10;
+}
+
+.windowBar .close-icon {
+    -mfx-color: red;
+    -fx-opacity: 0.5;
+}
+
+.windowBar .close-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.windowBar .minimize-icon {
+    -mfx-color: #ffbf37;
+    -fx-opacity: 0.5;
+}
+
+.windowBar .minimize-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.windowBar .always-on-top-icon {
+    -mfx-color: purple;
+    -fx-opacity: 0.5;
+}
+
+.windowBar .always-on-top-icon:hover {
+    -fx-opacity: 1.0;
+}
+
+.windowBar .always-on-top-icon:always-on-top {
+    -fx-opacity: 1.0;
+}
+
+/*Menu*/
+.menu-bar {
+    -fx-background-color: white;
+    -fx-border: 0;
+}
+
+.menu-bar .menu-item {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+/*Labels*/
+.label {
+    -fx-font-size: 15;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.bigLabel {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.bienvenida {
+    -fx-font-family: 'Grape Nuts', cursive;
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+}
+
+
+#tituloLogin {
+    -fx-font-size: 35;
+    -fx-font-family: "Bauhaus 93";
+    -fx-text-fill: #1AA2A2;
+}
+#sendMail {
+    -fx-font-size: 25;
+    -fx-font-family: Consolas;
+    -fx-text-fill: #1AA2A2;
+}
+
+/*Botones*/
+
+.mfx-button {
+    -fx-font-family: Consolas;
+    -fx-font-size: 16px;
+}
+
+
+.mfx-button:hover {
+    -fx-background-color: #1AA2A2
+}
+
+/*Tablas*/
+
+.mfx-table-view {
+    -fx-font-family: Calibri;
+    -fx-font-size: 17px;
+    -fx-background-color: #1AA2A2;
+}
+
+.mfx-table-view .virtual-flow {
+    -fx-background-color: #B7E9EB;
+}
